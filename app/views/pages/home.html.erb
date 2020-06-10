@@ -1,7 +1,9 @@
+
 <div class="container home-hero">
   <div class="row flex-column">
     <div class="col-sm-8 hero-content d-flex flex-column">
       <h1 class="col-sm-6">Une plateforme collaborative pour les peintres</h1>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
       <span class="btn btn-primary cta">En savoir plus</span>
     </div>
   </div>
