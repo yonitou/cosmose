@@ -1,0 +1,76 @@
+@media (max-width:767px) {
+  .team-boxed h2 {
+    margin-bottom:25px;
+    padding-top:25px;
+    font-size:24px;
+  }
+}
+
+.team-boxed h2 {
+  font-weight:bold;
+  margin-bottom:40px;
+  padding-top:40px;
+}
+
+.team-boxed .intro {
+  font-size:16px;
+  max-width:500px;
+  margin:0 auto;
+}
+
+.team-boxed .intro p {
+  margin-bottom:0;
+}
+
+.team-boxed .item {
+  display:flex;
+}
+
+.team-boxed .item .box-team {
+  text-align:center;
+  padding:30px;
+  background-color:$white;
+  margin-bottom:30px;
+}
+
+.team-boxed .item .name-team {
+  font-weight:bold;
+  margin-top:28px;
+  margin-bottom:8px;
+}
+
+.team-boxed .item .title-team {
+  text-transform:uppercase;
+  font-weight:bold;
+  letter-spacing:2px;
+  font-size:13px;
+}
+
+.team-boxed .item .description-team {
+  font-size:15px;
+  margin-top:15px;
+  margin-bottom:20px;
+}
+
+.team-boxed .item img {
+  max-width:160px;
+  mix-blend-mode:luminosity;
+  &:hover {
+    mix-blend-mode:normal;
+  }
+}
+
+.team-boxed .social-team {
+  font-size:18px;
+}
+
+.team-boxed .social-team a {
+  color:inherit;
+  margin:0 10px;
+  display:inline-block;
+  opacity:0.7;
+}
+
+.team-boxed .social-team a:hover {
+  opacity:1;
+}
