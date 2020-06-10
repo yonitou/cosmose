@@ -34,3 +34,14 @@
   justify-content: center;
   width: 100px;
 }
+.homepage-user-categories-content a {
+  text-decoration: none;
+  color: black;
+}
+
+.homepage-user-categories-content a:hover {
+  color: darkred;
+  font-size: 52px;
+  transition: ease 0.2s;
+}
+
