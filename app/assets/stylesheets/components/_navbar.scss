@@ -3,9 +3,40 @@
   justify-content: space-between;
   align-items: center;
   background: transparent;
-
-  .h4 {
+  h4 {
     color: $red;
   }
 }
 
+.navbar-logged-buttons{
+  width: 160px;
+  vertical-align: center;
+}
+
+.navbar-logged {
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+  background: $white;
+  h4 {
+    color: $red;
+  }
+}
+
+// LOGGED
+.navbar-current-user{
+  padding: 5px;
+  background-color: $white;
+}
+
+.dropdown-menu {
+  color: $dark;
+  margin-left: -120px;
+  background-color: $white;
+}
+
+.dropdown-menu > a {
+  color: $dark;
+  font-family: $body-font
+}

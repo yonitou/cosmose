@@ -1,14 +1,29 @@
 <% if !current_user %>
   <div class="navbar fixed-top">
-    <p class="h4">COSMOSE</p>
+    <h4 class="h4">COSMOSE</h4>
     <div class="navbar-buttons">
       <button class="login-btn btn btn-secondary"><%= link_to "Connection", root_path %></button>
       <button class="signup-btn btn btn-primary"><%= link_to "Inscription", new_user_registration_path %></button>
     </div>
   </div>
 <% else %>
-  <p>c'est la navbar</p>
+  <div class="navbar-current-user sticky-top navbar navbar-expand-lg navbar-lewagon">
+    <h4 class="h4">COSMOSE</h4>
+    <button class="btn btn-primary">Créer un nouveau projet</button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+    </button>
+    <div class="navbar-logged-buttons d-flex justify-content-between">
+      <i class="far fa-bell"></i>
+      <i class="far fa-comment-dots"></i>
+      <div class="nav-item dropdown">
+        <a class="avatar-card nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <p class="dropdown-item">Mon profile</p>
+          <p class="dropdown-item">Support</p>
+          <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+        </div>
+      </div>
+    </div>
+  </div>
 <% end %>
-
-
-
