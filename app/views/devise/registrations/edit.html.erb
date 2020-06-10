@@ -21,6 +21,7 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+     <%= f.input :competences, collection: User::SKILLS_LIST, input_html: { multiple: true, class: "select2"} %>
   </div>
 
   <div class="form-actions">

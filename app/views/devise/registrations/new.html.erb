@@ -27,7 +27,9 @@
     <%= f.input :address%>
     <%= f.input :bio%>
     <%= f.input :website%>
-  </div>
+    <%= f.input :competences, collection: User::SKILLS_LIST, input_html: { multiple: true, class: "select2"} %>
+
+    </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Créer votre compte" %>
