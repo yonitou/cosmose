@@ -1,16 +1,26 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Arvo", "Helvetica", "sans-serif";
+$headers-font: "League Spartan", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: "Arvo";
+  src: font-url('Arvo-Regular.ttf') format('truetype'),
+        font-url('Arvo-Bold.ttf') format('truetype'),
+        font-url('Arvo-Italic.ttf') format('truetype'),
+        font-url('Arvo-BoldItalic.ttf') format('truetype')
+}
+
+@font-face {
+  font-family: "League Spartan";
+  src: font-url('LeagueSpartan-Regular.woff') format('woff'),
+        font-url('LeagueSpartan-Light.woff') format('woff'),
+        font-url('LeagueSpartan-Medium.woff') format('woff'),
+        font-url('LeagueSpartan-Semibold.woff') format('woff'),
+        font-url('LeagueSpartan-Extrabold.woff') format('woff'),
+        font-url('LeagueSpartan-Extralight.woff') format('woff'),
+        font-url('LeagueSpartan-Black.woff') format('woff'),
+        font-url('LeagueSpartan-Bold.woff') format('woff')
+}
