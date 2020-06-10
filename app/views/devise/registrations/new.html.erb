@@ -27,11 +27,8 @@
     <%= f.input :address%>
     <%= f.input :bio%>
     <%= f.input :website%>
-    <select class="select2" name="user[competences]">
-      <% User::SKILLS_LIST.each do |skill| %>
-        <option value= "<%=skill%>" ><%=skill%></option>
-      <% end %>
-    </select>
+    <%= f.input :competences, collection: User::SKILLS_LIST, input_html: { multiple: true, class: "select2"} %>
+
     </div>
 
   <div class="form-actions">
