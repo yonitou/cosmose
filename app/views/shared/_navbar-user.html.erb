@@ -1,0 +1,25 @@
+<div class="navbar sticky-top navbar navbar-expand-lg navbar-lewagon">
+  <%= link_to 'COSMOSE', root_path, class:"navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <button class="btn btn-primary" id="button-navbar">Créer un nouveau projet</button>
+    </ul>
+    <div class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <% if current_user && current_user.photo.attached? %>
+          <%= cl_image_tag(current_user.photo.key, class: "avatar", alt: "avatar") %>
+        <% elsif current_user && !current_user.photo.attached? %>
+          <%= image_tag 'https://via.placeholder.com/50', class: "avatar" %>
+        <% end %>
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <%= link_to "Mon profile", root_path, class: "dropdown-item" %>
+        <%= link_to "Support", root_path, class: "dropdown-item" %>
+        <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete, class: "dropdown-item"%>
+      </div>
+    </div>
+  </div>
+</div>

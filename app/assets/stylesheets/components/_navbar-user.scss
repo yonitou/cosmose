@@ -1,0 +1,35 @@
+.navbar-nav{
+  justify-content: space-around;
+  flex-grow: 1;
+  a:hover{
+    color:$dark-red;
+  }
+}
+.nav-item > a {
+  color: $black;
+  font-family: 'Arvo';
+  font-size: 18px;
+}
+
+.dropdown-item{
+  color: $black;
+  font-family: 'Arvo';
+}
+.navbar-brand {
+  color: $red;
+  font-family: 'League Spartan';
+  font-size: 25px;
+}
+.navbar{
+  vertical-align:top;
+  padding: 0px 10px;
+  background-color: $white;
+}
+.dropdown-menu > a:hover{
+  color:$dark-red;
+}
+
+.dropdown-menu {
+  left:-120px;
+  top:95%;
+}
