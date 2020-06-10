@@ -1,7 +1,14 @@
-<div class="navbar fixed-top">
-  <p class="h4">COSMOSE</p>
-  <div class="navbar-buttons">
-    <button class="login-btn btn btn-secondary"><%= link_to "Connection", root_path %></button>
-    <button class="signup-btn btn btn-primary"><%= link_to "Inscription", new_user_registration_path %></button>
+<% if !current_user %>
+  <div class="navbar fixed-top">
+    <p class="h4">COSMOSE</p>
+    <div class="navbar-buttons">
+      <button class="login-btn btn btn-secondary"><%= link_to "Connection", root_path %></button>
+      <button class="signup-btn btn btn-primary"><%= link_to "Inscription", new_user_registration_path %></button>
+    </div>
   </div>
-</div>
+<% else %>
+  <p>c'est la navbar</p>
+<% end %>
+
+
+
