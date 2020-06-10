@@ -1,0 +1,14 @@
+.btn-primary{
+  background: linear-gradient(rgba(163,11,55,1), rgba(243,22,74,1) 100%);
+  font-size: 25px;
+  width: 130px;
+}
+
+.btn-primary:hover{
+  font-size: 25px;
+  color: $dark-red;
+  border: 1px solid $dark-red;
+  background: $white;
+  width: 130px;
+  transition: ease 0.25s;
+}
