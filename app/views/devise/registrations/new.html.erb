@@ -27,7 +27,12 @@
     <%= f.input :address%>
     <%= f.input :bio%>
     <%= f.input :website%>
-  </div>
+    <select class="select2" name="user[competences]">
+      <% User::SKILLS_LIST.each do |skill| %>
+        <option value= "<%=skill%>" ><%=skill%></option>
+      <% end %>
+    </select>
+    </div>
 
   <div class="form-actions">
     <%= f.button :submit, "Créer votre compte" %>
