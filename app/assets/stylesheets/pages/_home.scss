@@ -20,9 +20,6 @@
     justify-content: center;
   }
 
-  .cta {
-    align-self: center;
-  }
 }
 
 .hero-separator {
@@ -45,19 +42,62 @@
     width: calc(191% + 1.3px);
     height: 154px;
   }
+
+  .custom-shape-divider-bottom-1591796947 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .custom-shape-divider-bottom-1591796947 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 160px;
+    transform: rotateY(180deg);
+  }
+
+  .custom-shape-divider-bottom-1591796947 .shape-fill {
+    fill: #1E1E24;
+  }
+
+  .custom-shape-divider-top-1591803062 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-top-1591803062 svg {
+    position: relative;
+    display: block;
+    width: calc(143% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-top-1591803062 .shape-fill {
+    fill: #1E1E24;
+}
 }
 
 .home-2nd-section {
   max-width: 100vw;
   background: black;
   color: white;
+  padding-bottom: 150px;
 
-  .row {
-    height: 40vh;
+  .sectionrow {
+    height: 50vh;
     margin: 0 auto;
   }
 
-  .home-2nd-left{
+  .home-2nd-left {
     align-self: center;
   }
 
@@ -89,9 +129,51 @@
     background-position: center;
     background-size: cover;
   }
+}
 
-  .cta {
-    margin: 0px auto;
-    align-self: center;
+.home-section3 {
+  max-width: 100vw;
+  background: #1E1E24;
+  padding-bottom: 80px;
+
+  .row {
+    margin: 0 auto;
   }
+  
+  .section3-content {
+    height: 50vh;
+    padding: 50px 0;
+    margin: 0 auto;
+    width: 80%;
+    align-self: center;
+    background-image: url('https://81766.com/wp-content/uploads/blob-shape01.svg?x94547');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  h3 { 
+    justify-self: flex-end;
+    max-width: 50%;
+    color: white;
+    mix-blend-mode: difference;
+    
+  }
+
+  p {
+    max-width: 50%;
+    font-size: 18px;
+    text-align: right;
+    color: white;
+    align-self: flex-end;
+  }
+}
+
+.cta {
+  margin: 0px auto;
+  align-self: center;
+  justify-self: center;
+}
+
+.home-last-section {
+  height: 80vh;
 }
