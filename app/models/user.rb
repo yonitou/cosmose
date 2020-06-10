@@ -11,6 +11,7 @@ class User < ApplicationRecord
   validates_presence_of :username, :first_name, :last_name, :competences
   validates :username, uniqueness: true
   before_save :clean_blank_competences
+  has_many :projects
 
   def clean_blank_competences
     self.competences.delete("")
