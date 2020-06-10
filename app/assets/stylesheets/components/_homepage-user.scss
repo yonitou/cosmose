@@ -1,0 +1,47 @@
+.banner-homepage-user{
+  background-image: url("https://res.cloudinary.com/clem/image/upload/c_fit,h_500,w_1440/v1591786791/jonas-off-FO2zwDMQzUM-unsplash_yzzft7.jpg");
+  background-size: cover;
+  height: 300px;
+}
+
+#title-banner-homepage-user{
+  text-align: center;
+  color: #F3164A;
+  padding-top: 100px;
+  font-size: 64px;
+}
+
+#homepage-user-title-categories{
+  text-align: center;
+  font-size: 64px;
+  color: #A30B37;
+}
+
+.homepage-user-categories-content{
+  font-size: 50px;
+  font-weight: bold;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 1000px;
+  margin: 40px 200px;
+}
+.homepage-user-title{
+  margin: 20px 0px 20px 50px;
+  font-size: 35px;
+  font-weight: bold;
+}
+.homepage-user-cards > button{
+  justify-content: center;
+  width: 100px;
+}
+.homepage-user-categories-content a {
+  text-decoration: none;
+  color: black;
+}
+
+.homepage-user-categories-content a:hover {
+  color: darkred;
+  font-size: 52px;
+  transition: ease 0.2s;
+}
+
