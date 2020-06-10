@@ -10,10 +10,9 @@ class User < ApplicationRecord
 
   validates_presence_of :username, :first_name, :last_name, :competences
   validates :username, uniqueness: true
-  after_commit :clean_blank_competences
+  before_save :clean_blank_competences
 
   def clean_blank_competences
     self.competences.delete("")
-    self.save
   end
 end
