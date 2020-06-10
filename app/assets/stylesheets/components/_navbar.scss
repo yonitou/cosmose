@@ -1,3 +1,38 @@
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .navbar-current-user > .btn-primary {
+    width: 240px;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .navbar-current-user > .btn-primary {
+    width: 260px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .navbar-current-user > .btn-primary {
+    width: 2800px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .navbar-current-user > .btn-primary {
+    width: 300px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .navbar-current-user > .btn-primary {
+    width: 320px;
+  }
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -25,9 +60,18 @@
 }
 
 // LOGGED
+
+
 .navbar-current-user{
-  padding: 5px;
+  padding: 20px 30px;
   background-color: $white;
+  h4{
+    font-size: 30px;
+  }
+  .btn-primary{
+    width: 350px;
+    font-size: 18px;
+  }
 }
 
 .dropdown-menu {
@@ -38,5 +82,5 @@
 
 .dropdown-menu > a {
   color: $dark;
-  font-family: $body-font
+  font-family: $body-font;
 }
