@@ -4,3 +4,11 @@
 <%= @project.finished %>
 <%= @project.open_to_collab %>
 <%= @project.address %>
+<% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
+<% if pre_like %>
+  <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
+<% else %>
+  <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
+<% end %>
+<%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
+
