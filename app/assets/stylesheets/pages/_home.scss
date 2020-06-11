@@ -34,7 +34,9 @@ h1, h2 {
     justify-content: center;
     color: white;
   }
-
+  .cta:hover {
+    background: transparent;
+  }
 }
 
 .hero-separator {
@@ -85,6 +87,9 @@ h1, h2 {
   background: black;
   color: white;
 
+  .cta:hover {
+    background: transparent;
+  }
   .sectionrow {
     height: auto;
     margin: 0 auto;
@@ -132,7 +137,9 @@ h1, h2 {
   background: linear-gradient(0.82deg, #1E1E24 9.58%, rgba(0, 0, 0, 0) 124.93%), url('https://images.unsplash.com/photo-1563089145-599997674d42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80');
   background-position: center;
   background-size: cover;
-
+  .cta:hover {
+    background: transparent;
+  }
   .row {
     margin: 0 auto;
   }
