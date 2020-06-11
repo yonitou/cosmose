@@ -2,14 +2,14 @@
   <div class="navbar fixed-top">
     <h4 class="h4">COSMOSE</h4>
     <div class="navbar-buttons">
-      <button class="login-btn btn btn-secondary"><%= link_to "Connection", root_path %></button>
+      <button class="login-btn btn btn-secondary"><%= link_to "Connection", new_user_session_path %></button>
       <button class="signup-btn btn btn-primary"><%= link_to "Inscription", new_user_registration_path %></button>
     </div>
   </div>
 <% else %>
   <div class="navbar-current-user sticky-top navbar navbar-expand-lg navbar-lewagon">
     <h4 class="h4">COSMOSE</h4>
-    <button class="btn btn-primary">Créer un nouveau projet</button>
+    <button class="btn btn-primary">NOUVEAU PROJET  <i class="far fa-plus-square"></i></button>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span><i class="fas fa-bars"></i></span>
     </button>

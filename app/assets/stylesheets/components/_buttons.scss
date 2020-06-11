@@ -1,6 +1,7 @@
 .btn-primary{
-  background: linear-gradient(rgba(163,11,55,1), rgba(243,22,74,1) 100%);
-  font-size: 16px;
+  background: linear-gradient(89.25deg, #A30B37 31.12%, #F3164A 120.01%);
+  font-size: 14px;
+
 }
 
 .btn-primary:hover{
@@ -24,5 +25,5 @@ a:hover{
 }
 .btn-see-more{
   width: 90px;
-  margin-bottom: 20px;
+  align-self: flex-end;
 }
