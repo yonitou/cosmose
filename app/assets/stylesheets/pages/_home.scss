@@ -4,7 +4,13 @@
 }
 
 .contrast {
+  font-size: 4.5rem;
   color: $red;
+  background-image: linear-gradient(90deg, #77A1D3 0%, #79CBCA 50%, #E684AE 100%);
+  background-size: 300%;
+  background-clip: text;
+  color: transparent;
+  animation: btn-bg-animation 5s infinite alternate;
 }
 
 h1, h2 {

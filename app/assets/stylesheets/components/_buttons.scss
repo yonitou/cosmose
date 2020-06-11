@@ -1,13 +1,13 @@
 .btn-primary{
-  background: linear-gradient(89.25deg, #A30B37 31.12%, #F3164A 120.01%);
+  background: linear-gradient(89.25deg, #A30B37 0%, #F3164A 60%, rgb(240, 128, 0) 100%);
+  background-size: 200%;
   font-size: 20px;
 }
 
 .btn-primary:hover{
-  color: $dark-red;
-  border: 1px solid $red;
-  background: $white;
+  border: 1px solid $dark-red;
   transition: ease 0.25s;
+  background: transparent;
 }
 
 a:hover{
