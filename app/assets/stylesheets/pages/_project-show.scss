@@ -116,3 +116,7 @@ $colorSecondary: $dark-red;
 }
 
 @include btn__split($colorPrimary, $colorSecondary, $white);
+
+lite-youtube {
+  height: 45vh;
+}

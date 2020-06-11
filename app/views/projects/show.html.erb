@@ -56,7 +56,7 @@
     <div class="col-sm-4">
       <h3>Blocks privés du projet</h3>
       <% @private_blocks.each do |block| %>
-      <%= block.content %>
+      <%= block.content.html_safe %>
       <br/>
       <% if block.photo.attached? %>
         <%= image_tag(block.photo, width: "150px") %>
@@ -68,7 +68,7 @@
     <div class="col-sm-4">
       <h3>Blocks publics du projet</h3>
       <% @public_blocks.each do |block| %>
-      <%= block.content %> & 
+      <%= block.content.html_safe %> & 
       Privé : <%= block.private %>
       <br />
       <% if block.photo.attached? %>
@@ -78,6 +78,4 @@
       <% end %>
     </div>
   </div>
-  toto
-  <lite-youtube videoid="1Popdt3NYgU"></lite-youtube>
 </div>
