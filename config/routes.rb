@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   end
   get '/about', to: 'pages#about'
   get '/explorer', to: 'pages#explorer'
+
+  resources :notifications, only: [:index]
+
 end
