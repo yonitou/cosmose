@@ -6,4 +6,8 @@ class PagesController < ApplicationController
 
   def explorer
   end
+
+  def portfolio
+    @projects = Project.find(params[user_id: current_user])
+  end
 end
