@@ -18,7 +18,7 @@ class BlocksController < ApplicationController
   private
 
   def block_params
-    params.require(:block).permit(:content, :url, :private, :project_id)
+    params.require(:block).permit(:content, :url, :private, :project_id, :photo)
   end
 
 end

@@ -20,6 +20,7 @@
       <h3>Ajouter un bloc</h3>
       <%= simple_form_for([@project, @block]) do |f| %>
       <%= f.input :content, required: true %>
+      <%= f.input :photo, as: :file %>
       <%= f.input :private %>
       <%= f.button :submit, class:"btn btn-primary", remote: true %>
       <% end %>
@@ -28,8 +29,11 @@
     <div class="col-sm-4">
       <h3>Blocks privés du projet</h3>
       <% @private_blocks.each do |block| %>
-      <%= block.content %> &
-      Privé : <%= block.private %>
+      <%= block.content %>
+      <br/>
+      <% if block.photo.attached? %>
+        <%= image_tag(block.photo, width: "150px") %>
+      <% end %>
       <hr />
       <% end %>
     </div>
@@ -37,9 +41,13 @@
     <div class="col-sm-4">
       <h3>Blocks publics du projet</h3>
       <% @public_blocks.each do |block| %>
-      <%= block.content %> &
+      <%= block.content %> & 
       Privé : <%= block.private %>
-      <hr />
+      <br />
+      <% if block.photo.attached? %>
+        <%= image_tag(block.photo) %>
+      <% end %>
+      <hr />  
       <% end %>
     </div>
   </div>
