@@ -38,8 +38,29 @@
     <% end %>
   </div>
 </div>
+    <h2 class="text-center">Demande de collaboration</h2>
+      <%= simple_form_for [@project, @collaboration], html: { class: "collaborationform"}  do |f| -%>
+          <%= f.input :request_content, label: false %>
+      <%= f.button :submit, "Envoyer" , class:"btn btn-primary" %>
+      <% end %>
 
 <%= @project.finished %>
+          <% @requests.each do |request| %>
+          <span class="pl-2"><%= request.user.username %></span>
+              <p><%= request.request_content %></p>
+              <% if request.status.nil? %>
+                <span class="pending"> pending 🕑 </span>
+              <% elsif request.status %>
+                <span class="status"> status 🎉 </span>
+              <% else %>
+                <span class="declined"> declined 😢 </span>
+              <% end %>
+
+              <%= link_to '<i style="color:red"class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
+              <%= link_to '<i style="color:red"class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
+            <% end %>
+
+
 
 <div class="container">
   <div class="row">
