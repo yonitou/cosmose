@@ -38,42 +38,26 @@
   justify-content: space-between;
   align-items: center;
   background: transparent;
-  h4 {
-    color: $red;
-  }
-}
-
-.navbar-logged-buttons{
-  width: 160px;
-  vertical-align: center;
-}
-
-.navbar-logged {
-  display: flex;
-  padding: 5px;
-  justify-content: space-between;
-  align-items: center;
-  background: $white;
-  h4 {
-    color: $red;
+  a{
+    font-size: 25px;
   }
 }
 
 // LOGGED
 
-
 .navbar-current-user{
   padding: 20px 30px;
   background-color: $white;
-  h4{
-    font-size: 30px;
-  }
+
   .btn-primary{
     width: 350px;
     font-size: 18px;
   }
 }
-
+.navbar-logged-buttons{
+  width: 160px;
+  vertical-align: center;
+}
 .dropdown-menu {
   color: $dark;
   margin-left: -120px;
@@ -83,4 +67,7 @@
 .dropdown-menu > a {
   color: $dark;
   font-family: $body-font;
+}
+.dropdown-item{
+  font-size: 14px!important;
 }

@@ -10,9 +10,13 @@
       </div>
     </div>
     <div class="card-content">
-      <h4 class="card-title">ARTIST NAME</h4>
+      <% @users.each do |user| %>
+      <h4 class="card-title"><%= user.username %></h4>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore!</p>
       <p class="card-localisation">Localisation</p>
+      <% end%>
     </div>
   </div>
 </div>
+
+

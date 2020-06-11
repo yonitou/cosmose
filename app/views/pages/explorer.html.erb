@@ -9,9 +9,9 @@
     <input type="text" placeholder="Categories">
     <input type="text" placeholder="Statut">
     <input type="text" placeholder="Je cherche à ...">
-    <a href="#" class="cta">
-      <span class="search-effect-explorer">Rechercher</span>
-      <svg class="svg-explorer" width="13px" height="10px" viewBox="0 0 13 10">
+    <a href="#" class="call-to-action-search">
+      <span id="search-effect-explorer">Rechercher</span>
+      <svg id="svg-explorer" width="13px" height="10px" viewBox="0 0 13 10">
         <path d="M1,5 L11,5"></path>
         <polyline points="8 1 12 5 8 9"></polyline>
       </svg>
@@ -21,13 +21,4 @@
 
 <div class="explorer-content">
   <%= render 'shared/card-project' %>
-  <% @projects.each do |project| %>
-    <%= project.title %>
-    <%= project.description %>
-  <% end %>
-
-  <% @users.each do |user| %>
-   <%= user.username %>
-  <% end%>
-
 </div>

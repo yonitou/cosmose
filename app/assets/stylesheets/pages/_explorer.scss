@@ -15,7 +15,7 @@
 }
 
 
-.cta{
+.call-to-action-search{
   position: relative;
   margin-bottom: 10px;
   padding: 0px 20px;
@@ -34,7 +34,7 @@
     height: 40px;
     transition: all .3s ease;
   }
-  .search-effect-explorer{
+  #search-effect-explorer{
     position: relative;
     font-size: 16px;
     line-height: 18px;
@@ -43,7 +43,7 @@
     text-transform: uppercase;
     vertical-align: middle;
   }
-  .svg-explorer{
+  #svg-explorer{
     position: relative;
     top: 0;
     margin-left: 10px;
@@ -56,7 +56,7 @@
       background: rgba($red,0.6);
 
     }
-    .svg-explorer{
+    #svg-explorer{
 
     }
   }
