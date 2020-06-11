@@ -1,0 +1,5 @@
+class BlocksController < ApplicationController
+
+
+
+end
