@@ -1,12 +1,11 @@
 .btn-primary{
   background: linear-gradient(89.25deg, #A30B37 31.12%, #F3164A 120.01%);
-  font-size: 14px;
-
+  font-size: 20px;
 }
 
 .btn-primary:hover{
   color: $dark-red;
-  border: 1px solid $dark-red;
+  border: 1px solid $red;
   background: $white;
   transition: ease 0.25s;
 }
@@ -29,7 +28,18 @@ a:hover{
 }
 
 .btn-secondary{
+  background: linear-gradient(90deg, #77A1D3 0%, #79CBCA 50%, #E684AE 100%);
+  background-size: 300%;
+  animation: btn-bg-animation 4s infinite alternate;
+}
 
+@keyframes btn-bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
 }
 .delink-btn{
   font-size: 20px!important;
