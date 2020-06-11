@@ -66,9 +66,6 @@
       <% if block.photo.attached? %>
         <%= image_tag(block.photo, width: "150px") %>
       <% end %>
-      <% if block.audio.attached? %>
-        <%= audio_tag(block.audio) %>
-      <% end %>
       <hr />
       <% end %>
     </div>
