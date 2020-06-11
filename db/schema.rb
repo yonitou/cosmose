@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 2020_06_11_144740) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "blocks", force: :cascade do |t|
+    t.text "content"
+    t.boolean "private", default: false
+    t.string "url"
+    t.integer "project_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_blocks_on_user_id"
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.string "group"
     t.text "content"
@@ -47,16 +58,6 @@ ActiveRecord::Schema.define(version: 2020_06_11_144740) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_notifications_on_project_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
-
-  create_table "blocks", force: :cascade do |t|
-    t.text "content"
-    t.boolean "private", default: false
-    t.string "url"
-    t.integer "project_id"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_blocks_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -101,8 +102,7 @@ ActiveRecord::Schema.define(version: 2020_06_11_144740) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "blocks", "users"
   add_foreign_key "notifications", "projects"
   add_foreign_key "notifications", "users"
-
-  add_foreign_key "blocks", "users"
 end
