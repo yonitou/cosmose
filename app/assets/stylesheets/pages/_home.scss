@@ -17,7 +17,7 @@ h1, h2 {
   background-position: center;
   background-size: cover;
   height: 90vh;
-  
+
   .row {
     align-self: center;
     height: 100%;
@@ -164,3 +164,17 @@ h1, h2 {
   justify-self: center;
   z-index: 100;
 }
+
+
+
+
+
+/* Cursor */
+.txt-type > .txt {
+  border-right: 1px solid white;
+}
+
+.homepage-hero-title{
+  width: 95%;
+}
+
