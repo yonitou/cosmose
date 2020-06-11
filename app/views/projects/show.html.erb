@@ -17,7 +17,7 @@
         <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"40px", height:"40px", alt: "avatar", class:"user-project-avatar" %>
       </div>
       <div class="show-hero-info d-flex flex-column">
-        <p class="username-align-show"><%= link_to @project.user.username, root_path %> + collaborateurs</p>
+        <p class="username-align-show"><%= link_to @project.user.username, project_path %> + collaborateurs</p>
         <p class="username-align-show"><%= @project.description %></p>
         <p class="username-align-show"><%= @project.categories[0] %></p>
       </div>
