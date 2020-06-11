@@ -1,0 +1,80 @@
+.buttons-profile {
+  display: flex;
+  justify-content: around;
+  align-items: center;
+  width: 60%;
+}
+
+// PORTFOLIO BUTTON
+.btn-profile-portfolio{
+  background: transparent;
+  color: black;
+
+}
+.btn-profile-portfolio, .btn-profile-projects{
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 15px;
+  border: 0;
+
+  letter-spacing: .25em;
+  cursor: pointer;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background .8s ease;
+  &__horizontal,
+  &__vertical {
+    position: absolute;
+    top: var(--horizontal-offset, 0);
+    right: var(--vertical-offset, 0);
+    bottom: var(--horizontal-offset, 0);
+    left: var(--vertical-offset, 0);
+    transition: transform .8s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      border: inherit;
+    }
+  }
+  &__horizontal {
+    --vertical-offset: calc(var(--offset) * -1);
+    border-top: var(--border-size) solid $dark-red;
+    border-bottom: var(--border-size) solid $dark-red;
+    &::before {
+      top: calc(var(--vertical-offset) - var(--border-size));
+      bottom: calc(var(--vertical-offset) - var(--border-size));
+      left: calc(var(--vertical-offset) * -1);
+      right: calc(var(--vertical-offset) * -1);
+    }
+  }
+
+  &:hover &__horizontal {
+    transform: scaleX(0);
+  }
+
+  &__vertical {
+    --horizontal-offset: calc(var(--offset) * -1);
+    border-left: var(--border-size) solid $dark-red;
+    border-right: var(--border-size) solid $dark-red;
+    &::before {
+      top: calc(var(--horizontal-offset) * -1);
+      bottom: calc(var(--horizontal-offset) * -1);
+      left: calc(var(--horizontal-offset) - var(--border-size));
+      right: calc(var(--horizontal-offset) - var(--border-size));
+    }
+  }
+
+  &:hover &__vertical {
+    transform: scaleY(0);
+  }
+}
+
+// PROJECT BUTTON
+.btn-profile-projects{
+  background-color: $dark-red;
+  color: white;
+
+}

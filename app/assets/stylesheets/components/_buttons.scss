@@ -44,24 +44,5 @@ a:hover{
   font-size: 20px!important;
 }
 
-.btn-profile-projects{
-  background-color: pink;
-  color: blue;
-}
-.btn-profile-portfolio{
-  background-color: black;
-  color: $white;
-}
-.btn-profile-portfolio:hover{
-  background-color: $white;
-  color: black;
-  transition: ease 0.2s;
-}
 
-.btn-profile-portfolio, .btn-profile-projects{
-  width: 150px;
-  font-size: 25px;
-}
-.buttons-profile{
-  width: 35%;
-}
+
