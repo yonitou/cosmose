@@ -2,3 +2,7 @@
 <%= project.title %>
   <%= project.description %>
 <% end %>
+
+<% @blocks.each do |block| %>
+<%= block.content %>
+<% end%>
