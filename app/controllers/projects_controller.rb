@@ -2,16 +2,18 @@ class ProjectsController < ApplicationController
   before_action :set_project, except: %i[index new create]
 
   def index
-    @projects = Project.all
+    @projects = policy_scope(Project)
   end
 
   def new
     @project = Project.new
+    authorize(@project)
   end
 
   def create
     @project = Project.new(project_params)
     @project.user = current_user
+    authorize(@project)
     if @project.save
       flash[:notice] = 'Projet créé !'
       redirect_to project_path(@project)
@@ -32,6 +34,7 @@ class ProjectsController < ApplicationController
   def show
     @requests = Collaboration.where(project_id: @project.id)
     @collaboration = Collaboration.new
+    authorize(@project)
     @private_blocks = Block.where(project_id: @project, private: true)
     @public_blocks = Block.where(project_id: @project, private: false)
     @block = Block.new
