@@ -1,0 +1,10 @@
+<%= simple_form_for @project do |f| -%>
+<br>
+<br>
+  <%= f.input :title, required: true %>
+  <%= f.input :description, required: true %>
+  <%= f.input :categories, collection: Project::CATEGORIES_LIST.sort, input_html: { multiple: true, class: "select2"} %>
+  <%= f.input :address, required: true %>
+  <%= f.check_box :open_to_collab, required: true %>
+  <%= f.button :submit, class:"btn btn-primary" %>
+<% end -%>
