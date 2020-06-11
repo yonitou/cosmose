@@ -1,0 +1,45 @@
+.container-profile-page{
+  margin: 30px 15px;
+}
+
+#input-bio{
+  padding: 20px 5px;
+}
+.profile-page-left{
+  height: 100vh;
+}
+.profile-page-right{
+  margin-left: 20px;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.content-profile{
+  margin: 20px 0px;
+}
+
+.image1{
+  background-size: cover;
+  width: 400px;
+  height:780px;
+  margin-right: 20px;
+}
+
+
+.image2, .image3{
+  background-size: cover;
+  width: 500px;
+  height:380px;
+  margin: 10px;
+
+}
+.image1{
+  background-image: url("http://res.cloudinary.com/clem/image/upload/c_fit,w_1456/v1591910283/robert-keane-rlbG0p_nQOU-unsplash_c5j0d4.jpg");
+}
+
+.image2{
+  background-image: url("http://res.cloudinary.com/clem/image/upload/v1591910287/multi-colored-elephant-graffiti-3977529_g7aifk.jpg");
+}
+.image3{
+  background-image: url("http://res.cloudinary.com/clem/image/upload/v1591910285/gustavo-centurion-O6fs4ablxw8-unsplash_mx4j2n.jpg");
+}
