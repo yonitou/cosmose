@@ -2,15 +2,15 @@
   <div class="show-projet-top-left">
     <div class="show-projet-top-left-title d-flex justify-content-between align-items-center">
       <h2><%= @project.title %></h2>
-      <i class="far fa-heart" id="heart-icon-show-project"></i>
-
-<% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
-<% if pre_like %>
-  <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
-<% else %>
-  <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
-<% end %>
-<%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
+      <div class="show-projet-top-left-likes d-flex align-items-center">
+        <% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
+          <% if pre_like %>
+            <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
+          <% else %>
+            <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
+          <% end %>
+        <%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
+      </div>
     </div>
     <div class="show-projet-top-left-content">
       <div class="show-projet-top-left-user d-flex align-items-center">
