@@ -1,0 +1,25 @@
+.show-project-hero{
+  background-color: $dark-red;
+  color: $white;
+  padding: 30px;
+}
+.user-project-avatar{
+  border-radius: 50px;
+  margin-right: 15px;
+}
+
+#username-align-show{
+  margin: 0px;
+}
+
+.show-projet-top-right{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.statut-collab-projet{
+  font-size: 14px;
+  margin-top: 15px;
+}

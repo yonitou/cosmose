@@ -1,6 +1,38 @@
-<%= @project.title %>
-<%= @project.description %>
-<%= @project.categories %>
+<div class="show-project-hero d-flex justify-content-between">
+  <div class="show-projet-top-left">
+    <div class="show-projet-top-left-title d-flex justify-content-between align-items-center">
+      <h2><%= @project.title %></h2>
+      <i class="far fa-heart" id="heart-icon-show-project"></i>
+    </div>
+    <div class="show-projet-top-left-content">
+      <div class="show-projet-top-left-user d-flex align-items-center">
+        <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"40px", height:"40px", alt: "avatar", class:"user-project-avatar" %>
+        <p id="username-align-show">Username admin + collaborateurs</p>
+      </div>
+      <p><%= @project.description %></p>
+      <p><%= @project.categories %></p>
+      <%= @project.address %>
+    </div>
+  </div>
+
+  <div class="show-projet-top-right">
+    <button class="btn btn-secondary">JE VEUX COLLABORER</button>
+    <% if @project.open_to_collab == true %>
+      <p class="statut-collab-projet">Recherche des collaborateurs</p>
+    <% else %>
+      <p class="statut-collab-projet">Ce projet est privé</p>
+    <% end %>
+  </div>
+</div>
+
 <%= @project.finished %>
-<%= @project.open_to_collab %>
-<%= @project.address %>
+
+
+
+
+
+<div class="show-project-content">
+  <section id="photos"></section>
+</div>
+
+
