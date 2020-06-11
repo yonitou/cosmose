@@ -24,12 +24,12 @@
   </div>
 
   <div class="show-projet-top-right">
-    <div class="effect-button-collaborate">
-      <div class="effect-button-collaborate-content">
-        <a href="#" class="btn title-btn-effect btn-effect-split">COLLABORER</a>
-      </div>
-    </div>
     <% if @project.open_to_collab == true %>
+       <div class="effect-button-collaborate">
+        <div class="effect-button-collaborate-content">
+          <a href="#" class="btn title-btn-effect btn-effect-split">COLLABORER</a>
+        </div>
+      </div>
       <p class="statut-collab-projet">Recherche des collaborateurs</p>
     <% else %>
       <p class="statut-collab-projet">Ce projet est privé</p>
