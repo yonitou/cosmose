@@ -34,6 +34,7 @@ gem 'simple_form'
 
 gem 'devise'
 gem 'active_storage_validations'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'

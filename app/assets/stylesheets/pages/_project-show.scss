@@ -101,14 +101,15 @@ $colorSecondary: $dark-red;
     &:hover {
       &::before,
       &::after {
-        background: linear-gradient(89.25deg, #A30B37 31.12%, #F3164A 120.01%);
         top: 0;
         transform: skewx(0deg);
       }
       &::after {
+        background: linear-gradient(90deg, #A30B37 0%, #CB1040 100%);
         left: 0rem;
       }
       &::before {
+        background: linear-gradient(90deg, #CA1040 6.11%, #F3164A 100%);
         left: 8.75rem;
       }
     }
