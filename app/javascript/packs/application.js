@@ -26,16 +26,15 @@ require("channels")
 import "bootstrap";
 import $ from 'jquery';
 import 'select2';
+import { initSelect2 } from './components/init_select2';
+import { buttonNextStep } from './components/inputs_empty_registration';
 
-const initSelect2 = () => {
-  $('.select2').select2({ width: '100%', multiple: true});
-  // (~ document.querySelectorAll)
-};
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initSelect2();
+  buttonNextStep();
 });
