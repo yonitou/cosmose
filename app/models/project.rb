@@ -7,6 +7,7 @@ class Project < ApplicationRecord
   has_many :user_likes, dependent: :destroy
   has_many :notifications, dependent: :destroy
   before_save :clean_blank_categories
+  has_many :collaborations, dependent: :destroy
 
   def clean_blank_categories
     self.categories.delete("")

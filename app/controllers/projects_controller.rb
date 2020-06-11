@@ -30,6 +30,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @requests = Collaboration.where(project_id: @project.id)
+    @collaboration = Collaboration.new
     @private_blocks = Block.where(project_id: @project, private: true)
     @public_blocks = Block.where(project_id: @project, private: false)
     @block = Block.new
