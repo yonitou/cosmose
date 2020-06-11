@@ -1,5 +1,4 @@
 .show-project-hero{
-  color: $dark-red;
   padding: 30px;
 }
 .user-project-avatar{
@@ -12,7 +11,6 @@
 }
 
 .show-projet-top-left-likes{
-  border: 1px solid red;
   width: 100px;
   justify-content: space-between;
 }
@@ -28,3 +26,89 @@
   font-size: 14px;
   margin-top: 15px;
 }
+.show-projet-top-left-title{
+  color: $dark-red;
+}
+
+
+
+
+
+
+.effect-button-collaborate{
+  color: $white;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.effect-button-collaborate-content{
+  width: auto;
+  margin: auto;
+}
+
+.title-btn-effect {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+  color: $white;
+}
+.title-btn-effect:hover{
+  color: $white;
+}
+
+$white: #ececec;
+$red: #F3164A;
+$dark-red: #A30B37;
+$colorPrimary: $red;
+$colorSecondary: $dark-red;
+
+//split button mixin
+@mixin btn__split($colorLeft, $colorRight, $white) {
+  .btn-effect-split {
+    position: relative;
+    letter-spacing: 0.25em;
+    margin: 0 auto;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    outline: none;
+    font-size: 28px;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      transform: skewX(30deg);
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      z-index: -2;
+    }
+    &::before {
+      background-color: $colorLeft;
+      top: -1rem;
+      left: 0rem;
+    }
+    &::after {
+      background-color: $colorRight;
+      top: 1rem;
+      left: 8rem;
+    }
+    &:hover {
+      &::before,
+      &::after {
+        top: 0;
+        transform: skewx(0deg);
+      }
+      &::after {
+        left: 0rem;
+      }
+      &::before {
+        left: 8.75rem;
+      }
+    }
+  }
+}
+
+
+@include btn__split($colorPrimary, $colorSecondary, $white);

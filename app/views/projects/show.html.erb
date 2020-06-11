@@ -24,7 +24,11 @@
   </div>
 
   <div class="show-projet-top-right">
-    <button class="btn btn-secondary">JE VEUX COLLABORER</button>
+    <div class="effect-button-collaborate">
+      <div class="effect-button-collaborate-content">
+        <a href="#" class="btn title-btn-effect btn-effect-split">COLLABORER</a>
+      </div>
+    </div>
     <% if @project.open_to_collab == true %>
       <p class="statut-collab-projet">Recherche des collaborateurs</p>
     <% else %>
