@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @blocks = Block.where(project_id: @project)
     @block = Block.new
   end
 
