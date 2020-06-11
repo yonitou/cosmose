@@ -1,29 +1,34 @@
-<div class="project-new">
+<div class="project-new d-flex flex-column align-items-center">
   <div class="project-new-title">
     <h1>NOUVEAU PROJET</h1>
     <p>Montrez vos idées, trouvez de l’inspiration, partagez votre projet et trouvez des collaborateurs.
     Accédez à un espace de travail personnalisé et adapté pour la collaboration.</p>
   </div>
   <%= simple_form_for @project do |f| %>
-  <div class="form-inputs">
+  <div class="form-inputs form-new-project">
     <div class="project-new-first-part">
-      <%= f.input :title, required: true %>
-      <%= f.input :categories, collection: Project::CATEGORIES_LIST.sort, input_html: { multiple: true, class: "select2"} %>
-      <h2 class="next-step-button btn btn-primary">Suivant</h2>
-      <p class="project-new-steps">Etape 1/3</p>
+      <%= f.input :title, required: true, class:"input-new-project" %>
+      <%= f.input :categories, collection: Project::CATEGORIES_LIST.sort, input_html: { multiple: true, class: "select2"}, class:"input-new-project" %>
+      <div class="choice-new-project">
+        <h2 class="next-step-button btn btn-primary">Suivant</h2>
+        <p class="project-new-steps">Etape 1/3</p>
+      </div>
     </div>
     <div class="project-new-second-part d-none">
-      <%= f.input :description, required: true %>
+      <%= f.input :description, required: true, class:"input-new-project" %>
       <p>Téléchargements</p>
-      <h2 class="next-step-button-last btn btn-primary">Suivant</h2>
-      <p class="project-new-steps">Etape 2/3</p>
-      <h2 class="last-step-button btn btn-primary">Retour</h2>
+      <div class="choice-new-project">
+        <h2 class="next-step-button-last btn btn-primary">Suivant</h2>
+        <p class="project-new-steps">Etape 2/3</p>
+        <h2 class="last-step-button btn btn-primary">Retour</h2>
+      </div>
+
     </div>
     <div class="project-new-third-part d-none">
       <%= f.label :open_to_collab %>
-      <%= f.check_box :open_to_collab, required: true %>
-      <%= f.input :address, required: true %>
-      <div class="form-actions">
+      <%= f.check_box :open_to_collab, required: true%>
+      <%= f.input :address, required: true, class:"input-new-project" %>
+      <div class="form-actions choice-new-project">
         <%= f.button :submit, "Créer votre projet",class:"btn btn-primary" %>
         <p class="project-new-steps">Etape 3/3</p>
         <h2 class="last-step-button-final btn btn-primary">Retour</h2>
