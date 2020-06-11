@@ -97,6 +97,7 @@ $colorSecondary: $dark-red;
     &:hover {
       &::before,
       &::after {
+        background: linear-gradient(89.25deg, #A30B37 31.12%, #F3164A 120.01%);
         top: 0;
         transform: skewx(0deg);
       }
