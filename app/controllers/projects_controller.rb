@@ -29,7 +29,11 @@ class ProjectsController < ApplicationController
     redirect_to project_path(@project)
   end
 
-  def show; end
+  def show
+    @private_blocks = Block.where(project_id: @project, private: true)
+    @public_blocks = Block.where(project_id: @project, private: false)
+    @block = Block.new
+  end
 
   def destroy
     @project.destroy
