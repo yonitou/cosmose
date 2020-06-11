@@ -34,6 +34,7 @@ import '@justinribeiro/lite-youtube';
 // Internal imports, e.g:
 import { initSelect2 } from './components/init_select2';
 import { buttonNextStep } from './components/inputs_empty_registration';
+import { buttonNextStepProject } from './components/inputs_empty_project_new';
 import { TypeWriter } from './components/type';
 
 
@@ -41,5 +42,6 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initSelect2();
   buttonNextStep();
+  buttonNextStepProject();
   TypeWriter();
 });
