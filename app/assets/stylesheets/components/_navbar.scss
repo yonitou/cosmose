@@ -1,11 +1,86 @@
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .navbar-current-user > .btn-primary {
+    width: 240px;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .navbar-current-user > .btn-primary {
+    width: 260px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .navbar-current-user > .btn-primary {
+    width: 2800px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .navbar-current-user > .btn-primary {
+    width: 300px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .navbar-current-user > .btn-primary {
+    width: 320px;
+  }
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: transparent;
-
-  .h4 {
-    color: magenta;
+  h4 {
+    color: $red;
   }
 }
 
+.navbar-logged-buttons{
+  width: 160px;
+  vertical-align: center;
+}
+
+.navbar-logged {
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+  align-items: center;
+  background: $white;
+  h4 {
+    color: $red;
+  }
+}
+
+// LOGGED
+
+
+.navbar-current-user{
+  padding: 20px 30px;
+  background-color: $white;
+  h4{
+    font-size: 30px;
+  }
+  .btn-primary{
+    width: 350px;
+    font-size: 18px;
+  }
+}
+
+.dropdown-menu {
+  color: $dark;
+  margin-left: -120px;
+  background-color: $white;
+}
+
+.dropdown-menu > a {
+  color: $dark;
+  font-family: $body-font;
+}
