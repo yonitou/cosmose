@@ -12,13 +12,15 @@
         <%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
       </div>
     </div>
-    <div class="show-projet-top-left-content">
+    <div class="show-projet-top-left-content d-flex  justify-content-between">
       <div class="show-projet-top-left-user d-flex align-items-center">
         <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"40px", height:"40px", alt: "avatar", class:"user-project-avatar" %>
-        <p id="username-align-show">Username admin + collaborateurs</p>
       </div>
-      <p><%= @project.description %></p>
-      <p><%= @project.categories %></p>
+      <div class="show-hero-info d-flex flex-column">
+        <p class="username-align-show">Username admin + collaborateurs</p>
+        <p class="username-align-show"><%= @project.description %></p>
+        <p class="username-align-show"><%= @project.categories[0] %></p>
+      </div>
 
     </div>
   </div>

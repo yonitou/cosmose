@@ -3,11 +3,10 @@
 }
 .user-project-avatar{
   border-radius: 50px;
-  margin-right: 15px;
 }
 
-#username-align-show{
-  margin: 0px;
+.username-align-show{
+  margin: 5px;
 }
 
 .show-projet-top-left-likes{
@@ -17,10 +16,12 @@
 
 .show-projet-top-right{
   width: 50%;
+  height: 160px;
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-end;
+  justify-content: space-between;
 }
 .statut-collab-projet{
   font-size: 14px;
@@ -29,9 +30,14 @@
 .show-projet-top-left-title{
   color: $dark-red;
 }
+.show-projet-top-left-user{
+  align-self: flex-start;
+  margin-right: 15px;
+}
 
-
-
+.show-hero-info{
+  padding-top: 5px;
+}
 
 .effect-button-collaborate{
   color: $white;
