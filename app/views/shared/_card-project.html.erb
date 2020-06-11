@@ -10,9 +10,14 @@
       </div>
     </div>
     <div class="card-content">
-      <h4 class="card-title">PROJECT NAME</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore!</p>
-      <p class="card-localisation">Localisation</p>
+      <% @projects.each do |project| %>
+        <h4 class="card-title"><%= project.title %></h4>
+        <p><%= project.description %></p>
+        <p class="card-localisation"><%= project.address %></p>
+      <% end %>
     </div>
   </div>
 </div>
+
+
+

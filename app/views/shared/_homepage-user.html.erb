@@ -5,18 +5,53 @@
 <div class="homepage-user-cards d-flex flex-column">
   <h2 class="homepage-user-title">ARTISTES</h2>
   <div class="cards">
-    <%= render 'shared/card-artist' %>
+    <% User.all.sample(3).each do |user| %>
+      <div class="card">
+        <div class="card-images d-flex flex-column justify-content-between">
+          <div class="card-images-element-top">
+            <i class="far fa-heart"></i>
+          </div>
+          <div class="card-images-elements-bottom d-flex justify-content-between">
+            <i class="fas fa-record-vinyl"></i>
+            <div class="avatar-card"></div>
+          </div>
+        </div>
+        <div class="card-content">
+          <h4 class="card-title"><%= user.username %></h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore!</p>
+          <p class="card-localisation">Localisation</p>
+        </div>
+      </div>
+    <% end %>
   </div>
+
   <div class="homepage-user-button-see-more d-flex justify-content-center">
-    <button class="btn-see-more btn btn-primary">Voir Plus</button>
+    <%= link_to "VOIR PLUS", explorer_path, class:"btn btn-primary" %>
   </div>
 
   <h2 class="homepage-user-title">PROJETS</h2>
   <div class="cards">
-    <%= render 'shared/card-project' %>
+    <% Project.all.sample(3).each do |project| %>
+      <div class="card">
+        <div class="card-images d-flex flex-column justify-content-between">
+          <div class="card-images-element-top">
+            <i class="far fa-heart"></i>
+          </div>
+          <div class="card-images-elements-bottom d-flex justify-content-between">
+            <i class="fas fa-record-vinyl"></i>
+            <div class="avatar-card"></div>
+          </div>
+        </div>
+        <div class="card-content">
+          <h4 class="card-title"><%= project.title %></h4>
+          <p><%= project.description %></p>
+          <p class="card-localisation"><%= project.address %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="homepage-user-button-see-more d-flex justify-content-center">
-    <button class="btn-see-more btn btn-primary">Voir Plus</button>
+    <%= link_to "VOIR PLUS", explorer_path, class:"btn btn-primary" %>
   </div>
 </div>
 
