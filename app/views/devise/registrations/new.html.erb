@@ -1,11 +1,9 @@
 <div class="registration-new">
-<h1>Sign up</h1>
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
+  <h1>Sign up</h1>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
   <div class="form-inputs">
-      <div class="registration-new-first-part">
-
+    <div class="registration-new-first-part">
       <%= f.input :email,
                   required: true,
                   autofocus: true,
@@ -27,23 +25,20 @@
                   required: true,
                   input_html: { autocomplete: "first_name", class: "required-inputs" }
                   %>
-       <%= f.input :last_name,
+      <%= f.input :last_name,
                   required: true,
                   input_html: { autocomplete: "last_name", class: "required-inputs" }
                   %>
-        <h2 class="next-step-button btn btn-primary">Suivant</h2>
-
+      <h2 class="next-step-button btn btn-primary">Suivant</h2>
     </div>
     <div class="registration-new-second-part d-none">
-
       <%= f.input :address%>
       <%= f.input :bio%>
       <%= f.input :website%>
       <%= f.input :competences, collection: User::SKILLS_LIST, input_html: { multiple: true, class: "select2"} %>
-
-    <div class="form-actions">
-      <%= f.button :submit, "Créer votre compte" %>
+      <div class="form-actions">
+        <%= f.button :submit, "Créer votre compte" %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
 </div>
