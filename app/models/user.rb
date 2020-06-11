@@ -12,6 +12,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
   before_save :clean_blank_competences
   has_many :projects
+  has_many :user_likes
 
   def clean_blank_competences
     self.competences.delete("")
