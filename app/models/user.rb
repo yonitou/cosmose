@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :user_likes, dependent: :destroy
   has_many :notifications, dependent: :destroy
+  has_many :blocks, dependent: :destroy
 
   def clean_blank_competences
     self.competences.delete("")

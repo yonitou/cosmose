@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 2020_06_11_143622) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_notifications_on_project_id"
     t.index ["user_id"], name: "index_notifications_on_user_id"
+
+  create_table "blocks", force: :cascade do |t|
+    t.text "content"
+    t.boolean "private", default: false
+    t.string "url"
+    t.integer "project_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_blocks_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -71,4 +81,5 @@ ActiveRecord::Schema.define(version: 2020_06_11_143622) do
 
   add_foreign_key "notifications", "projects"
   add_foreign_key "notifications", "users"
+  add_foreign_key "blocks", "users"
 end
