@@ -33,10 +33,12 @@ import 'select2';
 // Internal imports, e.g:
 import { initSelect2 } from './components/init_select2';
 import { buttonNextStep } from './components/inputs_empty_registration';
+import { TypeWriter } from './components/type';
 
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   initSelect2();
   buttonNextStep();
+  TypeWriter();
 });
