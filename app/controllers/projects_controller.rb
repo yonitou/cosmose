@@ -1,7 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, except: %i[index new create]
 
-
   def index
     @projects = Project.all
   end
@@ -45,7 +44,7 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:title, :description,:address, :open_to_collab, :finished,categories: [])
+    params.require(:project).permit(:title, :description, :address, :open_to_collab, :finished, categories: [])
   end
 end
 
