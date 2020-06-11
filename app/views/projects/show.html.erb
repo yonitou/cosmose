@@ -19,7 +19,7 @@
       </div>
       <p><%= @project.description %></p>
       <p><%= @project.categories %></p>
-      <%= @project.address %>
+
     </div>
   </div>
 
@@ -30,7 +30,7 @@
           <a href="#" class="btn title-btn-effect btn-effect-split">COLLABORER</a>
         </div>
       </div>
-      <p class="statut-collab-projet">Recherche des collaborateurs</p>
+      <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
     <% else %>
       <p class="statut-collab-projet">Ce projet est privé</p>
     <% end %>
