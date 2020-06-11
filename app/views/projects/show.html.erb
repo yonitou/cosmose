@@ -16,20 +16,31 @@
 </div>
 <div class="container">
   <div class="row">
-  <div class="col-sm-6">
-<h3>Ajouter un bloc</h3>
-<%= simple_form_for([@project, @block]) do |f| %>
-<%= f.input :content, required: true %>
-<%= f.input :private %>
-<%= f.button :submit, class:"btn btn-primary" %>
-<% end %>
-</div>
+    <div class="col-sm-4">
+      <h3>Ajouter un bloc</h3>
+      <%= simple_form_for([@project, @block]) do |f| %>
+      <%= f.input :content, required: true %>
+      <%= f.input :private %>
+      <%= f.button :submit, class:"btn btn-primary", remote: true %>
+      <% end %>
+    </div>
 
-<div class="col-sm-6">
-<% @blocks.each do |block| %>
-  <%= block.content %>
-  <hr/>
-<% end %>
-</div>
+    <div class="col-sm-4">
+      <h3>Blocks privés du projet</h3>
+      <% @private_blocks.each do |block| %>
+      <%= block.content %> &
+      Privé : <%= block.private %>
+      <hr />
+      <% end %>
+    </div>
+
+    <div class="col-sm-4">
+      <h3>Blocks publics du projet</h3>
+      <% @public_blocks.each do |block| %>
+      <%= block.content %> &
+      Privé : <%= block.private %>
+      <hr />
+      <% end %>
+    </div>
   </div>
 </div>

@@ -30,7 +30,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @blocks = Block.where(project_id: @project)
+    @private_blocks = Block.where(project_id: @project, private: true)
+    @public_blocks = Block.where(project_id: @project, private: false)
     @block = Block.new
   end
 
