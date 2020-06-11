@@ -56,8 +56,8 @@
                 <span class="declined"> declined 😢 </span>
               <% end %>
 
-              <%= link_to '<i class="fas fa-check-circle"></i>'.html_safe, accept_collaboration_path(request), method: 'patch' %>
-              <%= link_to '<i class="fas fa-ban"></i>'.html_safe, decline_collaboration_path(request), method: 'patch' %>
+              <%= link_to '<i style="color:red"class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
+              <%= link_to '<i style="color:red"class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
             <% end %>
 
 

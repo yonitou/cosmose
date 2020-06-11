@@ -1,21 +1,26 @@
 class CollaborationsController < ApplicationController
+  before_action :set_project
+
   def create
     @collaboration = Collaboration.new(collaboration_params)
-    @project = Project.find(params[:project_id])
     @collaboration.user = current_user
     @collaboration.project = @project
     if @collaboration.save
+      notification = Notification.new(content: "#{current_user.username} souhaite collaborer avec vous sur : #{@project.title}")
+      notification.user = @project.user
+      notification.project = @project
+      notification.save
       flash[:notice] = 'Demande envoyée !'
       redirect_to project_path(@project)
     else
       flash[:alert] = "Problème lors de l'envoi de la demande"
-      redirect_to offer_path(@offer)
+      redirect_to project_path(@project)
     end
   end
 
   def accept
     @collaboration = Collaboration.find(params[:id])
-    @project = Project.find(params[:project_id])
+
       if @collaboration.status
         redirect_to project_path(@project)
     else
@@ -26,11 +31,10 @@ class CollaborationsController < ApplicationController
   end
 
   def decline
-
     @collaboration = Collaboration.find(params[:id])
     @collaboration.status = false
     @collaboration.save
-    redirect_to portfolio_path
+    redirect_to project_path(@project)
   end
 
   def destroy
@@ -46,4 +50,8 @@ class CollaborationsController < ApplicationController
     params.require(:collaboration).permit(:request_content, :status)
   end
 
+
+  def set_project
+    @project = Project.find(params[:project_id])
+  end
 end
