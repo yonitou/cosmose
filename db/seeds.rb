@@ -10,11 +10,15 @@ require 'faker'
 Project.destroy_all
 User.destroy_all
 
+i = 0
+
 puts 'Creating 5 users...'
+
+
 5.times do
   user = User.new(
-    email: Faker::Internet.email,
-    password: Faker::Internet.password(min_length: 6),
+    email: "email#{i}@cosmose.art",
+    password: "azerty",
     username: Faker::Internet.username,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -22,9 +26,11 @@ puts 'Creating 5 users...'
     competences: User::SKILLS_LIST.sample(3)
   )
   user.save
+  i += 1
 end
 
-puts 'Creating a few projects...'
+puts 'and a few projects...'
+
 12.times do 
   project = Project.new(
     title: Faker::Space.nebula,
@@ -36,4 +42,4 @@ puts 'Creating a few projects...'
   project.save
 end
 
-puts 'Done_'
+puts 'Done!'
