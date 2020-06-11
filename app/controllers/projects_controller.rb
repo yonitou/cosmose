@@ -29,7 +29,9 @@ class ProjectsController < ApplicationController
     redirect_to project_path(@project)
   end
 
-  def show; end
+  def show
+    @block = Block.new
+  end
 
   def destroy
     @project.destroy

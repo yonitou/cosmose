@@ -1,14 +1,24 @@
-<%= @project.title %>
-<%= @project.description %>
-<%= @project.categories %>
-<%= @project.finished %>
-<%= @project.open_to_collab %>
-<%= @project.address %>
-<% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
-<% if pre_like %>
-  <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
-<% else %>
-  <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
-<% end %>
-<%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
+<div class="list-group">
+  <div class="list-group-item"><%= @project.title %></div>
+  <div class="list-group-item"><%= @project.description %></div>
+  <div class="list-group-item"><%= @project.categories %></div>
+  <div class="list-group-item"><%= @project.finished %></div>
+  <div class="list-group-item"><%= @project.open_to_collab %></div>
+  <div class="list-group-item"><%= @project.address %></div>
+  <div class="list-group-item"><% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
+    <% if pre_like %>
+    <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
+    <% else %>
+    <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
+    <% end %>
+    <%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
+  </div>
+</div>
+<hr/>
+<h3>Ajouter un bloc</h3>
+<%= simple_form_for([@project, @block]) do |f| %>
+<%= f.input :content, required: true %>
+<%= f.button :submit, class:"btn btn-primary" %>
+<%= f.input :private %>
 
+<% end %>
