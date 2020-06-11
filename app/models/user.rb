@@ -13,6 +13,7 @@ class User < ApplicationRecord
   before_save :clean_blank_competences
   has_many :projects, dependent: :destroy
   has_many :user_likes, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   def clean_blank_competences
     self.competences.delete("")

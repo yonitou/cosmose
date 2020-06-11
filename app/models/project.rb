@@ -5,6 +5,7 @@ class Project < ApplicationRecord
   validates :title, :description, :categories, :address, presence: true
   belongs_to :user
   has_many :user_likes, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   before_save :clean_blank_categories
 
   def clean_blank_categories
