@@ -1,0 +1,118 @@
+.show-project-hero{
+  padding: 30px;
+}
+.user-project-avatar{
+  border-radius: 50px;
+}
+
+.username-align-show{
+  margin: 5px;
+}
+
+.show-projet-top-left-likes{
+  width: 100px;
+  justify-content: space-between;
+}
+
+.show-projet-top-right{
+  width: 50%;
+  height: 160px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.statut-collab-projet{
+  font-size: 14px;
+  margin-top: 15px;
+}
+.show-projet-top-left-title{
+  color: $dark-red;
+}
+.show-projet-top-left-user{
+  align-self: flex-start;
+  margin-right: 15px;
+}
+
+.show-hero-info{
+  padding-top: 5px;
+}
+
+.effect-button-collaborate{
+  color: $white;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+.effect-button-collaborate-content{
+  width: auto;
+  margin: auto;
+}
+
+.title-btn-effect {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 700;
+  color: $white;
+}
+.title-btn-effect:hover{
+  color: $white;
+}
+
+$white: #ececec;
+$red: #F3164A;
+$dark-red: #A30B37;
+$colorPrimary: $red;
+$colorSecondary: $dark-red;
+
+//split button mixin
+@mixin btn__split($colorLeft, $colorRight, $white) {
+  .btn-effect-split {
+    position: relative;
+    letter-spacing: 0.25em;
+    margin: 0 auto;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    outline: none;
+    font-size: 28px;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 50%;
+      transform: skewX(30deg);
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      z-index: -2;
+    }
+    &::before {
+      background-color: $colorLeft;
+      top: -1rem;
+      left: 0rem;
+    }
+    &::after {
+      background-color: $colorRight;
+      top: 1rem;
+      left: 8rem;
+    }
+    &:hover {
+      &::before,
+      &::after {
+        background: linear-gradient(89.25deg, #A30B37 31.12%, #F3164A 120.01%);
+        top: 0;
+        transform: skewx(0deg);
+      }
+      &::after {
+        left: 0rem;
+      }
+      &::before {
+        left: 8.75rem;
+      }
+    }
+  }
+}
+
+@include btn__split($colorPrimary, $colorSecondary, $white);

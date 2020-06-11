@@ -26,11 +26,13 @@ require("channels")
 import "bootstrap";
 import $ from 'jquery';
 import 'select2';
-import { initSelect2 } from './components/init_select2';
-import { buttonNextStep } from './components/inputs_empty_registration';
+
+
 
 
 // Internal imports, e.g:
+import { initSelect2 } from './components/init_select2';
+import { buttonNextStep } from './components/inputs_empty_registration';
 
 
 document.addEventListener('turbolinks:load', () => {

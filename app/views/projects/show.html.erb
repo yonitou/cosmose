@@ -1,14 +1,44 @@
-<%= @project.title %>
-<%= @project.description %>
-<%= @project.categories %>
+<div class="show-project-hero d-flex justify-content-between">
+  <div class="show-projet-top-left">
+    <div class="show-projet-top-left-title d-flex justify-content-between align-items-center">
+      <h2><%= @project.title %></h2>
+      <div class="show-projet-top-left-likes d-flex align-items-center">
+        <% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
+          <% if pre_like %>
+            <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
+          <% else %>
+            <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
+          <% end %>
+        <%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
+      </div>
+    </div>
+    <div class="show-projet-top-left-content d-flex  justify-content-between">
+      <div class="show-projet-top-left-user d-flex align-items-center">
+        <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"40px", height:"40px", alt: "avatar", class:"user-project-avatar" %>
+      </div>
+      <div class="show-hero-info d-flex flex-column">
+        <p class="username-align-show"><%= link_to @project.user.username, project_path %> + collaborateurs</p>
+        <p class="username-align-show"><%= @project.description %></p>
+        <p class="username-align-show"><%= @project.categories[0] %></p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="show-projet-top-right">
+    <% if @project.open_to_collab == true %>
+       <div class="effect-button-collaborate">
+        <div class="effect-button-collaborate-content">
+          <a href="#" class="btn title-btn-effect btn-effect-split">COLLABORER</a>
+        </div>
+      </div>
+      <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
+    <% else %>
+      <p class="statut-collab-projet">Ce projet est privé</p>
+    <% end %>
+  </div>
+</div>
+
 <%= @project.finished %>
-<%= @project.open_to_collab %>
-<%= @project.address %>
-<% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
-<% if pre_like %>
-  <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
-<% else %>
-  <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
-<% end %>
-<%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
+
 
