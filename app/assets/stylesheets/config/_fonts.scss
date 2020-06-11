@@ -2,7 +2,7 @@
 
 // Define fonts for body and headers
 $body-font: "Arvo", "Helvetica", "sans-serif";
-$headers-font: "League Spartan", "Helvetica", "sans-serif";
+$headers-font: "League Spartan Bold", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 @font-face {
@@ -14,13 +14,13 @@ $headers-font: "League Spartan", "Helvetica", "sans-serif";
 }
 
 @font-face {
-  font-family: "League Spartan";
-  src: font-url('LeagueSpartan-Extrabold.woff') format('woff'),
+  font-family: "League Spartan Bold";
+  src: font-url('LeagueSpartan-Bold.woff') format('woff'),
         font-url('LeagueSpartan-Regular.woff') format('woff'),
         font-url('LeagueSpartan-Light.woff') format('woff'),
         font-url('LeagueSpartan-Medium.woff') format('woff'),
         font-url('LeagueSpartan-Semibold.woff') format('woff'),
         font-url('LeagueSpartan-Extralight.woff') format('woff'),
         font-url('LeagueSpartan-Black.woff') format('woff'),
-        font-url('LeagueSpartan-Bold.woff') format('woff')
+        font-url('LeagueSpartan-Extrabold.woff') format('woff')
 }

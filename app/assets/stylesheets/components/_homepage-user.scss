@@ -1,3 +1,58 @@
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .homepage-user-categories-content{
+    .homepage-user-element-categorie{
+      p{
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .homepage-user-categories-content{
+    .homepage-user-element-categorie{
+      p{
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .homepage-user-categories-content{
+    .homepage-user-element-categorie{
+      p{
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .homepage-user-categories-content{
+    .homepage-user-element-categorie{
+      p{
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .homepage-user-categories-content{
+    .homepage-user-element-categorie{
+      p{
+        font-size: 35px;
+      }
+    }
+  }
+}
+
 .banner-homepage-user{
   background-image: url("https://res.cloudinary.com/clem/image/upload/c_fit,h_500,w_1440/v1591786791/jonas-off-FO2zwDMQzUM-unsplash_yzzft7.jpg");
   background-size: cover;
@@ -18,20 +73,27 @@
 }
 
 .homepage-user-categories-content{
-  font-size: 50px;
-  font-weight: bold;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 1000px;
-  margin: 40px 200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15px;
+  text-align: center;
+  margin: 20px 0px;
 }
+.homepage-user-element-categorie > p{
+  font-size: 35px;
+  font-weight: bold;
+}
+
 .homepage-user-title{
   margin: 20px 0px 20px 50px;
   font-size: 35px;
   font-weight: bold;
 }
-.homepage-user-cards > button{
-  justify-content: center;
+.homepage-user-cards{
+  .btn-see-more{
+    align-items: center;
+  }
+
 }
 .homepage-user-categories-content a {
   text-decoration: none;

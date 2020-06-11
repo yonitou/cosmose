@@ -1,14 +1,29 @@
 .btn-primary{
-  background: linear-gradient(rgba(163,11,55,1), rgba(243,22,74,1) 100%);
-  font-size: 25px;
-  width: 130px;
+  background: linear-gradient(89.25deg, #A30B37 31.12%, #F3164A 120.01%);
+  font-size: 14px;
+
 }
 
 .btn-primary:hover{
-  font-size: 25px;
   color: $dark-red;
   border: 1px solid $dark-red;
   background: $white;
-  width: 130px;
   transition: ease 0.25s;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.btn-primary > a{
+  color: $white;
+}
+
+.btn-primary > a:hover{
+  color: $dark-red;
+  transition: ease 0.25s;
+}
+.btn-see-more{
+  width: 90px;
+  align-self: flex-end;
 }
