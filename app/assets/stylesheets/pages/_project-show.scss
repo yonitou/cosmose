@@ -115,4 +115,12 @@ $colorSecondary: $dark-red;
   }
 }
 
+.block_add {
+  margin: 0 auto;
+}
+
 @include btn__split($colorPrimary, $colorSecondary, $white);
+
+lite-youtube {
+  height: 45vh;
+}
