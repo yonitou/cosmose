@@ -67,7 +67,6 @@
         <%= image_tag(block.photo, width: "150px") %>
       <% end %>
       <% if block.audio.attached? %>
-      <source src="<%= audio_path(block.audio) %>" type="audio/mpeg"> Your browser does not support the audio element. </audio> ``
         <%= audio_tag(block.audio) %>
       <% end %>
       <hr />
