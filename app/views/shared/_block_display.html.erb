@@ -2,6 +2,7 @@
   <% if block.upload.image? %>
     <div class="col-6 block block-img">
       <%= image_tag(block.upload, width: "auto") %>
+      <center><%= block.content.html_safe %></center>
     </div>
   <% elsif block.upload.audio? %>
     <div class="col-6 block block-audio">
@@ -10,7 +11,8 @@
     </audio>
     </div>
   <% end %>
-<% end %>
-<div class="col-6 block">
+<% else %>
+<div class="col-6">
 <%= block.content.html_safe %>
 </div>
+<% end %>
