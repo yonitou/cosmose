@@ -1,22 +1,23 @@
-.show-project-hero{
+.show-project-hero {
   padding: 30px;
 }
-.user-project-avatar{
+
+.user-project-avatar {
   border-radius: 50px;
-  margin-top:7px;
-  margin-left:10px;
+  margin-top: 7px;
+  margin-left: 10px;
 }
 
-.username-align-show{
+.username-align-show {
   margin: 5px 0;
 }
 
-.show-projet-top-left-likes{
+.show-projet-top-left-likes {
   width: 100px;
   justify-content: space-between;
 }
 
-.show-projet-top-right{
+.show-projet-top-right {
   width: 50%;
   height: 160px;
   margin-right: 20px;
@@ -25,36 +26,39 @@
   align-items: flex-end;
   justify-content: space-between;
 }
-.statut-collab-projet{
+
+.statut-collab-projet {
   font-size: 14px;
-  padding:25px;
-  margin:10px 30px 0 0;
+  padding: 25px;
+  margin: 10px 30px 0 0;
 }
-.show-projet-top-left-title{
+
+.show-projet-top-left-title {
   color: $dark-red;
 }
 
-.show-projet-top-left-title h2{
+.show-projet-top-left-title h2 {
   margin-right: 75px;
 }
 
-.show-projet-top-left-user{
+.show-projet-top-left-user {
   align-self: flex-start;
   margin-right: 15px;
 }
 
-.show-hero-info{
+.show-hero-info {
   padding-top: 5px;
 }
 
-.effect-button-collaborate{
+.effect-button-collaborate {
   color: $white;
   display: flex;
   align-items: center;
   align-content: center;
   justify-content: center;
 }
-.effect-button-collaborate-content{
+
+.effect-button-collaborate-content {
   width: auto;
   margin-top: 25px;
 }
@@ -65,7 +69,8 @@
   font-weight: 700;
   color: $white;
 }
-.title-btn-effect:hover{
+
+.title-btn-effect:hover {
   color: $white;
 }
 
@@ -97,26 +102,32 @@ $colorSecondary: $dark-red;
       transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
       z-index: -2;
     }
+
     &::before {
       background-color: $colorLeft;
       top: -1rem;
       left: 0rem;
     }
+
     &::after {
       background-color: $colorRight;
       top: 1rem;
       left: 8rem;
     }
+
     &:hover {
+
       &::before,
       &::after {
         top: 0;
         transform: skewx(0deg);
       }
+
       &::after {
         background: linear-gradient(90deg, #A30B37 0%, #CB1040 100%);
         left: 0rem;
       }
+
       &::before {
         background: linear-gradient(90deg, #CA1040 6.11%, #F3164A 100%);
         left: 8.75rem;
@@ -127,27 +138,44 @@ $colorSecondary: $dark-red;
 
 .collaborationform {
   width: 45%;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 .block_add {
   margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
 }
 
 .btn-request-collaboration {
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 .collaborationform {
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
 }
 
 @include btn__split($colorPrimary, $colorSecondary, $white);
 
 lite-youtube {
-  height: 45vh;
+  height: 100%;
 }
 
+.blocks {
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
 
+  h3 {
+    margin: 0 auto;
+    padding-bottom: 25px;
+  }
 
+  .block {
+    padding: 10px;
+  }
+  img {
+    width: 100%;
+  }
+}
