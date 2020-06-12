@@ -4,11 +4,11 @@
       <h2><%= @project.title %></h2>
       <div class="show-projet-top-left-likes d-flex align-items-center">
         <% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
-          <% if pre_like %>
-            <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
-          <% else %>
-            <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
-          <% end %>
+        <% if pre_like %>
+        <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
+        <% else %>
+        <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
+        <% end %>
         <%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
       </div>
     </div>
@@ -24,67 +24,67 @@
 
     </div>
   </div>
-      <% if policy(@project).update? %>
-        <%= link_to "Modifier le projet", edit_project_path(@project), class:"btn btn-secondary", remote: true, class:"btn btn-secondary" %>
-      <% end %>
-      <% if policy(@project).destroy? %>
-        <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-secondary"%>
-      <% end %>
+  <% if policy(@project).update? %>
+  <%= link_to "Modifier le projet", edit_project_path(@project), class:"btn btn-secondary", remote: true, class:"btn btn-secondary" %>
+  <% end %>
+  <% if policy(@project).destroy? %>
+  <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-secondary"%>
+  <% end %>
   <div class="show-projet-top-right">
     <% if @project.open_to_collab == true %>
-       <div class="effect-button-collaborate">
-        <div class="effect-button-collaborate-content">
-          <a href="#" class="btn title-btn-effect btn-effect-split">COLLABORER</a>
-        </div>
+    <div class="effect-button-collaborate">
+      <div class="effect-button-collaborate-content">
+        <a href="#" class="btn title-btn-effect btn-effect-split">COLLABORER</a>
       </div>
-      <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
+    </div>
+    <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
     <% else %>
-      <p class="statut-collab-projet">Ce projet est privé</p>
+    <p class="statut-collab-projet">Ce projet est privé</p>
     <% end %>
   </div>
 </div>
-      <% unless policy(@project).update? %>
-      <h3 class="text-center">Demande de collaboration</h3>
-        <%= simple_form_for [@project, @collaboration], html: { class: "collaborationform"}  do |f| -%>
-            <%= f.input :request_content, label: false %>
-        <%= f.button :submit, "Envoyer" , class:"btn btn-primary btn-request-collaboration" %>
-        <% end %>
-        <% end %>
+<% unless policy(@project).update? %>
+<h3 class="text-center">Demande de collaboration</h3>
+<%= simple_form_for [@project, @collaboration], html: { class: "collaborationform"}  do |f| -%>
+<%= f.input :request_content, label: false %>
+<%= f.button :submit, "Envoyer" , class:"btn btn-primary btn-request-collaboration" %>
+<% end %>
+<% end %>
 
-          <% if policy(@project).update? %>
-          <% @requests.each do |request| %>
-          <span class="pl-2"><%= request.user.username %></span>
-              <p><%= request.request_content %></p>
+<% if policy(@project).update? %>
+<% @requests.each do |request| %>
+<span class="pl-2"><%= request.user.username %></span>
+<p><%= request.request_content %></p>
 
 
-              <% if request.status.nil? %>
-                <span class="pending"> pending 🕑 </span>
-              <% elsif request.status %>
-                <span class="status"> status 🎉 </span>
-              <% else %>
-                <span class="declined"> declined 😢 </span>
-              <% end %>
+<% if request.status.nil? %>
+<span class="pending"> pending 🕑 </span>
+<% elsif request.status %>
+<span class="status"> status 🎉 </span>
+<% else %>
+<span class="declined"> declined 😢 </span>
+<% end %>
 
-              <%= link_to '<i style="color:red"class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
-              <%= link_to '<i style="color:red"class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
-            <% end %>
-            <% end %>
+<%= link_to '<i style="color:red"class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
+<%= link_to '<i style="color:red"class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
+<% end %>
+<% end %>
 
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
       <h3>Blocks privés du projet</h3>
       <% @private_blocks.each do |block| %>
-      <%= block.content %>
-      <hr />
+          <%= render 'shared/block_display', block: block %>
+        <hr />
       <% end %>
     </div>
 
     <div class="col-sm-6">
       <h3>Blocks publics du projet</h3>
       <% @public_blocks.each do |block| %>
-      <%= block.content %>
-      <hr />
+          <%= render 'shared/block_display', block: block %>
+        <hr />
       <% end %>
     </div>
   </div>
@@ -102,5 +102,5 @@
       <%= f.button :submit, class:"btn btn-primary", remote: true %>
       <% end %>
     </div>
-    </div>
-    </div>
+  </div>
+</div>

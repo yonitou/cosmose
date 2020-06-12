@@ -1,0 +1,10 @@
+<% if block.upload.attached? %>
+<% if block.upload.image? %>
+<%= image_tag(block.upload, width: "150px") %>
+<% elsif block.upload.audio? %>
+<audio controls="true" preload="true">
+  <source src="<%= url_for(block.upload) %>%" type='audio/mpeg'>
+</audio>
+<% end %>
+<% end %>
+<%= block.content.html_safe  %>
