@@ -9,10 +9,16 @@
   margin: 30px;
   width: 400px;
 }
-
-
-
-
+.explorer-search{
+  margin-bottom: 20px;
+}
+.explorer-search-input{
+  height: 44px;
+  vertical-align: middle;
+}
+.btn-primary-navbar{
+  align-self: middle,
+}
 
 .btn-choice-explorer{
   font-size: 25px;
@@ -28,56 +34,4 @@
 .btn-explorer-active{
   background-color: $dark-red !important;
   color: white !important;
-}
-
-
-
-.call-to-action-search{
-  position: relative;
-  margin-bottom: 10px;
-  padding: 0px 20px;
-  transition: all .2s ease;
-  text-decoration: none;
-  color: black;
-  &:before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    border-radius: 28px;
-    background: rgba($red,.5);
-    width: 40px;
-    height: 40px;
-    transition: all .3s ease;
-  }
-  #search-effect-explorer{
-    position: relative;
-    font-size: 16px;
-    line-height: 18px;
-    font-weight: 900;
-    letter-spacing: .25em;
-    text-transform: uppercase;
-    vertical-align: middle;
-  }
-  #svg-explorer{
-    position: relative;
-    top: 0;
-    margin-left: 10px;
-    transform: translateX(-5px);
-    transition: all .3s ease;
-  }
-  &:hover{
-    &:before{
-      width: 100%;
-      background: rgba($red,0.6);
-
-    }
-    #svg-explorer{
-
-    }
-  }
-  &:active{
-
-  }
 }

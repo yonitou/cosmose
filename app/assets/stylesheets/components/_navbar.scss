@@ -29,7 +29,7 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .navbar-current-user > .btn-primary {
-    width: 320px;
+
   }
 }
 
@@ -50,12 +50,11 @@
   background-color: #ffffff;
 
   .btn-primary{
-    width: 350px;
     font-size: 18px;
   }
 }
 .navbar-logged-buttons{
-  width: 200px;
+  width: 110px;
   vertical-align: center;
 }
 .dropdown-menu {

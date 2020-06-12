@@ -9,7 +9,7 @@
 <% else %>
   <div class="navbar-current-user sticky-top navbar navbar-expand-lg navbar-lewagon">
     <%= link_to "COSMOSE", root_path %>
-      <%= link_to "CREER UN PROJET <i class='far fa-plus-square'></i>".html_safe, new_project_path, class: "btn btn-primary" %>
+      <%= link_to "CREER UN PROJET".html_safe, new_project_path, class: "btn btn-primary btn-primary-navbar" %>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span><i class="fas fa-bars"></i></span>
@@ -17,7 +17,6 @@
     <div class="navbar-logged-buttons d-flex justify-content-between">
       <%= link_to "<i class='fas fa-search'></i>".html_safe, explorer_path %>
       <%= link_to "<i class='far fa-bell'></i>".html_safe , notifications_path %>
-      <i class="far fa-comment-dots"></i>
       <div class="nav-item dropdown">
         <a class="avatar-card nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
