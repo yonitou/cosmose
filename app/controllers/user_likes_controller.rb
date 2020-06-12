@@ -8,12 +8,14 @@ class UserLikesController < ApplicationController
       notification = Notification.new(content: "#{current_user.username} aime votre projet : #{@project.title}")
       notification.user = @project.user
       notification.project = @project
+      authorize(@project.user_likes)
       notification.save
     end
     redirect_to project_path(@project)
   end
 
   def destroy
+    authorize(@project.user_likes)
     @user_like.destroy if already_liked?
     redirect_to project_path(@project)
   end

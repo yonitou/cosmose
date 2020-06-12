@@ -5,6 +5,7 @@ class CollaborationsController < ApplicationController
     @collaboration = Collaboration.new(collaboration_params)
     @collaboration.user = current_user
     @collaboration.project = @project
+    authorize(@collaboration)
     if @collaboration.save
       notification = Notification.new(content: "#{current_user.username} souhaite collaborer avec vous sur : #{@project.title}")
       notification.user = @project.user
@@ -25,6 +26,7 @@ class CollaborationsController < ApplicationController
         redirect_to project_path(@project)
     else
       @collaboration.status = true
+      authorize(@collaboration)
       @collaboration.save
       redirect_to project_path(@project)
     end
@@ -33,12 +35,14 @@ class CollaborationsController < ApplicationController
   def decline
     @collaboration = Collaboration.find(params[:id])
     @collaboration.status = false
+    authorize(@collaboration)
     @collaboration.save
     redirect_to project_path(@project)
   end
 
   def destroy
     @collaboration = Collaboration.find(params[:id])
+    authorize(@collaboration)
     @collaboration.destroy
     flash[:notice] = 'Demande supprimée !'
     redirect_to :portfolio
