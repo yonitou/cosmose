@@ -37,26 +37,26 @@
         <div class="cards-projects-profile">
           <% Project.all.sample(4).each do |project| %>
             <div class="card">
-             <div class="card-images d-flex flex-column justify-content-between">
-               <div class="card-images-element-top">
+              <div class="card-images d-flex flex-column justify-content-between">
+                <div class="card-images-element-top">
                   <i class="far fa-heart"></i>
                 </div>
-               <div class="card-images-elements-bottom d-flex justify-content-between">
+                <div class="card-images-elements-bottom d-flex justify-content-between">
                   <i class="fas fa-record-vinyl"></i>
                   <div class="avatar-card"></div>
-               </div>
-             </div>
-             <div class="card-content">
-              <h4 class="card-title"><%= project.title %></h4>
-              <p><%= project.description %></p>
-              <p class="card-localisation"><%= project.address %></p>
+                </div>
+              </div>
+              <div class="card-content">
+                <h4 class="card-title"><%= project.title %></h4>
+                <p><%= project.description %></p>
+                <p class="card-localisation"><%= project.address %></p>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-
 </div>
 
 
