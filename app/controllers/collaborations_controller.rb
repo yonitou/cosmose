@@ -7,7 +7,7 @@ class CollaborationsController < ApplicationController
     @collaboration.project = @project
     authorize(@collaboration)
     if @collaboration.save
-      notification = Notification.new(content: "<li class='notification-display-index'><i class='far fa-user'></i>#{current_user.username} souhaite collaborer avec vous sur : #{@project.title}</li>")
+      notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='far fa-user'></i>#{current_user.username} souhaite collaborer avec vous sur : #{@project.title}</li>")
       notification.user = @project.user
       notification.project = @project
       notification.save
