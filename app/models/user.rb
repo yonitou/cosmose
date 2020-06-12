@@ -8,16 +8,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates_presence_of :username, :first_name, :last_name, :competences
+  validates_presence_of :username, :first_name, :last_name
+
   validates :username, uniqueness: true
-  before_save :clean_blank_competences
+  validate :competences_not_empty
   has_many :projects, dependent: :destroy
   has_many :user_likes, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :blocks, dependent: :destroy
   has_many :collaborations
 
-  def clean_blank_competences
+  def competences_not_empty
     self.competences.delete("")
+    errors.add(:competences, 'ne peut pas être vide') if self.competences.length.zero?
   end
 end
