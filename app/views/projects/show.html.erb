@@ -75,11 +75,7 @@
     <div class="col-sm-6">
       <h3>Blocks privés du projet</h3>
       <% @private_blocks.each do |block| %>
-      <%= block.content.html_safe %>
-      <br/>
-      <% if block.photo.attached? %>
-        <%= image_tag(block.photo, width: "150px") %>
-      <% end %>
+      <%= block.content %>
       <hr />
       <% end %>
     </div>
@@ -87,11 +83,7 @@
     <div class="col-sm-6">
       <h3>Blocks publics du projet</h3>
       <% @public_blocks.each do |block| %>
-      <%= block.content.html_safe %>
-      <br />
-      <% if block.photo.attached? %>
-        <%= image_tag(block.photo, width: "150px") %>
-      <% end %>
+      <%= block.content %>
       <hr />
       <% end %>
     </div>
@@ -105,8 +97,7 @@
       <em style="color: #D8D8D8">Mettre une url youtube pour ajouter la vidéo</em>
       <%= simple_form_for([@project, @block]) do |f| %>
       <%= f.input :content, required: true %>
-      <%= f.input :photo, as: :file %>
-      <%= f.input :audio, as: :file %>
+      <%= f.input :upload, as: :file %>
       <%= f.input :private %>
       <%= f.button :submit, class:"btn btn-primary", remote: true %>
       <% end %>
