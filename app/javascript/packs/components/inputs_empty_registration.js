@@ -1,6 +1,7 @@
 const isEveryInputEmpty = () => {
+
     let allEmpty = true;
-    document.querySelectorAll('.required-inputs').forEach((field) => {
+    document.querySelectorAll('.required-inputs-registration').forEach((field) => {
         if (field.value === "") {
             allEmpty = false;
 
@@ -12,7 +13,7 @@ const isEveryInputEmpty = () => {
 }
 
   const buttonNextStep = () => {
-    document.querySelector(".next-step-button").addEventListener('click', (event) => {
+    document.querySelector(".next-step-button-registration").addEventListener('click', (event) => {
       if (isEveryInputEmpty()) {
         document.querySelector(".registration-new-first-part").classList.add("d-none");
         document.querySelector(".registration-new-second-part").classList.remove("d-none");
