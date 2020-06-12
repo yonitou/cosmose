@@ -1,0 +1,32 @@
+.like {
+  font-family: $body-font;
+  list-style: none;
+  padding: 10px;
+  background-color: white;
+  margin: 10px;
+  display:flex;
+  align-items:center;
+}
+
+.like i {
+  padding-right: 10px;
+}
+
+.notification-container {
+  width:40%;
+  margin: 30px auto;
+}
+
+.request-collaboration-notification {
+  font-family: $body-font;
+  list-style: none;
+  padding: 10px;
+  background-color: white;
+  margin: 10px;
+  display:flex;
+  align-items:center;
+}
+
+.request-collaboration-notification i {
+  padding-right: 10px;
+}

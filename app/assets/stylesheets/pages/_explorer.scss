@@ -1,3 +1,6 @@
+.hidden-explorer{
+  display:none!important;
+}
 .explorer-top{
   align-items: center;
   margin-bottom: 40px;
@@ -6,6 +9,11 @@
   margin: 30px;
   width: 400px;
 }
+
+
+
+
+
 .btn-choice-explorer{
   font-size: 25px;
 }
@@ -13,6 +21,15 @@
   font-size: 25px;
   color: black;
 }
+.btn-explorer-inactive{
+  background: transparent;
+  color: black;
+}
+.btn-explorer-active{
+  background-color: $dark-red !important;
+  color: white !important;
+}
+
 
 
 .call-to-action-search{

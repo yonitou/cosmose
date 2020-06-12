@@ -22,4 +22,17 @@ class User < ApplicationRecord
     self.competences.delete("")
     errors.add(:competences, 'ne peut pas être vide') if self.competences.length.zero?
   end
+
+
+  def collaborator?(project)
+    Collaboration.find_by(project: project, user: self, status: true)
+  end
+
+  def owner?(project)
+     project.user == self
+  end
+
+  def visitor?(project)
+    !owner?(project) && !collaborator?(project)
+  end
 end

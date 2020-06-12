@@ -5,20 +5,24 @@
   width: 60%;
 }
 
+
+
+
+
 // PORTFOLIO BUTTON
-.btn-profile-inactive{
+.btn-explorer-inactive, .btn-profile-inactive{
   background: transparent;
   color: black;
 }
 
 // PROJECT BUTTON
-.btn-profile-active{
+.btn-explorer-active, .btn-profile-active{
   background-color: $dark-red !important;
   color: white !important;
 }
 
 
-.btn-profile-portfolio, .btn-profile-projects{
+.btn-explorer-artists, .btn-explorer-projects, .btn-profile-portfolio, .btn-profile-projects{
   --offset: 10px;
   --border-size: 2px;
   display: block;
