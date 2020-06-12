@@ -7,29 +7,29 @@
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email", class: "required-inputs" } %>
+                  input_html: { autocomplete: "email", class: "required-inputs-registration" } %>
       <%= f.input :password,
                   required: true,
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password",class: "required-inputs" }
+                  input_html: { autocomplete: "new-password",class: "required-inputs-registration" }
                   %>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password", class: "required-inputs" }
+                  input_html: { autocomplete: "new-password", class: "required-inputs-registration" }
                   %>
       <%= f.input :username,
                   required: true,
-                  input_html: { autocomplete: "username", class: "required-inputs" }
+                  input_html: { autocomplete: "username", class: "required-inputs-registration" }
                   %>
       <%= f.input :first_name,
                   required: true,
-                  input_html: { autocomplete: "first_name", class: "required-inputs" }
+                  input_html: { autocomplete: "first_name", class: "required-inputs-registration" }
                   %>
       <%= f.input :last_name,
                   required: true,
-                  input_html: { autocomplete: "last_name", class: "required-inputs" }
+                  input_html: { autocomplete: "last_name", class: "required-inputs-registration" }
                   %>
-      <h2 class="next-step-button btn btn-primary">Suivant</h2>
+      <h2 class="next-step-button-registration btn btn-primary">Suivant</h2>
     </div>
     <div class="registration-new-second-part d-none">
       <%= f.input :address%>

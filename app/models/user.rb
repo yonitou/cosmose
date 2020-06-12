@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  SKILLS_LIST = ["Théâtre de rue", "Circacien / Circacienne", "Peintre", "Sculpteur / Sculptrice", "Photographe", "Artiste numérique", "Street artiste",
-                "Graphiste", "Architecte", "Réalisateur / Réalisatrice", "Directeur / Directrice artistique", "Rédacteur / Rédactrice",
-                "Développeur / Développeuse", "Musicien / Musicienne", "Danseur / Danseuse", "Humoriste", "Auteur", "Compositeur / Compositrice", "Chanteur / Chanteuse",
-                "Producteur / Productrice", "Scénographe", "Sérigraphiste", "Comédien / Comédienne"]
+  SKILLS_LIST = ["Théâtre de rue", "Arts du Cirque", "Peinture", "Sculpture", "Photographie", "Arts numériques", "Street art",
+                "Graphisme", "Architecture", "Réalisation", "Direction artistique", "Rédaction",
+                "Développement informatique", "Musique", "Danse", "Humour", "Littérature", "Composition", "Chant",
+                "Production événementielle", "Scénographie", "Sérigraphie"]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
