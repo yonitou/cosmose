@@ -35,7 +35,7 @@ import '@justinribeiro/lite-youtube';
 import { initSelect2 } from './components/init_select2';
 import { buttonNextStep } from './components/inputs_empty_registration';
 import { buttonNextStepProject } from './components/inputs_empty_project_new';
-import { TypeWriter } from './components/type';
+import { initTypeJs } from './components/type';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -43,5 +43,5 @@ document.addEventListener('turbolinks:load', () => {
   initSelect2();
   buttonNextStep();
   buttonNextStepProject();
-  TypeWriter();
+  initTypeJs();
 });
