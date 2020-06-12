@@ -17,8 +17,8 @@ a:hover{
   color: $white;
 }
 
-.btn-primary > a:hover{
-  color: $dark-red;
+.btn-primary:hover{
+  color: $black;
   transition: ease 0.25s;
 }
 .btn-see-more{
