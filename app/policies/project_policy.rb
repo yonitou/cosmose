@@ -13,10 +13,11 @@ class ProjectPolicy < ApplicationPolicy
     end
 
     def update?
-      record.user == user
+      !user.visitor?(record)
     end
 
     def destroy?
-      record.user == user
+      user.owner?(record)
     end
+
   end
