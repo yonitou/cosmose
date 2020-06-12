@@ -9,12 +9,18 @@ const portfolioToggle = () => {
       console.log("display portfolio")
       projects.classList.add('hidden');
       portfolio.classList.remove('hidden');
+      projectsButton.classList.remove('btn-profile-active');
+      portfolioButton.classList.remove('btn-profile-inactive');
+      portfolioButton.classList.add('btn-profile-active');
     });
     
     projectsButton.addEventListener('click', (e) => {
       console.log("display projects")
       portfolio.classList.add('hidden');
       projects.classList.remove('hidden');
+      portfolioButton.classList.remove('btn-profile-active');
+      projectsButton.classList.remove('btn-profile-inactive');
+      projectsButton.classList.add('btn-profile-active');
     });
   }
 };  

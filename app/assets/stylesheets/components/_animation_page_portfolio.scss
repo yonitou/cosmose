@@ -6,11 +6,18 @@
 }
 
 // PORTFOLIO BUTTON
-.btn-profile-portfolio{
+.btn-profile-inactive{
   background: transparent;
   color: black;
-
 }
+
+// PROJECT BUTTON
+.btn-profile-active{
+  background-color: $dark-red !important;
+  color: white !important;
+}
+
+
 .btn-profile-portfolio, .btn-profile-projects{
   --offset: 10px;
   --border-size: 2px;
@@ -72,9 +79,4 @@
   }
 }
 
-// PROJECT BUTTON
-.btn-profile-projects{
-  background-color: $dark-red;
-  color: white;
 
-}
