@@ -1,9 +1,16 @@
-
 <div class="explorer-top d-flex flex-column">
   <div class="explorer-choice d-flex justify-content-between align-items-center">
-    <%= link_to "PROJETS", explorer_path, class:"btn btn-primary btn-choice-explorer" %>
+    <button class="btn-explorer-artists btn-explorer-active">
+      ARTISTES
+      <div class="btn-explorer-artists__horizontal"></div>
+      <div class="btn-explorer-artists__vertical"></div>
+    </button>
 
-    <%= link_to "ARTISTES", explorer_path, class:"title-choice-explorer" %>
+    <button class="btn-explorer-projects btn-explorer-inactive">
+      PROJETS
+      <div class="btn-explorer-projects__horizontal"></div>
+      <div class="btn-explorer-projects__vertical"></div>
+    </button>
   </div>
   <div class="explorer-search">
     <input type="text" placeholder="Categories">
@@ -18,8 +25,16 @@
     </a>
   </div>
 </div>
-<%= render 'shared/card-artist' %>
 
-<%= render 'shared/card-project' %>
+<div class="explorer-display-artists">
+  <%= render 'shared/card-artist' %>
+</div>
+<div class="explorer-display-projects hidden-explorer">
+  <%= render 'shared/card-project' %>
+</div>
+
+
+
+
 
 
