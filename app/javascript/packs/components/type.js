@@ -55,16 +55,15 @@ class TypeWriter {
 }
 
 
-// Init On DOM Load
-document.addEventListener('DOMContentLoaded', init);
-
 // Init App
-function init() {
+const initTypeJs = () => {
   const txtElement = document.querySelector('.txt-type');
-  const words = JSON.parse(txtElement.getAttribute('data-words'));
-  const wait = txtElement.getAttribute('data-wait');
-  // Init TypeWriter
-  new TypeWriter(txtElement, words, wait);
+  if (txtElement) {
+    const words = JSON.parse(txtElement.getAttribute('data-words'));
+    const wait = txtElement.getAttribute('data-wait');
+    // Init TypeWriter
+    new TypeWriter(txtElement, words, wait);
+  }
 }
 
-export { TypeWriter };
+export { initTypeJs };
