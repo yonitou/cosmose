@@ -1,8 +1,8 @@
-
+<div class="notification-container">
+  <h2>Notifications</h2>
 <ul>
 <% @notifications.each do |notification| %>
-<li>
-  <%= notification.content %>
-</li>
+  <%= notification.content.html_safe %>
 <% end %>
 </ul>
+</div>
