@@ -1,7 +1,7 @@
 <div class="container-profile-page d-flex">
   <div class="profile-page-left d-flex flex-column align-items-center justify-content-around">
     <div class="avatar-large"></div>
-    <h4>USERNAME</h4>
+    <h4 class="profile-page-username">USERNAME</h4>
     <p>Localisation</p>
     <input type="text" placeholder="Description / Bio" id="input-bio">
     <p>Compétences</p>
@@ -29,8 +29,35 @@
         <div class="image3"></div>
       </div>
     </div>
+    <br>
+    <div class="content-profile-projects">
+      <h2>PROJETS</h2>
+      <div class="cards-projects-profile">
+        <% Project.all.sample(4).each do |project| %>
+          <div class="card">
+            <div class="card-images d-flex flex-column justify-content-between">
+              <div class="card-images-element-top">
+                <i class="far fa-heart"></i>
+              </div>
+              <div class="card-images-elements-bottom d-flex justify-content-between">
+                <i class="fas fa-record-vinyl"></i>
+                <div class="avatar-card"></div>
+              </div>
+            </div>
+            <div class="card-content">
+              <h4 class="card-title"><%= project.title %></h4>
+              <p><%= project.description %></p>
+              <p class="card-localisation"><%= project.address %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+
 </div>
+
+
 
 <% @blocks.each do |block| %>
     <%= block.content %>

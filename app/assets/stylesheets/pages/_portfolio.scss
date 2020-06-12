@@ -1,7 +1,9 @@
 .container-profile-page{
   margin: 30px 15px;
 }
-
+.profile-page-username{
+  color: $dark-red;
+}
 #input-bio{
   padding: 20px 5px;
 }
@@ -44,7 +46,10 @@
   background-image: url("http://res.cloudinary.com/clem/image/upload/v1591910285/gustavo-centurion-O6fs4ablxw8-unsplash_mx4j2n.jpg");
 }
 
-
-
-
+.cards-projects-profile{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  margin: 10px 10px 10px 0px;
+}
 
