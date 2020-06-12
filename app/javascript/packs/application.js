@@ -36,6 +36,7 @@ import { initSelect2 } from './components/init_select2';
 import { buttonNextStep } from './components/inputs_empty_registration';
 import { buttonNextStepProject } from './components/inputs_empty_project_new';
 import { initTypeJs } from './components/type';
+import { portfolioToggle } from './components/portoflio_toggle';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -44,4 +45,5 @@ document.addEventListener('turbolinks:load', () => {
   buttonNextStep();
   buttonNextStepProject();
   initTypeJs();
+  portfolioToggle();
 });

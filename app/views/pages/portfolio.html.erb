@@ -22,16 +22,21 @@
         <div class="btn-profile-projects__vertical"></div>
       </button>
     </div>
-    <div class="content-profile d-flex">
-      <div class="image1"></div>
-      <div class="box-images-profile">
-        <div class="image2"></div>
-        <div class="image3"></div>
+    <div class="content-profile">
+      <div class="user-portfolio d-flex">
+        <div class="image1"></div>
+        <div class="box-images-profile">
+          <div class="image2"></div>
+          <div class="image3"></div>
+        </div>
       </div>
+    </div>
+    <div class="user-projects hidden">
+      <h3> my projects</h3>
     </div>
   </div>
 </div>
 
 <% @blocks.each do |block| %>
-    <%= block.content %>
-    <% end%>
+<%= block.content %>
+<% end%>
