@@ -47,7 +47,7 @@
       <h3 class="text-center">Demande de collaboration</h3>
         <%= simple_form_for [@project, @collaboration], html: { class: "collaborationform"}  do |f| -%>
             <%= f.input :request_content, label: false %>
-        <%= f.button :submit, "Envoyer" , class:"btn btn-primary" %>
+        <%= f.button :submit, "Envoyer" , class:"btn btn-primary btn-request-collaboration" %>
         <% end %>
         <% end %>
 
@@ -70,24 +70,6 @@
             <% end %>
             <% end %>
 
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 block_add">
-      <h3>Ajouter un bloc</h3>
-      <em style="color: #D8D8D8">Mettre une url youtube pour ajouter la vidéo</em>
-      <%= simple_form_for([@project, @block]) do |f| %>
-      <%= f.input :content, required: true %>
-      <%= f.input :photo, as: :file %>
-      <%= f.input :audio, as: :file %>
-      <%= f.input :private %>
-      <%= f.button :submit, class:"btn btn-primary", remote: true %>
-      <% end %>
-    </div>
-    </div>
-    </div>
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
@@ -115,3 +97,19 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 block_add">
+      <h3>Ajouter un bloc</h3>
+      <em style="color: #D8D8D8">Mettre une url youtube pour ajouter la vidéo</em>
+      <%= simple_form_for([@project, @block]) do |f| %>
+      <%= f.input :content, required: true %>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :audio, as: :file %>
+      <%= f.input :private %>
+      <%= f.button :submit, class:"btn btn-primary", remote: true %>
+      <% end %>
+    </div>
+    </div>
+    </div>

@@ -126,12 +126,21 @@ $colorSecondary: $dark-red;
 }
 
 .collaborationform {
-  width: 30%;
+  width: 45%;
   margin:0 auto;
 }
 
 .block_add {
   margin: 0 auto;
+}
+
+.btn-request-collaboration {
+  margin:0 auto;
+}
+
+.collaborationform {
+  display:flex;
+  flex-direction:column;
 }
 
 @include btn__split($colorPrimary, $colorSecondary, $white);
