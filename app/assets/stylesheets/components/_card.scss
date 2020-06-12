@@ -44,10 +44,11 @@
   width: 450px;
   border-radius: 5px;
   box-shadow: 0 2px 1px rgba(0,0,0, .2);
+  background-color: #ffffff;
 }
 
 .card-images{
-  background-image: url("https://res.cloudinary.com/clem/image/upload/c_scale,h_210,w_450/v1591819744/blue-orange-and-white-abstract-painting-1183992_pqc0ug.jpg");
+  background-image: url("https://source.unsplash.com/random/450x210");
   opacity: 0.8;
   height: 210px;
   background-position: center;
@@ -55,13 +56,7 @@
 }
 
 .card-content{
-  background-color: $white;
   margin: 10px;
-}
-
-.card a {
-text-decoration: none;
-color: red;
 }
 
 .card-localisation{

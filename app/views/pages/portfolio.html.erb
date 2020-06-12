@@ -1,7 +1,7 @@
 <div class="container-profile-page d-flex">
   <div class="profile-page-left d-flex flex-column align-items-center justify-content-around">
     <div class="avatar-large"></div>
-    <h4>USERNAME</h4>
+    <h4 class="profile-page-username">USERNAME</h4>
     <p>Localisation</p>
     <input type="text" placeholder="Description / Bio" id="input-bio">
     <p>Compétences</p>
@@ -11,27 +11,56 @@
 
   <div class="profile-page-right d-flex flex-column align-items-center">
     <div class="buttons-profile d-flex justify-content-around">
-      <button class="btn-profile-portfolio">
+      <button class="btn-profile-portfolio btn-profile-active">
         PORTFOLIO
         <div class="btn-profile-portfolio__horizontal"></div>
         <div class="btn-profile-portfolio__vertical"></div>
       </button>
-      <button class="btn-profile-projects">
+      <button class="btn-profile-projects btn-profile-inactive">
         PROJETS
         <div class="btn-profile-projects__horizontal"></div>
         <div class="btn-profile-projects__vertical"></div>
       </button>
     </div>
-    <div class="content-profile d-flex">
-      <div class="image1"></div>
-      <div class="box-images-profile">
-        <div class="image2"></div>
-        <div class="image3"></div>
+    <div class="content-profile">
+      <div class="user-portfolio d-flex">
+        <div class="image1"></div>
+        <div class="box-images-profile">
+          <div class="image2"></div>
+          <div class="image3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="user-projects hidden">
+      <div class="content-profile-projects">
+        <h2>PROJETS</h2>
+        <div class="cards-projects-profile">
+          <% Project.all.sample(4).each do |project| %>
+            <div class="card">
+             <div class="card-images d-flex flex-column justify-content-between">
+               <div class="card-images-element-top">
+                  <i class="far fa-heart"></i>
+                </div>
+               <div class="card-images-elements-bottom d-flex justify-content-between">
+                  <i class="fas fa-record-vinyl"></i>
+                  <div class="avatar-card"></div>
+               </div>
+             </div>
+             <div class="card-content">
+              <h4 class="card-title"><%= project.title %></h4>
+              <p><%= project.description %></p>
+              <p class="card-localisation"><%= project.address %></p>
+            </div>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
+
 </div>
 
+
+
 <% @blocks.each do |block| %>
-    <%= block.content %>
-    <% end%>
+<%= block.content %>
+<% end%>
