@@ -3,10 +3,12 @@
 }
 .user-project-avatar{
   border-radius: 50px;
+  margin-top:7px;
+  margin-left:10px;
 }
 
 .username-align-show{
-  margin: 5px;
+  margin: 5px 0;
 }
 
 .show-projet-top-left-likes{
@@ -25,11 +27,17 @@
 }
 .statut-collab-projet{
   font-size: 14px;
-  margin-top: 15px;
+  padding:25px;
+  margin:10px 30px 0 0;
 }
 .show-projet-top-left-title{
   color: $dark-red;
 }
+
+.show-projet-top-left-title h2{
+  margin-right: 75px;
+}
+
 .show-projet-top-left-user{
   align-self: flex-start;
   margin-right: 15px;
@@ -48,7 +56,7 @@
 }
 .effect-button-collaborate-content{
   width: auto;
-  margin: auto;
+  margin-top: 25px;
 }
 
 .title-btn-effect {
@@ -66,6 +74,7 @@ $red: #F3164A;
 $dark-red: #A30B37;
 $colorPrimary: $red;
 $colorSecondary: $dark-red;
+
 
 //split button mixin
 @mixin btn__split($colorLeft, $colorRight, $white) {
@@ -116,8 +125,22 @@ $colorSecondary: $dark-red;
   }
 }
 
+.collaborationform {
+  width: 45%;
+  margin:0 auto;
+}
+
 .block_add {
   margin: 0 auto;
+}
+
+.btn-request-collaboration {
+  margin:0 auto;
+}
+
+.collaborationform {
+  display:flex;
+  flex-direction:column;
 }
 
 @include btn__split($colorPrimary, $colorSecondary, $white);
@@ -125,3 +148,6 @@ $colorSecondary: $dark-red;
 lite-youtube {
   height: 45vh;
 }
+
+
+

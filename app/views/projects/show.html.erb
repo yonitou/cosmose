@@ -1,6 +1,6 @@
 <div class="show-project-hero d-flex justify-content-between">
   <div class="show-projet-top-left">
-    <div class="show-projet-top-left-title d-flex justify-content-between align-items-center">
+    <div class="show-projet-top-left-title d-flex align-items-center">
       <h2><%= @project.title %></h2>
       <div class="show-projet-top-left-likes d-flex align-items-center">
         <% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
@@ -12,9 +12,9 @@
         <%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
       </div>
     </div>
-    <div class="show-projet-top-left-content d-flex  justify-content-between">
+    <div class="show-projet-top-left-content d-flex  justify-content-between mt-2">
       <div class="show-projet-top-left-user d-flex align-items-center">
-        <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"40px", height:"40px", alt: "avatar", class:"user-project-avatar" %>
+        <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
       </div>
       <div class="show-hero-info d-flex flex-column">
         <p class="username-align-show"><%= link_to @project.user.username, project_path %> + collaborateurs</p>
@@ -44,14 +44,12 @@
   </div>
 </div>
       <% unless policy(@project).update? %>
-      <h2 class="text-center">Demande de collaboration</h2>
+      <h3 class="text-center">Demande de collaboration</h3>
         <%= simple_form_for [@project, @collaboration], html: { class: "collaborationform"}  do |f| -%>
             <%= f.input :request_content, label: false %>
-        <%= f.button :submit, "Envoyer" , class:"btn btn-primary" %>
+        <%= f.button :submit, "Envoyer" , class:"btn btn-primary btn-request-collaboration" %>
         <% end %>
         <% end %>
-
-<%= @project.finished %>
 
           <% if policy(@project).update? %>
           <% @requests.each do |request| %>
@@ -72,24 +70,6 @@
             <% end %>
             <% end %>
 
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 block_add">
-      <h3>Ajouter un bloc</h3>
-      <em style="color: #D8D8D8">Mettre une url youtube pour ajouter la vidéo</em>
-      <%= simple_form_for([@project, @block]) do |f| %>
-      <%= f.input :content, required: true %>
-      <%= f.input :photo, as: :file %>
-      <%= f.input :audio, as: :file %>
-      <%= f.input :private %>
-      <%= f.button :submit, class:"btn btn-primary", remote: true %>
-      <% end %>
-    </div>
-    </div>
-    </div>
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
@@ -117,3 +97,19 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 block_add">
+      <h3>Ajouter un bloc</h3>
+      <em style="color: #D8D8D8">Mettre une url youtube pour ajouter la vidéo</em>
+      <%= simple_form_for([@project, @block]) do |f| %>
+      <%= f.input :content, required: true %>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :audio, as: :file %>
+      <%= f.input :private %>
+      <%= f.button :submit, class:"btn btn-primary", remote: true %>
+      <% end %>
+    </div>
+    </div>
+    </div>
