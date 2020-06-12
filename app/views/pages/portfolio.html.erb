@@ -1,12 +1,16 @@
 <div class="container-profile-page d-flex">
   <div class="profile-page-left d-flex flex-column align-items-center justify-content-around">
     <div class="avatar-large"></div>
-    <h4 class="profile-page-username">USERNAME</h4>
-    <p>Localisation</p>
-    <input type="text" placeholder="Description / Bio" id="input-bio">
-    <p>Compétences</p>
+    <h4 class="profile-page-username"><%= current_user.username %></h4>
+    <p><%= current_user.address %></p>
+    <p><%= current_user.bio %></p>
+    <ul>
+      <% current_user.competences.each do |competence| %>
+      <li><%= competence %></li>
+      <% end %>
+    </ul>
     <button class="btn btn-primary">MESSAGE</button>
-    <button class="btn btn-secondary">EDIT</button>
+    <%= link_to "Éditer le profil", edit_user_registration_path(current_user), class:"btn btn-secondary" %>
   </div>
 
   <div class="profile-page-right d-flex flex-column align-items-center">
@@ -34,7 +38,8 @@
     <div class="user-projects hidden">
       <div class="content-profile-projects">
         <div class="cards-projects-profile">
-          <% Project.all.sample(4).each do |project| %>
+          <% current_user.projects.each do |project| %>
+          <%= link_to project_path(project) do %>
             <div class="card">
               <div class="card-images d-flex flex-column justify-content-between">
                 <div class="card-images-element-top">
@@ -51,6 +56,7 @@
                 <p class="card-localisation"><%= project.address %></p>
               </div>
             </div>
+            <% end %>
           <% end %>
         </div>
       </div>
