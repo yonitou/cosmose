@@ -31,17 +31,15 @@
       <div class="effect-button-collaborate-content">
         <a href="#" class="btn title-btn-effect btn-effect-split">COLLABORER</a>
       </div>
-    </div><br/>
-    <% if policy(@project).update? %>
-  <%= link_to "Modifier le projet", edit_project_path(@project), remote: true, class:"btn btn-outline-primary" %>
-  <% end %>
-  <% if policy(@project).destroy? %>
-  <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-outline-primary"%>
-  <% end %>
-    <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
-    <% else %>
-    <p class="statut-collab-projet">Ce projet est privé</p>
+    </div>
     <% end %>
+    <% if policy(@project).update? %>
+    <%= link_to "Modifier le projet", edit_project_path(@project), remote: true, class:"btn btn-outline-primary" %>
+    <% end %>
+    <% if policy(@project).destroy? %>
+    <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-outline-primary"%>
+    <% end %>
+    <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
   </div>
 </div>
 <% unless policy(@project).update? %>
@@ -71,7 +69,7 @@
 <% end %>
 <% end %>
 
-<hr/>
+<hr />
 
 <div class="container blocks blocks-public">
   <div class="row">
@@ -83,7 +81,7 @@
     </div>
   </div>
 </div>
-<hr/>
+<hr />
 <% if !current_user.visitor?(@project) %>
 <div class="container blocks blocks-private">
   <div class="row">
@@ -99,7 +97,7 @@
 <div class="container">
   <div class="row">
     <div class="block_add d-flex">
-      <p class="btn btn-primary cta_add_block">Ajouter un bloc</p><br/>
+      <p class="btn btn-primary cta_add_block">Ajouter un bloc</p><br />
       <%= simple_form_for([@project, @block]) do |f| %>
       <%= f.input :content, required: true %>
       <p><em style="color: #D8D8D8">Mettre une url youtube pour ajouter une vidéo</em></p>
