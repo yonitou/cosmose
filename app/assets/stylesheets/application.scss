@@ -12,4 +12,6 @@
 @import "components/index";
 @import "pages/index";
 
-
+label {
+  font-family: $body-font;
+}
