@@ -1,72 +1,74 @@
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
-  .navbar-current-user > .btn-primary {
-    width: 240px;
-  }
+    .navbar-current-user > .btn-primary {
+        width: 240px;
+    }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  .navbar-current-user > .btn-primary {
-    width: 260px;
-  }
+    .navbar-current-user > .btn-primary {
+        width: 260px;
+    }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-  .navbar-current-user > .btn-primary {
-    width: 2800px;
-  }
+    .navbar-current-user > .btn-primary {
+        width: 2800px;
+    }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  .navbar-current-user > .btn-primary {
-    width: 300px;
-  }
+    .navbar-current-user > .btn-primary {
+        width: 300px;
+    }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  .navbar-current-user > .btn-primary {
-
-  }
+    .navbar-current-user > .btn-primary {}
 }
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: transparent;
-  a{
-    font-size: 25px;
-  }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+
+    a {
+        font-size: 25px;
+    }
 }
 
 // LOGGED
 
-.navbar-current-user{
-  padding: 20px 30px;
-  background-color: #ffffff;
+.navbar-current-user {
+    padding: 20px 30px;
+    background-color: #ffffff;
 
-  .btn-primary{
-    font-size: 18px;
-  }
+    .btn-primary {
+        font-size: 18px;
+    }
 }
-.navbar-logged-buttons{
-  width: 110px;
-  vertical-align: center;
+
+.navbar-logged-buttons {
+    width: 110px;
+    vertical-align: center;
 }
+
 .dropdown-menu {
-  color: $dark;
-  margin-left: -120px;
-  background-color: $white;
+    color: $dark;
+    margin-left: -120px;
+    background-color: $white;
 }
 
 .dropdown-menu > a {
-  color: $dark;
-  font-family: $body-font;
+    color: $dark;
+    font-family: $body-font;
 }
-.dropdown-item{
-  font-size: 14px!important;
+
+.dropdown-item {
+    font-size: 14px !important;
 }

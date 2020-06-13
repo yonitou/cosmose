@@ -56,4 +56,3 @@ class ProjectsController < ApplicationController
     params.require(:project).permit(:title, :description, :address, :open_to_collab, :finished, categories: [])
   end
 end
-

@@ -1,6 +1,6 @@
 <div class="show-project-hero d-flex justify-content-between">
   <div class="show-projet-top-left">
-    <div class="show-projet-top-left-title d-flex align-items-center">
+    <div class="show-projet-top-left-title">
       <h2><%= @project.title %></h2>
       <div class="show-projet-top-left-likes d-flex align-items-center">
         <% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
@@ -12,24 +12,26 @@
         <%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
       </div>
     </div>
-    <div class="show-projet-top-left-content d-flex  justify-content-between mt-2">
+    <div class="show-projet-top-left-content d-flex mt-2">
       <div class="show-projet-top-left-user d-flex align-items-center">
         <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
       </div>
       <div class="show-hero-info d-flex flex-column">
         <p class="username-align-show"><%= link_to @project.user.username, project_path %> + collaborateurs</p>
         <p class="username-align-show"><%= @project.description %></p>
-        <p class="username-align-show"><%= @project.categories[0] %></p>
+        <div class="username-align-show">
+      <%  @project.categories.each do |categorie|%>
+      <p class="badge badge-pill badge-danger"> <%= categorie %> </p>
+      <% end %>
       </div>
-
+      </div>
     </div>
   </div>
-
   <div class="show-projet-top-right">
     <% if @project.open_to_collab == true && current_user.visitor?(@project)%>
     <div class="effect-button-collaborate">
       <div class="effect-button-collaborate-content">
-        <a href="#" class="btn title-btn-effect btn-effect-split">COLLABORER</a>
+        <a class="btn title-btn-effect btn-effect-split collaborer-btn">COLLABORER</a>
       </div>
     </div>
     <% end %>
@@ -43,19 +45,20 @@
   </div>
 </div>
 <% unless policy(@project).update? %>
+<div class="request-collaboration d-none">
 <h3 class="text-center">Demande de collaboration</h3>
 <%= simple_form_for [@project, @collaboration], html: { class: "collaborationform"}  do |f| -%>
-<%= f.input :request_content, label: false %>
+<%= f.input :request_content, label: :Message %>
 <%= f.button :submit, "Envoyer" , class:"btn btn-primary btn-request-collaboration" %>
 <% end %>
-<% end %>
 
-<% if policy(@project).update? %>
+<% end %>
+</div>
+
 <% @requests.each do |request| %>
+<% if policy(@project).destroy? %>
 <span class="pl-2"><%= request.user.username %></span>
 <p><%= request.request_content %></p>
-
-
 <% if request.status.nil? %>
 <span class="pending"> pending 🕑 </span>
 <% elsif request.status %>
@@ -63,9 +66,13 @@
 <% else %>
 <span class="declined"> declined 😢 </span>
 <% end %>
-
 <%= link_to '<i style="color:red"class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
 <%= link_to '<i style="color:red"class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
+<% end %>
+<% if request.status.nil? && request.user == current_user %>
+<%= request.request_content %>
+<p>Demande en attente</p>
+<%= link_to "Supprimer la demande de collaboration", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-primary" %>
 <% end %>
 <% end %>
 
@@ -87,6 +94,7 @@
           <div class="btn-explorer-projects__vertical"></div>
         </button>
       </div>
+
     </div>
   </div>
 

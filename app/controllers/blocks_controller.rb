@@ -1,5 +1,4 @@
 class BlocksController < ApplicationController
-  
   def create
     @block = Block.new(block_params)
     authorize(@block)
@@ -9,9 +8,7 @@ class BlocksController < ApplicationController
       @block.project_id = params[:project_id]
       @block.user = current_user
     end
-    if @block.save && @block.project_id
-      redirect_to project_path(@block.project_id)
-    end
+    redirect_to project_path(@block.project_id) if @block.save && @block.project_id
   end
 
   def destroy
@@ -29,11 +26,9 @@ class BlocksController < ApplicationController
 
   def check_if_yt
     if @block.content.include?("youtu")
-      regex = /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+      regex = %r{(?:youtube(?:-nocookie)?\.com/(?:[^/\n\s]+/\S+/|(?:v|e(?:mbed)?)/|\S*?[?&]v=)|youtu\.be/)([a-zA-Z0-9_-]{11})}
       match = regex.match(@block.content)
-      if match && !match[1].blank?
-        id = match[1]
-      end
+      id = match[1] if match && !match[1].blank?
       @block.content = "<lite-youtube videoid=#{id}></lite-youtube>"
     elsif @block.content.size < 50 
       @block.content = "<center><h4><mark>#{@block.content}</mark></h4></center>"
