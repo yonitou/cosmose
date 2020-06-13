@@ -38,6 +38,7 @@ import { buttonNextStepProject } from './components/inputs_empty_project_new';
 import { initTypeJs } from './components/type';
 import { portfolioToggle } from './components/portoflio_toggle';
 import { explorerToggle } from './components/explorer_toggle';
+import { buttonCollaborer } from './components/collaborer_form';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
 
@@ -49,5 +50,6 @@ document.addEventListener('turbolinks:load', () => {
   initTypeJs();
   portfolioToggle();
   explorerToggle();
+  buttonCollaborer();
   initAutocomplete();
 });

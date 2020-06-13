@@ -1,11 +1,17 @@
 .show-project-hero {
   padding: 30px;
+  width: 83%;
+  margin: 0 auto;
 }
 
 .user-project-avatar {
   border-radius: 50px;
   margin-top: 7px;
   margin-left: 10px;
+}
+
+.badge-danger {
+  margin-right: 3px;
 }
 
 .username-align-show {
@@ -15,39 +21,39 @@
 .show-projet-top-left-likes {
   width: 100px;
   justify-content: space-between;
+  margin-left: 15px;
 }
 
 .show-projet-top-right {
-  width: 50%;
-  height: 160px;
-  margin-right: 20px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .statut-collab-projet {
   font-size: 14px;
   padding: 25px;
-  margin: 10px 30px 0 0;
+  margin-right: 30px;
+  margin-bottom: 0;
 }
 
 .show-projet-top-left-title {
   color: $dark-red;
+  display:flex;
 }
-
 .show-projet-top-left-title h2 {
-  margin-right: 75px;
+  width:55%;
 }
 
 .show-projet-top-left-user {
   align-self: flex-start;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .show-hero-info {
   padding-top: 5px;
+  width:55%;
 }
 
 .effect-button-collaborate {
@@ -136,9 +142,14 @@ $colorSecondary: $dark-red;
   }
 }
 
+.request-collaboration {
+  background-color: white;
+  padding:15px;
+}
+
 .collaborationform {
   width: 45%;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 
 .block_add {
