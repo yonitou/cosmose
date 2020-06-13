@@ -12,6 +12,11 @@
 @import "components/index";
 @import "pages/index";
 
+
+.main {
+  margin-bottom:130px;
+  background-color:$light-gray;
+}
 label {
   font-family: $body-font;
 }
