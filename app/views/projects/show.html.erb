@@ -69,8 +69,7 @@
 <% end %>
 <% end %>
 
-<hr />
-
+<div class="blocks-bg-white pt-5">
 <div class="container blocks blocks-public">
   <div class="row">
     <div class="blocks">
@@ -81,7 +80,6 @@
     </div>
   </div>
 </div>
-<hr />
 
 <% if !current_user.visitor?(@project) %>
 <div class="container blocks blocks-private">
@@ -98,3 +96,4 @@
 <%= render 'shared/block_form', project: @project, block: @block %>
 
 <% end %>
+</div>

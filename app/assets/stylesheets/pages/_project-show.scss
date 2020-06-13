@@ -141,20 +141,6 @@ $colorSecondary: $dark-red;
   margin: 0 auto;
 }
 
-.block_add {
-  margin: 0 auto;
-  flex-direction: column;
-  align-items: center;
-
-  .cta_add_block:hover > .fas {
-    color: white;
-  }
-
-  .fa-plus-circle {
-    color:$dark-red;
-    font-size: inherit;
-  }
-}
 
 .btn-request-collaboration {
   margin: 0 auto;
@@ -166,9 +152,3 @@ $colorSecondary: $dark-red;
 }
 
 @include btn__split($colorPrimary, $colorSecondary, $white);
-
-
-
-#new_block {
-  padding-bottom: 3rem;
-}

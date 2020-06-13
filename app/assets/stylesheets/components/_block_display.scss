@@ -16,7 +16,13 @@ lite-youtube {
     padding: 10px;
   }
 
-  img {
+  img, audio {
     width: 100%;
   }
+
+}
+
+.blocks-bg-white {
+  width: 100vw;
+  background-color: white;
 }
