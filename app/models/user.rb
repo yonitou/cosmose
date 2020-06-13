@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :blocks, dependent: :destroy
   has_many :collaborations
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   def competences_not_empty
     competences.delete("")
