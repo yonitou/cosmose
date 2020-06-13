@@ -12,6 +12,10 @@ class BlocksController < ApplicationController
   end
 
   def destroy
+    @block = Block.find(params[:id])
+    authorize(@block)
+    @block.destroy
+    redirect_to request.referer
   end
 
   private
@@ -26,6 +30,9 @@ class BlocksController < ApplicationController
       match = regex.match(@block.content)
       id = match[1] if match && !match[1].blank?
       @block.content = "<lite-youtube videoid=#{id}></lite-youtube>"
+    elsif @block.content.size < 50 
+      @block.content = "<center><h4><mark>#{@block.content}</mark></h4></center>"
+    else @block.content = "<center><p class='lead'>#{@block.content}</p></center>"
     end
   end
 end

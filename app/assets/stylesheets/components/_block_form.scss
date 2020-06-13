@@ -1,0 +1,45 @@
+.block_add {
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+
+  .cta_add_block:hover>.fas {
+    color: white;
+  }
+
+  .fa-plus-circle {
+    color: $dark-red;
+    font-size: inherit;
+  }
+}
+
+#new_block {
+  padding-bottom: 3rem;
+
+  hr {
+    margin: 0 auto 1.8rem;
+    width: 33%;
+  }
+
+  *::placeholder {
+    color: #b8b8b8;
+    font-family: "Arvo" !important;
+    font-size: .7rem;
+    font-weight: normal;
+  }
+
+  .block-private {
+    align-items: center;
+  }
+
+  .add-block-ctas {
+    margin-top: 1.8rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  #submit-block {
+    font-size: 16px !important;
+    margin-right: 2rem;
+  }
+}
