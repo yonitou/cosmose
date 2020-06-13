@@ -39,6 +39,7 @@ import { initTypeJs } from './components/type';
 import { portfolioToggle } from './components/portoflio_toggle';
 import { explorerToggle } from './components/explorer_toggle';
 import { blockForm } from './components/block_form';
+import { projectToggle } from './components/project_toggle';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -50,4 +51,6 @@ document.addEventListener('turbolinks:load', () => {
   portfolioToggle();
   explorerToggle();
   blockForm();
+  projectToggle();
+
 });
