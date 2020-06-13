@@ -31,6 +31,9 @@ class BlocksController < ApplicationController
         id = match[1]
       end
       @block.content = "<lite-youtube videoid=#{id}></lite-youtube>"
+    elsif @block.content.size < 50 
+      @block.content = "<center><h4><mark>#{@block.content}</mark></h4></center>"
+    else @block.content = "<center><p class='lead'>#{@block.content}</p></center>"
     end
   end
 end

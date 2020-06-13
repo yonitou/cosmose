@@ -16,10 +16,23 @@ lite-youtube {
     padding: 10px;
   }
 
-  img, audio {
-    width: 100%;
+  .block-text {
+    text-align: center;
   }
 
+  .block-audio {
+    margin: auto;
+  }
+
+  img,
+  audio {
+    width: 100%;
+    align-self: center;
+  }
+
+  .lead {
+    color: $dark-red;
+  }
 }
 
 .blocks-bg-white {

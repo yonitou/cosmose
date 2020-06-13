@@ -16,6 +16,11 @@
 #new_block {
   padding-bottom: 3rem;
 
+  hr {
+    margin: 0 auto 1.8rem;
+    width: 33%;
+  }
+
   *::placeholder {
     color: #b8b8b8;
     font-family: "Arvo" !important;
@@ -27,7 +32,14 @@
     align-items: center;
   }
 
+  .add-block-ctas {
+    margin-top: 1.8rem;
+    display: flex;
+    justify-content: center;
+  }
+
   #submit-block {
     font-size: 16px !important;
+    margin-right: 2rem;
   }
 }

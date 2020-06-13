@@ -18,4 +18,6 @@ const blockForm = () => {
   };
 };
 
-export { blockForm };
+export {
+  blockForm
+};
