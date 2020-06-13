@@ -9,7 +9,6 @@ class UserLikePolicy < ApplicationPolicy
     true
   end
 
-
   def destroy?
     true
   end

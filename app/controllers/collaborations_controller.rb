@@ -22,14 +22,14 @@ class CollaborationsController < ApplicationController
   def accept
     @collaboration = Collaboration.find(params[:id])
 
-      if @collaboration.status
-        redirect_to project_path(@project)
+    if @collaboration.status
+      redirect_to project_path(@project)
     else
       @collaboration.status = true
       authorize(@collaboration)
       @collaboration.save
       redirect_to project_path(@project)
-    end
+  end
   end
 
   def decline
@@ -53,7 +53,6 @@ class CollaborationsController < ApplicationController
   def collaboration_params
     params.require(:collaboration).permit(:request_content, :status)
   end
-
 
   def set_project
     @project = Project.find(params[:project_id])
