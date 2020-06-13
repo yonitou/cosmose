@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
   resources :notifications, only: [:index]
   resources :blocks, only: [:create, :destroy]
+  resources :users, only: [:show]
 
 end

@@ -17,7 +17,7 @@
         <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
       </div>
       <div class="show-hero-info d-flex flex-column">
-        <p class="username-align-show"><%= link_to @project.user.username, project_path %> + collaborateurs</p>
+        <p class="username-align-show"><%= link_to @project.user.username, user_path(@project.user) %> + collaborateurs</p>
         <p class="username-align-show"><%= @project.description %></p>
         <div class="username-align-show">
       <%  @project.categories.each do |categorie|%>
@@ -79,7 +79,7 @@
 <div class="blocks-bg-white pt-5">
 
   <% if !current_user.visitor?(@project) %>
-  
+
   <div class="container project-toggle">
     <div class="row justify-content-center">
       <div class="explorer-choice d-flex justify-content-between align-items-center">
