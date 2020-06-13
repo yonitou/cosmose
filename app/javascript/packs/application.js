@@ -38,6 +38,7 @@ import { buttonNextStepProject } from './components/inputs_empty_project_new';
 import { initTypeJs } from './components/type';
 import { portfolioToggle } from './components/portoflio_toggle';
 import { explorerToggle } from './components/explorer_toggle';
+import { block_form } from './components/block_form';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -48,4 +49,5 @@ document.addEventListener('turbolinks:load', () => {
   initTypeJs();
   portfolioToggle();
   explorerToggle();
+  block_form();
 });
