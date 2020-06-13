@@ -31,8 +31,8 @@
       </div>
     </div>
     <% end %>
-    <% if policy(@project).update? %>
-    <%= link_to "Modifier le projet", edit_project_path(@project), remote: true, class:"btn btn-outline-primary" %>
+    <% if policy(@project).update?%>
+    <%= link_to "Modifier le projet", edit_project_path(@project), class:"btn btn-outline-primary" %>
     <% end %>
     <% if policy(@project).destroy? %>
     <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-outline-primary"%>

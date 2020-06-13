@@ -27,8 +27,13 @@ class ProjectsController < ApplicationController
 
   def update
     @project.update(project_params)
-    flash[:notice] = 'Projet mis à jour !'
-    redirect_to project_path(@project)
+    if @project.save
+      flash[:notice] = 'Projet mis à jour !'
+      redirect_to project_path(@project)
+    else
+      flash[:alert] = 'Erreur lors de la création'
+      render :edit
+    end
   end
 
   def show
@@ -50,6 +55,7 @@ class ProjectsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:id])
+    authorize(@project)
   end
 
   def project_params
