@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :user_likes, only: [:create, :destroy]
-    resources :blocks, only: [:create, :destroy]
+    resources :blocks, only: [:create]
     resources :collaborations, only: [ :create, :destroy]
     patch 'collaborations/:id/accept', to: 'collaborations#accept', as: 'accept_collaboration'
     patch 'collaborations/:id/decline', to: 'collaborations#decline', as: 'decline_collaboration'
@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get '/portfolio', to: 'pages#portfolio'
 
   resources :notifications, only: [:index]
+  resources :blocks, only: [:create, :destroy]
 
 end

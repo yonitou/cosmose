@@ -1,18 +1,39 @@
 <% if block.upload.attached? %>
   <% if block.upload.image? %>
-    <div class="col-6 block block-img">
+  <div class="col-6 block block-img">
+    <% if policy(block).destroy? %>
+      <span class="block-destroy">
+        <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
+      </span>
+    <% end %>
+    <div class="block-content">
       <%= image_tag(block.upload, width: "auto") %>
-      <center class="img-legend"><%= block.content.html_safe %></center>
+        <center class="img-legend"><%= block.content.html_safe %></center>
     </div>
+  </div>
   <% elsif block.upload.audio? %>
-    <div class="col-6 block block-audio">
-    <audio controls="true" preload="true">
-      <source src="<%= url_for(block.upload) %>%" type='audio/mpeg'>
-    </audio>
+  <div class="col-6 block block-audio">
+    <% if policy(block).destroy? %>
+      <span class="block-destroy">
+        <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
+      </span>
+    <% end %>
+    <div class="block-content">
+      <audio controls="true" preload="true">
+        <source src="<%= url_for(block.upload) %>%" type='audio/mpeg'>
+      </audio>
     </div>
+  </div>
   <% end %>
 <% else %>
-<div class="col-6">
-<%= block.content.html_safe %>
-</div>
+  <div class="col-6">
+    <% if policy(block).destroy? %>
+      <span class="block-destroy">
+        <%= link_to '<i class="fas fa-trash-alt"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
+      </span>
+    <% end %>
+    <div class="block-content">
+      <%= block.content.html_safe %>
+    </div>
+  </div>
 <% end %>

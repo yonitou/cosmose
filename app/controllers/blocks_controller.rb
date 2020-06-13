@@ -15,6 +15,10 @@ class BlocksController < ApplicationController
   end
 
   def destroy
+    @block = Block.find(params[:id])
+    authorize(@block)
+    @block.destroy
+    redirect_to request.referer
   end
 
   private
