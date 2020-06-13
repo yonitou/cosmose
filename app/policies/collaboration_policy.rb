@@ -22,6 +22,6 @@ class CollaborationPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.project.user == user
+    record.user == user
   end
 end

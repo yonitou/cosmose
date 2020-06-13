@@ -46,9 +46,11 @@
 <%= f.input :request_content, label: false %>
 <%= f.button :submit, "Envoyer" , class:"btn btn-primary btn-request-collaboration" %>
 <% end %>
+
 <% end %>
-<% if policy(@project).update? %>
+
 <% @requests.each do |request| %>
+<% if policy(@project).destroy? %>
 <span class="pl-2"><%= request.user.username %></span>
 <p><%= request.request_content %></p>
 <% if request.status.nil? %>
@@ -61,7 +63,11 @@
 <%= link_to '<i style="color:red"class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
 <%= link_to '<i style="color:red"class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
 <% end %>
+<% if request.status.nil? && request.user == current_user %>
+<%= link_to "Supprimer la demande", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-primary" %>
 <% end %>
+<% end %>
+
 <hr />
 <div class="container blocks blocks-public">
   <div class="row">

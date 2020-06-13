@@ -29,7 +29,7 @@ class CollaborationsController < ApplicationController
       authorize(@collaboration)
       @collaboration.save
       redirect_to project_path(@project)
-  end
+    end
   end
 
   def decline
@@ -45,7 +45,7 @@ class CollaborationsController < ApplicationController
     authorize(@collaboration)
     @collaboration.destroy
     flash[:notice] = 'Demande supprimée !'
-    redirect_to :portfolio
+    redirect_to project_path(@project)
   end
 
   private
