@@ -64,7 +64,9 @@
 <%= link_to '<i style="color:red"class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
 <% end %>
 <% if request.status.nil? && request.user == current_user %>
-<%= link_to "Supprimer la demande", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-primary" %>
+<%= request.request_content %>
+<p>Demande en attente</p>
+<%= link_to "Supprimer la demande de collaboration", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-primary" %>
 <% end %>
 <% end %>
 
