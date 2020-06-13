@@ -154,7 +154,6 @@ $colorSecondary: $dark-red;
     color:$dark-red;
     font-size: inherit;
   }
-
 }
 
 .btn-request-collaboration {
@@ -168,24 +167,8 @@ $colorSecondary: $dark-red;
 
 @include btn__split($colorPrimary, $colorSecondary, $white);
 
-lite-youtube {
-  height: 20vw;
-}
 
-.blocks {
-  width: 80vw;
-  display: flex;
-  flex-wrap: wrap;
 
-  h3 {
-    margin: 0 auto;
-    padding-bottom: 25px;
-  }
-
-  .block {
-    padding: 10px;
-  }
-  img {
-    width: 100%;
-  }
+#new_block {
+  padding-bottom: 3rem;
 }

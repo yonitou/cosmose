@@ -1,0 +1,22 @@
+lite-youtube {
+  height: 20vw;
+}
+
+.blocks {
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+
+  h3 {
+    margin: 0 auto;
+    padding-bottom: 25px;
+  }
+
+  .block {
+    padding: 10px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
