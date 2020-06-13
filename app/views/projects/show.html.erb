@@ -76,41 +76,56 @@
 <% end %>
 <% end %>
 
-<hr />
-<div class="container blocks blocks-public">
-  <div class="row">
-    <div class="blocks">
-      <% @public_blocks.each do |block| %>
-      <%= render 'shared/block_display', block: block %>
-      <hr />
-      <% end %>
+<div class="blocks-bg-white pt-5">
+
+  <% if !current_user.visitor?(@project) %>
+  
+  <div class="container project-toggle">
+    <div class="row justify-content-center">
+      <div class="explorer-choice d-flex justify-content-between align-items-center">
+        <button class="btn-explorer-artists btn-explorer-active toggle-public">
+          PUBLIC
+          <div class="btn-explorer-artists__horizontal"></div>
+          <div class="btn-explorer-artists__vertical"></div>
+        </button>
+        <button class="btn-explorer-projects btn-explorer-inactive toggle-private">
+          PRIVÉ
+          <div class="btn-explorer-projects__horizontal"></div>
+          <div class="btn-explorer-projects__vertical"></div>
+        </button>
+      </div>
+
     </div>
   </div>
-</div>
-<hr />
-<% if !current_user.visitor?(@project) %>
-<div class="container blocks blocks-private">
-  <div class="row">
-    <div class="blocks">
-      <% @private_blocks.each do |block| %>
-      <%= render 'shared/block_display', block: block %>
-      <hr />
-      <% end %>
+
+  <div class="container blocks blocks-private hidden">
+    <div class="row">
+      <div class="blocks">
+        <% @private_blocks.each do |block| %>
+        <%= render 'shared/block_display', block: block %>
+        <hr />
+        <% end %>
+      </div>
     </div>
   </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="block_add d-flex">
-      <p class="btn btn-primary cta_add_block">Ajouter un bloc</p><br />
-      <%= simple_form_for([@project, @block]) do |f| %>
-      <%= f.input :content, required: true %>
-      <p><em style="color: #D8D8D8">Mettre une url youtube pour ajouter une vidéo</em></p>
-      <%= f.input :upload, as: :file %>
-      <%= f.input :private %>
-      <%= f.button :submit, class:"btn btn-primary", remote: true %>
-      <% end %>
+
+  <% end %>
+
+  <div class="container blocks blocks-public">
+    <div class="row">
+      <div class="blocks">
+        <% @public_blocks.each do |block| %>
+        <%= render 'shared/block_display', block: block %>
+        <hr />
+        <% end %>
+      </div>
     </div>
   </div>
+
+  <% if !current_user.visitor?(@project) %>
+
+  <%= render 'shared/block_form', project: @project, block: @block %>
+
+  <% end %>
+
 </div>
-<% end %>

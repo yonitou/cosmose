@@ -38,8 +38,11 @@ import { buttonNextStepProject } from './components/inputs_empty_project_new';
 import { initTypeJs } from './components/type';
 import { portfolioToggle } from './components/portoflio_toggle';
 import { explorerToggle } from './components/explorer_toggle';
+import { blockForm } from './components/block_form';
+import { projectToggle } from './components/project_toggle';
 import { buttonCollaborer } from './components/collaborer_form';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -50,6 +53,8 @@ document.addEventListener('turbolinks:load', () => {
   initTypeJs();
   portfolioToggle();
   explorerToggle();
+  blockForm();
+  projectToggle();
   buttonCollaborer();
   initAutocomplete();
 });

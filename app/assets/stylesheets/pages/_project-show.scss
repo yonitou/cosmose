@@ -152,11 +152,6 @@ $colorSecondary: $dark-red;
   margin: 10px auto;
 }
 
-.block_add {
-  margin: 0 auto;
-  flex-direction: column;
-  align-items: center;
-}
 
 .btn-request-collaboration {
   margin: 0 auto;
@@ -168,25 +163,3 @@ $colorSecondary: $dark-red;
 }
 
 @include btn__split($colorPrimary, $colorSecondary, $white);
-
-lite-youtube {
-  height: 100%;
-}
-
-.blocks {
-  width: 80vw;
-  display: flex;
-  flex-wrap: wrap;
-
-  h3 {
-    margin: 0 auto;
-    padding-bottom: 25px;
-  }
-
-  .block {
-    padding: 10px;
-  }
-  img {
-    width: 100%;
-  }
-}
