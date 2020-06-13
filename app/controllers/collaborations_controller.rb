@@ -22,8 +22,8 @@ class CollaborationsController < ApplicationController
   def accept
     @collaboration = Collaboration.find(params[:id])
 
-      if @collaboration.status
-        redirect_to project_path(@project)
+    if @collaboration.status
+      redirect_to project_path(@project)
     else
       @collaboration.status = true
       authorize(@collaboration)
@@ -45,7 +45,7 @@ class CollaborationsController < ApplicationController
     authorize(@collaboration)
     @collaboration.destroy
     flash[:notice] = 'Demande supprimée !'
-    redirect_to :portfolio
+    redirect_to project_path(@project)
   end
 
   private
@@ -53,7 +53,6 @@ class CollaborationsController < ApplicationController
   def collaboration_params
     params.require(:collaboration).permit(:request_content, :status)
   end
-
 
   def set_project
     @project = Project.find(params[:project_id])

@@ -2,34 +2,34 @@
 <div class="registration-new">
   <h1>Sign up</h1>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
+  <%= f.error_notification %>
   <div class="form-inputs">
     <div class="registration-new-first-part">
       <%= f.input :email,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email", class: "required-inputs-registration" } %>
+      required: true,
+      autofocus: true,
+      input_html: { autocomplete: "email", class: "required-inputs-registration" } %>
       <%= f.input :password,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password",class: "required-inputs-registration" }
-                  %>
+      required: true,
+      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+      input_html: { autocomplete: "new-password",class: "required-inputs-registration" }
+      %>
       <%= f.input :password_confirmation,
-                  required: true,
-                  input_html: { autocomplete: "new-password", class: "required-inputs-registration" }
-                  %>
+      required: true,
+      input_html: { autocomplete: "new-password", class: "required-inputs-registration" }
+      %>
       <%= f.input :username,
-                  required: true,
-                  input_html: { autocomplete: "username", class: "required-inputs-registration" }
-                  %>
+      required: true,
+      input_html: { autocomplete: "username", class: "required-inputs-registration" }
+      %>
       <%= f.input :first_name,
-                  required: true,
-                  input_html: { autocomplete: "first_name", class: "required-inputs-registration" }
-                  %>
+      required: true,
+      input_html: { autocomplete: "first_name", class: "required-inputs-registration" }
+      %>
       <%= f.input :last_name,
-                  required: true,
-                  input_html: { autocomplete: "last_name", class: "required-inputs-registration" }
-                  %>
+      required: true,
+      input_html: { autocomplete: "last_name", class: "required-inputs-registration" }
+      %>
       <h2 class="next-step-button-registration btn btn-primary <%= should_display_all ? 'd-none' : '' %> ">Suivant</h2>
     </div>
     <div class="registration-new-second-part <%= should_display_all ? '' : 'd-none' %>">
@@ -40,7 +40,7 @@
       <div class="form-actions">
         <%= f.button :submit, "Créer votre compte", class:"btn btn-primary" %>
       </div>
-      </div>
+    </div>
     <% end %>
   </div>
 </div>

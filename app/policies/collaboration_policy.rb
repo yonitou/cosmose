@@ -14,14 +14,14 @@ class CollaborationPolicy < ApplicationPolicy
   end
 
   def accept?
-  record.project.user == user
+    record.project.user == user
   end
 
   def decline?
-   record.project.user == user
+    record.project.user == user
   end
 
   def destroy?
-    record.project.user == user
+    record.user == user
   end
 end

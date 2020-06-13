@@ -25,10 +25,8 @@
       <% end %>
       </div>
       </div>
-
     </div>
   </div>
-
   <div class="show-projet-top-right">
     <% if @project.open_to_collab == true && current_user.visitor?(@project)%>
     <div class="effect-button-collaborate">
@@ -53,15 +51,14 @@
 <%= f.input :request_content, label: :Message %>
 <%= f.button :submit, "Envoyer" , class:"btn btn-primary btn-request-collaboration" %>
 <% end %>
+
 <% end %>
 </div>
 
-<% if policy(@project).update? %>
 <% @requests.each do |request| %>
+<% if policy(@project).destroy? %>
 <span class="pl-2"><%= request.user.username %></span>
 <p><%= request.request_content %></p>
-
-
 <% if request.status.nil? %>
 <span class="pending"> pending 🕑 </span>
 <% elsif request.status %>
@@ -69,14 +66,17 @@
 <% else %>
 <span class="declined"> declined 😢 </span>
 <% end %>
-
 <%= link_to '<i style="color:red"class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
 <%= link_to '<i style="color:red"class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
+<% end %>
+<% if request.status.nil? && request.user == current_user %>
+<%= request.request_content %>
+<p>Demande en attente</p>
+<%= link_to "Supprimer la demande de collaboration", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-primary" %>
 <% end %>
 <% end %>
 
 <hr />
-
 <div class="container blocks blocks-public">
   <div class="row">
     <div class="blocks">
@@ -99,7 +99,6 @@
     </div>
   </div>
 </div>
-
 <div class="container">
   <div class="row">
     <div class="block_add d-flex">

@@ -2,9 +2,9 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   SKILLS_LIST = ["Théâtre de rue", "Arts du Cirque", "Peinture", "Sculpture", "Photographie", "Arts numériques", "Street art",
-                "Graphisme", "Architecture", "Réalisation", "Direction artistique", "Rédaction",
-                "Développement informatique", "Musique", "Danse", "Humour", "Littérature", "Composition", "Chant",
-                "Production événementielle", "Scénographie", "Sérigraphie"]
+                 "Graphisme", "Architecture", "Réalisation", "Direction artistique", "Rédaction",
+                 "Développement informatique", "Musique", "Danse", "Humour", "Littérature", "Composition", "Chant",
+                 "Production événementielle", "Scénographie", "Sérigraphie"]
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -17,19 +17,20 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :blocks, dependent: :destroy
   has_many :collaborations
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   def competences_not_empty
-    self.competences.delete("")
-    errors.add(:competences, 'ne peut pas être vide') if self.competences.length.zero?
+    competences.delete("")
+    errors.add(:competences, 'ne peut pas être vide') if competences.length.zero?
   end
-
 
   def collaborator?(project)
     Collaboration.find_by(project: project, user: self, status: true)
   end
 
   def owner?(project)
-     project.user == self
+    project.user == self
   end
 
   def visitor?(project)
