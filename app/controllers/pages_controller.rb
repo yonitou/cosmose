@@ -5,8 +5,8 @@ class PagesController < ApplicationController
   end
 
   def explorer
-    @projects = Project.all
-    @users = User.all
+    @projects = Project.all.geocoded
+    @users = User.all.geocoded
   end
 
   def portfolio
