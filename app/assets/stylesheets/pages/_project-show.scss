@@ -154,6 +154,7 @@ $colorSecondary: $dark-red;
     color:$dark-red;
     font-size: inherit;
   }
+
 }
 
 .btn-request-collaboration {
@@ -168,7 +169,7 @@ $colorSecondary: $dark-red;
 @include btn__split($colorPrimary, $colorSecondary, $white);
 
 lite-youtube {
-  height: 100%;
+  height: 20vw;
 }
 
 .blocks {

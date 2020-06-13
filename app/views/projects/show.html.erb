@@ -98,8 +98,7 @@
 <div class="container">
   <div class="row">
     <div class="block_add d-flex">
-      <span class="btn btn-outline-primary cta_add_block">Ajouter un bloc <i class="fas fa-plus-circle"></i></span>
-      <span class="btn btn-outline-secondary cta_cancel_block hidden">Annuler</span>
+      <span class="btn btn-outline-primary cta_add_block">Ajouter un bloc </span>
       <br />
       <%= simple_form_for([@project, @block], html: { class: "hidden" }) do |f| %>
       <%= f.input :content, required: true %>
@@ -107,6 +106,7 @@
       <%= f.input :upload, as: :file %>
       <%= f.input :private %>
       <%= f.button :submit, class:"btn btn-primary", remote: true %>
+      <span class="btn btn-outline-secondary cta_cancel_block hidden">Annuler</span>
       <% end %>
     </div>
   </div>
