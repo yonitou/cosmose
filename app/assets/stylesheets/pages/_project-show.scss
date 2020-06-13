@@ -17,6 +17,13 @@
 .username-align-show {
   margin: 5px 0;
 }
+.description-project-show {
+  width:73%;
+}
+
+.show-projet-top-left {
+  width: 50%;
+}
 
 .show-projet-top-left-likes {
   width: 100px;
@@ -53,7 +60,6 @@
 
 .show-hero-info {
   padding-top: 5px;
-  width:55%;
 }
 
 .effect-button-collaborate {
@@ -97,6 +103,7 @@ $colorSecondary: $dark-red;
     background: transparent;
     outline: none;
     font-size: 28px;
+    z-index:1;
 
     &::after,
     &::before {
