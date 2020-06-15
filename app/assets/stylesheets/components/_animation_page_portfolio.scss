@@ -7,77 +7,28 @@
 
 // PORTFOLIO BUTTON
 .btn-explorer-inactive, .btn-profile-inactive {
-    background: transparent;
     color: black;
 }
 
 // PROJECT BUTTON
 .btn-explorer-active, .btn-profile-active {
     background-color: $dark-red !important;
-    color: white !important;
+    color: $white !important;
 }
 
 .btn-explorer-artists, .btn-explorer-projects, .btn-profile-portfolio, .btn-profile-projects {
     margin-bottom: 30px;
-    --offset: 10px;
-    --border-size: 2px;
-    display: block;
-    position: relative;
     padding: 15px;
     border: 0;
     letter-spacing: .25em;
     cursor: pointer;
-    border-radius: 0;
-    box-shadow: inset 0 0 0 var(--border-size) currentcolor;
     transition: background .8s ease;
-
-    &__horizontal,
-    &__vertical {
-        position: absolute;
-        top: var(--horizontal-offset, 0);
-        right: var(--vertical-offset, 0);
-        bottom: var(--horizontal-offset, 0);
-        left: var(--vertical-offset, 0);
-        transition: transform .8s ease;
-
-        &::before {
-            content: '';
-            position: absolute;
-            border: inherit;
-        }
-    }
-
-    &__horizontal {
-        --vertical-offset: calc(var(--offset) * -1);
-        border-top: var(--border-size) solid $dark-red;
-        border-bottom: var(--border-size) solid $dark-red;
-
-        &::before {
-            top: calc(var(--vertical-offset) - var(--border-size));
-            bottom: calc(var(--vertical-offset) - var(--border-size));
-            left: calc(var(--vertical-offset) * -1);
-            right: calc(var(--vertical-offset) * -1);
-        }
-    }
-
-    &:hover &__horizontal {
-        transform: scaleX(0);
-    }
-
-    &__vertical {
-        --horizontal-offset: calc(var(--offset) * -1);
-        border-left: var(--border-size) solid $dark-red;
-        border-right: var(--border-size) solid $dark-red;
-
-        &::before {
-            top: calc(var(--horizontal-offset) * -1);
-            bottom: calc(var(--horizontal-offset) * -1);
-            left: calc(var(--horizontal-offset) - var(--border-size));
-            right: calc(var(--horizontal-offset) - var(--border-size));
-        }
-    }
-
-    &:hover &__vertical {
-        transform: scaleY(0);
-    }
 }
+
+.btn-explorer-artists:hover, .btn-explorer-projects:hover, .btn-profile-portfolio:hover, .btn-profile-projects:hover{
+  background-color: $dark-red;
+  color: $white;
+  transition: background .8s ease;
+}
+
+
