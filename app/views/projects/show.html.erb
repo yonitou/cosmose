@@ -136,7 +136,7 @@
       </div>
     </div>
     <% if !current_user.visitor?(@project) %>
-    <%= render 'shared/block_form', project: @project, block: @block %>
+    <%= render 'shared/project_block_form', project: @project, block: @block %>
     <% end %>
   </div>
 </div>
