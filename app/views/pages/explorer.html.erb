@@ -14,33 +14,37 @@
 </div>
 
 <div class="explorer-display-artists <%= @display_project ? 'hidden-explorer' : ''%>">
-  <%= form_tag explorer_path, method: :get, class: "searchform" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "search-bar",
-    placeholder: "Je cherche un.e ..."
-  %>
+  <div class="explorer-search-bar d-flex">
+    <%= form_tag explorer_path, method: :get, class: "searchform d-flex" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-bar",
+        placeholder: "Je cherche un.e ..."
+      %>
 
-  <%= select_tag :competences, options_for_select(User::SKILLS_LIST.sort),
-    prompt: "Compétences",
-    class:"form-control select"
-  %>
+      <%= select_tag :competences, options_for_select(User::SKILLS_LIST.sort),
+        prompt: "Compétences",
+        class:"form-control select"
+      %>
 
-  <%= text_field_tag :address,
-    params[:address],
-    class: "search-bar",
-    placeholder: "6 Rue Commandant Imhaus Marseille"
-  %>
+      <%= text_field_tag :address,
+        params[:address],
+        class: "search-bar",
+        placeholder: "6 Rue Commandant Imhaus Marseille"
+      %>
 
-  <%= submit_tag "Rechercher", remote: true, class: "btn btn-primary" %>
-<% end %>
+      <%= submit_tag "Rechercher", remote: true, class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
   <%= render 'shared/card-artist' %>
 </div>
 
 
 <div class="explorer-display-projects <%= @display_project ? '' : 'hidden-explorer'%>">
-  <div class="explorer-search">
-    <%= form_tag explorer_path, method: :get, class: "searchform" do %>
+
+    <div class="explorer-search-bar d-flex">
+      <%= form_tag explorer_path, method: :get, class: "searchform d-flex" do %>
       <%= text_field_tag :query_project,
           params[:query_project],
           class: "search-bar",
@@ -56,7 +60,8 @@
         %>
       <%= submit_tag "Rechercher",class: "btn btn-primary" %>
     <% end %>
-  </div>
-  <%= render 'shared/card-project' %>
+    </div>
+    <%= render 'shared/card-project' %>
+
 </div>
 
