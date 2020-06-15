@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="show-projet-top-right">
-      <% if @project.open_to_collab == true && current_user.visitor?(@project)%>
+      <% if @project.open_to_collab == true && current_user.visitor?(@project) && @requests.where(project: @project, user: current_user, status: nil).empty? %>
       <div class="effect-button-collaborate">
         <div class="effect-button-collaborate-content">
           <a class="btn title-btn-effect btn-effect-split collaborer-btn">COLLABORER</a>
