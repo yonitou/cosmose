@@ -25,8 +25,7 @@
       %>
 
       <%= select_tag :competences, options_for_select(User::SKILLS_LIST.sort),
-        prompt: "Compétences",
-        class: "search-bar"
+        class: "select2-search search-bar search-explorer-comptences"
       %>
       <%= submit_tag "Rechercher", remote: true, class: "btn btn-primary" %>
     <% end %>
@@ -46,13 +45,13 @@
           placeholder: "Je cherche un projet"
         %>
 
-      <%= text_field_tag :address,
-          params[:address],
+      <%= text_field_tag :city,
+          params[:city],
           class: "search-bar",
           placeholder: "City"
         %>
 
-      <%= select_tag :category, options_for_select(Project::CATEGORIES_LIST.sort), prompt: "Catégorie", class: "search-bar" %>
+      <%= select_tag :category, options_for_select(Project::CATEGORIES_LIST.sort), prompt: "Catégorie", class: "select2-search search-bar search-explorer-comptences" %>
 
       <input type="text" name="query_type" value="project" hidden>
 
