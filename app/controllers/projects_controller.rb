@@ -2,20 +2,6 @@ class ProjectsController < ApplicationController
   before_action :set_project, except: %i[index new create]
   skip_before_action :authenticate_user!, only: :index
 
-  def index
-    if params[:query].present?
-      sql_query = "name ILIKE :query OR description ILIKE :query"
-      @projects = policy_scope(Project).geocoded.where(sql_query, query: "%#{params[:query]}%")
-    else
-      @projects = policy_scope(Project).geocoded
-    end
-    @projects = @projects.where("category ILIKE ?", "%#{params[:categories]}%") if params[:categories].present?
-
-    if params[:address].present?
-      @projects = @projects.near(params[:address], 10)
-    end
-  end
-
   def new
     @project = Project.new
     authorize(@project)
