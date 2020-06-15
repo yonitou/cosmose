@@ -18,7 +18,7 @@
           <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
         </div>
         <div class="show-hero-info d-flex flex-column">
-          <p class="username-align-show"><%= link_to @project.user.username, project_path %> + collaborateurs</p>
+          <p class="username-align-show"><%= link_to @project.user.username, project_path %> + <%= @project.collabs.count %>  <%= (@project.collabs.count) == 1 ? 'collaborateur' : 'collaborateurs'%></p>
           <p class="username-align-show description-project-show"><%=  @project.description %></p>
           <div class="username-align-show">
             <%  @project.categories.each do |categorie|%>
@@ -27,15 +27,31 @@
           </div>
         </div>
       </div>
+      <% if current_user.owner?(@project) %>
+      <div class="collaborators-cards">
+        <% @project.collabs.each do |collab| %>
+        <div class="collaborator-card">
+          <%= collab.user.username %>&nbsp<%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, project_collaboration_path(@project, collab), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }%>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
     </div>
     <div class="show-projet-top-right">
-      <% if @project.open_to_collab == true && current_user.visitor?(@project)%>
+      <% if @project.open_to_collab == true && current_user.visitor?(@project) && @requests.where(project: @project, user: current_user, status: nil).empty? %>
       <div class="effect-button-collaborate">
         <div class="effect-button-collaborate-content">
           <a class="btn title-btn-effect btn-effect-split collaborer-btn">COLLABORER</a>
         </div>
       </div>
-      <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
+      <p class="statut-collab-projet"><i class='fas fa-map-marker-alt'></i> Recherche des artistes près de <%= Geocoder.search([@project.latitude, @project.longitude]).first.city %>, <%= Geocoder.search([@project.latitude, @project.longitude]).first.county %></p>
+      <% end %>
+      <% request = @requests.where(user: current_user, status: nil).first %>
+      <% if request %>
+      <div class="request-pending-collaborator">
+        <p>Demande de collaboration en attente</p>
+        <%= link_to "Annuler la demande de collaboration", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-outline-primary", remote: true %>
+      </div>
       <% end %>
       <% if policy(@project).update? %>
       <%= link_to "Modifier le projet", edit_project_path(@project),class:"btn btn-outline-primary" %>
@@ -55,35 +71,29 @@
     <% end %>
   </div>
   <div class="all-request-pending-admin">
-    <% @requests.each do |request| %>
+    <% @requests.where(status: nil).each do |request| %>
     <% if policy(@project).destroy? %>
     <div class="request-pending-admin">
       <div class="user-profil-request">
-      <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
-      <h4><%= request.user.username.capitalize %></h4>
+        <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
+        <h4><%= request.user.username.capitalize %></h4>
       </div>
       <p><%= request.request_content %></p>
       <div class="status-request-admin">
-      <% if request.status.nil? %>
-      <span class="pending"> Pending 🕑 </span>
-      <% elsif request.status %>
-      <span class="status"> Accepted 🎉 </span>
-      <% else %>
-      <span class="declined"> Declined 😢 </span>
-      <% end %>
-      <div class="accepted-decline-buton">
-      <%= link_to '<i class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
-      <%= link_to '<i class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
-      </div>
+        <% if request.status.nil? %>
+        <span class="pending"> Pending 🕑 </span>
+        <% elsif request.status %>
+        <span class="status"> Accepted 🎉 </span>
+        <% else %>
+        <span class="declined"> Declined 😢 </span>
+        <% end %>
+        <div class="accepted-decline-buton">
+          <%= link_to '<i class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
+          <%= link_to '<i class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
+        </div>
       </div>
       <% end %>
     </div>
-    <% if request.status.nil? && request.user == current_user %>
-    <div class="request-pending-collaborator">
-      <p>Demande de collaboration en attente</p>
-      <%= link_to "Supprimer la demande de collaboration", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-outline-primary" %>
-    </div>
-    <% end %>
     <% end %>
   </div>
   <div class="blocks-bg-white pt-5">

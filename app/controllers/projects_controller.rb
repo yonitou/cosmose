@@ -51,6 +51,7 @@ class ProjectsController < ApplicationController
     redirect_to '/explorer'
   end
 
+
   private
 
   def set_project
@@ -61,4 +62,5 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit(:title, :description, :address, :open_to_collab, :finished, categories: [])
   end
+
 end
