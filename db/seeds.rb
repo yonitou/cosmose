@@ -22,7 +22,7 @@ puts 'Creating 5 users...'
     username: Faker::Internet.username,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    address: Faker::Name.initials,
+    address: Faker::Address.city,
     competences: User::SKILLS_LIST.sample(3)
   )
   user.save
@@ -36,7 +36,7 @@ puts 'and a few projects...'
     title: Faker::Space.nebula,
     description: Faker::Movies::HitchhikersGuideToTheGalaxy.quote,
     categories: Project::CATEGORIES_LIST.sample(2),
-    address: Faker::Name.initials
+    address: Faker::Address.city
   )
   project.user = User.all.sample
   project.save
