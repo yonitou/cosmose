@@ -1,10 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, except: %i[index new create]
 
-  def index
-    @projects = policy_scope(Project)
-  end
-
   def new
     @project = Project.new
     authorize(@project)
