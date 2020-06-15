@@ -6,11 +6,12 @@
 .contrast {
   font-size: 4.5rem;
   color: $red;
-     background: linear-gradient(to right, $dark-red, $red);
+  background: linear-gradient(to right, $dark-red, $red);
   background-size: 300%;
   background-clip: text;
   color: transparent;
   animation: btn-bg-animation 5s infinite alternate;
+  font-family:$headers-font;
 }
 
 h1, h2 {
@@ -186,6 +187,7 @@ h1, h2 {
 /* Cursor */
 .txt-type > .txt {
   border-right: 1px solid white;
+  font-family:$headers-font;
 }
 
 .homepage-hero-title{
