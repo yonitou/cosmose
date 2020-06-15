@@ -48,7 +48,6 @@ import { firstArrow } from './components/arrow_home';
 
 
 document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
   projectToggle();
   blockForm();
   initSelect2();
