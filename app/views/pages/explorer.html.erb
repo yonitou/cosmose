@@ -22,9 +22,8 @@
         placeholder: "Je cherche un.e ..."
       %>
 
-      <%= select_tag :competences, options_for_select(User::SKILLS_LIST.sort),
-        prompt: "Compétences",
-        class:"form-control select"
+      <%= select_tag :competences, options_for_select(User::SKILLS_LIST.sort), input_html: { multiple: true, class: "select2-search search-explorer-competences"},
+        prompt: "Compétences"
       %>
 
       <%= text_field_tag :address,
