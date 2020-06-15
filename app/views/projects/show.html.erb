@@ -35,6 +35,12 @@
           <a class="btn title-btn-effect btn-effect-split collaborer-btn">COLLABORER</a>
         </div>
       </div>
+      <div class="show-hero-info d-flex flex-column">
+        <p class="username-align-show"><%= link_to @project.user.username, user_path(@project.user) %> + collaborateurs</p>
+        <p class="username-align-show"><%= @project.description %></p>
+        <div class="username-align-show">
+      <%  @project.categories.each do |categorie|%>
+      <p class="badge badge-pill badge-danger"> <%= categorie %> </p>
       <% end %>
       <% if policy(@project).update? %>
       <%= link_to "Modifier le projet", edit_project_path(@project), remote: true, class:"btn btn-outline-primary" %>
