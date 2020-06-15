@@ -5,7 +5,6 @@ const portfolioToggle = () => {
     const portfolio = document.querySelector('.user-portfolio');
   if (portfolioButton) {
     portfolioButton.addEventListener('click', (e) => {
-      console.log("display portfolio")
       projects.classList.add('hidden');
       portfolio.classList.remove('hidden');
       projectsButton.classList.remove('btn-profile-active');
@@ -14,7 +13,6 @@ const portfolioToggle = () => {
     });
 
     projectsButton.addEventListener('click', (e) => {
-      console.log("display projects")
       portfolio.classList.add('hidden');
       projects.classList.remove('hidden');
       portfolioButton.classList.remove('btn-profile-active');

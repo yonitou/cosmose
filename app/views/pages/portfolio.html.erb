@@ -1,6 +1,10 @@
 <div class="container-profile-page d-flex">
   <div class="profile-page-left d-flex flex-column align-items-center justify-content-around">
-    <div class="avatar-large"></div>
+  <% if current_user.photo.attached? %>
+        <%= cl_image_tag(current_user.photo.key, class: "avatar-large", alt: "avatar") %>
+      <% else %>
+        <%= image_tag 'https://via.placeholder.com/250', class: "avatar-large" %>
+      <% end %>
     <h4 class="profile-page-username"><%= current_user.username %></h4>
     <p><%= current_user.address %></p>
     <p><%= current_user.bio %></p>

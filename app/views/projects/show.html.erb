@@ -15,7 +15,12 @@
       </div>
       <div class="show-projet-top-left-content d-flex mt-2">
         <div class="show-projet-top-left-user d-flex align-items-center">
-          <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
+
+         <% if @project.user.photo.attached? %>
+        <%= cl_image_tag(@project.user.photo.key, class: "user-project-avatar", alt: "avatar") %>
+      <% else%>
+        <%= image_tag 'https://via.placeholder.com/35', class: "user-project-avatar"  %>
+      <% end %>
         </div>
         <div class="show-hero-info d-flex flex-column">
           <p class="username-align-show"><%= link_to @project.user.username, project_path %> + <%= @project.collabs.count %>  <%= (@project.collabs.count) == 1 ? 'collaborateur' : 'collaborateurs'%></p>
@@ -75,7 +80,11 @@
     <% if policy(@project).destroy? %>
     <div class="request-pending-admin">
       <div class="user-profil-request">
-        <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
+         <% if request.user.photo.attached? %>
+        <%= cl_image_tag(request.user.photo.key, class: "user-project-avatar", alt: "avatar") %>
+      <% else%>
+        <%= image_tag 'https://via.placeholder.com/35', class: "user-project-avatar"  %>
+      <% end %>
         <h4><%= request.user.username.capitalize %></h4>
       </div>
       <p><%= request.request_content %></p>

@@ -24,6 +24,4 @@ const projectToggle = () => {
   };
 };
 
-export {
-  projectToggle
-};
+export { projectToggle };
