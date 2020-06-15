@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="block_add d-flex">
+      <span class="btn btn-outline-primary cta_add_block">Ajouter un bloc </span>
+      <br />
+      <%= simple_form_for([@project, @block], html: { class: "hidden" }) do |f| %>
+      <h3 class="text-center pb-4">Nouveau block</h3>
+      <hr/>
+      <label class="text required" for="block_content">Description 
+        <abbr title="requis" data-children-count="0">*</abbr>
+      </label>
+      <%= f.input :content, required: true, label: false, 
+        placeholder: 'Texte, légende de votre télécharegement, url youtube... ' 
+      %>
+      <label for="block_upload">Télécharger un fichier
+        <abbr title="image (jpg, png, gif...) ou audio (mp3, wav, aac..)" data-children-count="0">*</abbr>
+      </label>
+      <%= f.input :upload, as: :file, label:false %>
+      <span class="block-private d-flex pb-1">
+      <label class="mr-1 pt-2" for="block_private">Privé
+        <abbr title="Visible par les collaborateurs uniquement" data-children-count="0">*</abbr>
+      </label>
+      <%= f.input :private, label:false, html: {class: "ml-2"} %></span>
+      <div class="add-block-ctas">
+      <%= f.button :submit, id:"submit-block", class:"btn btn-primary", remote: true %>
+      <span class="btn btn-outline-secondary cta_cancel_block hidden">Annuler</span>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

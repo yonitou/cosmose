@@ -1,0 +1,76 @@
+lite-youtube {
+  height: 20vw;
+}
+
+.blocks {
+  width: 80vw;
+  display: flex;
+  flex-wrap: wrap;
+
+  h3 {
+    margin: 0 auto;
+    padding-bottom: 25px;
+  }
+
+  .block {
+    padding: 10px;
+  }
+
+  .col-6 {
+    display: block;
+    margin: 20px 0;
+
+    .block-destroy {
+      position: absolute;
+      top: 2px;
+      right: 8px;
+      visibility: hidden;
+      z-index: 100;
+    }
+
+    &:hover .block-destroy {
+      visibility: visible;
+    }
+
+    .block-content {
+      height: 100%;
+      transition: opacity .5s ease;
+    }
+
+    &:hover .block-content {
+      opacity: .2;
+    }
+
+    .fa-trash-alt {
+      font-size: 15px;
+      color: $gray;
+
+      &:hover {
+        color: $red
+      }
+    }
+  }
+
+  .block-text {
+    text-align: center;
+  }
+
+  .block-audio {
+    margin: auto;
+  }
+
+  img,
+  audio {
+    width: 100%;
+    align-self: center;
+  }
+
+  .lead {
+    color: $dark-red;
+  }
+}
+
+.blocks-bg-white {
+  width: 100vw;
+  background-color: white;
+}

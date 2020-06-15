@@ -1,49 +1,110 @@
 .show-project-hero {
   padding: 30px;
+  width: 83%;
+  margin: 0 auto;
 }
 
 .user-project-avatar {
   border-radius: 50px;
   margin-top: 7px;
   margin-left: 10px;
+  margin-right:10px;
+}
+
+.badge-danger {
+  margin-right: 3px;
 }
 
 .username-align-show {
   margin: 5px 0;
 }
+.description-project-show {
+  width:73%;
+}
+
 
 .show-projet-top-left-likes {
   width: 100px;
   justify-content: space-between;
+  margin-left: 15px;
 }
 
+.request-pending-admin {
+  background-color:$white;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  margin:20px 20px 20px 0;
+  padding:20px;
+  width:20%;
+  border:2px solid $dark-red;
+  border-radius:3px;
+}
+
+.request-pending-admin p {
+  margin:10px 0;
+}
+
+.fa-check-circle, .fa-ban {
+  font-size: 20px;
+  color:$red;
+}
+a .fa-check-circle:hover {
+  color:$green;
+}
+
+a .fa-ban:hover {
+  color:$dark-red;
+}
+
+.user-profil-request {
+  display:flex;
+}
+.all-request-pending-admin {
+  display:flex;
+  background-color:white;
+  opacity:80%;
+  justify-content:flex-end;
+  border-bottom:2px solid $white;
+}
+
+.request-pending-collaborator {
+  background-color:white;
+  width:30%;
+  border-radius:5px;
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin:10px auto;
+}
 .show-projet-top-right {
-  width: 50%;
-  height: 160px;
-  margin-right: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-between;
+  justify-content: center;
+}
+.show-projet-top-right .btn-outline-primary {
+  margin-bottom:15px;
 }
 
 .statut-collab-projet {
   font-size: 14px;
-  padding: 25px;
-  margin: 10px 30px 0 0;
+  margin: 25px auto;
 }
-
+.status-request-admin {
+  display:flex;
+  justify-content:space-between;
+}
 .show-projet-top-left-title {
   color: $dark-red;
+  display:flex;
 }
-
 .show-projet-top-left-title h2 {
-  margin-right: 75px;
+  width:55%;
 }
 
 .show-projet-top-left-user {
   align-self: flex-start;
-  margin-right: 15px;
 }
 
 .show-hero-info {
@@ -91,6 +152,7 @@ $colorSecondary: $dark-red;
     background: transparent;
     outline: none;
     font-size: 28px;
+    z-index:1;
 
     &::after,
     &::before {
@@ -136,16 +198,16 @@ $colorSecondary: $dark-red;
   }
 }
 
-.collaborationform {
-  width: 45%;
-  margin: 0 auto;
+.request-collaboration {
+  background-color: white;
+  padding:15px;
 }
 
-.block_add {
-  margin: 0 auto;
-  flex-direction: column;
-  align-items: center;
+.collaborationform {
+  width: 45%;
+  margin: 10px auto;
 }
+
 
 .btn-request-collaboration {
   margin: 0 auto;
@@ -157,25 +219,3 @@ $colorSecondary: $dark-red;
 }
 
 @include btn__split($colorPrimary, $colorSecondary, $white);
-
-lite-youtube {
-  height: 100%;
-}
-
-.blocks {
-  width: 80vw;
-  display: flex;
-  flex-wrap: wrap;
-
-  h3 {
-    margin: 0 auto;
-    padding-bottom: 25px;
-  }
-
-  .block {
-    padding: 10px;
-  }
-  img {
-    width: 100%;
-  }
-}

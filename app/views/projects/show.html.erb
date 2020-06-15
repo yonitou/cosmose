@@ -1,110 +1,132 @@
-<div class="show-project-hero d-flex justify-content-between">
-  <div class="show-projet-top-left">
-    <div class="show-projet-top-left-title d-flex align-items-center">
-      <h2><%= @project.title %></h2>
-      <div class="show-projet-top-left-likes d-flex align-items-center">
-        <% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
-        <% if pre_like %>
-        <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
-        <% else %>
-        <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
-        <% end %>
-        <%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
+<div class="content">
+  <div class="show-project-hero d-flex justify-content-between">
+    <div class="show-projet-top-left">
+      <div class="show-projet-top-left-title">
+        <h2><%= @project.title %></h2>
+        <div class="show-projet-top-left-likes d-flex align-items-center">
+          <% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
+          <% if pre_like %>
+          <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
+          <% else %>
+          <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
+          <% end %>
+          <%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
+        </div>
+      </div>
+      <div class="show-projet-top-left-content d-flex mt-2">
+        <div class="show-projet-top-left-user d-flex align-items-center">
+          <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
+        </div>
+        <div class="show-hero-info d-flex flex-column">
+          <p class="username-align-show"><%= link_to @project.user.username, project_path %> + collaborateurs</p>
+          <p class="username-align-show description-project-show"><%=  @project.description %></p>
+          <div class="username-align-show">
+            <%  @project.categories.each do |categorie|%>
+            <p class="badge badge-pill badge-danger"> <%= categorie %> </p>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="show-projet-top-left-content d-flex  justify-content-between mt-2">
-      <div class="show-projet-top-left-user d-flex align-items-center">
-        <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
+    <div class="show-projet-top-right">
+      <% if @project.open_to_collab == true && current_user.visitor?(@project)%>
+      <div class="effect-button-collaborate">
+        <div class="effect-button-collaborate-content">
+          <a class="btn title-btn-effect btn-effect-split collaborer-btn">COLLABORER</a>
+        </div>
       </div>
-      <div class="show-hero-info d-flex flex-column">
-        <p class="username-align-show"><%= link_to @project.user.username, project_path %> + collaborateurs</p>
-        <p class="username-align-show"><%= @project.description %></p>
-        <p class="username-align-show"><%= @project.categories[0] %></p>
-      </div>
+      <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
+      <% end %>
+      <% if policy(@project).update? %>
+      <%= link_to "Modifier le projet", edit_project_path(@project),class:"btn btn-outline-primary" %>
+      <% end %>
+      <% if policy(@project).destroy? %>
+      <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-outline-primary"%>
+      <% end %>
     </div>
   </div>
-  <div class="show-projet-top-right">
-    <% if @project.open_to_collab == true && current_user.visitor?(@project)%>
-    <div class="effect-button-collaborate">
-      <div class="effect-button-collaborate-content">
-        <a href="#" class="btn title-btn-effect btn-effect-split">COLLABORER</a>
-      </div>
-    </div>
+  <% unless policy(@project).update? %>
+  <div class="request-collaboration d-none">
+    <h3 class="text-center">Demande de collaboration</h3>
+    <%= simple_form_for [@project, @collaboration], html: { class: "collaborationform"}  do |f| -%>
+    <%= f.input :request_content, label: :Message %>
+    <%= f.button :submit, "Envoyer" , class:"btn btn-primary btn-request-collaboration" %>
     <% end %>
-    <% if policy(@project).update?%>
-    <%= link_to "Modifier le projet", edit_project_path(@project), class:"btn btn-outline-primary" %>
     <% end %>
+  </div>
+  <div class="all-request-pending-admin">
+    <% @requests.each do |request| %>
     <% if policy(@project).destroy? %>
-    <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-outline-primary"%>
+    <div class="request-pending-admin">
+      <div class="user-profil-request">
+      <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
+      <h4><%= request.user.username.capitalize %></h4>
+      </div>
+      <p><%= request.request_content %></p>
+      <div class="status-request-admin">
+      <% if request.status.nil? %>
+      <span class="pending"> Pending 🕑 </span>
+      <% elsif request.status %>
+      <span class="status"> Accepted 🎉 </span>
+      <% else %>
+      <span class="declined"> Declined 😢 </span>
+      <% end %>
+      <div class="accepted-decline-buton">
+      <%= link_to '<i class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
+      <%= link_to '<i class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
+      </div>
+      </div>
+      <% end %>
+    </div>
+    <% if request.status.nil? && request.user == current_user %>
+    <div class="request-pending-collaborator">
+      <p>Demande de collaboration en attente</p>
+      <%= link_to "Supprimer la demande de collaboration", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-outline-primary" %>
+    </div>
     <% end %>
-    <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
+    <% end %>
   </div>
-</div>
-<% unless policy(@project).update? %>
-<h3 class="text-center">Demande de collaboration</h3>
-<%= simple_form_for [@project, @collaboration], html: { class: "collaborationform"}  do |f| -%>
-<%= f.input :request_content, label: false %>
-<%= f.button :submit, "Envoyer la demande" , class:"btn btn-primary btn-request-collaboration" %>
-<% end %>
-
-<% end %>
-
-<% @requests.each do |request| %>
-<% if policy(@project).destroy? %>
-<span class="pl-2"><%= request.user.username %></span>
-<p><%= request.request_content %></p>
-<% if request.status.nil? %>
-<span class="pending"> pending 🕑 </span>
-<% elsif request.status %>
-<span class="status"> status 🎉 </span>
-<% else %>
-<span class="declined"> declined 😢 </span>
-<% end %>
-<%= link_to '<i style="color:red"class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
-<%= link_to '<i style="color:red"class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
-<% end %>
-<% if request.status.nil? && request.user == current_user %>
-<%= request.request_content %>
-<p>Demande en attente</p>
-<%= link_to "Supprimer la demande de collaboration", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-primary" %>
-<% end %>
-<% end %>
-
-<hr />
-<div class="container blocks blocks-public">
-  <div class="row">
-    <div class="blocks">
-      <% @public_blocks.each do |block| %>
-      <%= render 'shared/block_display', block: block %>
-      <hr />
-      <% end %>
+  <div class="blocks-bg-white pt-5">
+    <% if !current_user.visitor?(@project) %>
+    <div class="container project-toggle">
+      <div class="row justify-content-center">
+        <div class="explorer-choice d-flex justify-content-between align-items-center">
+          <button class="btn-explorer-artists btn-explorer-active toggle-public">
+          PUBLIC
+          <div class="btn-explorer-artists__horizontal"></div>
+          <div class="btn-explorer-artists__vertical"></div>
+          </button>
+          <button class="btn-explorer-projects btn-explorer-inactive toggle-private">
+          PRIVÉ
+          <div class="btn-explorer-projects__horizontal"></div>
+          <div class="btn-explorer-projects__vertical"></div>
+          </button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<hr />
-<% if !current_user.visitor?(@project) %>
-<div class="container blocks blocks-private">
-  <div class="row">
-    <div class="blocks">
-      <% @private_blocks.each do |block| %>
-      <%= render 'shared/block_display', block: block %>
-      <hr />
-      <% end %>
+    <div class="container blocks blocks-private hidden">
+      <div class="row">
+        <div class="blocks">
+          <% @private_blocks.each do |block| %>
+          <%= render 'shared/block_display', block: block %>
+          <hr />
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="block_add d-flex">
-      <p class="btn btn-primary cta_add_block">Ajouter un bloc</p><br />
-      <%= simple_form_for([@project, @block]) do |f| %>
-      <%= f.input :content, required: true %>
-      <p><em style="color: #D8D8D8">Mettre une url youtube pour ajouter une vidéo</em></p>
-      <%= f.input :upload, as: :file %>
-      <%= f.input :private %>
-      <%= f.button :submit, class:"btn btn-primary", remote: true %>
-      <% end %>
+    <% end %>
+    <div class="container blocks blocks-public">
+      <div class="row">
+        <div class="blocks">
+          <% @public_blocks.each do |block| %>
+          <%= render 'shared/block_display', block: block %>
+          <hr />
+          <% end %>
+        </div>
+      </div>
     </div>
+    <% if !current_user.visitor?(@project) %>
+    <%= render 'shared/block_form', project: @project, block: @block %>
+    <% end %>
   </div>
 </div>
-<% end %>
