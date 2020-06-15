@@ -28,6 +28,10 @@ class CollaborationsController < ApplicationController
       @collaboration.status = true
       authorize(@collaboration)
       @collaboration.save
+      notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='far fa-user'></i>#{@project.user} a accepté votre demande de collaboration sur le projet : #{@project.title}</li>")
+      notification.user = current_user
+      notification.project = @project
+      notification.save
       redirect_to project_path(@project)
     end
   end
@@ -37,6 +41,10 @@ class CollaborationsController < ApplicationController
     @collaboration.status = false
     authorize(@collaboration)
     @collaboration.save
+    notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='far fa-user'></i>#{@project.user} a décliné votre demande de collaboration sur le projet : #{@project.title}</li>")
+    notification.user = current_user
+    notification.project = @project
+    notification.save
     redirect_to project_path(@project)
   end
 

@@ -18,7 +18,8 @@
           <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
         </div>
         <div class="show-hero-info d-flex flex-column">
-          <p class="username-align-show"><%= link_to @project.user.username, project_path %> + collaborateurs</p>
+          <p class="username-align-show"><%= link_to @project.user.username, project_path %> + <%= @project.collaborators.count %>  <%= (@project.collaborators.count) == 1 ? 'collaborateur' : 'collaborateurs'%></p>
+
           <p class="username-align-show description-project-show"><%=  @project.description %></p>
           <div class="username-align-show">
             <%  @project.categories.each do |categorie|%>
@@ -37,6 +38,16 @@
       </div>
       <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
       <% end %>
+
+    <% request = @requests.where(user: current_user, status: nil).first %>
+    <% if request %>
+    <div class="request-pending-collaborator">
+      <p>Demande de collaboration en attente</p>
+      <%= link_to "Annuler la demande de collaboration", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-outline-primary", remote: true %>
+    </div>
+    <% end %>
+
+
       <% if policy(@project).update? %>
       <%= link_to "Modifier le projet", edit_project_path(@project),class:"btn btn-outline-primary" %>
       <% end %>
@@ -55,7 +66,7 @@
     <% end %>
   </div>
   <div class="all-request-pending-admin">
-    <% @requests.each do |request| %>
+    <% @requests.where(status: nil).each do |request| %>
     <% if policy(@project).destroy? %>
     <div class="request-pending-admin">
       <div class="user-profil-request">
@@ -78,12 +89,7 @@
       </div>
       <% end %>
     </div>
-    <% if request.status.nil? && request.user == current_user %>
-    <div class="request-pending-collaborator">
-      <p>Demande de collaboration en attente</p>
-      <%= link_to "Supprimer la demande de collaboration", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-outline-primary" %>
-    </div>
-    <% end %>
+
     <% end %>
   </div>
   <div class="blocks-bg-white pt-5">

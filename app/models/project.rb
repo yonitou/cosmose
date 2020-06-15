@@ -13,4 +13,8 @@ class Project < ApplicationRecord
   def clean_blank_categories
     categories.delete("")
   end
+
+  def collaborators
+    @collaborators = self.collaborations.where(status: true)
+  end
 end
