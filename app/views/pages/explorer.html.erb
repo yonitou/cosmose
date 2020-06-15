@@ -11,23 +11,23 @@
 
 <div class="explorer-display-artists <%= @display_project ? 'hidden-explorer' : ''%>">
   <div class="explorer-search-bar d-flex">
-    <%= form_tag explorer_path, method: :get, class: "searchform d-flex" do %>
+    <%= form_tag explorer_path, method: :get, class: "searchform" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "search-bar",
-        placeholder: "Je cherche un.e ..."
-      %>
-
-      <%= select_tag :competences, options_for_select(User::SKILLS_LIST.sort),
-        prompt: "Compétences"
+        placeholder: "Je cherche un.e artiste"
       %>
 
       <%= text_field_tag :address,
         params[:address],
         class: "search-bar",
-        placeholder: "6 Rue Commandant Imhaus Marseille"
+        placeholder: "Ville"
       %>
 
+      <%= select_tag :competences, options_for_select(User::SKILLS_LIST.sort),
+        prompt: "Compétences",
+        class: "search-bar"
+      %>
       <%= submit_tag "Rechercher", remote: true, class: "btn btn-primary" %>
     <% end %>
   </div>
@@ -39,20 +39,23 @@
 <div class="explorer-display-projects <%= @display_project ? '' : 'hidden-explorer'%>">
 
     <div class="explorer-search-bar d-flex">
-      <%= form_tag explorer_path, method: :get, class: "searchform d-flex" do %>
+      <%= form_tag explorer_path, method: :get, class: "searchform" do %>
       <%= text_field_tag :query_project,
           params[:query_project],
           class: "search-bar",
-          placeholder: "Je cherche un.e ..."
+          placeholder: "Je cherche un projet"
         %>
-
-      <%= select_tag :category, options_for_select(Project::CATEGORIES_LIST.sort), prompt: "Catégorie" %>
 
       <%= text_field_tag :address,
           params[:address],
           class: "search-bar",
-          placeholder: "6 Rue Commandant Imhaus Marseille"
+          placeholder: "City"
         %>
+
+      <%= select_tag :category, options_for_select(Project::CATEGORIES_LIST.sort), prompt: "Catégorie", class: "search-bar" %>
+
+      <input type="text" name="query_type" value="project" hidden>
+
       <%= submit_tag "Rechercher",class: "btn btn-primary" %>
     <% end %>
     </div>
