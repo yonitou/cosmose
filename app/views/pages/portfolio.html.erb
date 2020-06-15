@@ -1,19 +1,21 @@
 <div class="container-profile-page d-flex">
-  <div class="profile-page-left d-flex flex-column align-items-center justify-content-around col-3">
+  <div class="profile-page-left d-flex flex-column align-items-center col-3">
   <% if current_user.photo.attached? %>
-        <%= cl_image_tag(current_user.photo.key, class: "avatar-large", alt: "avatar") %>
+        <%= cl_image_tag(current_user.photo.key, class: "avatar-large img-fluid" , alt: "avatar") %>
       <% else %>
-        <%= image_tag 'https://via.placeholder.com/250', class: "avatar-large" %>
+        <%= image_tag 'https://via.placeholder.com/250', class: "img-fluid" %>
       <% end %>
-    <h4 class="profile-page-username"><%= current_user.username %></h4>
-    <p><%= current_user.address %></p>
-    <p><%= current_user.bio %></p>
-    <ul>
+      <div class="users-infos d-flex flex-column align-items-center mt-2">
+    <h4 class="profile-page-username mt-4"><i class="fas fa-user-circle"></i> <%= current_user.username.capitalize %></h4>
+    <p class="mt-2"><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
+    <p>< bio ><%= current_user.bio %></p>
+    </div>
+    <div class="user-skills text-center pb-4"><br/>
       <% current_user.competences.each do |competence| %>
-      <li><%= competence %></li>
+      <span class="skill"><%= competence %></span>
       <% end %>
-    </ul>
-    <%= link_to "Éditer le profil", edit_user_registration_path(current_user), class:"btn btn-secondary" %>
+    </div>
+    <%= link_to "Éditer le profil", edit_user_registration_path(current_user), class:"btn btn-secondary mt-4" %>
   </div>
   <div class="profile-page-right d-flex flex-column align-items-center col-9">
     <div class="buttons-profile d-flex justify-content-around">
