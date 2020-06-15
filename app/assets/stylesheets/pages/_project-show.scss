@@ -8,6 +8,7 @@
   border-radius: 50px;
   margin-top: 7px;
   margin-left: 10px;
+  margin-right:10px;
 }
 
 .badge-danger {
@@ -21,9 +22,6 @@
   width:73%;
 }
 
-.show-projet-top-left {
-  width: 50%;
-}
 
 .show-projet-top-left-likes {
   width: 100px;
@@ -31,20 +29,72 @@
   margin-left: 15px;
 }
 
+.request-pending-admin {
+  background-color:$white;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  margin:20px 20px 20px 0;
+  padding:20px;
+  width:20%;
+  border:2px solid $dark-red;
+  border-radius:3px;
+}
+
+.request-pending-admin p {
+  margin:10px 0;
+}
+
+.fa-check-circle, .fa-ban {
+  font-size: 20px;
+  color:$red;
+}
+a .fa-check-circle:hover {
+  color:$green;
+}
+
+a .fa-ban:hover {
+  color:$dark-red;
+}
+
+.user-profil-request {
+  display:flex;
+}
+.all-request-pending-admin {
+  display:flex;
+  background-color:white;
+  opacity:80%;
+  justify-content:flex-end;
+  border-bottom:2px solid $white;
+}
+
+.request-pending-collaborator {
+  background-color:white;
+  width:30%;
+  border-radius:5px;
+  padding:22px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin:10px auto;
+}
 .show-projet-top-right {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-around;
+  justify-content: center;
+}
+.show-projet-top-right .btn-outline-primary {
+  margin-bottom:15px;
 }
 
 .statut-collab-projet {
   font-size: 14px;
-  padding: 25px;
-  margin-right: 30px;
-  margin-bottom: 0;
+  margin: 25px auto;
 }
-
+.status-request-admin {
+  display:flex;
+  justify-content:space-between;
+}
 .show-projet-top-left-title {
   color: $dark-red;
   display:flex;
@@ -55,7 +105,6 @@
 
 .show-projet-top-left-user {
   align-self: flex-start;
-  margin-right: 10px;
 }
 
 .show-hero-info {

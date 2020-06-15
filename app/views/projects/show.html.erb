@@ -35,12 +35,7 @@
           <a class="btn title-btn-effect btn-effect-split collaborer-btn">COLLABORER</a>
         </div>
       </div>
-      <div class="show-hero-info d-flex flex-column">
-        <p class="username-align-show"><%= link_to @project.user.username, user_path(@project.user) %> + collaborateurs</p>
-        <p class="username-align-show"><%= @project.description %></p>
-        <div class="username-align-show">
-      <%  @project.categories.each do |categorie|%>
-      <p class="badge badge-pill badge-danger"> <%= categorie %> </p>
+      <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
       <% end %>
       <% if policy(@project).update? %>
       <%= link_to "Modifier le projet", edit_project_path(@project), remote: true, class:"btn btn-outline-primary" %>
@@ -48,7 +43,6 @@
       <% if policy(@project).destroy? %>
       <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-outline-primary"%>
       <% end %>
-      <p class="statut-collab-projet">Recherche des artistes à <%= @project.address %></p>
     </div>
   </div>
   <% unless policy(@project).update? %>
@@ -60,26 +54,38 @@
     <% end %>
     <% end %>
   </div>
-  <% @requests.each do |request| %>
-  <% if policy(@project).destroy? %>
-  <span class="pl-2"><%= request.user.username %></span>
-  <p><%= request.request_content %></p>
-  <% if request.status.nil? %>
-  <span class="pending"> pending 🕑 </span>
-  <% elsif request.status %>
-  <span class="status"> status 🎉 </span>
-  <% else %>
-  <span class="declined"> declined 😢 </span>
-  <% end %>
-  <%= link_to '<i style="color:red"class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
-  <%= link_to '<i style="color:red"class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
-  <% end %>
-  <% if request.status.nil? && request.user == current_user %>
-  <%= request.request_content %>
-  <p>Demande en attente</p>
-  <%= link_to "Supprimer la demande de collaboration", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-primary" %>
-  <% end %>
-  <% end %>
+  <div class="all-request-pending-admin">
+    <% @requests.each do |request| %>
+    <% if policy(@project).destroy? %>
+    <div class="request-pending-admin">
+      <div class="user-profil-request">
+      <%= image_tag "https://images.unsplash.com/photo-1457449940276-e8deed18bfff", width:"27px", height:"27px", alt: "avatar", class:"user-project-avatar" %>
+      <h4><%= request.user.username.capitalize %></h4>
+      </div>
+      <p><%= request.request_content %></p>
+      <div class="status-request-admin">
+      <% if request.status.nil? %>
+      <span class="pending"> Pending 🕑 </span>
+      <% elsif request.status %>
+      <span class="status"> Accepted 🎉 </span>
+      <% else %>
+      <span class="declined"> Declined 😢 </span>
+      <% end %>
+      <div class="accepted-decline-buton">
+      <%= link_to '<i class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
+      <%= link_to '<i class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
+      </div>
+      </div>
+      <% end %>
+    </div>
+    <% if request.status.nil? && request.user == current_user %>
+    <div class="request-pending-collaborator">
+      <p>Demande de collaboration en attente</p>
+      <%= link_to "Supprimer la demande de collaboration", project_collaboration_path(request.project, request), method: :delete, class: "btn btn-outline-primary" %>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
   <div class="blocks-bg-white pt-5">
     <% if !current_user.visitor?(@project) %>
     <div class="container project-toggle">

@@ -24,3 +24,10 @@ $headers-font: "League Spartan Bold", "Helvetica", "sans-serif";
         font-url('LeagueSpartan-Black.woff') format('woff'),
         font-url('LeagueSpartan-Extrabold.woff') format('woff')
 }
+
+label {
+  font-family: $body-font;
+}
+span {
+  font-family: $body-font;
+}
