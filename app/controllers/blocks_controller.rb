@@ -6,9 +6,9 @@ class BlocksController < ApplicationController
     check_if_yt
     if params[:project_id]
       @block.project_id = params[:project_id]
-      @block.user = current_user
     end
     redirect_to project_path(@block.project_id) if @block.save && @block.project_id
+    redirect_to request.referer
   end
 
   def destroy

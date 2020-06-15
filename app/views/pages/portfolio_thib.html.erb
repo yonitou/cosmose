@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="artist-left-bar col-3">
+      <div class="profile-page-left d-flex flex-column align-items-center justify-content-around">
+    <div class="avatar-large"></div>
+    <h4 class="profile-page-username"><%= current_user.username %></h4>
+    <p><%= current_user.address %></p>
+    <p><%= current_user.bio %></p>
+    <ul>
+      <% current_user.competences.each do |competence| %>
+      <li><%= competence %></li>
+      <% end %>
+    </ul>
+    <%= link_to "Éditer le profil", edit_user_registration_path(current_user), class:"btn btn-secondary" %>
+  </div>
+    </div>
+  </div>
+</div>

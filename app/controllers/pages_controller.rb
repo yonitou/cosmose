@@ -65,5 +65,6 @@ class PagesController < ApplicationController
   def portfolio
     @projects = current_user.projects
     @blocks = current_user.blocks.where(project_id: nil)
+    @block = Block.new
   end
 end
