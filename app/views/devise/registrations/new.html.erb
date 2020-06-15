@@ -12,11 +12,11 @@
       <%= f.input :password,
       required: true,
       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-      input_html: { autocomplete: "new-password",class: "required-inputs-registration" }
+      input_html: { autocomplete: "nouveau mot de passe",class: "required-inputs-registration" }
       %>
       <%= f.input :password_confirmation,
       required: true,
-      input_html: { autocomplete: "new-password", class: "required-inputs-registration" }
+      input_html: { autocomplete: "nouveau mot de passe", class: "required-inputs-registration" }
       %>
       <%= f.input :username,
       required: true,
@@ -24,11 +24,11 @@
       %>
       <%= f.input :first_name,
       required: true,
-      input_html: { autocomplete: "first_name", class: "required-inputs-registration" }
+      input_html: { autocomplete: "prénom", class: "required-inputs-registration" }
       %>
       <%= f.input :last_name,
       required: true,
-      input_html: { autocomplete: "last_name", class: "required-inputs-registration" }
+      input_html: { autocomplete: "nom de famille", class: "required-inputs-registration" }
       %>
       <h2 class="next-step-button-registration btn btn-primary <%= should_display_all ? 'd-none' : '' %> ">Suivant</h2>
     </div>
