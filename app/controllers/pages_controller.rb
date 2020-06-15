@@ -12,6 +12,9 @@ class PagesController < ApplicationController
       sql_query = "username ILIKE :query OR bio ILIKE :query"
       @users = @users.where(sql_query, query: "%#{params[:query]}%")
     end
+    if params[:address].present?
+      @users = @users.near(params[:address], 10)
+    end
     if params[:competences].present?
       potential_users = @users
       @users = []
@@ -29,16 +32,17 @@ class PagesController < ApplicationController
         @users.flatten!
       end
     end
-    if params[:address].present?
-      @users = @users.near(params[:address], 10)
-    end
-
     if params[:query_project].present?
       sql_query = "title ILIKE :query OR description ILIKE :query"
       @projects = @projects.where(sql_query, query: "%#{params[:query_project]}%")
       @display_project = true
     end
+     if params[:address].present?
+      @projects = @projects.near(params[:address], 10)
+      @display_project = true
+    end
     if params[:category].present?
+      @display_project = true
       potential_projects = @projects
       @projects = []
       if params[:category].class == String
@@ -55,11 +59,7 @@ class PagesController < ApplicationController
         @projects.flatten!
       end
     end
-
-    if params[:address].present?
-      @projects = @projects.near(params[:address], 10)
-    end
-
+    @display_project = true if params[:query_type] == "project"
   end
 
   def portfolio
