@@ -6,7 +6,7 @@
   <div class="cards">
     <% User.all.sample(3).each do |user| %>
     <div class="card">
-      <%= link_to user_path(user) do %>
+      <%= link_to (current_user == user ? portfolio_path : user_path(user)) do %>
       <div class="card-images d-flex flex-column justify-content-between">
         <div class="card-images-element-top">
         </div>

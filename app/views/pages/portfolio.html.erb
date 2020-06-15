@@ -51,11 +51,14 @@
           <div class="card">
             <div class="card-images d-flex flex-column justify-content-between">
               <div class="card-images-element-top">
-                <i class="far fa-heart"></i>
               </div>
               <div class="card-images-elements-bottom d-flex justify-content-between">
                 <i class="fas fa-record-vinyl"></i>
-                <div class="avatar-card"></div>
+                <% if project.user.photo.attached? %>
+                  <%= cl_image_tag(project.user.photo.key, class: "avatar", alt: "avatar") %>
+                <% else %>
+                  <%= image_tag 'https://via.placeholder.com/50', class: "avatar"  %>
+                <% end %>
               </div>
             </div>
             <div class="card-content">

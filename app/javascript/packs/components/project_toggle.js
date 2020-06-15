@@ -1,25 +1,23 @@
-const projectPublicButton = document.querySelector('.toggle-public');
-const projectPrivateButton = document.querySelector('.toggle-private');
-const projectPublic = document.querySelector('.blocks-public');
-const projectPrivate = document.querySelector('.blocks-private');
-
-
-const hideToggle = () => {
+const hideToggle = (publicButton, privateButton, projectPublic, projectPrivate) => {
    projectPublic.classList.toggle('hidden');
    projectPrivate.classList.toggle('hidden');
-   projectPublicButton.classList.toggle('btn-explorer-active');
-   projectPrivateButton.classList.toggle('btn-explorer-inactive');
-   projectPrivateButton.classList.toggle('btn-explorer-active');
-   projectPublicButton.classList.toggle('btn-explorer-inactive');
+   publicButton.classList.toggle('btn-explorer-active');
+   privateButton.classList.toggle('btn-explorer-inactive');
+   privateButton.classList.toggle('btn-explorer-active');
+   publicButton.classList.toggle('btn-explorer-inactive');
 };
 
 const projectToggle = () => {
+  const projectPublicButton = document.querySelector('.toggle-public');
+  const projectPrivateButton = document.querySelector('.toggle-private');
+  const projectPublic = document.querySelector('.blocks-public');
+  const projectPrivate = document.querySelector('.blocks-private');
   if (document.querySelector('.project-toggle')) {
     projectPublicButton.addEventListener('click', (event) => {
-      hideToggle();
+      hideToggle(projectPublicButton, projectPrivateButton, projectPublic, projectPrivate);
     });
     projectPrivateButton.addEventListener('click', (event) => {
-      hideToggle();
+      hideToggle(projectPublicButton, projectPrivateButton, projectPublic, projectPrivate);
     });
   };
 };
