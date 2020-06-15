@@ -52,7 +52,7 @@ document.addEventListener('turbolinks:load', () => {
   buttonNextStepProject();
   initTypeJs();
   portfolioToggle();
-  explorerToggle();
+
   blockForm();
   projectToggle();
   buttonCollaborer();
