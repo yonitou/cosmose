@@ -8,13 +8,14 @@ class Project < ApplicationRecord
   before_save :clean_blank_categories
   has_many :collaborations, dependent: :destroy
   geocoded_by :address
+
   after_validation :geocode, if: :will_save_change_to_address?
 
   def clean_blank_categories
     categories.delete("")
   end
 
-  def collaborators
-    @collaborators = self.collaborations.where(status: true)
+  def collabs
+    @collabs = self.collaborations.where(status: true)
   end
 end
