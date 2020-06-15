@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :collaborations
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  has_one_attached :photo
 
   def competences_not_empty
     competences.delete("")
@@ -36,4 +37,5 @@ class User < ApplicationRecord
   def visitor?(project)
     !owner?(project) && !collaborator?(project)
   end
+
 end

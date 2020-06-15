@@ -37,6 +37,7 @@ gem 'devise'
 gem 'active_storage_validations'
 
 gem 'geocoder'
+gem 'cloudinary', '~> 1.12.0'
 
 group :development, :test do
   gem 'pry-byebug'

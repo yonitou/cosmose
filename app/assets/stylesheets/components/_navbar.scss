@@ -45,7 +45,7 @@
 // LOGGED
 
 .navbar-current-user {
-    padding: 20px 30px;
+    padding: 10px 30px;
     background-color: #ffffff;
 
     .btn-primary {
@@ -54,8 +54,10 @@
 }
 
 .navbar-logged-buttons {
-    width: 110px;
+    width: 12%;
     vertical-align: center;
+    align-items:center;
+    justify-content:space-between;
 }
 
 .dropdown-menu {
@@ -71,4 +73,8 @@
 
 .dropdown-item {
     font-size: 14px !important;
+}
+
+.dropdown-toggle::after {
+content: none !important;
 }

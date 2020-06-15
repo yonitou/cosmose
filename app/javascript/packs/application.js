@@ -49,14 +49,14 @@ import { firstArrow } from './components/arrow_home';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
+  projectToggle();
+  blockForm();
   initSelect2();
   buttonNextStep();
   buttonNextStepProject();
   initTypeJs();
   portfolioToggle();
   explorerToggle();
-  blockForm();
-  projectToggle();
   buttonCollaborer();
   initAutocomplete();
   firstArrow();
