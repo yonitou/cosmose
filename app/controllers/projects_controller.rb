@@ -1,6 +1,5 @@
 class ProjectsController < ApplicationController
   before_action :set_project, except: %i[index new create]
-  skip_before_action :authenticate_user!, only: :index
 
   def new
     @project = Project.new
