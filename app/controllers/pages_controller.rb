@@ -12,8 +12,23 @@ class PagesController < ApplicationController
       sql_query = "username ILIKE :query OR bio ILIKE :query"
       @users = @users.where(sql_query, query: "%#{params[:query]}%")
     end
-    @users = @users.where("competences ILIKE ?", "%#{params[:competences]}%") if params[:competences].present?
-
+    if params[:competences].present?
+      potential_users = @users
+      @users = []
+      if params[:competences].class == String
+        @users << potential_users.filter do |user|
+          user.competences.include?(params[:competences])
+        end
+        @users.flatten!
+      else
+        params[:competences].each do |competence|
+          @users << potential_users.filter do |user|
+            user.competences.include?(competence)
+          end
+        end
+        @users.flatten!
+      end
+    end
     if params[:address].present?
       @users = @users.near(params[:address], 10)
     end
@@ -23,7 +38,23 @@ class PagesController < ApplicationController
       @projects = @projects.where(sql_query, query: "%#{params[:query_project]}%")
       @display_project = true
     end
-    @projects = @projects.where("category ILIKE ?", "%#{params[:categories]}%") if params[:categories].present?
+    if params[:category].present?
+      potential_projects = @projects
+      @projects = []
+      if params[:category].class == String
+        @projects << potential_projects.filter do |project|
+          project.categories.include?(params[:category])
+        end
+        @projects.flatten!
+      else
+        params[:category].each do |category|
+          @projects << potential_projects.filter do |project|
+            project.categories.include?(category)
+          end
+        end
+        @projects.flatten!
+      end
+    end
 
     if params[:address].present?
       @projects = @projects.near(params[:address], 10)

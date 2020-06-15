@@ -22,7 +22,7 @@
         placeholder: "Je cherche un.e ..."
       %>
 
-      <%= select_tag :competences, options_for_select(User::SKILLS_LIST.sort), input_html: { multiple: true, class: "select2-search search-explorer-competences"},
+      <%= select_tag :competences, options_for_select(User::SKILLS_LIST.sort),
         prompt: "Compétences"
       %>
 
@@ -36,7 +36,7 @@
     <% end %>
   </div>
 
-  <%= render 'shared/card-artist' %>
+  <%= render 'shared/card-artist', users: @users %>
 </div>
 
 
@@ -50,7 +50,7 @@
           placeholder: "Je cherche un.e ..."
         %>
 
-      <%= select_tag :category, options_for_select(Project::CATEGORIES_LIST.sort), prompt: "Catégorie", class:"form-control select" %>
+      <%= select_tag :category, options_for_select(Project::CATEGORIES_LIST.sort), prompt: "Catégorie" %>
 
       <%= text_field_tag :address,
           params[:address],
@@ -60,7 +60,7 @@
       <%= submit_tag "Rechercher",class: "btn btn-primary" %>
     <% end %>
     </div>
-    <%= render 'shared/card-project' %>
+    <%= render 'shared/card-project', projects: @projects %>
 
 </div>
 
