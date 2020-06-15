@@ -6,16 +6,75 @@
 .contrast {
   font-size: 4.5rem;
   color: $red;
-  background-image: linear-gradient(90deg, #77A1D3 0%, #79CBCA 50%, #E684AE 100%);
+  background: linear-gradient(to right, $dark-red, $red);
   background-size: 300%;
   background-clip: text;
   color: transparent;
   animation: btn-bg-animation 5s infinite alternate;
+  font-family:$headers-font;
 }
 
 h1, h2 {
   text-transform: uppercase;
 }
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+section::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 80%;
+  background: -webkit-linear-gradient(top,rgba(0,0,0,0) 0,rgba(0,0,0,.8) 80%,rgba(0,0,0,.8) 100%);
+  background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,.8) 80%,rgba(0,0,0,.8) 100%);
+}
+#section04 a {
+  padding-top: 60px;
+}
+#section04 a .span-home {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 35px;
+  z-index:100;
+  height: 35px;
+  margin-left: -12px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb04 2s infinite;
+  animation: sdb04 2s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb04 {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+  }
+  20% {
+    -webkit-transform: rotate(-45deg) translate(-10px, 10px);
+  }
+  40% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+  }
+}
+@keyframes sdb04 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+  20% {
+    transform: rotate(-45deg) translate(-10px, 10px);
+  }
+  40% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
 
 .home-hero {
   max-width: 100vw;
@@ -186,9 +245,10 @@ h1, h2 {
 /* Cursor */
 .txt-type > .txt {
   border-right: 1px solid white;
+  font-family:$headers-font;
 }
 
 .homepage-hero-title{
-  width: 95%;
+  max-width:55vw;
 }
 

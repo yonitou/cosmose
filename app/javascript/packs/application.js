@@ -43,6 +43,7 @@ import { blockForm } from './components/block_form';
 import { projectToggle } from './components/project_toggle';
 import { buttonCollaborer } from './components/collaborer_form';
 import { initAutocomplete } from '../plugins/init_autocomplete';
+import { firstArrow } from './components/arrow_home';
 
 
 
@@ -58,5 +59,5 @@ document.addEventListener('turbolinks:load', () => {
   projectToggle();
   buttonCollaborer();
   initAutocomplete();
-
+  firstArrow();
 });
