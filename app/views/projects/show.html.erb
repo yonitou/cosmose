@@ -23,7 +23,7 @@
       <% end %>
         </div>
         <div class="show-hero-info d-flex flex-column">
-          <p class="username-align-show"><%= link_to @project.user.username, project_path %> + <%= @project.collabs.count %>  <%= (@project.collabs.count) == 1 ? 'collaborateur' : 'collaborateurs'%></p>
+          <p class="username-align-show"><%= link_to @project.user.username, (current_user == @project.user ? portfolio_path : user_path(@project.user)) %> + <%= @project.collabs.count %>  <%= (@project.collabs.count) == 1 ? 'collaborateur' : 'collaborateurs'%></p>
           <p class="username-align-show description-project-show"><%=  @project.description %></p>
           <div class="username-align-show">
             <%  @project.categories.each do |categorie|%>
