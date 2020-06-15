@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :projects do
-    get 'collaborators'
     resources :user_likes, only: [:create, :destroy]
     resources :blocks, only: [:create]
     resources :collaborations, only: [ :create, :destroy]
