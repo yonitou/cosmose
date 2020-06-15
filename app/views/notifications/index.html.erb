@@ -2,7 +2,7 @@
   <h2>Notifications</h2>
   <ul>
     <% @notifications.each do |notification| %>
-    <%= notification.content.html_safe %>
+     <%= link_to notification.content.html_safe, project_path(notification.project) %>
     <% end %>
   </ul>
 </div>
