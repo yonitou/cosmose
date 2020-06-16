@@ -204,33 +204,32 @@ section::after {
   }
 
   .section3-content {
-    height: 50vh;
-    padding: 50px 0;
+    height: 45vh;
     margin: 20vh auto 0;
-    width: 80%;
-    align-self: center;
+    width: 90%;
     background:url(asset-path('Vector.svg'));
     background-repeat: no-repeat;
     background-size: contain;
+
   }
 
   h2 {
     justify-self: flex-end;
-    max-width: 50%;
+    max-width: 60%;
     color: white;
-    mix-blend-mode: difference;
-
+    font-size: 2.5rem;
   }
-
   p {
-    max-width: 50%;
-    font-size: 18px;
-    text-align: right;
+    font-size: 20px;
+    text-align: center;
     color: white;
-    align-self: flex-end;
   }
 }
+.blob-blob{
+  max-width: 30%;
+  margin-left: 5px;
 
+}
 .cta {
   margin: 50px auto 0;
   align-self: center;
