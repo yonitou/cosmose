@@ -1,57 +1,76 @@
 <div class="inbox">
-<div class="chatroom-sidebar col-4 ">
-  <h1 class="ml-2">Inbox</h1>
-  <div class="menu pt-4">
-    <div class="chatroom-item">
-      <p>Une chatroom</p>
-    </div>
-    <div class="chatroom-item active">
-      <p>Projet de dingue</p>
-      <i class="fas fa-users"></i>
-    </div>
-    <div class="chatroom-item">
-      <p>Une autre chatroom</p>
-    </div>
-    <div class="chatroom-item">
-      <p>Une autre</p>
+  <div class="chatroom-sidebar col-4 ">
+    <h1 class="ml-2">Inbox</h1>
+    <div class="menu pt-4">
+      <div class="chatroom-item">
+        <p>Une chatroom</p>
+      </div>
+      <div class="chatroom-item active">
+        <p>Projet de dingue</p>
+        <i class="fas fa-users"></i>
+      </div>
+      <div class="chatroom-item">
+        <p>Une autre chatroom</p>
+      </div>
+      <div class="chatroom-item">
+        <p>Une autre</p>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="chatroom-main col-8 pt-5">
-  <div class="chatroom-header">
-    <h3 class="text-right">Projet de dingue</h3>
-  </div>
-  <hr>
-  <div class="chatroom-content">
-    <div class="messages">
-      <div class="message">
-        <p class="message-content">
-          Lorem ta reum
-        </p>
-        <div class="message-author">Kevin</div>
+  <div class="chatroom-main col-8">
+    <div class="chatroom-header">
+      <h3 class="text-right">Projet de dingue</h3>
+    </div>
+    <div class="chatroom-content">
+      <div class="messages mt-2">
+        <div class="message">
+          <p class="message-content">
+            Lorem ta reum
+          </p>
+          <div class="message-author">Kevin</div>
+        </div>
+        <div class="message current_user">
+          <p class="message-content">
+            Lorem ta reum à toi l'ami
+          </p>
+          <div class="message-author author-current_user">Me</div>
+        </div>
+        <div class="message">
+          <p class="message-content">
+            Comment tu parles ?
+          </p>
+          <div class="message-author">Kevin</div>
+        </div>
+        <div class="message current_user">
+          <p class="message-content">
+            yo ?
+          </p>
+          <div class="message-author author-current_user">Me</div>
+        </div>
+        <div class="message current_user">
+          <p class="message-content">
+            yo ?
+          </p>
+          <div class="message-author author-current_user">Me</div>
+        </div>
+        <div class="message current_user" id="last">
+          <p class="message-content">
+            yo ?
+          </p>
+          <div class="message-author author-current_user">Me</div>
+        </div>
       </div>
-      <div class="message current_user">
-        <p class="message-content">
-          Lorem ta reum à toi l'ami
-        </p>
-      <div class="message-author author-current_user">Me</div>
-      </div>
-      <div class="message">
-        <p class="message-content">
-          Comment tu parles ?
-        </p>
-        <div class="message-author">Kevin</div>
+
+      <div class="chatroom-footer">
+        <div class="form-reply d-flex m-3">
+          <input type="text" class="reply-content" value="Lorem lipsuuuummmmm mon frere">
+          </input>
+          <button class="btn btn-outline-primary ml-2">
+            Envoyer <i class="far fa-comment"></i></i>
+          </button>
+        </div>
       </div>
     </div>
-    <hr>
-    <div class="form-reply d-flex">
-      <input type="text" class="reply-content" value="Lorem lipsuuuummmmm mon frere">
-      </input>
-      <button class="btn btn-outline-primary ml-2">
-        Envoyer <i class="far fa-comment"></i></i>
-      </button>
-    </div>
   </div>
-</div>
 </div>

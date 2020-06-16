@@ -35,6 +35,7 @@
 
 .chatroom-main {
   background-color: $white;
+  padding: 0;
 }
 
 .chatroom-content {
@@ -44,30 +45,44 @@
   justify-content: space-between;
 }
 
+.chatroom-header {
+  box-shadow: 0 8px 6px -6px rgba(136, 136, 136, 0.2);
+  padding-bottom: 20px;
+  justify-self:flex-start ;
+  height: 100px;
+  h3 { 
+    color: $dark-red;
+    padding: 20px 20px;
+  }
+}
 .messages {
+  padding: 15px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .message {
   margin: 20px 0 0 10px;
   background-color: white;
-  max-width: 400px;
+  max-width: 250px;
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 15px;
-  border-radius: 20px;
+  padding: 15px 15px 2px 15px;
+  border-radius: 10px;
   border-bottom-left-radius: 0;
 }
 
 .message.current_user {
-  margin: 20px 10px 0 0;
+  max-width: 250px;
+  margin: 30px 10px 0 0;
   background-color: $dark-red;
   text-align: right !important;
   align-self: flex-end;
-  border-bottom-left-radius: 20px;
+  border-bottom-left-radius: 10px;
   border-bottom-right-radius: 0;
+
   .message-content {
     color: $white;
   }
@@ -99,5 +114,9 @@
     flex-grow: 1;
     height: 2.5rem;
     border: none;
+  }
+
+  .chatroom-footer {
+    
   }
 }
