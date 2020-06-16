@@ -60,5 +60,5 @@ document.addEventListener('turbolinks:load', () => {
   buttonCollaborer();
   initAutocomplete();
   firstArrow();
-
+  initSearchSelect2();
 });

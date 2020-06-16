@@ -37,8 +37,8 @@ class PagesController < ApplicationController
       @projects = @projects.where(sql_query, query: "%#{params[:query_project]}%")
       @display_project = true
     end
-     if params[:address].present?
-      @projects = @projects.near(params[:address], 10)
+     if params[:city].present?
+      @projects = @projects.near(params[:city], 10)
       @display_project = true
     end
     if params[:category].present?

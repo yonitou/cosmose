@@ -1,6 +1,7 @@
 <div class="banner-homepage-user">
   <h1 id="title-banner-homepage-user">INSPIRATION</h1>
 </div>
+
 <div class="homepage-user-cards d-flex flex-column">
   <h2 class="homepage-user-title">ARTISTES</h2>
   <div class="cards">
@@ -10,8 +11,7 @@
       <div class="card-images d-flex flex-column justify-content-between">
         <div class="card-images-element-top">
         </div>
-        <div class="card-images-elements-bottom d-flex justify-content-between">
-          <i class="fas fa-record-vinyl"></i>
+        <div class="card-images-elements-bottom-artist">
           <% if user.photo.attached? %>
         <%= cl_image_tag(user.photo.key, class: "avatar", alt: "avatar") %>
       <% else%>
@@ -40,7 +40,7 @@
         <div class="card-images-element-top">
         </div>
         <div class="card-images-elements-bottom d-flex justify-content-between">
-          <i class="fas fa-record-vinyl"></i>
+          <%= render 'shared/icons', categories: project.categories  %>
           <% if project.user.photo.attached? %>
         <%= cl_image_tag(project.user.photo.key, class: "avatar", alt: "avatar") %>
       <% else%>
@@ -52,9 +52,6 @@
         <h4 class="card-title"><%= project.title %></h4>
         <p><%= project.description %></p>
         <p class="card-localisation"><%= project.address %></p>
-        <% if policy(project).show? %>
-        <%= link_to 'show' , project_path(project) %>
-        <% end %>
       </div>
       <% end %>
     </div>
@@ -64,34 +61,27 @@
     <%= link_to "VOIR PLUS", explorer_path, class:"btn btn-primary" %>
   </div>
 </div>
+
 <div class="homepage-user-categories">
   <div class="homepage-user-categories-title">
     <h2 id="homepage-user-title-categories">CATEGORIES</h2>
   </div>
-  <div class="homepage-user-categories-content ">
-    <div class="homepage-user-element-categorie">
-      <p><%= link_to "MUSIQUE", root_path %></p>
-    </div>
-    <div class="homepage-user-element-categorie">
-      <p><%= link_to "LITTERATURE", root_path %></p>
-    </div>
-    <div class="homepage-user-element-categorie">
-      <p><%= link_to "ART VISUEL", root_path %></p>
-    </div>
-    <div class="homepage-user-element-categorie">
-      <p><%= link_to "ARCHITECTURE", root_path %></p>
-    </div>
-    <div class="homepage-user-element-categorie">
-      <p><%= link_to "SPECTACLE VIVANT", root_path %></p>
-    </div>
-    <div class="homepage-user-element-categorie">
-      <p><%= link_to "DESIGN", root_path %></p>
-    </div>
-    <div class="homepage-user-element-categorie">
-      <p><%= link_to "STREET ART", root_path %></p>
-    </div>
-    <div class="homepage-user-element-categorie">
-      <p><%= link_to "CINEMA", root_path %></p>
-    </div>
+
+  <div class="homepage-user-categories-content shift">
+    <ul class="homepage-category-list">
+      <li class="type-categories"><a class="category-word" href="#">MUSIQUE</a></li>
+      <li class="type-categories"><a class="category-word"  href="#">LITTERATURE</a></li>
+      <li class="type-categories"><a class="category-word"  href="#">ARTS VISUELS</a></li>
+      <li class="type-categories"><a class="category-word"  href="#">SCULPTURE</a></li>
+      <li class="type-categories"><a  class="category-word" href="#">ARCHITECTURE</a></li>
+      <li class="type-categories"><a  class="category-word" href="#">CINEMA</a></li>
+      <li class="type-categories"><a  class="category-word" href="#">ARTS NUMERIQUES</a></li>
+      <li class="type-categories"><a  class="category-word" href="#">BANDES DESSINEES</a></li>
+      <li class="type-categories"><a  class="category-word" href="#">JEUX VIDEOS & MULTIMEDIA</a></li>
+      <li class="type-categories"><a  class="category-word" href="#">ARTS VIVANTS - ARTS DE LA SCENE</a></li>
+      <li class="type-categories"><a  class="category-word" href="#">DESIGN</a></li>
+      <li class="type-categories"><a  class="category-word" href="#">STREET ART</a></li>
+      <li class="type-categories"><a  class="category-word" href="#">ARTS MEDIATIQUES</a></li>
+    </ul>
   </div>
 </div>

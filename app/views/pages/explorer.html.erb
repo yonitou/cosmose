@@ -1,11 +1,11 @@
 <div class="explorer-top d-flex flex-column">
   <div class="explorer-choice d-flex justify-content-between align-items-center">
-    <button class="btn-explorer-artists btn-explorer-active">
+    <a class="btn-explorer-artists btn-explorer-active">
     ARTISTES
-    </button>
-    <button class="btn-explorer-projects btn-explorer-inactive">
+    </a>
+    <a class="btn-explorer-projects btn-explorer-inactive">
     PROJETS
-    </button>
+    </a>
   </div>
 </div>
 
@@ -20,15 +20,16 @@
 
       <%= text_field_tag :address,
         params[:address],
+        id: "search-address-artist",
         class: "search-bar",
         placeholder: "Ville"
       %>
 
       <%= select_tag :competences, options_for_select(User::SKILLS_LIST.sort),
-        prompt: "Compétences",
-        class: "search-bar"
+        class: "select2-search search-bar search-explorer-competences"
       %>
-      <%= submit_tag "Rechercher", remote: true, class: "btn btn-primary" %>
+
+      <%= submit_tag "Rechercher", class: "btn btn-primary" %>
     <% end %>
   </div>
 
@@ -46,13 +47,14 @@
           placeholder: "Je cherche un projet"
         %>
 
-      <%= text_field_tag :address,
-          params[:address],
+      <%= text_field_tag :city,
+          params[:city],
+          id: "search-address-project",
           class: "search-bar",
-          placeholder: "City"
+          placeholder: "Ville"
         %>
 
-      <%= select_tag :category, options_for_select(Project::CATEGORIES_LIST.sort), prompt: "Catégorie", class: "search-bar" %>
+      <%= select_tag :category, options_for_select(Project::CATEGORIES_LIST.sort), class: "select2-search search-bar search-explorer-category" %>
 
       <input type="text" name="query_type" value="project" hidden>
 
@@ -63,3 +65,18 @@
 
 </div>
 
+<script type='text/javascript'>
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem('firstLoad') )
+    {
+      localStorage['firstLoad'] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem('firstLoad');
+  }
+})();
+</script>

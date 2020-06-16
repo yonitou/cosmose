@@ -1,28 +1,29 @@
 <div class="container-profile-page d-flex">
-  <div class="profile-page-left d-flex flex-column align-items-center justify-content-around">
-    <% if @user.photo.attached? %>
-        <%= cl_image_tag(@user.photo.key, class: "avatar-large", alt: "avatar") %>
-      <% else%>
-        <%= image_tag 'https://via.placeholder.com/250', class: "avatar-large"  %>
+  <div class="profile-page-left d-flex flex-column align-items-center col-3">
+  <% if @user.photo.attached? %>
+        <%= cl_image_tag(@user.photo.key, class: "avatar-large img-fluid" , alt: "avatar") %>
+      <% else %>
+        <%= image_tag 'https://via.placeholder.com/250', class: "img-fluid" %>
       <% end %>
-    <h4 class="profile-page-username"><%= @user.username %></h4>
-    <p><%= @user.address %></p>
-    <p><%= @user.bio %></p>
-    <ul>
+      <div class="users-infos d-flex flex-column align-items-center mt-2">
+    <h4 class="profile-page-username mt-4"><i class="fas fa-user-circle"></i> <%= @user.username.capitalize %></h4>
+    <p class="mt-2"><i class="fas fa-map-marker-alt"></i> <%= @user.address %></p>
+    <p>< bio ><%= @user.bio %></p>
+    </div>
+    <div class="user-skills text-center pb-4"><br/>
       <% @user.competences.each do |competence| %>
-      <li><%= competence %></li>
+      <span class="skill"><%= competence %></span>
       <% end %>
-    </ul>
     <%= link_to "Message", init_message_user_path(@user), class: "btn btn-primary" %>
   </div>
   <div class="profile-page-right d-flex flex-column align-items-center">
     <div class="buttons-profile d-flex justify-content-around">
-      <button class="btn-profile-portfolio btn-profile-active">
+      <a class="btn-profile-portfolio btn-profile-active">
       PORTFOLIO
-      </button>
-      <button class="btn-profile-projects btn-profile-inactive">
+      </a>
+      <a class="btn-profile-projects btn-profile-inactive">
       PROJETS
-      </button>
+      </a>
     </div>
 <div class="content-profile">
       <div class="user-portfolio d-flex">

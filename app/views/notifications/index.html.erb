@@ -1,8 +1,8 @@
-<div class="notification-container">
-  <h2>Notifications</h2>
-  <ul>
+<div class="notification-container col-10 mt-4">
+  <h2 class="text-center mb-4">Notifications</h2>
+  <ul class="list-group col-8 notifications">
     <% @notifications.each do |notification| %>
-     <%= link_to notification.content.html_safe, project_path(notification.project) %>
+      <%= link_to notification.content.html_safe, project_path(notification.project) %>
     <% end %>
   </ul>
 </div>

@@ -11,21 +11,30 @@ en:
     error_notification:
       default_message: "Merci de revoir les problèmes ci-dessous:"
     # Examples
-    # labels:
-    #   defaults:
-    #     password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail to sign in.'
-    #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
-    # include_blanks:
-    #   defaults:
-    #     age: 'Rather not say'
-    # prompts:
-    #   defaults:
-    #     age: 'Select your age'
+    labels:
+      defaults:
+        remember_me: "Se souvenir de moi"
+        password: 'Mot de passe'
+        password_confirmation: "Confirmation du mot de passe"
+        current_password: "Mot de passe actuel"
+        title: "Nom du projet"
+        categories: "Catégories"
+        open_to_collab: "Ouvert à la collaboration"
+        competences: "Compétences"
+        website: "Site web"
+        address: "Adresse"
+      user:
+        new:
+          email: 'E-mail'
+        edit:
+          email: 'E-mail'
+    #hints:
+    #  defaults:
+    #    username: 'User name to sign in.'
+    #    password: 'No special characters, please.'
+    #include_blanks:
+    #  defaults:
+    #    age: 'Rather not say'
+    #prompts:
+    #  defaults:
+    #    age: 'Select your age'
