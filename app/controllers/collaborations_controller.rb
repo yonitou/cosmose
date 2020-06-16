@@ -7,7 +7,7 @@ class CollaborationsController < ApplicationController
     @collaboration.project = @project
     authorize(@collaboration)
     if @collaboration.save
-      notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='far fa-user'></i>#{current_user.username} souhaite collaborer avec vous sur : #{@project.title}</li>")
+      notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='fas fa-user'></i>#{current_user.username} souhaite collaborer avec vous sur : #{@project.title}</li>")
       notification.user = @project.user
       notification.project = @project
       notification.save
@@ -28,8 +28,8 @@ class CollaborationsController < ApplicationController
       @collaboration.status = true
       authorize(@collaboration)
       @collaboration.save
-      notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='far fa-user'></i>#{@project.user} a accepté votre demande de collaboration sur le projet : #{@project.title}</li>")
-      notification.user = current_user
+      notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='fas fa-user'></i>#{@project.user} a accepté votre demande de collaboration sur le projet : #{@project.title}</li>")
+      notification.user = @collaboration.user
       notification.project = @project
       notification.save
       redirect_to project_path(@project)
@@ -41,7 +41,7 @@ class CollaborationsController < ApplicationController
     @collaboration.status = false
     authorize(@collaboration)
     @collaboration.save
-    notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='far fa-user'></i>#{@project.user} a décliné votre demande de collaboration sur le projet : #{@project.title}</li>")
+    notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='fas fa-user'></i>#{@project.user} a décliné votre demande de collaboration sur le projet : #{@project.title}</li>")
     notification.user = current_user
     notification.project = @project
     notification.save
