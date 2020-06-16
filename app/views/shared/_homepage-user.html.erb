@@ -40,7 +40,7 @@
         <div class="card-images-element-top">
         </div>
         <div class="card-images-elements-bottom d-flex justify-content-between">
-          <i class="fas fa-record-vinyl"></i>
+          <%= render 'shared/icons', categories: project.categories  %>
           <% if project.user.photo.attached? %>
         <%= cl_image_tag(project.user.photo.key, class: "avatar", alt: "avatar") %>
       <% else%>

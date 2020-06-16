@@ -1,34 +1,25 @@
-<!-- EVENT PAGES -->
-<!-- HEART -->
-<i class="far fa-heart"></i>
-<!-- MESSAGE -->
-<i class="far fa-comment-dots"></i>
-<!-- NOTIF -->
-<i class="far fa-bell"></i>
-<!-- LOCALISATION -->
-<i class="fas fa-map-marker-alt"></i>
-<!-- CATEGORIES -->
-<!-- MUSIC -->
-<i class="fas fa-compact-disc"></i>
-<!-- CINEMA -->
-<i class="fas fa-film"></i>
-<!-- LITTERATURE -->
-<i class="fas fa-feather-alt"></i>
-<!-- ARCHITECTURE -->
-<i class="far fa-building"></i>
-<!-- ART VIVANT / ART DE LA SCENE -->
-<i class="fas fa-theater-masks"></i>
-<!-- ART VISUEL -->
-<i class="fas fa-eye"></i>
-<!-- STREET ART -->
-<i class="fas fa-brush"></i>
-<!-- ART NUMERIQUE -->
-<i class="fab fa-digital-ocean"></i>
-<!-- SCULPTURE -->
-<i class="fas fa-screwdriver"></i>
-<!-- ART MEDIATIQUE -->
-<i class="fab fa-medium-m"></i>
-<!-- BANDE DESSINEES -->
-<i class="fas fa-book"></i>
-<!-- JEU VIDEO ET MULTIMEDIA -->
-<i class="fas fa-gamepad"></i>
+<% if categories.include?("Musique") %>
+  <i class="fas fa-compact-disc"></i>
+<% elsif categories.include?("Cinéma") %>
+  <i class="fas fa-film"></i>
+<% elsif categories.include?("Littérature") %>
+  <i class="fas fa-feather-alt"></i>
+<% elsif categories.include?("Architecture") %>
+  <i class="far fa-building"></i>
+<% elsif categories.include?("Arts Visuels") %>
+  <i class="fas fa-eye"></i>
+<% elsif categories.include?("Arts Vivants / Arts de la scène") %>
+  <i class="fas fa-theater-masks"></i>
+<% elsif categories.include?("Street Art") %>
+  <i class="fas fa-brush"></i>
+<% elsif categories.include?("Arts Numériques") %>
+  <i class="fab fa-digital-ocean"></i>
+<% elsif categories.include?("Arts Médiatiques") %>
+  <i class="fab fa-medium-m"></i>
+<% elsif categories.include?("Bandes Dessinées") %>
+  <i class="fas fa-book"></i>
+<% elsif categories.include?("Sculpture") %>
+  <i class="fas fa-screwdriver"></i>
+<% elsif categories.include?("Jeux Vidéos & Multimédia") %>
+  <i class="fas fa-gamepad"></i>
+<% end %>

@@ -7,24 +7,6 @@
   color:$white;
 }
 
-.fa-map-marker-alt {}
-
-.fa-record-vinyl {}
-
-.fa-film {}
-
-.fa-feather-alt {}
-
-.fa-theater-masks {}
-
-.fa-paint-brush {}
-
-.fa-pencil-ruler {}
-
-.fa-eye {}
-
-.far {}
-
 .fa-user {
     font-size: 30px;
     color: $red;
@@ -45,8 +27,6 @@
     color: $black;
 }
 
-.fa-building {}
-
 .fa-plus-square {
     margin-left: 25px;
 }
@@ -54,3 +34,20 @@
 #heart-icon-show-project {
     font-size: 30px;
 }
+
+.fa-compact-disc,
+  .fa-film,
+  .fa-feather-alt,
+  .fa-building,
+  .fa-eye,
+  .fa-theater-masks,
+  .fa-brush,
+  .fa-digital-ocean,
+  .fa-medium-m,
+  .fa-book,
+  .fa-screwdriver,
+  .fa-gamepad{
+    font-size: 40px;
+    color: $red;
+  }
+
