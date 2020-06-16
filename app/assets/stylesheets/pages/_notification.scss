@@ -1,32 +1,36 @@
-.like {
-  font-family: $body-font;
-  list-style: none;
-  padding: 10px;
-  background-color: white;
-  margin: 10px;
-  display:flex;
-  align-items:center;
+.notification-container,
+.notifications {
+  margin: 0 auto;
+  padding-bottom: 10vh;
+
+  & li {
+    background-color: white;
+    font-family: $body-font;
+    list-style: none;
+    padding: 20px;
+    margin: 2px auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: rgba(0, 0, 0, .8);
+    align-self: center;
+    transition: transform ease .5s;
+  }
+
+  & i {
+    padding-right: 10px;
+    font-size: 1rem;
+    color: $dark-red;
+  }
 }
 
-.like i {
-  padding-right: 10px;
-}
+.notifications li:hover {
+  box-shadow: 0 8px 6px -6px rgba(0, 0, 0, 0.16);
+  opacity: 1;
+  transform: translateY(-2px);
 
-.notification-container {
-  width:40%;
-  margin: 30px auto;
-}
-
-.request-collaboration-notification {
-  font-family: $body-font;
-  list-style: none;
-  padding: 10px;
-  background-color: white;
-  margin: 10px;
-  display:flex;
-  align-items:center;
-}
-
-.request-collaboration-notification i {
-  padding-right: 10px;
+  & i {
+    color: $red;
+    transform: scale(1.2);
+  }
 }

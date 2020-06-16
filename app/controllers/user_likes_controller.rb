@@ -5,7 +5,7 @@ class UserLikesController < ApplicationController
   def create
     unless already_liked?
       @project.user_likes.create(user_id: current_user.id)
-      notification = Notification.new(content: "<li class='like'><i class='far fa-heart'></i>#{current_user.username} aime votre projet : #{@project.title}</li>")
+      notification = Notification.new(content: "<li class='like'><i class='fas fa-heart'></i>#{current_user.username} aime votre projet : #{@project.title}</li>")
       notification.user = @project.user
       notification.project = @project
       authorize(@project.user_likes)

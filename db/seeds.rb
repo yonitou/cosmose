@@ -22,7 +22,7 @@ puts 'Creating 5 users...'
     username: Faker::Internet.username,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    address: Faker::Address.city,
+    address: Faker::Address.full_address,
     competences: User::SKILLS_LIST.sample(3)
   )
   user.save
