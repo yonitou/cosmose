@@ -4,18 +4,12 @@
     <%= link_to (current_user == user ? portfolio_path : user_path(user)) do %>
     <% user_images = user.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.image?}%>
           <% if user_images.reject{|user_image| user_image.nil?}.length >= 1%>
-          <div class="card-images d-flex flex-column justify-content-between" background-image="<%= user_images.first.upload %>">
+          <div class="card-images d-flex flex-column justify-content-between" style="background-image:url(<%= rails_blob_url(user_images.first.upload)%>)">
           <% else %>
-          <div class="card-images d-flex flex-column justify-content-between" background-image="https://res.cloudinary.com/devlnkl7u/image/upload/v1592338203/cosmose-fond-darkred_fw7cod.png">
+          <div class="card-images d-flex flex-column justify-content-between" style="background-image:url('https://res.cloudinary.com/devlnkl7u/image/upload/v1592338203/cosmose-fond-darkred_fw7cod.png')">
           <% end %>
 
       <div class="card-images-element-top">
-         <% user_images = user.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.image?}%>
-          <% if user_images.reject{|user_image| user_image.nil?}.length >= 1%>
-          <%= image_tag user_images.first.upload%>
-          <% else %>
-          <%= image_tag 'https://res.cloudinary.com/devlnkl7u/image/upload/v1592338203/cosmose-fond-darkred_fw7cod.png'%>
-          <% end %>
         </div>
       <div class="card-images-elements-bottom-artist">
         <% if user.photo.attached? %>
