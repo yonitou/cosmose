@@ -43,16 +43,22 @@
           <% @user.projects.each do |project| %>
           <%= link_to project_path(project) do %>
           <div class="card">
-            <div class="card-images d-flex flex-column justify-content-between">
+            <div class="d-flex flex-column justify-content-between">
               <div class="card-images-element-top">
+               <% project_images = project.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.image?}%>
+          <% if project_images.reject{|project_image| project_image.nil?}.length >= 1 %>
+          <%= image_tag project_images.first.upload, class: "card-images" %>
+          <% else %>
+          <%= image_tag 'https://res.cloudinary.com/devlnkl7u/image/upload/v1592338203/cosmose-fond-darkred_fw7cod.png', class: "card-images" %>
+          <% end %>
               </div>
               <div class="card-images-elements-bottom d-flex justify-content-between">
-                <i class="fas fa-record-vinyl"></i>
+                <%= render 'shared/icons', categories: project.categories  %>
                 <% if project.user.photo.attached? %>
-        <%= cl_image_tag(project.user.photo.key, class: "avatar", alt: "avatar") %>
-      <% else %>
-        <%= image_tag 'https://via.placeholder.com/50', class: "avatar"  %>
-      <% end %>
+                  <%= cl_image_tag(project.user.photo.key, class: "avatar", alt: "avatar") %>
+                <% else %>
+                  <%= image_tag 'https://via.placeholder.com/50', class: "avatar"  %>
+                <% end %>
               </div>
             </div>
             <div class="card-content">

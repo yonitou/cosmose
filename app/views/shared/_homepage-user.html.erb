@@ -8,8 +8,14 @@
     <% User.all.sample(3).each do |user| %>
     <div class="card">
       <%= link_to (current_user == user ? portfolio_path : user_path(user)) do %>
-      <div class="card-images d-flex flex-column justify-content-between">
+      <div class="d-flex flex-column justify-content-between">
         <div class="card-images-element-top">
+          <% user_images = user.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.image?}%>
+          <% if user_images.reject{|user_image| user_image.nil?}.length >= 1%>
+          <%= image_tag user_images.first.upload, class: "card-images" %>
+          <% else %>
+          <%= image_tag 'https://res.cloudinary.com/devlnkl7u/image/upload/v1592338203/cosmose-fond-darkred_fw7cod.png', class: "card-images" %>
+          <% end %>
         </div>
         <div class="card-images-elements-bottom-artist">
           <% if user.photo.attached? %>
@@ -36,8 +42,14 @@
     <% Project.all.sample(3).each do |project| %>
     <div class="card">
       <%= link_to project_path(project) do %>
-      <div class="card-images d-flex flex-column justify-content-between">
+      <div class="d-flex flex-column justify-content-between">
         <div class="card-images-element-top">
+          <% project_images = project.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.image?}%>
+          <% if project_images.reject{|project_image| project_image.nil?}.length >= 1 %>
+          <%= image_tag project_images.first.upload, class: "card-images" %>
+          <% else %>
+          <%= image_tag 'https://res.cloudinary.com/devlnkl7u/image/upload/v1592338203/cosmose-fond-darkred_fw7cod.png', class: "card-images" %>
+          <% end %>
         </div>
         <div class="card-images-elements-bottom d-flex justify-content-between">
           <%= render 'shared/icons', categories: project.categories  %>

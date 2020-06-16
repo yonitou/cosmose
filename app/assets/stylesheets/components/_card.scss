@@ -47,11 +47,9 @@
 }
 
 .card-images {
-    background-image: url("https://source.unsplash.com/random/450x210");
     opacity: 0.8;
+    width:100%;
     height: 210px;
-    background-position: center;
-    background-size: cover;
 }
 
 .card-content {
