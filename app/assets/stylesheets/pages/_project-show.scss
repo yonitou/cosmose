@@ -1,7 +1,6 @@
 .show-project-hero {
-  padding: 30px;
-  width: 83%;
-  margin: 0 auto;
+  padding: 30px 60px;
+  background: linear-gradient(89.25deg, #A30B37 25%, #000000 100%)
 }
 .show-projet-top-left {
   width:50%;
@@ -16,7 +15,7 @@
 
 .collaborators-admin {
   display:flex;
-  background-color:white;
+  background-color:$white;
   padding:20px 10px;
   border-bottom:2px solid $white;
 }
@@ -29,7 +28,7 @@
 }
 
 .collaborator-card {
-  background-color:$white;
+  background-color:white;
   border: 2px solid $dark-red;
   padding:11px;
   margin:20px;
@@ -48,6 +47,10 @@
 
 .username-align-show {
   margin: 5px 0;
+  color:$white;
+}
+.username-align-show a {
+  color:black;
 }
 .description-project-show {
   width:73%;
@@ -59,14 +62,17 @@
   justify-content: space-between;
   margin-left: 15px;
 }
-
+.show-projet-top-left-likes p {
+  color: $white;
+  margin:0;
+}
 .request-pending-admin {
-  background-color:$white;
+  background-color:white;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  margin:20px 20px 20px 0;
-  padding:20px;
+  margin:20px;
+  padding:20px 25px;
   max-width:233px;
   border:2px dashed $dark-red;
   border-radius:3px;
@@ -122,6 +128,11 @@ a .fa-ban:hover {
 .statut-collab-projet {
   font-size: 14px;
   margin: 25px auto;
+  color:$white;
+  width:58%;
+}
+.edit-project-buton {
+  background-color:$white;
 }
 .status-request-admin {
   display:flex;
@@ -133,6 +144,7 @@ a .fa-ban:hover {
 }
 .show-projet-top-left-title h2 {
   width:55%;
+  color:$white;
 }
 
 .show-projet-top-left-user {
@@ -231,7 +243,7 @@ $colorSecondary: $dark-red;
 }
 
 .request-collaboration {
-  background-color: white;
+  background-color: $white;
   padding:15px;
 }
 

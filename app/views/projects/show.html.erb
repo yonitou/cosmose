@@ -6,11 +6,11 @@
         <div class="show-projet-top-left-likes d-flex align-items-center">
           <% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
           <% if pre_like %>
-          <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
+          <%= link_to "<i class='fas fa-heart'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
           <% else %>
-          <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
+          <%= link_to "<i class='far fa-heart'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
           <% end %>
-          <%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
+          <p><%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%></p>
         </div>
       </div>
       <div class="show-projet-top-left-content d-flex mt-2">
@@ -49,10 +49,10 @@
       </div>
       <% end %>
       <% if policy(@project).update? %>
-      <%= link_to "Modifier le projet", edit_project_path(@project),class:"btn btn-secondary btn-outline-primary" %>
+      <%= link_to "Modifier le projet", edit_project_path(@project),class:"btn btn-outline-primary edit-project-buton" %>
       <% end %>
       <% if policy(@project).destroy? %>
-      <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-secondary btn-outline-primary"%>
+      <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-outline-primary edit-project-buton"%>
       <% end %>
     </div>
   </div>
@@ -65,6 +65,7 @@
     <% end %>
     <% end %>
   </div>
+  <% if current_user.owner?(@project) || policy(@project).destroy? %>
   <div class="collaborators-admin">
     <% if current_user.owner?(@project) %>
     <div class="collaborators-cards">
@@ -86,6 +87,7 @@
       </div>
     </div>
     <% end %>
+    <% if policy(@project).destroy? %>
     <div class="all-request-pending-admin">
       <h4>VOS DEMANDES DE COLLABORATION</h4>
       <div class="collaborators-part-right">
@@ -119,7 +121,9 @@
         <% end %>
       </div>
     </div>
+    <%end%>
   </div>
+  <%end%>
   <div class="blocks-bg-white pt-5">
     <% if !current_user.visitor?(@project) %>
     <div class="container project-toggle">
