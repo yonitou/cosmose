@@ -9,7 +9,7 @@ class UserLikesController < ApplicationController
       notification.user = @project.user
       notification.project = @project
       authorize(@project.user_likes)
-      notification.save
+      notification.save if current_user != @project.user
     end
     redirect_to project_path(@project)
   end
