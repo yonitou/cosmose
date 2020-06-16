@@ -7,7 +7,8 @@
       <% end %>
       <div class="users-infos d-flex flex-column align-items-center mt-2">
     <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= current_user.username.capitalize %></h4>
-    <p class="mr-3 ml-5"><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
+    <p class="mr-3 ml-5"><i class="fas fa-map-marker-alt"></i> <%= Geocoder.search([current_user.latitude, current_user.longitude]).first.county
+ %></p>
     <p class="mr-3 ml-5"><%= current_user.bio %></p>
     </div>
     <div class="user-skills text-center">
@@ -15,8 +16,7 @@
       <span class="skill"><%= competence %></span>
       <% end %>
     </div>
-    <button class="btn btn-secondary mt-3">Message</button>
-    <%= link_to "Éditer le profil", edit_user_registration_path(current_user), class:"btn btn-secondary mt-1" %>
+    <%= link_to "Éditer le profil", edit_user_registration_path(current_user), class:"btn btn-secondary mt-3" %>
   </div>
   <div class="profile-page-right d-flex flex-column align-items-center col-9">
     <div class="buttons-profile d-flex">
