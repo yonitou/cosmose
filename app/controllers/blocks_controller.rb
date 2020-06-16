@@ -10,6 +10,7 @@ class BlocksController < ApplicationController
     if @block.save && @block.project_id
       redirect_to project_path(@block.project_id) 
     else redirect_to request.referer
+    end
   end
 
   def destroy
