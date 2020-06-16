@@ -1,4 +1,12 @@
 class Project < ApplicationRecord
+
+  # include PgSearch::Model
+  # pg_search_scope :search_by_categories,
+  #   against: :categories,
+  #   using: {
+  #     tsearch: { prefix: true } # <-- now `superman batm` will return something!
+  #   }
+
   CATEGORIES_LIST = ["Musique", "Street Art", "Architecture", "Arts Vivants / Arts de la scène", "Arts Numériques",
                      "Littérature", "Cinéma", "Arts Visuels", "Scuplture", "Arts Médiatiques", "Bandes Dessinées", "Jeux Vidéo & Multimédia"]
   validates :title, :description, :categories, :address, presence: true
