@@ -7,8 +7,9 @@ class BlocksController < ApplicationController
     if params[:project_id]
       @block.project_id = params[:project_id]
     end
-    redirect_to project_path(@block.project_id) if @block.save && @block.project_id
-    redirect_to request.referer
+    if @block.save && @block.project_id
+      redirect_to project_path(@block.project_id) 
+    else redirect_to request.referer
   end
 
   def destroy
