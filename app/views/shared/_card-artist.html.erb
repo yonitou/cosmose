@@ -5,8 +5,7 @@
     <div class="card-images d-flex flex-column justify-content-between">
       <div class="card-images-element-top">
       </div>
-      <div class="card-images-elements-bottom d-flex justify-content-between">
-        <i class="fas fa-record-vinyl"></i>
+      <div class="card-images-elements-bottom-artist">
         <% if user.photo.attached? %>
         <%= cl_image_tag(user.photo.key, class: "avatar", alt: "avatar") %>
       <% else%>

@@ -82,10 +82,13 @@
 }
 
 .card-images-elements-bottom {
-    margin: 5px;
-    text-align: left;
+  margin: 5px;
+  align-items: center;
 }
-
+.card-images-elements-bottom-artist{
+  margin: 5px;
+  align-self: flex-end;
+}
 .avatar-card {
     border-radius: 50%;
     height: 50px;
