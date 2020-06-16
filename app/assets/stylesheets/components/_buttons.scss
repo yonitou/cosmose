@@ -1,12 +1,13 @@
 .btn-primary {
-    background: linear-gradient(89.25deg, #A30B37 0%, #F3164A 60%, rgb(240, 128, 0) 100%);
+    background: linear-gradient(89.25deg, #A30B37 0%, #F3164A 100%);
     background-size: 200%;
+    background-position: left;
     font-size: 20px;
 }
-
 .btn-primary:hover {
-    border: 1px solid $dark-red;
-    transition: ease 0.25s;
+    border: 1px solid $red;
+    transition: ease-in-out .6s;
+    background-position: right;
 }
 
 a:hover {
@@ -23,19 +24,18 @@ a:hover {
 }
 
 .btn-secondary {
-    background: linear-gradient(90deg, #77A1D3 0%, #79CBCA 50%, #E684AE 100%);
-    background-size: 300%;
-    animation: btn-bg-animation 5s infinite alternate;
+  background: #F3F5F7;
+  border: 1px solid #F3164A;
+  box-sizing: border-box;
+  border-radius: 5px;
+  color: $red;
 }
 
-@keyframes btn-bg-animation {
-    0% {
-        background-position: left;
-    }
-
-    100% {
-        background-position: right;
-    }
+.btn-secondary:hover{
+  background: $red;
+  opacity: .8;
+  color: $white;
+  transition: ease .5s;
 }
 
 .delink-btn {

@@ -8,6 +8,7 @@
 // PORTFOLIO BUTTON
 .btn-explorer-inactive, .btn-profile-inactive {
     color: black;
+    background-color: #f4f4f4;
 }
 
 // PROJECT BUTTON
@@ -22,12 +23,11 @@
     border: 0;
     letter-spacing: .25em;
     cursor: pointer;
-    transition: background .8s ease;
 }
 
 .btn-explorer-artists:hover, .btn-explorer-projects:hover, .btn-profile-portfolio:hover, .btn-profile-projects:hover{
   background-color: $dark-red;
-  color: $white;
+  color: $white!important;
   transition: background .8s ease;
 }
 
