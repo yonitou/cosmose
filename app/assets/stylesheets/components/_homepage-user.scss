@@ -68,21 +68,9 @@
 
 #homepage-user-title-categories {
     text-align: center;
+    margin-top: 20px;
     font-size: 64px;
     color: #A30B37;
-}
-
-.homepage-user-categories-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 15px;
-    text-align: center;
-    margin: 20px 0px;
-}
-
-.homepage-user-element-categorie > p {
-    font-size: 35px;
-    font-weight: bold;
 }
 
 .homepage-user-title {
@@ -97,7 +85,64 @@
     }
 }
 
-.homepage-user-categories-content a {
-    text-decoration: none;
-    color: black;
+
+
+/* NAVIGATION CATEGORY*/
+.homepage-user-categories-content {
+  margin: 0 auto;
+  padding: 50px 0;
+  font-size: 30px;
+
+}
+.homepage-user-categories-content .homepage-category-list {
+  list-style: none;
+  text-align: center;
+}
+.homepage-user-categories-content .homepage-category-list .type-categories {
+  display: inline-block;
+}
+.homepage-user-categories-content ul .type-categories .category-word {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+.homepage-user-categories-content .homepage-category-list .type-categories .category-word,
+.homepage-user-categories-content .homepage-category-list .type-categories .category-word:after,
+.homepage-user-categories-content .homepage-category-list .type-categories .category-word:before {
+  transition: all .5s;
+}
+
+/* SHIFT */
+.homepage-user-categories-content.shift .homepage-category-list .type-categories .category-word {
+  position:relative;
+  z-index: 1;
+}
+.homepage-user-categories-content.shift .homepage-category-list .type-categories .category-word:hover {
+  color: $white;
+}
+.homepage-user-categories-content.shift .homepage-category-list .type-categories .category-word:after {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 1px;
+  content: '.';
+  color: transparent;
+  background: $red;
+  visibility: none;
+  opacity: 0;
+  z-index: -1;
+}
+.homepage-user-categories-content.shift .homepage-category-list .type-categories .category-word:hover:after {
+  opacity: 1;
+  visibility: visible;
+  height: 100%;
 }
