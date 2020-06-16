@@ -7,8 +7,13 @@
       <% end %>
       <div class="users-infos d-flex flex-column align-items-center mt-2">
     <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= current_user.username.capitalize %></h4>
-    <p class="mr-3 ml-5"><i class="fas fa-map-marker-alt"></i> <%= Geocoder.search([current_user.latitude, current_user.longitude]).first.county
- %></p>
+    <p class="mr-3 ml-5"><i class="fas fa-map-marker-alt"></i> 
+    <% if current_user.latitude %>
+    <%= Geocoder.search([current_user.latitude, current_user.longitude]).first.county %>
+    <% else %>
+    <%= current_user.address.first(20) %>...
+    <% end %>
+    </p>
     <p class="mr-3 ml-5"><%= current_user.bio %></p>
     </div>
     <div class="user-skills text-center">
