@@ -52,7 +52,7 @@
       <%= link_to "Modifier le projet", edit_project_path(@project),class:"btn btn-outline-primary edit-project-buton" %>
       <% end %>
       <% if policy(@project).destroy? %>
-      <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-outline-primary edit-project-buton"%>
+      <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sûr de vous ?' }, class:"btn btn-outline-primary edit-project-buton"%>
       <% end %>
     </div>
   </div>
