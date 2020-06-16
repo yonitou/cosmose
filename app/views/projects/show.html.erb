@@ -1,26 +1,25 @@
 <div class="content">
-  <div class="show-project-hero d-flex justify-content-between">
+  <div class="show-project-hero d-flex justify-content-around">
     <div class="show-projet-top-left">
       <div class="show-projet-top-left-title">
         <h2><%= @project.title %></h2>
         <div class="show-projet-top-left-likes d-flex align-items-center">
           <% pre_like = @project.user_likes.find { |like| like.user == current_user} %>
           <% if pre_like %>
-          <%= link_to "<i class='fas fa-heart' style='color:red'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
+          <%= link_to "<i class='fas fa-heart'></i>".html_safe, project_user_like_path(@project, pre_like), method: :delete, remote: true %>
           <% else %>
-          <%= link_to "<i class='far fa-heart' style ='color:red'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
+          <%= link_to "<i class='far fa-heart'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
           <% end %>
-          <%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%>
+          <p><%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'Like' : 'Likes'%></p>
         </div>
       </div>
       <div class="show-projet-top-left-content d-flex mt-2">
         <div class="show-projet-top-left-user d-flex align-items-center">
-
-         <% if @project.user.photo.attached? %>
-        <%= cl_image_tag(@project.user.photo.key, class: "user-project-avatar", alt: "avatar") %>
-      <% else%>
-        <%= image_tag 'https://via.placeholder.com/35', class: "user-project-avatar"  %>
-      <% end %>
+          <% if @project.user.photo.attached? %>
+          <%= cl_image_tag(@project.user.photo.key, class: "user-project-avatar", alt: "avatar") %>
+          <% else%>
+          <%= image_tag 'https://via.placeholder.com/35', class: "user-project-avatar"  %>
+          <% end %>
         </div>
         <div class="show-hero-info d-flex flex-column">
           <p class="username-align-show"><%= link_to @project.user.username, (current_user == @project.user ? portfolio_path : user_path(@project.user)) %> + <%= @project.collabs.count %>  <%= (@project.collabs.count) == 1 ? 'collaborateur' : 'collaborateurs'%></p>
@@ -32,15 +31,6 @@
           </div>
         </div>
       </div>
-      <% if current_user.owner?(@project) %>
-      <div class="collaborators-cards">
-        <% @project.collabs.each do |collab| %>
-        <div class="collaborator-card">
-          <%= collab.user.username %>&nbsp<%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, project_collaboration_path(@project, collab), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }%>
-        </div>
-        <% end %>
-      </div>
-      <% end %>
     </div>
     <div class="show-projet-top-right">
       <% if @project.open_to_collab == true && current_user.visitor?(@project) && @requests.where(project: @project, user: current_user, status: nil).empty? %>
@@ -59,10 +49,10 @@
       </div>
       <% end %>
       <% if policy(@project).update? %>
-      <%= link_to "Modifier le projet", edit_project_path(@project),class:"btn btn-secondary btn-outline-primary" %>
+      <%= link_to "Modifier le projet", edit_project_path(@project),class:"btn btn-outline-primary edit-project-buton" %>
       <% end %>
       <% if policy(@project).destroy? %>
-      <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-secondary btn-outline-primary"%>
+      <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-outline-primary edit-project-buton"%>
       <% end %>
     </div>
   </div>
@@ -75,50 +65,79 @@
     <% end %>
     <% end %>
   </div>
-  <div class="all-request-pending-admin">
-    <% @requests.where(status: nil).each do |request| %>
-    <% if policy(@project).destroy? %>
-    <div class="request-pending-admin">
-      <div class="user-profil-request">
-         <% if request.user.photo.attached? %>
-        <%= cl_image_tag(request.user.photo.key, class: "user-project-avatar", alt: "avatar") %>
-      <% else%>
-        <%= image_tag 'https://via.placeholder.com/35', class: "user-project-avatar"  %>
-      <% end %>
-        <h4><%= request.user.username.capitalize %></h4>
-      </div>
-      <p><%= request.request_content %></p>
-      <div class="status-request-admin">
-        <% if request.status.nil? %>
-        <span class="pending"> Pending 🕑 </span>
-        <% elsif request.status %>
-        <span class="status"> Accepted 🎉 </span>
-        <% else %>
-        <span class="declined"> Declined 😢 </span>
-        <% end %>
-        <div class="accepted-decline-buton">
-          <%= link_to '<i class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
-          <%= link_to '<i class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
+  <% if current_user.owner?(@project) || policy(@project).destroy? %>
+  <div class="collaborators-admin">
+    <% if current_user.owner?(@project) %>
+    <div class="collaborators-cards">
+      <h4>VOS COLLABORATEURS</h4>
+      <div class="collaborators-part-left d-flex">
+        <% @project.collabs.each do |collab| %>
+        <div class="collaborator-card">
+          <div class="collaborator-card-name d-flex">
+            <% if collab.user.photo.attached? %>
+            <%= cl_image_tag(collab.user.photo.key, class: "user-project-avatar", alt: "avatar") %>
+            <% else%>
+            <%= image_tag 'https://via.placeholder.com/35', class: "user-project-avatar"  %>
+            <% end %>
+            <h4><%= collab.user.username %></h4>
+          </div>
+          <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, project_collaboration_path(@project, collab), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }%>
         </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
     <% end %>
+    <% if policy(@project).destroy? %>
+    <div class="all-request-pending-admin">
+      <h4>VOS DEMANDES DE COLLABORATION</h4>
+      <div class="collaborators-part-right">
+        <% @requests.where(status: nil).each do |request| %>
+        <% if policy(@project).destroy? %>
+        <div class="request-pending-admin">
+          <div class="user-profil-request">
+            <% if request.user.photo.attached? %>
+            <%= cl_image_tag(request.user.photo.key, class: "user-project-avatar", alt: "avatar") %>
+            <% else%>
+            <%= image_tag 'https://via.placeholder.com/35', class: "user-project-avatar"  %>
+            <% end %>
+            <h4><%= request.user.username.capitalize %></h4>
+          </div>
+          <p><%= request.request_content %></p>
+          <div class="status-request-admin">
+            <% if request.status.nil? %>
+            <span class="pending"> Pending 🕑 </span>
+            <% elsif request.status %>
+            <span class="status"> Accepted 🎉 </span>
+            <% else %>
+            <span class="declined"> Declined 😢 </span>
+            <% end %>
+            <div class="accepted-decline-buton">
+              <%= link_to '<i class="fas fa-check-circle"></i>'.html_safe, project_accept_collaboration_path(request.project, request), method: 'patch', remote: true %>
+              <%= link_to '<i class="fas fa-ban"></i>'.html_safe, project_decline_collaboration_path(request.project, request), method: 'patch', remote: true %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <%end%>
   </div>
+  <%end%>
   <div class="blocks-bg-white pt-5">
     <% if !current_user.visitor?(@project) %>
     <div class="container project-toggle">
       <div class="row justify-content-center">
         <div class="explorer-choice d-flex justify-content-between align-items-center">
           <a class="btn-explorer-artists btn-explorer-active toggle-public">
-          PUBLIC
-          <div class="btn-explorer-artists__horizontal"></div>
-          <div class="btn-explorer-artists__vertical"></div>
+            PUBLIC
+            <div class="btn-explorer-artists__horizontal"></div>
+            <div class="btn-explorer-artists__vertical"></div>
           </a>
           <a class="btn-explorer-projects btn-explorer-inactive toggle-private">
-          PRIVÉ
-          <div class="btn-explorer-projects__horizontal"></div>
-          <div class="btn-explorer-projects__vertical"></div>
+            PRIVÉ
+            <div class="btn-explorer-projects__horizontal"></div>
+            <div class="btn-explorer-projects__vertical"></div>
           </a>
         </div>
       </div>
