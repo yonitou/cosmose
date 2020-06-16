@@ -7,16 +7,16 @@
   <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
   <% end %>
   <%= f.input :password,
-  hint: "leave it blank if you don't want to change it",
+  hint: "Laisser vide si vous ne voulez pas faire de modifications",
   required: false,
-  input_html: { autocomplete: "new-password" } %>
+  input_html: { autocomplete: "new password" } %>
   <%= f.input :password_confirmation,
   required: false,
-  input_html: { autocomplete: "new-password" } %>
+  input_html: { autocomplete: "new password" } %>
   <%= f.input :current_password,
-  hint: "we need your current password to confirm your changes",
+  hint: "Nous avons besoin de votre mot de passe actuel pour confirmer les modifications",
   required: true,
-  input_html: { autocomplete: "current-password" } %>
+  input_html: { autocomplete: "current password" } %>
   <%= f.input :address%>
   <%= f.input :bio%>
   <%= f.input :website%>
