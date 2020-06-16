@@ -7,7 +7,18 @@
   justify-content:center;
   margin-bottom: 20px;
 }
+.searchform {
+  width: 70%;
+  display:flex;
+  justify-content:center;
+}
 
+.algolia-places {
+  margin-right:10px;
+}
+.ap-input {
+  height:100%;
+}
 .search-bar {
   padding: 10px;
   margin-right: 10px;
