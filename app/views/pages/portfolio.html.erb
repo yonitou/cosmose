@@ -1,20 +1,21 @@
 <div class="container-profile-page d-flex">
   <div class="profile-page-left d-flex flex-column align-items-center col-3">
-  <% if current_user.photo.attached? %>
-        <%= cl_image_tag(current_user.photo.key, class: "avatar-large img-fluid" , alt: "avatar") %>
-      <% else %>
-        <%= image_tag 'https://via.placeholder.com/250', class: "img-fluid" %>
-      <% end %>
-      <div class="users-infos d-flex flex-column align-items-center mt-2">
-    <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= current_user.username.capitalize %></h4>
-    <p class="mr-3 ml-5"><i class="fas fa-map-marker-alt"></i> 
-    <% if current_user.latitude %>
-    <%= Geocoder.search([current_user.latitude, current_user.longitude]).first.county %>
+    <% if current_user.photo.attached? %>
+    <%= cl_image_tag(current_user.photo.key, class: "avatar-large img-fluid" , alt: "avatar") %>
     <% else %>
-    <%= current_user.address.first(20) %>...
+    <%= image_tag 'https://via.placeholder.com/250', class: "avatar-large img-fluid" %>
     <% end %>
-    </p>
-    <p class="mr-3 ml-5"><%= current_user.bio %></p>
+    <div class="users-infos d-flex flex-column align-items-center mt-2">
+      <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= current_user.username.capitalize %>
+      </h4>
+      <p class="mr-3 ml-5"><i class="fas fa-map-marker-alt"></i>
+        <% if current_user.latitude %>
+        <%= Geocoder.search([current_user.latitude, current_user.longitude]).first.county %>
+        <% else %>
+        <%= current_user.address.first(20) %>...
+        <% end %>
+      </p>
+      <p class="mr-3 ml-5"><%= current_user.bio %></p>
     </div>
     <div class="user-skills text-center">
       <% current_user.competences.each do |competence| %>
@@ -59,9 +60,9 @@
               <div class="card-images-elements-bottom d-flex justify-content-between">
                 <i class="fas fa-record-vinyl"></i>
                 <% if project.user.photo.attached? %>
-                  <%= cl_image_tag(project.user.photo.key, class: "avatar", alt: "avatar") %>
+                <%= cl_image_tag(project.user.photo.key, class: "avatar", alt: "avatar") %>
                 <% else %>
-                  <%= image_tag 'https://via.placeholder.com/50', class: "avatar"  %>
+                <%= image_tag 'https://via.placeholder.com/50', class: "avatar"  %>
                 <% end %>
               </div>
             </div>

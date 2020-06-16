@@ -11,7 +11,6 @@ const portfolioToggle = () => {
       portfolioButton.classList.remove('btn-profile-inactive');
       portfolioButton.classList.add('btn-profile-active');
     });
-
     projectsButton.addEventListener('click', (e) => {
       portfolio.classList.add('hidden');
       projects.classList.remove('hidden');
