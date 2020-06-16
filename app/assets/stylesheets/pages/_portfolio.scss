@@ -77,12 +77,13 @@
 
     .skill {
       font-size: 2vmin;
-      border: 1px solid $dark-red;
-      border-radius: 4px;
+      border: 1px solid $black;
+      border-radius: 8px;
       padding: .4rem .8rem;
       display: inline-block;
-      color: $dark-red;
+      color: $black;
       margin: .2rem .6rem;
+      opacity: .6;
     }
   }
 }

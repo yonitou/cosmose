@@ -1,34 +1,34 @@
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
-    .navbar-current-user > .btn-primary {
+    .navbar-current-user>.btn-primary {
         width: 240px;
     }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-    .navbar-current-user > .btn-primary {
+    .navbar-current-user>.btn-primary {
         width: 260px;
     }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-    .navbar-current-user > .btn-primary {
-        width: 2800px;
+    .navbar-current-user>.btn-primary {
+        width: 280px;
     }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-    .navbar-current-user > .btn-primary {
+    .navbar-current-user>.btn-primary {
         width: 300px;
     }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-    .navbar-current-user > .btn-primary {}
+    .navbar-current-user>.btn-primary {}
 }
 
 .navbar {
@@ -56,8 +56,8 @@
 .navbar-logged-buttons {
     width: 15%;
     vertical-align: center;
-    align-items:center;
-    justify-content:space-between;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .dropdown-menu {
@@ -66,7 +66,7 @@
     background-color: $white;
 }
 
-.dropdown-menu > a {
+.dropdown-menu>a {
     color: $dark;
     font-family: $body-font;
 }
@@ -76,5 +76,10 @@
 }
 
 .dropdown-toggle::after {
-content: none !important;
+    content: none !important;
+}
+
+.navbar-logo {
+    width: 20vw;
+    max-width: 250px;
 }
