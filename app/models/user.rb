@@ -21,6 +21,7 @@ class User < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   has_one_attached :photo
 
+
   def competences_not_empty
     competences.delete("")
     errors.add(:competences, 'ne peut pas être vide') if competences.length.zero?
@@ -38,4 +39,15 @@ class User < ApplicationRecord
     !owner?(project) && !collaborator?(project)
   end
 
+  def chatrooms
+    user_chatrooms = self.projects.to_a.map { |project| project.chatroom }
+    self.collaborations.each do |collaboration|
+      user_chatrooms << collaboration.project.chatroom
+    end
+    user_messages = Message.where(user: self).to_a
+    user_messages << Message.where(recipient_id: self)
+    user_messages_chatrooms = user_messages.flatten.map { |message| message.chatroom }
+    result = user_chatrooms + user_messages_chatrooms
+    result.uniq.reject { |element| element.nil? }
+  end
 end

@@ -1,0 +1,3 @@
+<% @chatrooms.each do |chatroom| %>
+  <%= render 'show', chatroom: chatroom, message: Message.new %>
+<% end %>

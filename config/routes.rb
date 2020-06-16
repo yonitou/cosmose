@@ -15,6 +15,13 @@ Rails.application.routes.draw do
 
   resources :notifications, only: [:index]
   resources :blocks, only: [:create, :destroy]
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    member do
+      get '/init_message', to: 'messages#init', as: :init_message
+    end
+  end
+  resources :chatrooms, only: :index do
+    resources :messages, only: :create
+  end
 
 end

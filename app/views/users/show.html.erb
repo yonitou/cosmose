@@ -13,7 +13,7 @@
       <li><%= competence %></li>
       <% end %>
     </ul>
-    <button class="btn btn-primary">MESSAGE</button>
+    <%= link_to "Message", init_message_user_path(@user), class: "btn btn-primary" %>
   </div>
   <div class="profile-page-right d-flex flex-column align-items-center">
     <div class="buttons-profile d-flex justify-content-around">
