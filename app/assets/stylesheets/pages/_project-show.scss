@@ -3,16 +3,45 @@
   width: 83%;
   margin: 0 auto;
 }
-
-.user-project-avatar {
-  border-radius: 14px;
-  width:35px;
-  height:35px;
-  margin-top: 7px;
-  margin-left: 10px;
-  margin-right:10px;
+.show-projet-top-left {
+  width:50%;
 }
 
+.user-project-avatar {
+  border-radius: 50px;
+  width:35px;
+  height:35px;
+  margin-right: 10px;
+}
+
+.collaborators-admin {
+  display:flex;
+  background-color:white;
+  padding:20px 10px;
+  border-bottom:2px solid $white;
+}
+.collaborators-cards {
+  width:50%;
+  margin-left:30px;
+}
+.collaborators-part-left {
+  flex-wrap:wrap;
+}
+
+.collaborator-card {
+  background-color:$white;
+  border: 2px solid $dark-red;
+  padding:11px;
+  margin:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius: 3px;
+}
+.fa-trash-alt {
+  font-size: 20px;
+  padding-left:10px;
+}
 .badge-danger {
   margin-right: 3px;
 }
@@ -38,11 +67,14 @@
   justify-content:space-between;
   margin:20px 20px 20px 0;
   padding:20px;
-  width:20%;
-  border:2px solid $dark-red;
+  max-width:233px;
+  border:2px dashed $dark-red;
   border-radius:3px;
 }
-
+.collaborators-part-right {
+  display:flex;
+  flex-wrap:wrap;
+}
 .request-pending-admin p {
   margin:10px 0;
 }
@@ -64,21 +96,19 @@ a .fa-ban:hover {
 }
 .all-request-pending-admin {
   display:flex;
-  background-color:white;
+  flex-direction:column;
   opacity:80%;
-  justify-content:flex-end;
-  border-bottom:2px solid $white;
+  justify-content:flex-start;
+  width:50%;
 }
 
 .request-pending-collaborator {
-  background-color:white;
-  width:30%;
-  border-radius:5px;
-  padding:22px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  margin:10px auto;
+  background-color: white;
+  border-radius: 5px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .show-projet-top-right {
   display: flex;
