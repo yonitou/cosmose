@@ -9,14 +9,14 @@
   <%= f.input :password,
   hint: "Laisser vide si vous ne voulez pas faire de modifications",
   required: false,
-  input_html: { autocomplete: "nouveau mot de passe" } %>
+  input_html: { autocomplete: "new password" } %>
   <%= f.input :password_confirmation,
   required: false,
-  input_html: { autocomplete: "nouveau mot de passe" } %>
+  input_html: { autocomplete: "new password" } %>
   <%= f.input :current_password,
   hint: "Nous avons besoin de votre mot de passe actuel pour confirmer les modifications",
   required: true,
-  input_html: { autocomplete: "mot de passe actuel" } %>
+  input_html: { autocomplete: "current password" } %>
   <%= f.input :address%>
   <%= f.input :bio%>
   <%= f.input :website%>

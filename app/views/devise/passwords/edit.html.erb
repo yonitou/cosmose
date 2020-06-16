@@ -9,11 +9,11 @@
   required: true,
   autofocus: true,
   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-  input_html: { autocomplete: "nouveau mot de passe" } %>
+  input_html: { autocomplete: "password" } %>
   <%= f.input :password_confirmation,
   label: "Confirmez votre mot de passe",
   required: true,
-  input_html: { autocomplete: "nouveau mot de passe" } %>
+  input_html: { autocomplete: "new password" } %>
 </div>
 <div class="form-actions">
   <%= f.button :submit, "Changer mon mot de passe" %>
