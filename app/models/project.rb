@@ -16,6 +16,8 @@ class Project < ApplicationRecord
   before_save :clean_blank_categories
   has_many :collaborations, dependent: :destroy
   geocoded_by :address
+  has_one :chatroom
+  after_create :init_chatroom
 
   after_validation :geocode, if: :will_save_change_to_address?
 
@@ -25,5 +27,9 @@ class Project < ApplicationRecord
 
   def collabs
     @collabs = self.collaborations.where(status: true)
+  end
+
+  def init_chatroom
+    Chatroom.create(name: self.title, project: self)
   end
 end

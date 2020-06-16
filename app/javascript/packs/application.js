@@ -44,10 +44,11 @@ import { projectToggle } from './components/project_toggle';
 import { buttonCollaborer } from './components/collaborer_form';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { firstArrow } from './components/arrow_home';
-
+import { initChatroomCable } from '../channels/chatroom_channel';
 
 
 document.addEventListener('turbolinks:load', () => {
+  initChatroomCable();
   projectToggle();
   blockForm();
   initSelect2();
