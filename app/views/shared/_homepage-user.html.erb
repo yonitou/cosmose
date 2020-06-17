@@ -42,7 +42,12 @@
       <div class="card-content">
         <h4 class="card-title"><%= user.username.upcase %></h4>
         <p><%= user.bio %></p>
-        <p class="card-localisation"><%= user.address %></p>
+        <p class="card-localisation">
+          <% if user.latitude %>
+            <%= Geocoder.search([user.latitude, user.longitude]).first.city %>
+          <% else %>
+            <%= user.address.first(20) %>...
+          <% end %></p>
       </div>
       <% end %>
     </div>

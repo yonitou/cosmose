@@ -23,7 +23,13 @@
     <div class="card-content">
       <h4 class="card-title"><%= project.title %></h4>
       <p><%= project.description %></p>
-      <p class="card-localisation"><%= project.address %></p>
+      <p class="card-localisation">
+        <% if project.latitude %>
+          <%= Geocoder.search([project.latitude, project.longitude]).first.county %>
+        <% else %>
+          <%= project.address.first(20) %>...
+        <% end %>
+      </p>
     </div>
     <% end %>
   </div>

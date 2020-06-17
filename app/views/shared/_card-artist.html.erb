@@ -22,7 +22,13 @@
     <div class="card-content">
       <h4 class="card-title"><%= user.username.upcase %></h4>
       <p><%= user.bio  %></p>
-      <p class="card-localisation"><%= user.address  %></p>
+      <p class="card-localisation">
+        <% if user.latitude %>
+          <%= Geocoder.search([user.latitude, user.longitude]).first.county %>
+        <% else %>
+          <%= user.address.first(20) %>...
+        <% end %>
+      </p>
       <% user.competences.each do |competence| %>
       <p><%= competence %></p>
       <%end%>
