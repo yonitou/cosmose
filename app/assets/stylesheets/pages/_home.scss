@@ -13,17 +13,27 @@
   animation: btn-bg-animation 5s infinite alternate;
   font-family:$headers-font;
 }
+.contrast-effect{
 
+  font-size: 4.5rem;
+  color: $dark-red;
+  background-size: 300%;
+}
+.contrast-effect:hover{
+  text-decoration:underline;
+  color: $dark-red;
+}
 h1, h2 {
   text-transform: uppercase;
 }
 .title-home-section3 {
   font-size:70px;
   color:$dark-red !important;
-  text-decoration: underline;
   text-align:right;
 }
-
+.title-home-section3:hover {
+    text-decoration: underline;
+}
 .section3-part-right {
   justify-content:center;
   margin-left:20px;
@@ -172,6 +182,9 @@ section::after {
   .home-2nd-left {
     align-self: center;
     z-index: 100;
+    h2 {
+      color:$white;
+    }
   }
 
   .home-2nd-right {
@@ -222,7 +235,7 @@ section::after {
     height: 50vh;
     padding: 50px 0;
     margin: 20vh auto 0;
-    width: 80%;
+    width: 85%;
     align-self: center;
     background-repeat: no-repeat;
     background-size: contain;
