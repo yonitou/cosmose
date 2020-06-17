@@ -11,6 +11,7 @@ class Project < ApplicationRecord
                      "Littérature", "Cinéma", "Arts Visuels", "Scuplture", "Arts Médiatiques", "Bandes Dessinées", "Jeux Vidéo & Multimédia"]
   validates :title, :description, :categories, :address, presence: true
   belongs_to :user
+  has_many :blocks
   has_many :user_likes, dependent: :destroy
   has_many :notifications, dependent: :destroy
   before_save :clean_blank_categories

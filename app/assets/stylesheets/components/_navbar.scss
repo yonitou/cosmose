@@ -54,7 +54,7 @@
 }
 
 .navbar-logged-buttons {
-    width: 15%;
+    width: 20%;
     vertical-align: center;
     align-items: center;
     justify-content: space-between;
@@ -83,3 +83,18 @@
     width: 20vw;
     max-width: 250px;
 }
+
+.fa-bell {
+  position:relative;
+}
+
+  .notifications-count {
+    top: 21px;
+    right: 170px;
+    position: absolute;
+    padding: 0px 6px;
+    font-size: 12px;
+    border-radius: 50%;
+    background: $red;
+    color: $white;
+  }
