@@ -17,16 +17,23 @@
 .profile-page-left {
   line-height: 1.5rem;
   margin-bottom: 20px;
+
+  .avatar-large {
+    border-radius: 5px;
+  }
 }
+
 
 .profile-page-right {
   margin-left: 20px;
   margin-top: 15px;
   width: 80%;
 }
-.user-projects{
+
+.user-projects {
   width: 100%;
 }
+
 .content-profile {
   margin: 20px 0px;
 }
@@ -62,6 +69,8 @@
 
   .user-infos {
     justify-content: space-evenly;
+    background: red;
+    color: white;
   }
 
   .user-skills {
@@ -70,12 +79,11 @@
     display: grid;
     justify-content: center;
 
-
     .skill {
-      font-size: 2vmin;
+      font-size: 1.7vmin;
       border: 1px solid $black;
       border-radius: 8px;
-      padding: .4rem .8rem;
+      padding: .2rem .4rem;
       display: inline-block;
       color: $black;
       margin: .2rem .6rem;

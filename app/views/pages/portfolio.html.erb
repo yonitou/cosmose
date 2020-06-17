@@ -3,11 +3,18 @@
     <% if current_user.photo.attached? %>
     <%= cl_image_tag(current_user.photo.key, class: "avatar-large img-fluid" , alt: "avatar") %>
     <% else %>
-    <%= image_tag 'https://via.placeholder.com/250', class: "img-fluid" %>
+    <%= image_tag 'https://via.placeholder.com/250', class: "avatar-large img-fluid" %>
     <% end %>
     <div class="users-infos d-flex flex-column align-items-center mt-2">
-      <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= current_user.username.capitalize %></h4>
-      <p class="mr-3 ml-5"><i class="fas fa-map-marker-alt"></i> <%= current_user.address %></p>
+      <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= current_user.username.capitalize %>
+      </h4>
+      <p class="mr-3 ml-5"><i class="fas fa-map-marker-alt"></i>
+        <% if current_user.latitude %>
+        <%= Geocoder.search([current_user.latitude, current_user.longitude]).first.county %>
+        <% else %>
+        <%= current_user.address.first(20) %>...
+        <% end %>
+      </p>
       <p class="mr-3 ml-5"><%= current_user.bio %></p>
     </div>
     <div class="user-skills text-center">
@@ -15,7 +22,8 @@
       <span class="skill"><%= competence %></span>
       <% end %>
     </div>
-    <%= link_to "Éditer le profil", edit_user_registration_path(current_user), class:"btn btn-secondary mt-1" %>
+    <%= link_to "Éditer le profil", edit_user_registration_path(current_user), class:"btn btn-secondary mt-3" %>
+
   </div>
   <div class="profile-page-right d-flex flex-column align-items-center col-9">
     <div class="buttons-profile d-flex">
@@ -76,3 +84,5 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
