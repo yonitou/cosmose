@@ -1,10 +1,10 @@
 .project-new {
-  padding:50px;
+
 }
 
 .project-categories {
   font-family:$body-font;
-  width:200px;
+  width:120px;
   height:80px;
   margin:5px;
   text-align:center;
@@ -12,21 +12,23 @@
   display:flex;
   justify-content:center;
   align-items:center;
+
 }
 .project-categories p {
   margin:0;
+  font-size: 13px;
 }
 .project-categories:hover, a:hover {
   color:$white !important;
 }
 
 .project-new-title{
-  width: 50%;
+  width: 450px;
   text-align: center;
   margin: 20px 0px;
 }
 .project-new-first-part {
-  width:650px;
+  width:500px;
 }
 
 .project-new-second-part, .project-new-third-part {
