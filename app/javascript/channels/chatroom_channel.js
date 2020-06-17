@@ -2,10 +2,9 @@ import consumer from "./consumer";
 
 const initChatroomCable = () => {
   const messagesContainers = document.getElementsByClassName('messages');
-  if (document.querySelector('.messages')) {
-    $(".chatroom-main").animate({scrollTop: $('.active_footer').offset().top}, 0);
-  }
+
   if (messagesContainers.length > 0) {
+    $(".chatroom-main").animate({scrollTop: $('.active_footer').offset().top}, 0);
     Array.from(messagesContainers).forEach((messagesContainer) => {
       const id = messagesContainer.dataset.chatroomId;
       consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
