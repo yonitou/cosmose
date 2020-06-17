@@ -52,7 +52,7 @@
       <%= link_to "Modifier le projet", edit_project_path(@project),class:"btn btn-outline-primary edit-project-buton" %>
       <% end %>
       <% if policy(@project).destroy? %>
-      <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }, class:"btn btn-outline-primary edit-project-buton"%>
+      <%= link_to "Supprimer le projet", project_path(@project), method: :delete, remote: true, data: { confirm: 'Êtes vous sûr.e ?' }, class:"btn btn-outline-primary edit-project-buton"%>
       <% end %>
     </div>
   </div>
@@ -81,7 +81,7 @@
             <% end %>
             <h4><%= collab.user.username %></h4>
           </div>
-          <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, project_collaboration_path(@project, collab), method: :delete, remote: true, data: { confirm: 'Sure sure ?' }%>
+          <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, project_collaboration_path(@project, collab), method: :delete, remote: true, data: { confirm: 'Êtes vous sûr.e ?' }%>
         </div>
         <% end %>
       </div>

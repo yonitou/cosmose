@@ -8,7 +8,7 @@ class BlocksController < ApplicationController
       @block.project_id = params[:project_id]
     end
     if @block.save && @block.project_id
-      redirect_to project_path(@block.project_id) 
+      redirect_to project_path(@block.project_id)
     else redirect_to request.referer
     end
   end
@@ -32,10 +32,9 @@ class BlocksController < ApplicationController
     if content_type.include?('audio')
       block.upload.attach(
         io: File.open(params[:block][:upload].tempfile),
-        filename: params[:block][:upload].original_filename, 
+        filename: params[:block][:upload].original_filename,
         content_type: 'video'
         )
-      # raise
     end
   end
 
@@ -45,7 +44,7 @@ class BlocksController < ApplicationController
       match = regex.match(@block.content)
       id = match[1] if match && !match[1].blank?
       @block.content = "<lite-youtube videoid=#{id}></lite-youtube>"
-    elsif @block.content.size < 50 
+    elsif @block.content.size < 50
       @block.content = "<center><h4><mark>#{@block.content}</mark></h4></center>"
     else @block.content = "<center><p class='lead'>#{@block.content}</p></center>"
     end

@@ -1,11 +1,19 @@
 .hidden-explorer{
   display:none!important;
 }
-
+.search-buton {
+  margin-left: 10px;
+}
+.separation{
+  height: 110px;
+  width : 1px;
+  background: black;
+  }
 .explorer-search-bar {
   display:flex;
   justify-content:center;
-  margin-bottom: 20px;
+  margin: 40px 0;
+  height:50px;
 }
 .searchform {
   width: 70%;
@@ -28,7 +36,7 @@
 }
 .explorer-choice{
   margin: 30px;
-  width: 400px;
+  width: 450px;
 }
 .explorer-search{
   margin-bottom: 20px;
@@ -51,6 +59,11 @@
 .btn-explorer-inactive{
   background: transparent;
   color: black;
+}
+.btn-explorer-projects, .btn-explorer-artists {
+  margin: 0;
+  padding:20px;
+  font-size: 20px;
 }
 .btn-explorer-active{
   background-color: $dark-red !important;

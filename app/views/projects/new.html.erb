@@ -10,6 +10,11 @@
     <div class="project-new-first-part">
       <%= f.input :title, required: true, input_html: {class:"input-new-project required-inputs-project-1"} %>
       <%= f.input :categories, collection: Project::CATEGORIES_LIST.sort, input_html: { multiple: true, class: "select2 input-new-project required-inputs-project-1"} %>
+      <div class="buttons-container">
+      <% Project::CATEGORIES_LIST.sort.each do |category| %>
+      <a class="project-categories btn btn-primary"><%= category %></a>
+      <% end %>
+      </div>
       <div class="<%= should_display_all ? 'd-none' : '' %> choice-new-project">
         <h2 class="next-step-button btn btn-primary">Suivant</h2>
       </div>
@@ -22,8 +27,13 @@
       </div>
     </div>
     <div class="project-new-third-part <%= should_display_all ? '' : 'd-none' %>">
-      <%= f.label :open_to_collab %>
-      <%= f.check_box :open_to_collab, required: true%>
+
+    <label id="checkbox-project">
+    <input name="project[open_to_collab]" type="hidden" value="0">
+    <input required="required" type="checkbox" value="1" checked="checked" name="project[open_to_collab]" id="project_open_to_collab">
+      <i></i>
+      <span>Ouvert à la collaboration</span>
+    </label>
       <%= f.input :address, required: true, input_html: {class:"input-new-project required-inputs-project-3"} %>
       <div class="form-actions choice-new-project">
         <%= f.button :submit, "Créer votre projet",class:"btn btn-primary" %>
