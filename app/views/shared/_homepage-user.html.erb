@@ -81,19 +81,45 @@
 
   <div class="homepage-user-categories-content shift">
     <ul class="homepage-category-list">
-      <li class="type-categories"><a class="category-word" href="#">MUSIQUE</a></li>
-      <li class="type-categories"><a class="category-word"  href="#">LITTERATURE</a></li>
-      <li class="type-categories"><a class="category-word"  href="#">ARTS VISUELS</a></li>
-      <li class="type-categories"><a class="category-word"  href="#">SCULPTURE</a></li>
-      <li class="type-categories"><a  class="category-word" href="#">ARCHITECTURE</a></li>
-      <li class="type-categories"><a  class="category-word" href="#">CINEMA</a></li>
-      <li class="type-categories"><a  class="category-word" href="#">ARTS NUMERIQUES</a></li>
-      <li class="type-categories"><a  class="category-word" href="#">BANDES DESSINEES</a></li>
-      <li class="type-categories"><a  class="category-word" href="#">JEUX VIDEOS & MULTIMEDIA</a></li>
-      <li class="type-categories"><a  class="category-word" href="#">ARTS VIVANTS - ARTS DE LA SCENE</a></li>
-      <li class="type-categories"><a  class="category-word" href="#">DESIGN</a></li>
-      <li class="type-categories"><a  class="category-word" href="#">STREET ART</a></li>
-      <li class="type-categories"><a  class="category-word" href="#">ARTS MEDIATIQUES</a></li>
+      <li class="type-categories">
+         <%= link_to "MUSIQUE", explorer_path(:category => "Musique"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "LITTERATURE", explorer_path(:category => "Littérature"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "ARTS VISUELS", explorer_path(:category => "Arts Visuels"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "SCULPTURE", explorer_path(:category => "Sculpture"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "ARCHITECTURE", explorer_path(:category => "Architecture"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "CINÉMA", explorer_path(:category => "Cinéma"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "ARTS NUMÉRIQUES", explorer_path(:category => "Arts Numériques"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "BANDES DESSINÉES", explorer_path(:category => "Bandes Dessinées"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "JEUX VIDEO & MULTIMEDIA", explorer_path(:category => "Jeux Vidéo & Multimédia"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "ARTS VIVANTS / ARTS DE LA SCÈNE", explorer_path(:category => "Arts Vivants / Arts de la scène"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "DESIGN", explorer_path(:category => "Design"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "STREET ART", explorer_path(:category => "Street Art"), class: "category-word"%>
+      </li>
+       <li class="type-categories">
+         <%= link_to "ARTS MÉDIATIQUES", explorer_path(:category => "Arts Médiatiques"), class: "category-word"%>
+      </li>
     </ul>
   </div>
 </div>
