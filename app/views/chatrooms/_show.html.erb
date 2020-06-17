@@ -1,5 +1,5 @@
 <h3><%= chatroom.name %></h3>
-<div id="messages" data-chatroom-id="<%= chatroom.id %>">
+<div class="messages-box" data-chatroom-id="<%= chatroom.id %>">
   <% chatroom.messages.each do |message| %>
     <%= render 'messages/message', message: message %>
   <% end %>
