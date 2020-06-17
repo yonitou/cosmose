@@ -2,7 +2,7 @@
   <div class="chatroom-sidebar col-4 ">
     <h1 class="ml-2">Inbox</h1>
     <div class="menu pt-4">
-      <% @chatrooms.each do |chatroom| %>
+      <% @chatrooms.sort_by {|chatroom| chatroom.messages.last.updated_at}.reverse.each do |chatroom| %>
       <a href="/chatrooms?chatroom_id=<%= chatroom.id %>" remote= true>
         <div class="chatroom-item">
           <%= chatroom.name %>
