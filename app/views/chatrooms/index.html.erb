@@ -12,15 +12,16 @@
     </div>
   </div>
   <% @chatrooms.each do |chatroom| %>
-  <% is_active_chatroom = chatroom == Chatroom.find(params[:chatroom_id]) %>
-  <div class="chatroom-main messages-box col-8 <%= is_active_chatroom ? '' : 'd-none' %>" data-chatroom-id="<%= chatroom.id %>">
+  <% params[:chatroom_id] ?  chatroom_active = Chatroom.find(params[:chatroom_id]) : chatroom_active = current_user.chatrooms.first%>
+  <% is_active_chatroom = chatroom == chatroom_active %>
+  <div class="chatroom-main col-8 <%= is_active_chatroom ? '' : 'd-none' %>" >
     <div class="chatroom-header">
       <h3 class="text-right">
       <%= chatroom.name %>
       </h3>
     </div>
     <div class="chatroom-content">
-      <div class="messages mt-2">
+      <div class="messages mt-2" data-chatroom-id="<%= chatroom.id %>">
         <% chatroom.messages.each do |message|%>
         <%= render 'messages/message', message: message %>
         <% end %>
