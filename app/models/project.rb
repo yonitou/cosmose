@@ -17,7 +17,7 @@ class Project < ApplicationRecord
   before_save :clean_blank_categories
   has_many :collaborations, dependent: :destroy
   geocoded_by :address
-  has_one :chatroom
+  has_one :chatroom, dependent: :destroy
   after_create :init_chatroom
 
   after_validation :geocode, if: :will_save_change_to_address?
@@ -31,6 +31,7 @@ class Project < ApplicationRecord
   end
 
   def init_chatroom
-    Chatroom.create(name: self.title, project: self)
+    chatroom = Chatroom.create(name: self.title, project: self)
+    Message.create(content: "Bienvenue dans la discussion du projet #{self.title}", user: self.user, chatroom: chatroom )
   end
 end

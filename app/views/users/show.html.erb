@@ -21,7 +21,7 @@
       <span class="skill"><%= competence %></span>
       <% end %>
     </div>
-    <%= link_to "Messages", init_message_user_path, class:"btn btn-secondary mt-3" %>
+    <%= link_to 'Message', init_message_user_path(@user), class: "btn btn-secondary mt-3" %>
   </div>
   <div class="profile-page-right d-flex flex-column align-items-center col-9">
     <div class="buttons-profile d-flex">
@@ -53,7 +53,7 @@
           <% @user.projects.each do |project| %>
           <div class="card">
             <%= link_to project_path(project) do %>
-            <% project_images = project.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.image?}%>
+            <% project_images = project.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.attached? && image.upload.image?}%>
             <% if project_images.reject{|project_image| project_image.nil?}.length >= 1%>
             <div class="card-images d-flex flex-column justify-content-between" style="background-image:url(<%= rails_blob_url(project_images.first.upload)%>)">
               <% else %>
