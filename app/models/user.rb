@@ -31,6 +31,13 @@ class User < ApplicationRecord
     Collaboration.find_by(project: project, user: self, status: true)
   end
 
+  def all_projects
+    all_projects = []
+    self.projects.each {|project| all_projects << project}
+    self.collaborations.each {|collaboration| all_projects << collaboration.project}
+    return all_projects
+  end
+
   def owner?(project)
     project.user == self
   end

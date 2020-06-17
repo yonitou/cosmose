@@ -44,7 +44,7 @@
     <div class="user-projects hidden">
       <div class="content-profile-projects">
         <div class="cards-projects-profile">
-          <% @user.projects.each do |project| %>
+          <% @user.all_projects.each do |project| %>
           <div class="card">
             <%= link_to project_path(project) do %>
             <% project_images = project.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.attached? && image.upload.image?}%>
