@@ -11,8 +11,6 @@ class MessagesController < ApplicationController
       render_to_string(partial: "message_broadcasted", locals: { message: @message })
       )
       redirect_to chatrooms_path + "?chatroom_id=#{@chatroom.id}"
-    else
-      render "chatrooms/show"
     end
   end
 
