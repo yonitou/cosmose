@@ -1,8 +1,11 @@
+<% @notifications.each do |notification| notification.read = true %>
+<% notification.save %>
+<% end %>
 <div class="notification-container col-10 mt-4">
   <h2 class="text-center mb-4">Notifications</h2>
   <ul class="list-group col-8 notifications">
-    <% @notifications.each do |notification| %>
-      <%= link_to notification.content.html_safe, project_path(notification.project) %>
+    <% @notifications.order(created_at: :desc).each do |notification| %>
+      <%= link_to notification.content.html_safe, project_path(notification.project)%> <%=l(notification.created_at.in_time_zone('Europe/Paris'), :format => '%d/%m/%Y à %k:%M' )%>
     <% end %>
   </ul>
 </div>
