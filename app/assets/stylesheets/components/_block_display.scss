@@ -3,10 +3,15 @@ lite-youtube {
 }
 
 .blocks {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+  justify-content: center;
+
+  .row {
+    width: 100%;
+  }
 
   h3 {
     margin: 0 auto;
@@ -19,7 +24,7 @@ lite-youtube {
 
   .col-6 {
     display: block;
-    margin: 20px 0;
+    margin: 40px 10px;
 
     .block-destroy {
       position: absolute;
@@ -42,8 +47,9 @@ lite-youtube {
       opacity: .2;
     }
 
-    .fa-trash-alt {
+    .fa-times {
       font-size: 15px;
+      margin-left: 5px;
       color: $gray;
 
       &:hover {

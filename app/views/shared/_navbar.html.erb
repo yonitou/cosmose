@@ -21,7 +21,7 @@
     <%= link_to "<i class='fas fa-search'></i>".html_safe, explorer_path %>
     <%= link_to notifications_path do %>
       <i class='far fa-bell'></i>
-      <% if current_user.notifications.where(read: false).count > 0 %>
+      <% if current_user && current_user.notifications.where(read: false).count > 0 %>
       <span class="notifications-count"><%= current_user.notifications.where(read: false).count %></span>
       <% end %>
     <% end %>

@@ -2,34 +2,48 @@
   padding: 30px 60px;
   background: linear-gradient(89.25deg, #A30B37 25%, #000000 100%)
 }
+
 .show-projet-top-left {
-  width:50%;
+  width: 50%;
 }
 
 .user-project-avatar {
   border-radius: 50px;
-  width:35px;
-  height:35px;
+  width: 35px;
+  height: 35px;
   margin-right: 10px;
 }
 
 .collaborators-admin {
-  display:flex;
-  background-color:$white;
-  padding:20px 10px;
-  border-bottom:2px solid $white;
+  display: flex;
+  background-color: $white;
+  padding: 20px 10px;
+  border-bottom: 2px solid $white;
 }
+
 .collaborators-cards {
-  width:50%;
-  margin-left:30px;
+  width: 50%;
+  margin-left: 30px;
 }
+
 .collaborators-part-left {
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 }
 
 .collaborator-card {
-  background-color:white;
+  background-color: white;
   border: 2px solid $dark-red;
+  padding: 11px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3px;
+}
+
+.fa-trash-alt {
+  background-color:white;
+  box-shadow: 1px 1px 1px lightgrey;
   padding:11px;
   margin:20px;
   display:flex;
@@ -37,23 +51,28 @@
   justify-content:space-between;
   border-radius: 3px;
 }
-.fa-trash-alt {
+.fa-times {
   font-size: 20px;
-  padding-left:10px;
+  padding-left: 10px;
 }
-.badge-danger {
+
+.badge-secondary {
+  background-color: $white;
+  color: $dark-red;
   margin-right: 3px;
 }
 
 .username-align-show {
   margin: 5px 0;
+  color: $white;
+}
+
+.username-align-show a {
   color:$white;
 }
-.username-align-show a {
-  color:black;
-}
+
 .description-project-show {
-  width:73%;
+  width: 73%;
 }
 
 
@@ -62,50 +81,57 @@
   justify-content: space-between;
   margin-left: 15px;
 }
+
 .show-projet-top-left-likes p {
   color: $white;
-  margin:0;
-}
-.request-pending-admin {
-  background-color:white;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  margin:20px;
-  padding:20px 25px;
-  max-width:233px;
-  border:2px dashed $dark-red;
-  border-radius:3px;
-}
-.collaborators-part-right {
-  display:flex;
-  flex-wrap:wrap;
-}
-.request-pending-admin p {
-  margin:10px 0;
+  margin: 0;
 }
 
-.fa-check-circle, .fa-ban {
-  font-size: 20px;
-  color:$red;
+.request-pending-admin {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 20px;
+  padding: 20px 25px;
+  max-width: 233px;
+  border: 2px dashed $dark-red;
+  border-radius: 3px;
 }
+
+.collaborators-part-right {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.request-pending-admin p {
+  margin: 10px 0;
+}
+
+.fa-check-circle,
+.fa-ban {
+  font-size: 20px;
+  color: $red;
+}
+
 a .fa-check-circle:hover {
-  color:$green;
+  color: $green;
 }
 
 a .fa-ban:hover {
-  color:$dark-red;
+  color: $dark-red;
 }
 
 .user-profil-request {
-  display:flex;
+  display: flex;
 }
+
 .all-request-pending-admin {
-  display:flex;
-  flex-direction:column;
-  opacity:80%;
-  justify-content:flex-start;
-  width:50%;
+  display: flex;
+  flex-direction: column;
+  opacity: 80%;
+  justify-content: flex-start;
+  width: 50%;
 }
 
 .request-pending-collaborator {
@@ -116,35 +142,45 @@ a .fa-ban:hover {
   flex-direction: column;
   align-items: center;
 }
+
 .show-projet-top-right {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .show-projet-top-right .btn-outline-primary {
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
 
 .statut-collab-projet {
   font-size: 14px;
   margin: 25px auto;
-  color:$white;
-  width:58%;
+  color: $white;
+  width: 58%;
+
+  .fas {
+    font-size: 1rem;
+  }
 }
+
 .edit-project-buton {
-  background-color:$white;
+  background-color: $white;
 }
+
 .status-request-admin {
-  display:flex;
-  justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
 }
+
 .show-projet-top-left-title {
   color: $dark-red;
-  display:flex;
+  display: flex;
 }
+
 .show-projet-top-left-title h2 {
-  width:55%;
-  color:$white;
+  width: 55%;
+  color: $white;
 }
 
 .show-projet-top-left-user {
@@ -153,6 +189,20 @@ a .fa-ban:hover {
 
 .show-hero-info {
   padding-top: 5px;
+
+  .skill-badge {
+    padding: 5px 10px;
+    border: 2px solid $light-gray;
+    cursor: pointer;
+    opacity: .8;
+    transition: .6s ease;
+
+    &:hover {
+      background: $white;
+      color: $dark-red;
+      opacity: 1;
+    }
+  }
 }
 
 .effect-button-collaborate {
@@ -196,7 +246,7 @@ $colorSecondary: $dark-red;
     background: transparent;
     outline: none;
     font-size: 28px;
-    z-index:1;
+    z-index: 1;
 
     &::after,
     &::before {
@@ -244,7 +294,7 @@ $colorSecondary: $dark-red;
 
 .request-collaboration {
   background-color: $white;
-  padding:15px;
+  padding: 15px;
 }
 
 .collaborationform {
