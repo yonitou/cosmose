@@ -26,12 +26,14 @@
         <%= render 'messages/message', message: message %>
         <% end %>
       </div>
-      <div class="chatroom-footer">
+
+    </div>
+    <div class="chatroom-footer">
         <%= simple_form_for [ chatroom, Message.new ], class:"form-reply d-flex m-3" ,remote: true do |f| %>
         <%= f.input :content, label: false, placeholder: "Message #{chatroom.name}" %>
         <% end %>
       </div>
-    </div>
   </div>
+
   <% end %>
 </div>
