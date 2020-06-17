@@ -1,31 +1,32 @@
 <div class="container-profile-page d-flex">
   <div class="profile-page-left d-flex flex-column align-items-center col-3">
-  <% if @user.photo.attached? %>
+  <% if @user.photo.attached?%>
         <%= cl_image_tag(@user.photo.key, class: "avatar-large img-fluid" , alt: "avatar") %>
       <% else %>
         <%= image_tag 'https://via.placeholder.com/250', class: "img-fluid" %>
       <% end %>
       <div class="users-infos d-flex flex-column align-items-center mt-2">
-    <h4 class="profile-page-username mt-4"><i class="fas fa-user-circle"></i> <%= @user.username.capitalize %></h4>
-    <p class="mt-2"><i class="fas fa-map-marker-alt"></i> <%= @user.address %></p>
-    <p>< bio ><%= @user.bio %></p>
+    <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= @user.username.capitalize %></h4>
+    <p class="mr-3 ml-5"><i class="fas fa-map-marker-alt"></i> <%= @user.address %></p>
+    <p class="mr-3 ml-5"><%= @user.bio %></p>
     </div>
-    <div class="user-skills text-center pb-4"><br/>
+    <div class="user-skills text-center">
       <% @user.competences.each do |competence| %>
       <span class="skill"><%= competence %></span>
       <% end %>
-    <%= link_to "Message", init_message_user_path(@user), class: "btn btn-primary" %>
+    </div>
+    <button class="btn btn-secondary mt-3">Message</button>
   </div>
-  <div class="profile-page-right d-flex flex-column align-items-center">
-    <div class="buttons-profile d-flex justify-content-around">
+  <div class="profile-page-right d-flex flex-column align-items-center col-9">
+    <div class="buttons-profile d-flex">
       <a class="btn-profile-portfolio btn-profile-active">
-      PORTFOLIO
+        PORTFOLIO
       </a>
       <a class="btn-profile-projects btn-profile-inactive">
-      PROJETS
+        PROJETS
       </a>
     </div>
-<div class="content-profile">
+    <div class="content-profile">
       <div class="user-portfolio d-flex">
         <div class="row">
           <div class="blocks">
@@ -34,13 +35,16 @@
             <hr />
             <% end %>
           </div>
+          <% if current_user %>
+          <%= render 'shared/artist_block_form', block: @block %>
+          <% end %>
         </div>
       </div>
     </div>
     <div class="user-projects hidden">
       <div class="content-profile-projects">
         <div class="cards-projects-profile">
-          <% @user.projects.each do |project| %>
+          <% current_user.projects.each do |project| %>
           <%= link_to project_path(project) do %>
           <div class="card">
             <div class="card-images d-flex flex-column justify-content-between">
@@ -49,10 +53,10 @@
               <div class="card-images-elements-bottom d-flex justify-content-between">
                 <i class="fas fa-record-vinyl"></i>
                 <% if project.user.photo.attached? %>
-        <%= cl_image_tag(project.user.photo.key, class: "avatar", alt: "avatar") %>
-      <% else %>
-        <%= image_tag 'https://via.placeholder.com/50', class: "avatar"  %>
-      <% end %>
+                  <%= cl_image_tag(project.user.photo.key, class: "avatar", alt: "avatar") %>
+                <% else %>
+                  <%= image_tag 'https://via.placeholder.com/50', class: "avatar"  %>
+                <% end %>
               </div>
             </div>
             <div class="card-content">
@@ -67,6 +71,5 @@
       </div>
     </div>
   </div>
-</div>
 </div>
 
