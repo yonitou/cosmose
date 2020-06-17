@@ -8,6 +8,10 @@ lite-youtube {
   flex-wrap: wrap;
   margin: 0 auto;
 
+  .row {
+    width: 100%;
+  }
+
   h3 {
     margin: 0 auto;
     padding-bottom: 25px;

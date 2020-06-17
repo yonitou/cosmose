@@ -7,7 +7,7 @@
       </span>
     <% end %>
     <div class="block-content">
-      <%= image_tag(block.upload, width: "auto") %>
+      <%= cl_image_tag(block.upload, width: "auto") %>
         <center class="img-legend"><%= block.content.html_safe %></center>
     </div>
   </div>
@@ -20,7 +20,7 @@
     <% end %>
     <div class="block-content">
       <audio controls="true" preload="true">
-        <source src="<%= url_for(block.upload) %>%" type='audio/mpeg'>
+        <source src=<%= url_for(block.upload) %> type='audio/mpeg'>
       </audio>
     </div>
   </div>

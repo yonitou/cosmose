@@ -4,12 +4,12 @@ class BlocksController < ApplicationController
     authorize(@block)
     @block.user = current_user
     check_if_yt
+    # upload_file(@block)
     if params[:project_id]
       @block.project_id = params[:project_id]
     end
-    if @block.save && @block.project_id
-      redirect_to project_path(@block.project_id) 
-    else redirect_to request.referer
+    if @block.save
+      redirect_to request.referer
     end
   end
 
@@ -26,18 +26,18 @@ class BlocksController < ApplicationController
     params.require(:block).permit(:content, :url, :private, :project_id, :upload)
   end
 
-  def upload_file(block)
-    puts 'attaching file to block'
-    content_type = params[:block][:upload].content_type
-    if content_type.include?('audio')
-      block.upload.attach(
-        io: File.open(params[:block][:upload].tempfile),
-        filename: params[:block][:upload].original_filename, 
-        content_type: 'video'
-        )
-      # raise
-    end
-  end
+  # def upload_file(block)
+  #   puts 'attaching file to block'
+  #   content_type = params[:block][:upload].content_type
+  #   # if content_type.include?('audio')
+  #   #   block.upload.attach(
+  #   #     io: File.open(params[:block][:upload].tempfile),
+  #   #     filename: params[:block][:upload].original_filename
+  #   #     )
+  #     Cloudinary::Uploader.upload(params[:block][:upload].tempfile, :resource_type => :auto)
+  #     # raise
+  #   end
+  # end
 
   def check_if_yt
     if @block.content.include?("youtu")
