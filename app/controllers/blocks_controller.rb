@@ -4,12 +4,22 @@ class BlocksController < ApplicationController
     authorize(@block)
     @block.user = current_user
     check_if_yt
+    upload = params[:block][:upload]
+    if upload 
+      if params[:block][:upload].content_type.include?('audio')
+        @block.url = Cloudinary::Uploader.upload(params[:block][:upload].tempfile, :resource_type => :video)['url']
+      else 
+        @block.upload.attach(
+          io: File.open(params[:block][:upload].tempfile),
+          filename: params[:block][:upload].original_filename
+          )
+      end
+    end
     if params[:project_id]
       @block.project_id = params[:project_id]
     end
-    if @block.save && @block.project_id
-      redirect_to project_path(@block.project_id)
-    else redirect_to request.referer
+    if @block.save
+      redirect_to request.referer
     end
   end
 
@@ -23,20 +33,21 @@ class BlocksController < ApplicationController
   private
 
   def block_params
-    params.require(:block).permit(:content, :url, :private, :project_id, :upload)
+    params.require(:block).permit(:content, :url, :private, :project_id)
   end
 
-  def upload_file(block)
-    puts 'attaching file to block'
-    content_type = params[:block][:upload].content_type
-    if content_type.include?('audio')
-      block.upload.attach(
-        io: File.open(params[:block][:upload].tempfile),
-        filename: params[:block][:upload].original_filename,
-        content_type: 'video'
-        )
-    end
-  end
+  # def upload_file(block)
+  #   puts 'attaching file to block'
+  #   content_type = params[:block][:upload].content_type
+  #   # if content_type.include?('audio')
+  #   #   block.upload.attach(
+  #   #     io: File.open(params[:block][:upload].tempfile),
+  #   #     filename: params[:block][:upload].original_filename
+  #   #     )
+  #     Cloudinary::Uploader.upload(params[:block][:upload].tempfile, :resource_type => :auto)
+  #     # raise
+  #   end
+  # end
 
   def check_if_yt
     if @block.content.include?("youtu")
@@ -44,7 +55,7 @@ class BlocksController < ApplicationController
       match = regex.match(@block.content)
       id = match[1] if match && !match[1].blank?
       @block.content = "<lite-youtube videoid=#{id}></lite-youtube>"
-    elsif @block.content.size < 50
+    elsif @block.content.size < 50 
       @block.content = "<center><h4><mark>#{@block.content}</mark></h4></center>"
     else @block.content = "<center><p class='lead'>#{@block.content}</p></center>"
     end
