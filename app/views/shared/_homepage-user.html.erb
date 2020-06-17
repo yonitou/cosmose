@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="card-content">
-        <h4 class="card-title"><%= user.username %></h4>
+        <h4 class="card-title"><%= user.username.upcase %></h4>
         <p><%= user.bio %></p>
         <p class="card-localisation"><%= user.address %></p>
       </div>
@@ -90,7 +90,7 @@
 
 <div class="homepage-user-categories">
   <div class="homepage-user-categories-title">
-    <h2 id="homepage-user-title-categories">CATEGORIES</h2>
+    <h2 class="homepage-user-title">CATEGORIES</h2>
   </div>
 
   <div class="homepage-user-categories-content shift">
