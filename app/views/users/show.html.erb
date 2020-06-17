@@ -15,7 +15,7 @@
       <span class="skill"><%= competence %></span>
       <% end %>
     </div>
-    <button class="btn btn-secondary mt-3">Message</button>
+    <%= link_to 'Message', init_message_user_path(@user), class: "btn btn-secondary mt-3" %>
   </div>
   <div class="profile-page-right d-flex flex-column align-items-center col-9">
     <div class="buttons-profile d-flex">
