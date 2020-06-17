@@ -89,7 +89,7 @@
             <% end %>
             <h4><%= collab.user.username %></h4>
           </div>
-          <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, project_collaboration_path(@project, collab), method: :delete, remote: true, data: { confirm: 'Êtes vous sûr.e ?' }%>
+          <%= link_to "<i class='fas fa-times'></i>".html_safe, project_collaboration_path(@project, collab), method: :delete, remote: true, data: { confirm: 'Êtes vous sûr.e ?' }%>
         </div>
         <% end %>
       </div>
@@ -139,13 +139,12 @@
         <div class="explorer-choice d-flex justify-content-between align-items-center">
           <a class="btn-explorer-artists btn-explorer-active toggle-public">
             PUBLIC
-            <div class="btn-explorer-artists__horizontal"></div>
-            <div class="btn-explorer-artists__vertical"></div>
           </a>
+          <div>
+            <hr class="separation" />
+          </div>
           <a class="btn-explorer-projects btn-explorer-inactive toggle-private">
             PRIVÉ
-            <div class="btn-explorer-projects__horizontal"></div>
-            <div class="btn-explorer-projects__vertical"></div>
           </a>
         </div>
       </div>

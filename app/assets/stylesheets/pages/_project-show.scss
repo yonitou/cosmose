@@ -42,11 +42,23 @@
 }
 
 .fa-trash-alt {
+  background-color:white;
+  box-shadow: 1px 1px 1px lightgrey;
+  padding:11px;
+  margin:20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-radius: 3px;
+}
+.fa-times {
   font-size: 20px;
   padding-left: 10px;
 }
 
-.badge-danger {
+.badge-secondary {
+  background-color: $white;
+  color: $dark-red;
   margin-right: 3px;
 }
 
@@ -56,7 +68,7 @@
 }
 
 .username-align-show a {
-  color: black;
+  color:$white;
 }
 
 .description-project-show {

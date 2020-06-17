@@ -123,17 +123,10 @@ $totalWords: 24;
     100% { opacity: 0; }
 }
 
-#homepage-user-title-categories {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 64px;
-    color: #A30B37;
-}
-
 .homepage-user-title {
     margin: 20px 0px 20px 50px;
-    font-size: 35px;
-    font-weight: bold;
+    font-size: 48px;
+    color: #A30B37;
 }
 
 .homepage-user-cards {
@@ -147,7 +140,7 @@ $totalWords: 24;
 /* NAVIGATION CATEGORY*/
 .homepage-user-categories-content {
   margin: 0 auto;
-  padding: 50px 0;
+  padding: 20px 0px 40px 0px;
   font-size: 30px;
 
 }

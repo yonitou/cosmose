@@ -32,6 +32,7 @@ a:hover {
 }
 
 .btn-secondary:hover{
+  border: none;
   background: $red;
   opacity: .8;
   color: $white;

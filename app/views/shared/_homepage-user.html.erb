@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="card-content">
-        <h4 class="card-title"><%= user.username %></h4>
+        <h4 class="card-title"><%= user.username.upcase %></h4>
         <p><%= user.bio %></p>
         <p class="card-localisation"><%= user.address %></p>
       </div>
@@ -58,7 +58,7 @@
       <%= link_to project_path(project) do %>
       <% project_images = project.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.image?}%>
           <% if project_images.reject{|project_image| project_image.nil?}.length >= 1%>
-          <div class="card-images d-flex flex-column justify-content-between" style="background-image:url(<%= rails_blob_url(project_images.first.upload)%>)">
+          <div class="card-images d-flex flex-column justify-content-between" style="background-image:url(<%= cl_image_tag(project_images.first.upload.key)%>)">
           <% else %>
           <div class="card-images d-flex flex-column justify-content-between" style="background-image:url('https://res.cloudinary.com/devlnkl7u/image/upload/v1592338203/cosmose-fond-darkred_fw7cod.png')">
           <% end %>
@@ -90,7 +90,7 @@
 
 <div class="homepage-user-categories">
   <div class="homepage-user-categories-title">
-    <h2 id="homepage-user-title-categories">CATEGORIES</h2>
+    <h2 class="homepage-user-title">CATEGORIES</h2>
   </div>
 
   <div class="homepage-user-categories-content shift">

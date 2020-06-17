@@ -1,7 +1,7 @@
 <div class="container home-hero">
   <div class="row flex-column hero-parent">
     <div class="col-sm-9 hero-content d-flex flex-column">
-      <h1 class="homepage-hero-title col-sm-10">Une plateforme <span class="contrast">collaborative</span> pour les
+      <h1 class="homepage-hero-title col-sm-10">Une plateforme <span class="contrast">collaborative</span> pour <br>les
       <span class="contrast txt-type" data-wait="3000" data-words='["artistes", "photographes", "designers", "architectes", "peintres", "auteurs"]'></span>
       </h1>
     </div>
@@ -34,17 +34,15 @@
   <div class="container">
     <div class="row col-12 sectionrow" id="second-section">
       <div class="home-2nd-left col-sm-6">
-        <h2>REJOIGNEZ UNE <div class="contrast">COMMUNAUTÉ D'ARTISTES</div></h2>
-        <p>Partagez vos idées, créez des projets collaboratifs et trouvez de l’inspiration</p>
+        <h2>REJOIGNEZ UNE <h2><%= link_to "COMMUNAUTÉ D'ARTISTES", new_user_registration_path, class:"contrast contrast-effect" %></h2></h2>
+        <p class="mt-4">Partagez vos idées, créez des projets collaboratifs et trouvez de l’inspiration</p>
       </div>
       <div class="home-2nd-right col-sm-6">
         <div class="artist-img1"></div>
         <div class="artist-img2"></div>
       </div>
     </div>
-    <div class="row">
-      <span class="btn btn-primary cta">Trouver un projet</span>
-    </div>
+
   </div>
 </div>
 <div class="hero-separator">
@@ -59,10 +57,10 @@
   <div class="section3-content d-flex ">
     <h2 class="col-sm-8">
     <br />Renforcez votre carrière artistique et votre présence digitale</h2>
-    <p class="col-sm">Participez à des collaborations et gagnez en experience professionnelle</p>
+    <div class="d-flex flex-column section3-part-right">
+  <%= link_to '<h2 class="title-home-section3">Créer un portfolio</h2>'.html_safe, new_user_registration_path %>
+    <p class="col-sm mt-5">Participez à des collaborations et gagnez en experience professionnelle</p>
   </div>
-</div>
-<div class="row">
-  <span class="btn btn-primary cta">Créer un portfolio</span>
+  </div>
 </div>
 </div>
