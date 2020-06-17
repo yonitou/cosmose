@@ -36,14 +36,13 @@
 .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 20px;
-    margin: 10px;
 }
 
 .card {
     border-radius: 5px;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
+    margin:30px;
 }
 
 .card-images {
