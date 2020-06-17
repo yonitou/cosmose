@@ -1,11 +1,13 @@
 <div class="inbox">
   <div class="chatroom-sidebar col-4 ">
-    <h1 class="ml-2">Inbox</h1>
-    <div class="menu pt-4">
+    <h1 class="ml-2">Messagerie</h1>
+    <div class="menu">
       <% @chatrooms.sort_by {|chatroom| chatroom.messages.last.updated_at}.reverse.each do |chatroom| %>
+      <% params[:chatroom_id] ? chatroom_active = Chatroom.find(params[:chatroom_id]) : chatroom_active = current_user.chatrooms.first%>
+      <% is_active_chatroom = chatroom == chatroom_active %>
       <a href="/chatrooms?chatroom_id=<%= chatroom.id %>" remote= true>
-        <div class="chatroom-item">
-          <%= chatroom.name %>
+        <div class="chatroom-item <%= is_active_chatroom  ? 'active' : '' %>">
+          <span class="chatroom-title"><%= chatroom.name %></span>
           <div class="chatroom-details">
           <p class="last-message"><%= chatroom.last_message %></p>
           <span class="last-message-date"><%= chatroom.last_active %></span>
@@ -16,7 +18,7 @@
     </div>
   </div>
   <% @chatrooms.each do |chatroom| %>
-  <% params[:chatroom_id] ?  chatroom_active = Chatroom.find(params[:chatroom_id]) : chatroom_active = current_user.chatrooms.first%>
+  <% params[:chatroom_id] ? chatroom_active = Chatroom.find(params[:chatroom_id]) : chatroom_active = current_user.chatrooms.first%>
   <% is_active_chatroom = chatroom == chatroom_active %>
   <div class="chatroom-main col-8 <%= is_active_chatroom ? 'active_main' : 'd-none' %>" >
     <div class="chatroom-header">

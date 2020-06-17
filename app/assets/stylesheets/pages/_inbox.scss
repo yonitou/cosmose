@@ -1,5 +1,7 @@
 .inbox {
   display: flex;
+  margin: 10px;
+  border: 1px solid #d6d6d693;
 }
 
 .chatroom-sidebar {
@@ -7,22 +9,54 @@
   position:sticky;
   top:0;
   height:70vh;
+  padding: 0 !important;
 
-  .chatroom-item {
-    padding: 15px;
-    background: white;
-    margin: 5px;
+  h1 {
+    font-size: 1.8rem;
+    padding: 20px 0 0 10px;
+  }
+
+  .menu {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    padding-top: 20px;
+  }
+
+  .chatroom-item {
+    padding: 10px 20px 0 20px;
+    background: white;
+    margin: 0 5px;
+    display: flex;
+    flex-direction: column;
     cursor: pointer;
-    transition: ease .5s;
-    
+    transition: ease .3s;
+    width: 100%;
+
+    .chatroom-title {
+      color: black;
+      font-family: $headers-font;
+    }
+
+    .chatroom-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
     .last-message{
       margin-top: .8rem;
       color: black;
       font-size: .7rem;
-      opacity: .7;
+      opacity: .8;
+    }
+
+    .last-message-date {
+      font-family: $headers-font;
+      margin-top: .8rem;
+      color: black;
+      font-size: .55rem;
+      opacity: .5;
     }
 
     .fas {
@@ -30,9 +64,9 @@
     }
 
     &:hover {
-      transform: translateY(-5px);
+      transform: translateX(-5px);
       box-shadow: 0 8px 6px -6px rgba(194, 194, 194, 0.2);
-      background-color: rgba(255, 195, 195, 0.2)
+      background-color: #f6f6f6;
     }
 
   }
@@ -40,17 +74,20 @@
   .active {
     font-weight: bold;
     color: $dark-red;
+    background-color: #f6f6f6;
+    transform: translateX(-5px);
   }
 }
 
 .chatroom-main {
-    display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: $white;
   padding: 0;
-  overflow:scroll;
+  overflow-y:scroll;
   height:70vh;
+  overflow-x: hidden;
 }
 
 
@@ -111,4 +148,10 @@
   right: 2px;
 }
 
+.chatroom-footer {
+  padding: 20px;
+}
 
+.chatroom-content {
+
+}
