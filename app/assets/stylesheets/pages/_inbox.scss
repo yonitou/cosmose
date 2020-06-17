@@ -13,9 +13,17 @@
     background: white;
     margin: 5px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
     transition: ease .5s;
+    
+    .last-message{
+      margin-top: .8rem;
+      color: black;
+      font-size: .7rem;
+      opacity: .7;
+    }
 
     .fas {
       font-size: 1.4rem;

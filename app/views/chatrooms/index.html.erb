@@ -6,7 +6,10 @@
       <a href="/chatrooms?chatroom_id=<%= chatroom.id %>" remote= true>
         <div class="chatroom-item">
           <%= chatroom.name %>
-          <p class="last-message"><%= chatroom.messages.size > 1 ? chatroom.messages.last.content : '' %></p>
+          <div class="chatroom-details">
+          <p class="last-message"><%= chatroom.last_message %></p>
+          <span class="last-message-date"><%= chatroom.last_active %></span>
+          </div>
         </div>
       </a>
       <% end %>
