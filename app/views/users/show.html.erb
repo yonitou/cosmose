@@ -6,7 +6,7 @@
         <%= image_tag 'https://via.placeholder.com/250', class: "img-fluid" %>
       <% end %>
       <div class="users-infos d-flex flex-column align-items-center mt-2">
-    <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= @user.username.capitalize %></h4>
+    <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= @user.username.upcase %></h4>
     <p class="mr-3 ml-5"><i class="fas fa-map-marker-alt"></i> <%= @user.address %></p>
     <p class="mr-3 ml-5"><%= @user.bio %></p>
     </div>
@@ -15,13 +15,16 @@
       <span class="skill"><%= competence %></span>
       <% end %>
     </div>
-    <button class="btn btn-secondary mt-3">Message</button>
+    <%= link_to "Messages", init_message_user_path, class:"btn btn-secondary mt-3" %>
   </div>
   <div class="profile-page-right d-flex flex-column align-items-center col-9">
     <div class="buttons-profile d-flex">
       <a class="btn-profile-portfolio btn-profile-active">
         PORTFOLIO
       </a>
+      <div>
+        <hr class="separation-user" />
+      </div>
       <a class="btn-profile-projects btn-profile-inactive">
         PROJETS
       </a>
@@ -35,9 +38,6 @@
             <hr />
             <% end %>
           </div>
-          <% if current_user %>
-          <%= render 'shared/artist_block_form', block: @block %>
-          <% end %>
         </div>
       </div>
     </div>

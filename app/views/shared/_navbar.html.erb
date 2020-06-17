@@ -1,14 +1,14 @@
-<% if !current_user && current_page?(root_path)%>
+<% if !user_signed_in? && current_page?(root_path)%>
 <div class="navbar fixed-top">
   <%= link_to root_path do %>
-    <img src="https://i.ibb.co/6y67sbM/cosmoseblack.png" alt="" class="navbar-logo">
+    <img src="https://i.ibb.co/6y67sbM/cosmoseblack.png" alt="logo" class="navbar-logo">
   <% end %>
   <div class="navbar-buttons">
     <%= link_to "Connexion", new_user_session_path, class:"login-btn btn btn-secondary delink-btn" %>
     <%= link_to "Inscription", new_user_registration_path, class:"signup-btn btn btn-primary delink-btn" %>
   </div>
 </div>
-<% else %>
+<% elsif user_signed_in? %>
 <div class="navbar-current-user sticky-top navbar navbar-expand-lg navbar-lewagon">
   <%= link_to root_path do %>
     <img src="https://i.ibb.co/CJFX8fQ/cosmosewhite.png" alt="" class="navbar-logo">
@@ -21,7 +21,7 @@
     <%= link_to "<i class='fas fa-search'></i>".html_safe, explorer_path %>
     <%= link_to notifications_path do %>
       <i class='far fa-bell'></i>
-      <% if current_user.notifications.where(read: false).count > 0 %>
+      <% if current_user && current_user.notifications.where(read: false).count > 0 %>
       <span class="notifications-count"><%= current_user.notifications.where(read: false).count %></span>
       <% end %>
     <% end %>
