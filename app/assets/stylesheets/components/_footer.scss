@@ -6,6 +6,9 @@
         background: $dark-red;
     width: 100vw;
     height:20vh;
+    position:fixed;
+    bottom:0;
+    left:0;
 
     a {
         color: $white;
