@@ -10,6 +10,7 @@
   top:0;
   height:70vh;
   padding: 0 !important;
+  border-right: 1px solid $white;
 
   h1 {
     font-size: 1.8rem;
@@ -77,13 +78,17 @@
     background-color: #f6f6f6;
     transform: translateX(-5px);
   }
+
+  .inactive {
+    transform: translateX(-5px);
+  }
 }
 
 .chatroom-main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: $white;
+  background-color: white;
   padding: 0;
   overflow-y:scroll;
   height:70vh;
@@ -110,7 +115,7 @@
 
 .message {
   margin: 20px 0 0 10px;
-  background-color: white;
+  background-color: $white;
   max-width: 250px;
   display: flex;
   flex-direction: column;
@@ -150,8 +155,12 @@
 
 .chatroom-footer {
   padding: 20px;
+  color: gray;
+  input {
+    background: white;
+  }
 }
 
-.chatroom-content {
-
+.message-container {
+  margin: 20px 0;
 }

@@ -5,12 +5,12 @@
       <% @chatrooms.sort_by {|chatroom| chatroom.messages.last.updated_at}.reverse.each do |chatroom| %>
       <% params[:chatroom_id] ? chatroom_active = Chatroom.find(params[:chatroom_id]) : chatroom_active = current_user.chatrooms.first%>
       <% is_active_chatroom = chatroom == chatroom_active %>
-      <a href="/chatrooms?chatroom_id=<%= chatroom.id %>" remote= true>
-        <div class="chatroom-item <%= is_active_chatroom  ? 'active' : '' %>">
+      <a href="/chatrooms?chatroom_id=<%= chatroom.id %>" remote=true>
+        <div class="chatroom-item <%= is_active_chatroom  ? 'active' : 'inactive' %>">
           <span class="chatroom-title"><%= chatroom.name %></span>
           <div class="chatroom-details">
-          <p class="last-message"><%= chatroom.last_message %></p>
-          <span class="last-message-date"><%= chatroom.last_active %></span>
+            <p class="last-message"><%= chatroom.last_message %></p>
+            <span class="last-message-date"><%= chatroom.last_active %></span>
           </div>
         </div>
       </a>
@@ -20,10 +20,10 @@
   <% @chatrooms.each do |chatroom| %>
   <% params[:chatroom_id] ? chatroom_active = Chatroom.find(params[:chatroom_id]) : chatroom_active = current_user.chatrooms.first%>
   <% is_active_chatroom = chatroom == chatroom_active %>
-  <div class="chatroom-main col-8 <%= is_active_chatroom ? 'active_main' : 'd-none' %>" >
+  <div class="chatroom-main col-8 <%= is_active_chatroom ? 'active_main' : 'd-none' %>">
     <div class="chatroom-header">
       <h3 class="text-right">
-      <%= chatroom.name %>
+        <%= chatroom.name %>
       </h3>
     </div>
     <div class="chatroom-content">
@@ -36,10 +36,10 @@
     </div>
 
     <div class="chatroom-footer <%= 'active_footer' if params[:chatroom_id].to_i == chatroom.id %>">
-        <%= simple_form_for [ chatroom, Message.new ], class:"form-reply d-flex m-3" ,remote: true do |f| %>
-        <%= f.input :content, label: false, placeholder: "Message #{chatroom.name}" %>
-        <% end %>
-      </div>
+      <%= simple_form_for [ chatroom, Message.new ], class:"form-reply d-flex m-3" ,remote: true do |f| %>
+      <%= f.input :content, label: false, placeholder: "Message #{chatroom.name}" %>
+      <% end %>
+    </div>
   </div>
 
   <% end %>
