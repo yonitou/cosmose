@@ -3,6 +3,9 @@
     <a class="btn-explorer-artists btn-explorer-active">
     ARTISTES
     </a>
+    <div>
+    <hr class="separation" />
+    </div>
     <a class="btn-explorer-projects btn-explorer-inactive">
     PROJETS
     </a>
@@ -29,7 +32,7 @@
         class: "select2-search search-bar search-explorer-competences"
       %>
 
-      <%= submit_tag "Rechercher", class: "btn btn-primary" %>
+      <%= submit_tag "Rechercher", class: "btn btn-primary search-buton" %>
     <% end %>
   </div>
 
@@ -58,7 +61,7 @@
 
       <input type="text" name="query_type" value="project" hidden>
 
-      <%= submit_tag "Rechercher",class: "btn btn-primary" %>
+      <%= submit_tag "Rechercher",class: "btn btn-primary search-buton" %>
     <% end %>
     </div>
     <%= render 'shared/card-project', projects: @projects %>
