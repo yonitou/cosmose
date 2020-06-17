@@ -29,7 +29,7 @@
 
 .collaborator-card {
   background-color:white;
-  border: 2px solid $dark-red;
+  box-shadow: 1px 1px 1px lightgrey;
   padding:11px;
   margin:20px;
   display:flex;
@@ -37,11 +37,13 @@
   justify-content:space-between;
   border-radius: 3px;
 }
-.fa-trash-alt {
+.fa-times {
   font-size: 20px;
   padding-left:10px;
 }
-.badge-danger {
+.badge-secondary {
+  background-color: $white;
+  color: $dark-red;
   margin-right: 3px;
 }
 
@@ -50,7 +52,7 @@
   color:$white;
 }
 .username-align-show a {
-  color:black;
+  color:$white;
 }
 .description-project-show {
   width:73%;

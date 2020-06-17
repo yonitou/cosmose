@@ -26,7 +26,7 @@
           <p class="username-align-show description-project-show"><%=  @project.description %></p>
           <div class="username-align-show">
             <%  @project.categories.each do |categorie|%>
-            <p class="badge badge-pill badge-danger"> <%= categorie %> </p>
+            <p class="badge badge-pill badge-secondary"> <%= categorie %> </p>
             <% end %>
           </div>
         </div>
@@ -81,7 +81,7 @@
             <% end %>
             <h4><%= collab.user.username %></h4>
           </div>
-          <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, project_collaboration_path(@project, collab), method: :delete, remote: true, data: { confirm: 'Êtes vous sûr.e ?' }%>
+          <%= link_to "<i class='fas fa-times'></i>".html_safe, project_collaboration_path(@project, collab), method: :delete, remote: true, data: { confirm: 'Êtes vous sûr.e ?' }%>
         </div>
         <% end %>
       </div>
