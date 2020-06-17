@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/explorer', to: 'pages#explorer'
   get '/portfolio', to: 'pages#portfolio'
+  get '/inbox', to: 'pages#inbox'
 
   resources :notifications, only: [:index]
   resources :blocks, only: [:create, :destroy]
