@@ -7,12 +7,14 @@ class BlocksController < ApplicationController
     upload = params[:block][:upload]
     if upload 
       if params[:block][:upload].content_type.include?('audio')
-        @block.url = Cloudinary::Uploader.upload(params[:block][:upload].tempfile, :resource_type => :video)['url']
+        @block.url = Cloudinary::Uploader.upload(
+          params[:block][:upload].tempfile, 
+          :resource_type => :video
+          )['url']
       else 
         @block.upload.attach(
           io: File.open(params[:block][:upload].tempfile),
-          filename: params[:block][:upload].original_filename
-          )
+          filename: params[:block][:upload].original_filename)
       end
     end
     if params[:project_id]
@@ -36,19 +38,6 @@ class BlocksController < ApplicationController
     params.require(:block).permit(:content, :url, :private, :project_id)
   end
 
-  # def upload_file(block)
-  #   puts 'attaching file to block'
-  #   content_type = params[:block][:upload].content_type
-  #   # if content_type.include?('audio')
-  #   #   block.upload.attach(
-  #   #     io: File.open(params[:block][:upload].tempfile),
-  #   #     filename: params[:block][:upload].original_filename
-  #   #     )
-  #     Cloudinary::Uploader.upload(params[:block][:upload].tempfile, :resource_type => :auto)
-  #     # raise
-  #   end
-  # end
-
   def check_if_yt
     if @block.content.include?("youtu")
       regex = %r{(?:youtube(?:-nocookie)?\.com/(?:[^/\n\s]+/\S+/|(?:v|e(?:mbed)?)/|\S*?[?&]v=)|youtu\.be/)([a-zA-Z0-9_-]{11})}
@@ -60,4 +49,5 @@ class BlocksController < ApplicationController
     else @block.content = "<center><p class='lead'>#{@block.content}</p></center>"
     end
   end
+  
 end
