@@ -57,7 +57,7 @@
           <% current_user.all_projects.each do |project| %>
           <div class="card">
             <%= link_to project_path(project) do %>
-            <% project_images = project.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.attached? && image.upload.image?}%>
+            <% project_images = project.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.attached? && !image.url.nil? && image.upload.image?}%>
             <% if !project_images.find(&:itself).nil? %>
             <div class="card-images d-flex flex-column justify-content-between" style="background-image:url(<%= "http://res.cloudinary.com/devlnkl7u/image/upload/#{project_images.find(&:itself).upload.key}"%>)">
               <% else %>
