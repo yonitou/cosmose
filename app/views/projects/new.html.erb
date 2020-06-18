@@ -9,7 +9,7 @@
   <div class="form-inputs form-new-project">
     <div class="project-new-first-part">
       <%= f.input :title, required: true, input_html: {class:"input-new-project required-inputs-project-1"} %>
-      <%= f.input :categories, collection: Project::CATEGORIES_LIST.sort, input_html: { multiple: true, class: "select2 input-new-project required-inputs-project-1 d-none"} %>
+      <%= f.input :categories, collection: Project::CATEGORIES_LIST.sort, input_html: { multiple: true, class: "select2 input-new-project required-inputs-project-1"} %>
       <div class="buttons-container">
       <% Project::CATEGORIES_LIST.sort.each do |category| %>
       <a class="project-categories btn btn-secondary"><p><%= category %></p></a>
