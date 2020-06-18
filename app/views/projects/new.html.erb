@@ -21,9 +21,9 @@
     </div>
     <div class="project-new-second-part <%= should_display_all ? '' : 'd-none' %>">
       <%= f.input :description, required: true, input_html: {class:"input-new-project required-inputs-project-2"} %>
-      <div class="<%= should_display_all ? 'd-none' : '' %> choice-new-project">
+      <div class="<%= should_display_all ? 'd-none' : '' %> choice-new-project" id="space-btn-new-project">
         <h2 class="next-step-button-last btn btn-primary">Suivant</h2>
-        <h2 class="last-step-button btn btn-primary">Retour</h2>
+        <h2 class="last-step-button btn btn-secondary">Retour</h2>
       </div>
     </div>
     <div class="project-new-third-part <%= should_display_all ? '' : 'd-none' %>">
@@ -35,9 +35,9 @@
       <span>Ouvert à la collaboration</span>
     </label>
       <%= f.input :address, required: true, input_html: {class:"input-new-project required-inputs-project-3"} %>
-      <div class="form-actions choice-new-project">
+      <div class="form-actions choice-new-project" id="validate-le-project-btn">
         <%= f.button :submit, "Créer votre projet",class:"btn btn-primary" %>
-        <h2 class=" <%= should_display_all ? 'd-none' : '' %> last-step-button-final btn btn-primary">Retour</h2>
+        <h2 class=" <%= should_display_all ? 'd-none' : '' %> last-step-button-final btn btn-secondary">Retour</h2>
       </div>
     </div>
   </div>
