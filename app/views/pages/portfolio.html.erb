@@ -4,7 +4,7 @@
     <% if current_user.photo.attached? %>
     <%= cl_image_tag(current_user.photo.key, class: "avatar-large img-fluid" , alt: "avatar") %>
     <% else %>
-    <%= image_tag 'https://via.placeholder.com/250', class: "avatar-large img-fluid" %>
+    <%= image_tag 'https://www.inbenta.com/wp-content/themes/inbenta/img/icons/avatar.svg?ver=2', class: "avatar-large img-fluid" %>
     <% end %>
     <div class="users-infos d-flex flex-column align-items-center mt-2">
       <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= current_user.username.upcase %>
@@ -70,7 +70,7 @@
                   <% if project.user.photo.attached? %>
                   <%= cl_image_tag(project.user.photo.key, class: "avatar", alt: "avatar") %>
                   <% else %>
-                  <%= image_tag 'https://via.placeholder.com/50', class: "avatar"  %>
+                 <%= image_tag 'https://www.inbenta.com/wp-content/themes/inbenta/img/icons/avatar.svg?ver=2', class: "avatar", style:"background-color:white"  %>
                   <% end %>
                 </div>
               </div>

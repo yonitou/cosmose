@@ -5,7 +5,7 @@
   <% if @user.photo.attached?%>
         <%= cl_image_tag(@user.photo.key, class: "avatar-large img-fluid" , alt: "avatar") %>
       <% else %>
-        <%= image_tag 'https://via.placeholder.com/250', class: "img-fluid" %>
+        <%= image_tag 'https://www.inbenta.com/wp-content/themes/inbenta/img/icons/avatar.svg?ver=2', class: "img-fluid" %>
       <% end %>
       <div class="users-infos d-flex flex-column align-items-center mt-2">
     <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= @user.username.upcase %></h4>
