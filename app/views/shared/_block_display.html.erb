@@ -3,7 +3,7 @@
 <div class="col-6 block block-img">
   <% if policy(block).destroy? %>
   <span class="block-destroy">
-    <%= link_to '<i class="fas fa-ban"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
+    <%= link_to '<i class="fas fa-times-circle"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
   </span>
   <% end %>
   <div class="block-content">
@@ -13,27 +13,41 @@
 </div>
 <% end %>
 <% elsif block.url %>
-<div class="col-6 block block-audio">
+<div class="col-5 block block-audio">
   <% if policy(block).destroy? %>
   <span class="block-destroy">
-    <%= link_to '<i class="fas fa-ban"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
+    <%= link_to '<i class="fas fa-times-circle"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
   </span>
   <% end %>
-  <div class="block-content">
-    <audio controls="true" preload="true">
+  <div class="block-content d-flex">
+  <img class="picture vinyl-3" id="vinyl" src="https://res.cloudinary.com/cloudtiger/image/upload/v1592495794/cosmosevinly_fohlwo.png">
+  <audio controls="true" preload="true">
       <source src="<%= block.url %>" type='audio/mpeg'>
     </audio>
   </div>
 </div>
 <% else %>
-<div class="col-6">
+<% if block.content.include?('lite-youtube') %>
+<div class="col-5 block block-youtube">
+<% if policy(block).destroy? %>
+  <span class="block-destroy">
+    <%= link_to '<i class="fas fa-times-circle"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
+  </span>
+  <% end %>
+  <div class="block-content">
+    <%= block.content.html_safe %>
+  </div>
+  </div>
+<% else %>
+<div class="col-5 block block-text">
   <% if policy(block).destroy? %>
   <span class="block-destroy">
-    <%= link_to '<i class="fas fa-ban"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
+    <%= link_to '<i class="fas fa-times-circle"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
   </span>
   <% end %>
   <div class="block-content">
     <%= block.content.html_safe %>
   </div>
 </div>
+<% end %>
 <% end %>

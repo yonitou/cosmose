@@ -21,9 +21,6 @@ lite-youtube {
 
   .block {
     padding: 10px;
-  }
-
-  .col-6 {
     display: block;
     margin: 40px 10px;
 
@@ -47,7 +44,6 @@ lite-youtube {
     }
 
     .block-content {
-      height: 100%;
       transition: opacity .5s ease;
     }
 
@@ -74,18 +70,61 @@ lite-youtube {
     margin: auto;
   }
 
+  .block-audio {
+    height: 130px;
+  }
+
   img,
   audio {
     width: 100%;
     align-self: center;
   }
 
+
+
   .lead {
     color: $dark-red;
+    font-family: $headers-font;
   }
 }
 
 .blocks-bg-white {
   width: 100vw;
   background-color: white;
+}
+
+// Spinning vinyl
+#vinyl {
+  width: 50px;
+}
+
+@mixin create-vinyl($color) {
+  /**Size**/
+  width: 50px;
+  height: 50px;
+
+  /**Animation**/
+  animation: play 15s 0s infinite;
+  transform: rotate(0deg);
+  animation-timing-function: linear;
+
+  /**Vinyl**/
+  box-shadow: 0 0 0 5px $color, 0 0 0 6px darken($color, 10), 0 0 0 7px $color, 0 0 0 8px darken($color, 10), 0 0 0 9px $color, 0 0 0 10px darken($color, 10), 0 0 0 11px $color, 0 0 0 12px darken($color, 10), 0 0 0 13px $color, 0 0 0 14px darken($color, 10), 0 0 0 15px $color, 0 0 0 16px darken($color, 10), 0 0 0 17px $color, 0 0 0 18px darken($color, 10), 0 0 0 19px $color, 0 0 0 20px darken($color, 10), 0 0 0 21px $color, 0 0 0 22px darken($color, 10), 0 0 0 23px $color, 0 0 0 24px darken($color, 5), 0 0 0 25px $color, 0 0 0 30px darken($color, 10);
+  border-radius: 50%;
+}
+
+@keyframes play {
+  0% {
+
+    transform: rotate(0deg);
+  }
+
+  100% {
+
+    transform: rotate(360deg);
+  }
+}
+
+.vinyl-3 {
+  @include create-vinyl(rgb(52, 52, 52));
 }
