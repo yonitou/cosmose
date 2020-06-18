@@ -126,5 +126,5 @@ lite-youtube {
 }
 
 .vinyl-3 {
-  @include create-vinyl($dark-red);
+  @include create-vinyl(rgb(52, 52, 52));
 }

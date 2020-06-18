@@ -10,8 +10,9 @@
   height: 70vh;
   padding: 0 !important;
   border-right: 1px solid $white;
-  overflow-y:scroll;
+  overflow-y: scroll;
   overflow-x: hidden;
+
   h1 {
     font-size: 1.8rem;
     padding: 20px 0 0 10px;
@@ -56,7 +57,7 @@
       font-family: $headers-font;
       margin-top: .8rem;
       color: black;
-      font-size: .55rem;
+      font-size: .7rem;
       opacity: .5;
     }
 
@@ -155,11 +156,11 @@
 }
 
 .message-author {
-  opacity: .4;
   font-size: .8rem;
   position: absolute;
   bottom: -22px;
   left: 2px;
+  color: rgb(63, 63, 63);
 }
 
 .author-current_user {
@@ -176,6 +177,7 @@
   color: gray;
   z-index: 100;
   margin-top: 10px;
+
   input {
     display: inline-block;
     background: white;
@@ -211,3 +213,6 @@
   width: max-content;
 }
 
+div.message-author.current_user {
+  right: 0;
+}
