@@ -32,6 +32,13 @@ lite-youtube {
       right: 8px;
       visibility: hidden;
       z-index: 100;
+
+      i {
+        background: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 1.2rem;
+      }
     }
 
     &:hover .block-destroy {
@@ -44,7 +51,7 @@ lite-youtube {
     }
 
     &:hover .block-content {
-      opacity: .2;
+      opacity: .8;
     }
 
     .fa-times {
