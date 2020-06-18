@@ -13,6 +13,7 @@
   border-right: 1px solid $white;
   overflow-y: scroll;
   overflow-x: hidden;
+  z-index: 100;
 
   h1 {
     font-size: 1.8rem;
@@ -58,7 +59,7 @@
       font-family: $headers-font;
       margin-top: .8rem;
       color: black;
-      font-size: .7rem;
+      font-size: .8rem;
       opacity: .5;
     }
 
@@ -107,7 +108,12 @@
   padding-bottom: 20px;
   justify-self: flex-start;
   height: 100px;
-  position: relative;
+  width: 100%;
+  position: fixed;
+  right: 0;
+  background: white;
+  z-index: 90;
+  margin-top: -2px;
 
   .project_link {
     color: black;
@@ -124,7 +130,7 @@
 }
 
 .messages {
-  padding: 15px;
+  padding: 100px 15px 15px 15px;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -133,7 +139,7 @@
 .message {
   margin: 20px 0 0 10px;
   background-color: $white;
-  max-width: 250px;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -143,13 +149,14 @@
 }
 
 .message.current_user {
-  max-width: 250px;
+  min-width: 100px;
   margin: 30px 10px 0 0;
   background-color: $dark-red;
   text-align: right !important;
   align-self: flex-end;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 0;
+  max-width: 50%;
 
   .message-content {
     color: $white;

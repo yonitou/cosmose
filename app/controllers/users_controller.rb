@@ -5,4 +5,5 @@ class UsersController < ApplicationController
     @blocks = @user.blocks.where(project_id: nil)
     @block = Block.new
   end
+
 end
