@@ -1,4 +1,4 @@
-<div class="container  mt-5">
+<div class="container mt-5 new-connexion">
   <h2>Connexion</h2>
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 <div class="form-inputs">
@@ -11,7 +11,7 @@
   input_html: { autocomplete: "current password" } %>
   <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 </div>
-<div class="form-actions">
+<div class="form-actions mb-3">
   <%= f.button :submit, "Connexion", class:"btn btn-primary" %>
 </div>
 <% end %>
