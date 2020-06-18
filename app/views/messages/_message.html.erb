@@ -4,7 +4,11 @@
   <p class="message-content">
     <%= message.content %>
   </p>
-  <div class="message-author current_user">Moi <%= cl_image_tag(current_user.photo.key, class: "avatar-xs" , alt: "avatar") %></div>
+  <% if current_user.photo.attached? %>
+  <div class="message-author current_user">Moi <%=cl_image_tag(current_user.photo.key, class: "avatar-xs" , alt: "avatar")%></div>
+  <% else %>
+  <div class="message-author current_user">Moi <%= image_tag 'https://www.inbenta.com/wp-content/themes/inbenta/img/icons/avatar.svg?ver=2', class: 'avatar-xs' %></div>
+  <% end %>
 </div>
 <% else %>
 <div class="message message-container" id="message-<%= message.id %>">

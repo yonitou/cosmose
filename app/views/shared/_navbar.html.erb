@@ -31,7 +31,7 @@
       <% if current_user && current_user.photo.attached? %>
         <%= cl_image_tag(current_user.photo.key, class: "avatar", alt: "avatar") %>
       <% elsif current_user && !current_user.photo.attached? %>
-        <%= image_tag 'https://via.placeholder.com/50', class: "avatar"  %>
+        <%= image_tag 'https://www.inbenta.com/wp-content/themes/inbenta/img/icons/avatar.svg?ver=2', class: "avatar", style:'border:1px solid black' %>
       <% end %>
       </a>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

@@ -15,7 +15,7 @@
         <% if project.user.photo.attached? %>
         <%= cl_image_tag(project.user.photo.key, class: "avatar", alt: "avatar") %>
       <% else %>
-        <%= image_tag 'https://via.placeholder.com/50', class: "avatar"  %>
+        <%= image_tag 'https://www.inbenta.com/wp-content/themes/inbenta/img/icons/avatar.svg?ver=2', class: "avatar", style:"background-color:white"  %>
       <% end %>
       </div>
     </div>
