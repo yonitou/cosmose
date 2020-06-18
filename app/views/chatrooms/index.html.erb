@@ -25,6 +25,9 @@
       <h3 class="text-right">
         <%= chatroom.name %>
       </h3>
+        <% if !chatroom.project.nil? %>
+          <%= link_to 'Voir le projet', project_path(chatroom.project_id), class: "project_link"%>
+        <% end %> 
     </div>
     <div class="chatroom-content">
       <div class="messages mt-2" data-chatroom-id="<%= chatroom.id %>">

@@ -35,8 +35,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #252429;
 
+    top: 0;
+    background: #252429;
     a {
         font-size: 25px;
         position: relative;
@@ -113,7 +114,6 @@
     background: $red;
     color: $white;
   }
-.registration-navbar{
+.fixed-top{
 
-    position: inherit;
 }

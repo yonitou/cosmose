@@ -6,9 +6,9 @@
 
 .chatroom-sidebar {
   background-color: white;
-  position:sticky;
-  top:0;
-  height:70vh;
+  position: sticky;
+  top: 0;
+  height: 70vh;
   padding: 0 !important;
   border-right: 1px solid $white;
 
@@ -45,7 +45,7 @@
       align-items: baseline;
     }
 
-    .last-message{
+    .last-message {
       margin-top: .8rem;
       color: black;
       font-size: .7rem;
@@ -73,7 +73,10 @@
   }
 
   .active {
-    .chatroom-title {color: $dark-red !important;}
+    .chatroom-title {
+      color: $dark-red !important;
+    }
+
     font-weight: bold;
     color: $dark-red;
     background-color: #f6f6f6;
@@ -91,8 +94,8 @@
   justify-content: space-between;
   background-color: white;
   padding: 0;
-  overflow-y:scroll;
-  height:70vh;
+  overflow-y: scroll;
+  height: 70vh;
   overflow-x: hidden;
 }
 
@@ -100,17 +103,28 @@
 .chatroom-header {
   box-shadow: 0 8px 6px -6px rgba(136, 136, 136, 0.2);
   padding-bottom: 20px;
-  justify-self:flex-start ;
+  justify-self: flex-start;
   height: 100px;
+  position: relative;
+
+  .project_link {
+    color: black;
+    opacity: .7;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+  }
+
   h3 {
     color: $dark-red;
     padding: 20px 20px;
   }
 }
+
 .messages {
   padding: 15px;
   display: flex;
-  flex:1;
+  flex: 1;
   flex-direction: column;
 }
 
@@ -167,6 +181,7 @@
     background: white;
     max-width: 60vw;
   }
+
   .form-group {
     margin: 0;
     width: 80vw;
@@ -176,8 +191,9 @@
     color: $dark-red;
     border: 1px solid $dark-red;
     margin-left: 10px;
+
     &:hover {
-      background:$dark-red;
+      background: $dark-red;
       color: $white;
     }
   }
@@ -186,7 +202,7 @@
 
 #new_message {
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
 }
 

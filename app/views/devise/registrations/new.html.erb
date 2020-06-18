@@ -1,4 +1,4 @@
-<div class="navbar fixed-top registration-navbar">
+<div class="navbar sticky-top registration-navbar">
   <%= link_to root_path do %>
     <img src="https://i.ibb.co/6y67sbM/cosmoseblack.png" alt="logo" class="navbar-logo">
   <% end %>
@@ -8,7 +8,7 @@
   </div>
 </div>
 <% should_display_all = resource.errors.any? %>
-<div class="container pt-5 registration-new">
+<div class="container pt-5 pb-2 registration-new">
   <h1>Inscription</h1>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -48,7 +48,7 @@
       <%= f.input :competences, collection: User::SKILLS_LIST, input_html: { multiple: true, class: "select2"} %>
       <%= f.input :photo, as: :file %>
       <div class="form-actions">
-        <%= f.button :submit, "Créer votre compte", class:"btn btn-primary" %>
+        <%= f.button :submit, "Créer votre compte", class:"btn btn-primary mb-4" %>
       </div>
     </div>
     <% end %>

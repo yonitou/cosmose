@@ -2,9 +2,11 @@
   padding: 30px 60px;
   background: linear-gradient(89.25deg, #A30B37 25%, #000000 100%);
 }
-.username-admin-show-project:hover{
+
+.username-admin-show-project:hover {
   text-decoration: underline;
 }
+
 .show-projet-top-left {
   width: 50%;
 }
@@ -63,7 +65,7 @@
 }
 
 .username-align-show a {
-  color:$white;
+  color: $white;
 }
 
 .description-project-show {
@@ -171,10 +173,11 @@ a .fa-ban:hover {
 .show-projet-top-left-title {
   color: $dark-red;
   display: flex;
+  justify-content: space-between;
 }
 
 .show-projet-top-left-title h2 {
-  width: 55%;
+  max-width: 55%;
   color: $white;
 }
 
@@ -188,7 +191,6 @@ a .fa-ban:hover {
   .skill-badge {
     padding: 5px 10px;
     border: 2px solid $light-gray;
-    cursor: pointer;
     opacity: .8;
     transition: .6s ease;
 
