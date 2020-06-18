@@ -25,7 +25,7 @@
           <p class="username-align-show">
             <%= link_to @project.user.username.capitalize, (current_user == @project.user ? portfolio_path : user_path(@project.user)), class:"username-admin-show-project" %>
             <br/>
-            <%= @project.collabs.empty? ? '' : project.collabs.count.to_s + ( @project.collabs.count == 1 ? 'collaborateur' : 'collaborateurs') %></p>
+            <%= @project.collabs.empty? ? '' : @project.collabs.count.to_s + ( @project.collabs.count == 1 ? 'collaborateur' : 'collaborateurs') %></p>
           <p class="username-align-show description-project-show"><%=  @project.description %></p>
           <div class="username-align-show">
             <%  @project.categories.each do |categorie|%>
@@ -88,7 +88,9 @@
             <% else%>
             <%= image_tag 'https://via.placeholder.com/35', class: "user-project-avatar"  %>
             <% end %>
+            <%= link_to user_path(@project.user) do %>
             <h4><%= collab.user.username %></h4>
+            <% end %>
           </div>
           <%= link_to "<i class='fas fa-times'></i>".html_safe, project_collaboration_path(@project, collab), method: :delete, remote: true, data: { confirm: 'Êtes vous sûr.e ?' }%>
         </div>
