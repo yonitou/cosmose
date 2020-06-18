@@ -38,7 +38,7 @@
       <div class="card-content">
         <h4 class="card-title"><%= user.username.upcase %></h4>
         <p><%= user.bio %></p>
-        <p class="card-localisation"><%= user.address %></p>
+        <p class="card-localisation"><%= user.address.length > 30 ? user.address.first(30) + '...' : user.address%></p>
       </div>
       <% end %>
     </div>
@@ -73,7 +73,7 @@
       <div class="card-content">
         <h4 class="card-title"><%= project.title %></h4>
         <p><%= project.description.first(100) + '...' %></p>
-        <p class="card-localisation"><%= project.address %></p>
+              <p class="card-localisation"><%= project.address.length > 30 ? project.address.first(30) + '...' : project.address%></p>
       </div>
       <% end %>
     </div>

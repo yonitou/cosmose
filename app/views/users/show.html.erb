@@ -67,7 +67,7 @@
               <div class="card-content">
                 <h4 class="card-title"><%= project.title %></h4>
                 <p><%= project.description %></p>
-                <p class="card-localisation"><%= project.address %></p>
+               <p class="card-localisation"><%= project.address.length > 30 ? project.address.first(30) + '...' : project.address%></p>
               </div>
               <% end %>
             </div>
