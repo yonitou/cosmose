@@ -35,6 +35,10 @@
     right: 13px !important;
     width: 20px;
   }
+.select2-results__option:hover {
+  background-color:$dark-red;
+  color:$white;
+}
 
 .searchform {
   width: 60%;
