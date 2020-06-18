@@ -32,7 +32,7 @@ a:hover {
 }
 
 .btn-secondary:hover{
-  border: none;
+  border: 1px solid $red;
   background: $red;
   opacity: .8;
   color: $white;
@@ -41,4 +41,9 @@ a:hover {
 
 .delink-btn {
     font-size: 20px !important;
+}
+
+
+.center-btn-forms{
+  text-align: center;
 }

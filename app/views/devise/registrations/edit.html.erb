@@ -1,5 +1,5 @@
 <div class="container mt-5">
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Modifier le profil</h2>
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 <%= f.error_notification %>
 <div class="form-inputs">
@@ -18,14 +18,14 @@
   hint: "Nous avons besoin de votre mot de passe actuel pour confirmer les modifications",
   required: true,
   input_html: { autocomplete: "current password" } %>
-  <%= f.input :address%>
+  <%= f.input :address, required: true%>
   <%= f.input :bio%>
   <%= f.input :website%>
-  <%= f.input :competences, collection: User::SKILLS_LIST, input_html: { multiple: true, class: "select2"} %>
+  <%= f.input :competences, required: true, collection: User::SKILLS_LIST, input_html: { multiple: true, class: "select2"} %>
   <%= f.input :photo, as: :file %>
 </div>
-<div class="form-actions">
-  <%= f.button :submit, "Sauvegarder", class: "btn btn-primary" %>
+<div class="form-actions center-btn-forms">
+  <%= f.button :submit, "Sauvegarder les modifications", class: "btn btn-primary" %>
 </div>
 <% end %>
 </div>
