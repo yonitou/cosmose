@@ -20,7 +20,7 @@
           <% if @project.user.photo.attached? %>
           <%= cl_image_tag(@project.user.photo.key, class: "user-project-avatar", alt: "avatar") %>
           <% else%>
-          <%= image_tag 'https://via.placeholder.com/35', class: "user-project-avatar"  %>
+          <%= image_tag 'https://www.inbenta.com/wp-content/themes/inbenta/img/icons/avatar.svg?ver=2', class: "user-project-avatar", style: "background-color:white" %>
           <% end %>
         </div>
         <div class="show-hero-info d-flex flex-column">
@@ -88,7 +88,7 @@
             <% if collab.user.photo.attached? %>
             <%= cl_image_tag(collab.user.photo.key, class: "user-project-avatar", alt: "avatar") %>
             <% else%>
-            <%= image_tag 'https://via.placeholder.com/35', class: "user-project-avatar"  %>
+            <%= image_tag 'https://www.inbenta.com/wp-content/themes/inbenta/img/icons/avatar.svg?ver=2', class: "user-project-avatar"  %>
             <% end %>
             <%= link_to user_path(collab.user) do %>
             <h4><%= collab.user.username %></h4>
@@ -112,7 +112,7 @@
             <% if request.user.photo.attached? %>
             <%= cl_image_tag(request.user.photo.key, class: "user-project-avatar", alt: "avatar") %>
             <% else%>
-            <%= image_tag 'https://via.placeholder.com/35', class: "user-project-avatar"  %>
+            <%= image_tag 'https://www.inbenta.com/wp-content/themes/inbenta/img/icons/avatar.svg?ver=2', class: "user-project-avatar"  %>
             <% end %>
             <h4><%= request.user.username.capitalize %></h4>
           </div>
