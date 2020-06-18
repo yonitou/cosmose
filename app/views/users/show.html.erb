@@ -7,9 +7,8 @@
       <% end %>
       <div class="users-infos d-flex flex-column align-items-center mt-2">
     <h4 class="profile-page-username mt-2"><i class="fas fa-user-circle"></i> <%= @user.username.upcase %></h4>
-    <p class="mr-3 ml-5"><i class="fas fa-map-marker-alt"></i> <%= @user.address %></p>
-    <p class="mr-3 ml-5"><%= @user.bio %></p>
-    </div>
+    <p><i class="fas fa-map-marker-alt"></i> <%= @user.address %></p>
+    <p class="ml-3 mr-3 pl-4 pr-4 text-center"><%= @user.bio %></p>
     <div class="user-skills text-center">
       <% @user.competences.each do |competence| %>
       <span class="skill"><%= competence %></span>
@@ -17,6 +16,8 @@
     </div>
     <%= link_to 'Message', init_message_user_path(@user), class: "btn btn-secondary mt-3" %>
   </div>
+    </div>
+
   <div class="profile-page-right d-flex flex-column align-items-center col-9">
     <div class="buttons-profile d-flex">
       <a class="btn-profile-portfolio btn-profile-active">
