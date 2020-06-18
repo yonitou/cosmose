@@ -3,4 +3,5 @@ class ChatroomsController < ApplicationController
     @chatrooms = policy_scope(Chatroom)
     @display_chatroom_id = params[:chatroom_id] || Chatroom.first.id
   end
+
 end

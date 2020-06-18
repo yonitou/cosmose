@@ -1,5 +1,3 @@
-
-
 const hideBlockElements = (addButton, cancelButton) => {
   document.querySelector('#new_block').classList.toggle('hidden');
   cancelButton.classList.toggle('hidden');

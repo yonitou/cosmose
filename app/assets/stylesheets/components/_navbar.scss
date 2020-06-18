@@ -39,6 +39,7 @@
 
     a {
         font-size: 25px;
+        position: relative;
     }
 }
 
@@ -89,13 +90,11 @@
     max-width: 250px;
 }
 
-.fa-bell {
-  position:relative;
-}
+
 
   .notifications-count {
-    top: 25px;
-    right: 205px;
+    top: -5px;
+    right: -2px;
     position: absolute;
     padding: 0px 6px;
     font-size: 12px;
