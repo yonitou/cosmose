@@ -1,8 +1,10 @@
 .edit-project-form{
-  border: 1px solid red;
   padding: 20px 50px;
   input{
     width: -webkit-fill-available;
+  }
+  .btn-primary{
+    width: 300px;
   }
 }
 .project-new{
