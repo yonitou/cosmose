@@ -19,8 +19,9 @@
     <%= link_to '<i class="fas fa-times-circle"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
   </span>
   <% end %>
-  <div class="block-content">
-    <audio controls="true" preload="true">
+  <div class="block-content d-flex">
+  <img class="picture vinyl-3" id="vinyl" src="https://res.cloudinary.com/cloudtiger/image/upload/v1592495794/cosmosevinly_fohlwo.png">
+  <audio controls="true" preload="true">
       <source src="<%= block.url %>" type='audio/mpeg'>
     </audio>
   </div>
