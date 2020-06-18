@@ -1,6 +1,7 @@
 .inbox {
   display: flex;
   border: 1px solid #d6d6d693;
+  height:70vh;
 }
 
 .chatroom-sidebar {
@@ -175,7 +176,6 @@
   border-top: 1px solid $light-gray;
   padding: 20px;
   color: gray;
-  z-index: 100;
   margin-top: 10px;
 
   input {
