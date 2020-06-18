@@ -70,10 +70,10 @@
 .card-localisation {
     text-align: right;
     margin-bottom: 0px;
-    justify-self: flex-end;
     position: absolute;
-    bottom: 5px;
+    bottom: 0px;
     right: 10px;
+    color: $dark-red;
 }
 
 .card-title {
@@ -95,16 +95,18 @@
 }
 
 .card-images-elements-bottom {
-    margin: 0 auto;
+    margin: 0 10px;
     align-items: center;
-    width: 90%;
+    width: 95%;
     position: relative;
     height: moz-fill-available;
 
     i {
         color: $dark-red;
-        padding: 10px;
+        padding: 10px 7px 5px 7px;
+        font-size: 25px;
         background-color: white;
+        z-index: 300;
     }
 
     .avatar {

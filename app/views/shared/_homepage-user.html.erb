@@ -71,12 +71,9 @@
         </div>
       </div>
       <div class="card-content">
-        <div class="">
         <h4 class="card-title"><%= project.title %></h4>
         <p><%= project.description.first(100) + '...' %></p>
-        </div>
-        <div class="card-localisation">
-        <p><%= project.address %></p></div>
+        <p class="card-localisation"><%= project.address %></p>
       </div>
       <% end %>
     </div>
