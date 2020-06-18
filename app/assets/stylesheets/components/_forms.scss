@@ -4,4 +4,10 @@
 
 #new_user {
   padding-bottom: 40px !important;
+  input::placeholder{
+    font-family: $body-font;
+    font-size:14px;
+    color:rgb(169,169,169);
+    padding-top:3px;
+  }
 }
