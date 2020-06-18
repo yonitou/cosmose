@@ -42,7 +42,7 @@ class CollaborationsController < ApplicationController
     authorize(@collaboration)
     @collaboration.save
     notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='fas fa-user'></i>#{@project.user.username} a décliné votre demande de collaboration sur le projet : #{@project.title}</li>")
-    notification.user = current_user
+    notification.user = @collaboration.user
     notification.project = @project
     notification.save
     redirect_to project_path(@project)

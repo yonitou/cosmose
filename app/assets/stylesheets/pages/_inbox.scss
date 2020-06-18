@@ -1,6 +1,5 @@
 .inbox {
   display: flex;
-  margin: 10px;
   border: 1px solid #d6d6d693;
 }
 
@@ -11,7 +10,8 @@
   height:70vh;
   padding: 0 !important;
   border-right: 1px solid $white;
-
+  overflow-y:scroll;
+  overflow-x: hidden;
   h1 {
     font-size: 1.8rem;
     padding: 20px 0 0 10px;

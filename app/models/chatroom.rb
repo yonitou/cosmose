@@ -13,15 +13,15 @@ class Chatroom < ApplicationRecord
 
    def self.exists_for_users?(receiver, sender)
     self.all.find do |chatroom|
-      chatroom.members.length == 2 && chatroom.members.include?(receiver) && chatroom.members.include?(sender)
+      chatroom.members.length == 2 && chatroom.members.include?(receiver) && chatroom.members.include?(sender) && chatroom.project.nil?
     end
    end
 
-   
+
   def last_message
     self.messages.size > 1 ? self.messages.last.content : ''
   end
-  
+
   def last_active
     delta = ((Time.now - self.messages.last.created_at) / 60).round
     if delta > 60
@@ -30,7 +30,7 @@ class Chatroom < ApplicationRecord
         delta = (delta/24).round.to_s + "j"
       else delta = delta.to_s + "h"
       end
-    else delta = delta.to_s + "mn" 
+    else delta = delta.to_s + "mn"
     end
     delta
   end
