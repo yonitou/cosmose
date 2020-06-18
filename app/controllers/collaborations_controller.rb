@@ -28,7 +28,7 @@ class CollaborationsController < ApplicationController
       @collaboration.status = true
       authorize(@collaboration)
       @collaboration.save
-      notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='fas fa-user'></i>#{@project.user} a accepté votre demande de collaboration sur le projet : #{@project.title}</li>")
+      notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='fas fa-user'></i>#{@project.user.username} a accepté votre demande de collaboration sur le projet : #{@project.title}</li>")
       notification.user = @collaboration.user
       notification.project = @project
       notification.save
@@ -41,7 +41,7 @@ class CollaborationsController < ApplicationController
     @collaboration.status = false
     authorize(@collaboration)
     @collaboration.save
-    notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='fas fa-user'></i>#{@project.user} a décliné votre demande de collaboration sur le projet : #{@project.title}</li>")
+    notification = Notification.new(content: "<li class='request-collaboration-notification'><i class='fas fa-user'></i>#{@project.user.username} a décliné votre demande de collaboration sur le projet : #{@project.title}</li>")
     notification.user = current_user
     notification.project = @project
     notification.save
