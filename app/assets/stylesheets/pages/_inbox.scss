@@ -161,6 +161,7 @@
   padding: 20px;
   color: gray;
   z-index: 100;
+  margin-top: 10px;
   input {
     display: inline-block;
     background: white;
@@ -191,5 +192,6 @@
 
 .message-container {
   margin: 20px 0;
+  width: max-content;
 }
 
