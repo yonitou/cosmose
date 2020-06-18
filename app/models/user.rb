@@ -56,4 +56,14 @@ class User < ApplicationRecord
     result = user_chatrooms + user_messages_chatrooms
     result.uniq.reject { |element| element.nil? }
   end
+
+  def unread_messages
+    result = []
+    self.chatrooms.each do |chatroom|
+      result << chatroom if  !chatroom.messages.where(read: false).where.not(user: self).empty?
+
+    end
+    result
+
+  end
 end

@@ -22,6 +22,7 @@ class Chatroom < ApplicationRecord
     self.messages.size > 1 ? self.messages.last.content : ''
   end
 
+
   def last_active
     delta = ((Time.now - self.messages.last.created_at) / 60).round
     if delta > 60
@@ -34,4 +35,5 @@ class Chatroom < ApplicationRecord
     end
     delta
   end
+
 end

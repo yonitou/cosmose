@@ -25,7 +25,12 @@
       <span class="notifications-count"><%= current_user.notifications.where(read: false).count %></span>
       <% end %>
     <% end %>
-    <%= link_to "<i class='far fa-comment-dots'></i>".html_safe, current_user.chatrooms.empty? ? chatrooms_path : chatrooms_path + "?chatroom_id=#{current_user.chatrooms.sort_by {|chatroom| chatroom.messages.last.updated_at}.reverse.first.id}" %>
+    <%= link_to current_user.chatrooms.empty? ? chatrooms_path : chatrooms_path + "?chatroom_id=#{current_user.chatrooms.sort_by {|chatroom| chatroom.messages.last.updated_at}.reverse.first.id}" do %>
+    <i class='far fa-comment-dots'></i>
+    <% if current_user.unread_messages.count > 0 %>
+    <span class="notifications-count"><%= current_user.unread_messages.count %></span>
+    <% end %>
+    <% end %>
     <div class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <% if current_user && current_user.photo.attached? %>
