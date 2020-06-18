@@ -36,6 +36,7 @@
 .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    height:auto;
 }
 
 .card {
@@ -43,6 +44,10 @@
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
     margin:30px;
+    position:relative;
+    i {
+      padding-bottom:10px;
+    }
 }
 
 .card-images {
@@ -65,6 +70,9 @@
     text-align: right;
     margin-bottom: 0px;
     justify-self: flex-end;
+    position:absolute;
+    bottom:5px;
+    right:10px;
 }
 
 .card-title {

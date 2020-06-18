@@ -1,13 +1,19 @@
+body {
+  position:relative;
+  min-height: 100vh;
+}
+
 .footer {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
     background: $dark-red;
-    
     height:20vh;
+    position:absolute;
+    width:100%;
     bottom:0;
-    left:0;
+    color:$white;
 
     a {
         color: $white;

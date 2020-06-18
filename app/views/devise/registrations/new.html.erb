@@ -8,7 +8,7 @@
   </div>
 </div>
 <% should_display_all = resource.errors.any? %>
-<div class="container mt-5 registration-new">
+<div class="container pt-5 registration-new">
   <h1>Inscription</h1>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
