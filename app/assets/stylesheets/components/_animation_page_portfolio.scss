@@ -1,35 +1,42 @@
 .buttons-profile {
-    justify-content: flex-start;
-    width: 100%;
-    position: relative;
+  justify-content: flex-start;
+  width: 100%;
+  position: relative;
 }
-.btn-profile-projects{
+
+.btn-profile-projects {
   margin-left: 60px;
 }
+
 // PORTFOLIO BUTTON
-.btn-explorer-inactive, .btn-profile-inactive {
-    color: black;
-    background-color: #f4f4f4;
+.btn-explorer-inactive,
+.btn-profile-inactive {
+  color: black;
+  background-color: #f4f4f4;
 }
 
 // PROJECT BUTTON
-.btn-explorer-active, .btn-profile-active {
-    background-color: $dark-red !important;
-    color: $white !important;
+.btn-explorer-active,
+.btn-profile-active {
+  background-color: $dark-red !important;
+  color: $white !important;
 }
 
-.btn-explorer-artists, .btn-explorer-projects, .btn-profile-portfolio, .btn-profile-projects {
-    margin-bottom: 30px;
-    padding: 15px;
-    border: 0;
-    letter-spacing: .25em;
-    cursor: pointer;
+.btn-explorer-artists,
+.btn-explorer-projects,
+.btn-profile-portfolio,
+.btn-profile-projects {
+  padding: 15px;
+  border: 0;
+  letter-spacing: .25em;
+  cursor: pointer;
 }
 
-.btn-explorer-artists:hover, .btn-explorer-projects:hover, .btn-profile-portfolio:hover, .btn-profile-projects:hover{
+.btn-explorer-artists:hover,
+.btn-explorer-projects:hover,
+.btn-profile-portfolio:hover,
+.btn-profile-projects:hover {
   background-color: $dark-red;
-  color: $white!important;
+  color: $white !important;
   transition: background .8s ease;
 }
-
-

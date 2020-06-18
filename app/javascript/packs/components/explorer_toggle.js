@@ -19,6 +19,7 @@ const explorerToggle = () => {
       explorerArtistsButton.classList.remove('btn-explorer-active');
       explorerProjectsButton.classList.remove('btn-explorer-inactive');
       explorerProjectsButton.classList.add('btn-explorer-active');
+      $('.select2-search').select2({width: '100%', placeholder: "Catégorie"});
     });
 
     if (document.URL.includes('project')) {

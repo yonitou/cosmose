@@ -36,26 +36,27 @@
 .cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    height:auto;
+    height: auto;
 }
 
 .card {
     border-radius: 5px;
     box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
     background-color: #ffffff;
-    margin:30px;
-    position:relative;
+    margin: 30px;
+    position: relative;
+
     i {
-      padding-bottom:10px;
+        padding-bottom: 10px;
     }
 }
 
 .card-images {
     opacity: 0.8;
-    width:100%;
+    width: 100%;
     height: 210px;
-    background-position:center;
-    background-size:cover;
+    background-position: center;
+    background-size: cover;
 }
 
 .card-content {
@@ -70,9 +71,9 @@
     text-align: right;
     margin-bottom: 0px;
     justify-self: flex-end;
-    position:absolute;
-    bottom:5px;
-    right:10px;
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
 }
 
 .card-title {
@@ -94,30 +95,38 @@
 }
 
 .card-images-elements-bottom {
-  margin: 0 auto;
-  align-items: center;
-  width: 90%;
-  position: relative;
-  i {
-    color: white;
-  }
-  .avatar {
-    position: absolute;
-    bottom: -16px;
-    right: 0;
-  }
+    margin: 0 auto;
+    align-items: center;
+    width: 90%;
+    position: relative;
+    height: moz-fill-available;
+
+    i {
+        color: $dark-red;
+        padding: 10px;
+        background-color: white;
+    }
+
+    .avatar {
+        position: absolute;
+        bottom: -16px;
+        right: 0;
+    }
 }
-.card-images-elements-bottom-artist{
-  margin: 5px;
-  width: 90%;
-  align-self: flex-end;
-  position: relative;
-  .avatar {
-    position: absolute;
-    bottom: -20px;
-    right: 0;
-  }
+
+.card-images-elements-bottom-artist {
+    margin: 5px;
+    width: 90%;
+    align-self: flex-end;
+    position: relative;
+
+    .avatar {
+        position: absolute;
+        bottom: -20px;
+        right: 0;
+    }
 }
+
 .avatar-card {
     border-radius: 50%;
     height: 50px;
