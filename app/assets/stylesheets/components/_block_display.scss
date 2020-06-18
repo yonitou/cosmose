@@ -21,9 +21,6 @@ lite-youtube {
 
   .block {
     padding: 10px;
-  }
-
-  .col-6 {
     display: block;
     margin: 40px 10px;
 
@@ -72,6 +69,10 @@ lite-youtube {
 
   .block-audio {
     margin: auto;
+  }
+
+  .block-youtube {
+    height: 100%;
   }
 
   img,

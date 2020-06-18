@@ -1,9 +1,9 @@
 <% if block.upload.attached? %>
 <% if block.upload.image? %>
-<div class="col-6 block block-img">
+<div class="col-7 block block-img">
   <% if policy(block).destroy? %>
   <span class="block-destroy">
-    <%= link_to '<i class="fas fa-ban"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
+    <%= link_to '<i class="fas fa-times-circle"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
   </span>
   <% end %>
   <div class="block-content">
@@ -13,10 +13,10 @@
 </div>
 <% end %>
 <% elsif block.url %>
-<div class="col-6 block block-audio">
+<div class="col-5 block block-audio">
   <% if policy(block).destroy? %>
   <span class="block-destroy">
-    <%= link_to '<i class="fas fa-ban"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
+    <%= link_to '<i class="fas fa-times-circle"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
   </span>
   <% end %>
   <div class="block-content">
@@ -26,14 +26,27 @@
   </div>
 </div>
 <% else %>
-<div class="col-6">
+<% if block.content.include?('lite-youtube') %>
+<div class="col-8 block block-youtube">
+<% if policy(block).destroy? %>
+  <span class="block-destroy">
+    <%= link_to '<i class="fas fa-times-circle"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
+  </span>
+  <% end %>
+  <div class="block-content">
+    <%= block.content.html_safe %>
+  </div>
+  </div>
+<% else %>
+<div class="col-5 block block-text">
   <% if policy(block).destroy? %>
   <span class="block-destroy">
-    <%= link_to '<i class="fas fa-ban"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
+    <%= link_to '<i class="fas fa-times-circle"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
   </span>
   <% end %>
   <div class="block-content">
     <%= block.content.html_safe %>
   </div>
 </div>
+<% end %>
 <% end %>
