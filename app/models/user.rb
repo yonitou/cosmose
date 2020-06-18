@@ -21,7 +21,6 @@ class User < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   has_one_attached :photo
 
-
   def competences_not_empty
     competences.delete("")
     errors.add(:competences, 'ne peut pas être vide') if competences.length.zero?
