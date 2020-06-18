@@ -45,6 +45,9 @@
     background-color: #ffffff;
     margin:30px;
     position:relative;
+    i {
+      padding-bottom:10px;
+    }
 }
 
 .card-images {
@@ -68,7 +71,7 @@
     margin-bottom: 0px;
     justify-self: flex-end;
     position:absolute;
-    bottom:10px;
+    bottom:5px;
     right:10px;
 }
 
