@@ -41,6 +41,17 @@
         font-size: 25px;
         position: relative;
     }
+
+}
+.navbar-buttons{
+  .login-btn{
+    color: $white;
+    background: transparent;
+  }
+  .login-btn:hover{
+    border: 1px solid $red;
+    color: $red;
+  }
 }
 
 // LOGGED
