@@ -58,7 +58,7 @@
       font-family: $headers-font;
       margin-top: .8rem;
       color: black;
-      font-size: .7rem;
+      font-size: .8rem;
       opacity: .5;
     }
 
@@ -112,6 +112,7 @@
   right: 0;
   background: white;
   z-index: 90;
+  margin-top: -2px;
 
   .project_link {
     color: black;
@@ -147,14 +148,14 @@
 }
 
 .message.current_user {
-  max-width: 250px;
+  min-width: 100px;
   margin: 30px 10px 0 0;
   background-color: $dark-red;
   text-align: right !important;
   align-self: flex-end;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 0;
-  width: max-content;
+  max-width: 50%;
 
   .message-content {
     color: $white;
