@@ -44,7 +44,6 @@ lite-youtube {
     }
 
     .block-content {
-      height: 100%;
       transition: opacity .5s ease;
     }
 
@@ -71,9 +70,7 @@ lite-youtube {
     margin: auto;
   }
 
-  .block-youtube {
-    height: 100%;
-  }
+  .block-youtube {}
 
   img,
   audio {
@@ -83,15 +80,11 @@ lite-youtube {
 
   .lead {
     color: $dark-red;
+    font-family: $headers-font;
   }
 }
 
 .blocks-bg-white {
   width: 100vw;
   background-color: white;
-}
-
-.block_headline {
-  background: rgba(255, 255, 255, .6);
-  color: $dark-red;
 }
