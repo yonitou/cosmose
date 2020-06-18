@@ -1,58 +1,46 @@
 <div class="container">
   <div class="row">
     <div class="block_add d-flex">
-      <span class="btn btn-outline-primary cta_add_block">Ajouter un bloc </span>
-      <br />
-      <%= simple_form_for([@project, @block], html: { class: "hidden" }) do |f| %>
-      <h3 class="text-center pb-4">Nouveau block</h3>
-      <hr />
-      <label class="text required" for="block_content">Description
-        <abbr title="requis" data-children-count="0">*</abbr>
-      </label>
-      <%= f.input :content, required: true, label: false, 
-        placeholder: 'Texte, légende de votre télécharegement, url youtube... ' 
-      %>
-      <label for="block_upload">Télécharger un fichier
-        <abbr title="image (jpg, png, gif...) ou audio (mp3, wav, aac..)" data-children-count="0">*</abbr>
-      </label>
-      <%= f.input :upload, as: :file, label:false %>
-      <span class="block-private d-flex pb-1">
-        <label class="mr-1 pt-2" for="block_private">Privé
-          <abbr title="Visible par les collaborateurs uniquement" data-children-count="0">*</abbr>
-        </label>
-        <%= f.input :private, label:false, html: {class: "ml-2"} %></span>
-      <div class="add-block-ctas">
-        <%= f.button :submit, id:"submit-block", class:"btn btn-primary", remote: true %>
-        <span class="btn btn-outline-secondary cta_cancel_block hidden">Annuler</span>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Ajouter un block
+      </button>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"> 🧩 Nouveau block</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= simple_form_for([@project, @block]) do |f| %>
+              <label class="text required" for="block_content">Description
+                <abbr title="requis" data-children-count="0">*</abbr>
+              </label>
+              <%= f.input :content, required: true, label: false, placeholder: 'Texte, légende de votre télécharegement, url youtube... ' %>
+              <label for="block_upload">Télécharger un fichier
+                <abbr title="image (jpg, png, gif...) ou audio (mp3, wav, aac..)" data-children-count="0">*</abbr>
+              </label>
+              <%= f.input :upload, as: :file, label:false %>
+              <span class="block-private d-flex pb-1">
+                <label class="mr-1 pt-2" for="block_private">Privé
+                  <abbr title="Visible par les collaborateurs uniquement" data-children-count="0">*</abbr>
+                </label>
+                <%= f.input :private, label:false, html: {class: "ml-2"} %></span>
+              <div class="add-block-ctas">
+                  <button type="button" class="btn btn-outline-secondary cta_cancel_block"
+                    data-dismiss="modal">Annuler</button>
+                  <%= f.button :submit, id:"submit-block", class:"btn btn-primary", remote: true %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-      <% end %>
     </div>
   </div>
 </div>
-
-
-<!-- Button trigger modal -->
-<%# <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> %>
+<br>
+<br>

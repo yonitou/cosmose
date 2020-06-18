@@ -36,10 +36,18 @@
     margin-top: 1.8rem;
     display: flex;
     justify-content: center;
+
+    * {
+      margin: 5px;
+    }
   }
 
   #submit-block {
     font-size: 16px !important;
     margin-right: 2rem;
   }
+}
+
+#exampleModal {
+  height: 50vh;
 }
