@@ -73,6 +73,7 @@
   }
 
   .active {
+    .chatroom-title {color: $dark-red !important;}
     font-weight: bold;
     color: $dark-red;
     background-color: #f6f6f6;
@@ -151,16 +152,44 @@
   position: absolute;
   bottom: -22px;
   right: 2px;
+  z-index: 10;
 }
 
 .chatroom-footer {
+  background: white;
+  border-top: 1px solid $light-gray;
   padding: 20px;
   color: gray;
+  z-index: 100;
   input {
+    display: inline-block;
     background: white;
+    max-width: 60vw;
   }
+  .form-group {
+    margin: 0;
+    width: 80vw;
+  }
+
+  .btn-submit {
+    color: $dark-red;
+    border: 1px solid $dark-red;
+    margin-left: 10px;
+    &:hover {
+      background:$dark-red;
+      color: $white;
+    }
+  }
+}
+
+
+#new_message {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
 }
 
 .message-container {
   margin: 20px 0;
 }
+
