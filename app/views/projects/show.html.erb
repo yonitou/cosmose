@@ -10,7 +10,7 @@
           <% else %>
           <%= link_to "<i class='far fa-heart'></i>".html_safe, project_user_likes_path(@project), method: :post, remote: true %>
           <% end %>
-          <p><%= @project.user_likes.count %> <%= (@project.user_likes.count) == 1 ? 'like' : 'likes'%></p>
+          <p><%= @project.user_likes.count %> <%= (@project.user_likes.count) <= 1 ? 'like' : 'likes'%></p>
         </div>
       </div>
       <div class="show-projet-top-left-content d-flex mt-2">
