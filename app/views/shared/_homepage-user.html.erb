@@ -18,8 +18,8 @@
     <% User.all.sample(3).each do |user| %>
     <div class="card">
       <%= link_to (current_user == user ? portfolio_path : user_path(user)) do %>
-      <% user_images = user.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.attached? && image.upload.image?}%>
-          <% if user_images.reject{|user_image| user_image.nil?}.length >= 1%>
+      <% user_images = user.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.attached? && image.upload.image?}.reject{|user_image| user_image.nil?}.reject{|user_image| user_image.nil?}%>
+          <% if user_images.length >= 1%>
           <div class="card-images d-flex flex-column justify-content-between" style="background-image:url(<%= "http://res.cloudinary.com/devlnkl7u/image/upload/#{user_images.first.upload.key}"%>)">
           <% else %>
           <div class="card-images d-flex flex-column justify-content-between" style="background-image:url('https://res.cloudinary.com/devlnkl7u/image/upload/v1592338203/cosmose-fond-darkred_fw7cod.png')">
@@ -52,8 +52,8 @@
     <% Project.all.sample(3).each do |project| %>
     <div class="card">
       <%= link_to project_path(project) do %>
-      <% project_images = project.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.attached? && image.upload.image?}%>
-          <% if project_images.reject{|project_image| project_image.nil?}.length >= 1%>
+      <% project_images = project.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.attached? && image.upload.image?}.reject{|project_image| project_image.nil?}%>
+          <% if project_images.length >= 1%>
           <div class="card-images d-flex flex-column justify-content-between" style="background-image:url(<%= "http://res.cloudinary.com/devlnkl7u/image/upload/#{project_images.first.upload.key}"%>)">
           <% else %>
           <div class="card-images d-flex flex-column justify-content-between" style="background-image:url('https://res.cloudinary.com/devlnkl7u/image/upload/v1592338203/cosmose-fond-darkred_fw7cod.png')">
