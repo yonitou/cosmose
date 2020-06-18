@@ -1,5 +1,13 @@
 .project-new {
   padding:50px;
+  .active {
+     background-color:$dark-red !important;
+    border:none !important;
+    opacity:none !important;
+    color:$white !important;
+    &:hover {
+      background-color:gray !important;
+    }
   .select2-container{
     display: none!important;
   }
@@ -7,6 +15,7 @@
 
 .project-categories {
   font-family:$body-font;
+  border-radius:5px;
   width:200px;
   height:80px;
   margin:5px;
@@ -15,16 +24,18 @@
   display:flex;
   justify-content:center;
   align-items:center;
-
-  &.active {
-    opacity: .2 !important;
-  }
+  cursor:pointer;
+  a:focus{
+      background-color:none !important;
+    }
 }
 .project-categories p {
   margin:0;
 }
-.project-categories:hover a:hover {
+.project-categories:hover{
   color:$white !important;
+  transition:none;
+  background-color:$dark-red;
 }
 
 

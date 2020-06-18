@@ -32,7 +32,10 @@
     <div class="chatroom-content">
       <div class="messages mt-2" data-chatroom-id="<%= chatroom.id %>">
         <% chatroom.messages.each do |message|%>
-        <%= render 'messages/message', message: message %>
+        <% display_message = message != chatroom.messages.first %>
+        <% if display_message %>
+          <%= render 'messages/message', message: message %>
+        <% end %>
         <% end %>
       </div>
 
@@ -41,7 +44,7 @@
     <div class="chatroom-footer <%= 'active_footer' if params[:chatroom_id].to_i == chatroom.id %>">
       <%= simple_form_for [ chatroom, Message.new ], class:"form-reply d-flex m-3" ,remote: true do |f| %>
       <%= f.input :content, label: false, placeholder: "Tapez votre message ici..." %>
-      <%= f.button :submit, "Envoyer", class: "btn btn-submit" %>
+      <%= f.button :submit, "Envoyer", class: "btn btn-submit"%>
       <% end %>
     </div>
   </div>
