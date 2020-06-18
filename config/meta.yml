@@ -1,5 +1,5 @@
 meta_product_name: "Cosmose"
 meta_title: "Cosmose - La plateforme collaborative pour artistes"
 meta_description: "Collaborez sur de nouveaux projets, rencontrez de nouveaux artistes, rejoignez la communauté Cosmose."
-meta_image: "cosmose-fond-darkred.png" # should exist in `app/assets/images/`
+meta_image: "cosmose-fond-red.png" # should exist in `app/assets/images/`
 twitter_account: "@product_twitter_account"   # required for Twitter Cards
