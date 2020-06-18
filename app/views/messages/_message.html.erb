@@ -10,6 +10,8 @@
   <p class="message-content">
     <%= message.content %>
   </p>
+  <%= link_to user_path(message.user) do %>
   <div class="message-author"><%= message.user.username %></div>
+  <% end %>
 </div>
 <% end %>
