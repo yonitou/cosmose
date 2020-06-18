@@ -55,11 +55,16 @@
 
 .card-content {
     margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: black;
 }
 
 .card-localisation {
     text-align: right;
     margin-bottom: 0px;
+    justify-self: flex-end;
 }
 
 .card-title {
@@ -81,12 +86,29 @@
 }
 
 .card-images-elements-bottom {
-  margin: 5px;
+  margin: 0 auto;
   align-items: center;
+  width: 90%;
+  position: relative;
+  i {
+    color: white;
+  }
+  .avatar {
+    position: absolute;
+    bottom: -16px;
+    right: 0;
+  }
 }
 .card-images-elements-bottom-artist{
   margin: 5px;
+  width: 90%;
   align-self: flex-end;
+  position: relative;
+  .avatar {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+  }
 }
 .avatar-card {
     border-radius: 50%;

@@ -45,6 +45,8 @@ import { buttonCollaborer } from './components/collaborer_form';
 import { initAutocomplete } from '../plugins/init_autocomplete';
 import { firstArrow } from './components/arrow_home';
 import { initChatroomCable } from '../channels/chatroom_channel';
+import { initChatroomForm } from './components/chatroom_form';
+import { newProjectCategories } from './components/active_category_project';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -61,4 +63,6 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   firstArrow();
   initSearchSelect2();
+  initChatroomForm();
+  newProjectCategories();
 });

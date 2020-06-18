@@ -39,6 +39,7 @@
 
     a {
         font-size: 25px;
+        position: relative;
     }
 }
 
@@ -73,7 +74,11 @@
 }
 
 .dropdown-item {
-    font-size: 14px !important;
+    font-size: 16px !important;
+}
+.dropdown-item:hover {
+  background-color:$dark-red;
+  color:$white;
 }
 
 .dropdown-toggle::after {
@@ -85,13 +90,11 @@
     max-width: 250px;
 }
 
-.fa-bell {
-  position:relative;
-}
+
 
   .notifications-count {
-    top: 25px;
-    right: 205px;
+    top: -5px;
+    right: -2px;
     position: absolute;
     padding: 0px 6px;
     font-size: 12px;
