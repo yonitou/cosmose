@@ -2,7 +2,7 @@
   <% users.each do |user| %>
   <div class="card">
     <%= link_to (current_user == user ? portfolio_path : user_path(user)) do %>
-    <% user_images = user.blocks.map{|image|image if !image.content.include?('youtube') && image.upload.attached? && !image.url.nil? && image.upload.image?}%>
+    <% user_images = user.blocks.map{|image|image if !image.content.include?('youtube') &&  image.upload.attached? && image.upload.image?}%>
           <% if user_images.reject{|user_image| user_image.nil?}.length >= 1%>
           <div class="card-images d-flex flex-column justify-content-between" style="background-image:url(<%= "http://res.cloudinary.com/devlnkl7u/image/upload/#{user_images.first.upload.key}"%>)">
           <% else %>
