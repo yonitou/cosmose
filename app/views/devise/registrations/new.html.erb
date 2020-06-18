@@ -1,3 +1,12 @@
+<div class="navbar fixed-top registration-navbar">
+  <%= link_to root_path do %>
+    <img src="https://i.ibb.co/6y67sbM/cosmoseblack.png" alt="logo" class="navbar-logo">
+  <% end %>
+  <div class="navbar-buttons">
+    <%= link_to "Connexion", new_user_session_path, class:"login-btn btn btn-secondary delink-btn" %>
+    <%= link_to "Inscription", new_user_registration_path, class:"signup-btn btn btn-primary delink-btn" %>
+  </div>
+</div>
 <% should_display_all = resource.errors.any? %>
 <div class="container mt-5 registration-new">
   <h1>Inscription</h1>
