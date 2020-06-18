@@ -2,14 +2,14 @@
   <div class="row">
     <div class="block_add d-flex">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Ajouter un block
+        Ajouter du contenu
       </button>
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel"> 🧩 Nouveau block</h5>
+              <h5 class="modal-title" id="exampleModalLabel"> 🎨 Nouveau contenu</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -32,7 +32,7 @@
               <div class="add-block-ctas">
                   <button type="button" class="btn btn-outline-secondary cta_cancel_block"
                     data-dismiss="modal">Annuler</button>
-                  <%= f.button :submit, id:"submit-block", class:"btn btn-primary", remote: true %>
+                  <%= f.button :submit, 'Ajouter', id:"submit-block", class:"btn btn-primary", remote: true, placeholder: "Ajouter du contenu" %>
                 </div>
               <% end %>
             </div>
