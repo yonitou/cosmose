@@ -1,5 +1,8 @@
 .project-new {
   padding:50px;
+    .select2-container{
+    display: none!important;
+  }
   .active {
      background-color:$dark-red !important;
     border:none !important;
@@ -8,9 +11,7 @@
     &:hover {
       background-color:gray !important;
     }
-  .select2-container{
-    display: none!important;
-  }
+
 }
 
 .project-categories {
