@@ -3,25 +3,19 @@
     <h1>Projet : <%= @project.title %></h1>
   </div>
   <%= simple_form_for @project do |f|  %>
-  <div class="form-inputs form-edit-project">
-    <div class="project-new-first-part">
-      <%= f.input :title, required: true, input_html: {class:"input-new-project required-inputs-project-1"} %>
-      <%= f.input :categories, collection: Project::CATEGORIES_LIST.sort, input_html: { multiple: true, class: "select2 input-new-project required-inputs-project-1"} %>
-      <div class="choice-new-project">
-      </div>
-    </div>
-    <div class="project-new-second-part">
-      <%= f.input :description, required: true, input_html: {class:"input-new-project required-inputs-project-2"} %>
-      <div class="choice-new-project">
-      </div>
-    </div>
-    <div class="project-new-third-part">
-      <%= f.label :open_to_collab %>
-      <%= f.check_box :open_to_collab, required: true%>
-      <%= f.input :address, required: true, input_html: {class:"input-new-project required-inputs-project-3"} %>
-      <div class="form-actions choice-new-project">
-        <%= f.button :submit, "Sauvegarder les modifications",class:"btn btn-primary" %>
-      </div>
+  <div class=" edit-project-form form-inputs form-edit-project">
+    <%= f.input :title, required: true, input_html: {class:"input-edit-project required-inputs-project-1"} %>
+    <%= f.input :categories, collection: Project::CATEGORIES_LIST.sort, input_html: { multiple: true, class: "select2 input-edit-project required-inputs-project-1"} %>
+    <%= f.input :description, required: true, input_html: {class:"input-edit-project required-inputs-project-2"} %>
+    <label id="checkbox-project">
+      <input name="project[open_to_collab]" type="hidden" value="0">
+      <input required="required" type="checkbox" value="1" checked="checked" name="project[open_to_collab]" id="project_open_to_collab">
+        <i></i>
+        <span>Ouvert à la collaboration</span>
+    </label>
+    <%= f.input :address, required: true, input_html: {class:"input-edit-project required-inputs-project-3"} %>
+    <div class="form-actions choice-new-project">
+      <%= f.button :submit, "Sauvegarder les modifications",class:"btn btn-primary" %>
     </div>
   </div>
   <% end -%>
