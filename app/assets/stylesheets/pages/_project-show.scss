@@ -310,3 +310,7 @@ $colorSecondary: $dark-red;
 }
 
 @include btn__split($colorPrimary, $colorSecondary, $white);
+
+.blocks-rows {
+  width: 100%;
+}

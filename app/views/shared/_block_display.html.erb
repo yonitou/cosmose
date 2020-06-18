@@ -1,6 +1,6 @@
 <% if block.upload.attached? %>
 <% if block.upload.image? %>
-<div class="col-6 block block-img">
+<div class="col-5 block block-img">
   <% if policy(block).destroy? %>
   <span class="block-destroy">
     <%= link_to '<i class="fas fa-times-circle"></i>'.html_safe, block_path(block), method: :DELETE, remote: true %>
