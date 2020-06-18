@@ -3,7 +3,6 @@ class BlocksController < ApplicationController
     @block = Block.new(block_params)
     authorize(@block)
     @block.user = current_user
-    check_if_yt
     upload = params[:block][:upload]
     if upload 
       if params[:block][:upload].content_type.include?('audio')
@@ -16,6 +15,7 @@ class BlocksController < ApplicationController
           io: File.open(params[:block][:upload].tempfile),
           filename: params[:block][:upload].original_filename)
       end
+    else check_if_yt
     end
     if params[:project_id]
       @block.project_id = params[:project_id]
@@ -46,7 +46,9 @@ class BlocksController < ApplicationController
       @block.content = "<lite-youtube videoid=#{id}></lite-youtube>"
     elsif @block.content.size < 50 
       @block.content = "<center><h4><mark>#{@block.content}</mark></h4></center>"
-    else @block.content = "<center><p class='lead'>#{@block.content}</p></center>"
+    elsif @block.content == 0 
+      @block.content = ""
+    else "<center><p class='lead'>#{@block.content}</p></center>"
     end
   end
   
