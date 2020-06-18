@@ -19,14 +19,31 @@
     display: none;
   }
 }
+.select2-container--default .select2-selection--single {
+  height:100% !important;
+  padding: 10px 0;
+  border: 1px solid lightgray !important;
+  font-family: $body-font !important;
+  color:lightgray !important;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 26px;
+    position: absolute;
+    top: 10px !important;
+    right: 13px !important;
+    width: 20px;
+  }
+
 .searchform {
-  width: 70%;
+  width: 60%;
   display:flex;
   justify-content:center;
 }
 
 .algolia-places {
   margin-right:10px;
+  font-family:$body-font;
+  color:lightgray !important;
 }
 .ap-input {
   height:100%;
@@ -34,6 +51,10 @@
 .search-bar {
   padding: 10px;
   margin-right: 10px;
+  border:1px solid lightgray;
+  border-radius:4px;
+  font-family:$body-font;
+  color:lightgray !important;
 }
 .explorer-top{
   align-items: center;
