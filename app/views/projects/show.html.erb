@@ -41,7 +41,7 @@
           <a class="btn title-btn-effect btn-effect-split collaborer-btn">COLLABORER</a>
         </div>
       </div>
-      <p class="statut-collab-projet text-center">En recherche d'artiste <br><i class='fas fa-map-marker-alt'></i> 
+      <p class="statut-collab-projet text-center">En recherche d'artiste <br><i class='fas fa-map-marker-alt'></i>
         <% if @project.latitude %>
           <%= Geocoder.search([@project.latitude, @project.longitude]).first.city %>,
           <%= Geocoder.search([@project.latitude, @project.longitude]).first.county %></p>
@@ -172,4 +172,5 @@
     <%= render 'shared/project_block_form', project: @project, block: @block %>
     <% end %>
   </div>
+
 </div>
