@@ -23,6 +23,9 @@ en:
         competences: "Compétences"
         website: "Site web"
         address: "Adresse"
+        first_name: "Prénom"
+        last_name: "Nom de famille"
+        username: "Nom d'utilisateur"
       user:
         new:
           email: 'E-mail'

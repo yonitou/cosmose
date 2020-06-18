@@ -55,8 +55,9 @@
 
 
 .title-banner-home-user {
-  width: 600px;
-  margin: 2em 22%;
+  width: 100%;
+  text-align: center;
+  margin: 2em 0px 2em 13%;
   color: #333;
   font-size:60px;
 }
@@ -66,7 +67,7 @@
   text-indent: 20px;
 }
 
-$totalWords: 24;
+$totalWords: 6;
 @mixin animation($name, $time, $easing, $iteration-count, $start-delay ) {
   -webkit-animation: $name $time $easing $iteration-count $start-delay;
   -ms-animation: $name $time $easing $iteration-count $start-delay;
@@ -83,11 +84,11 @@ $totalWords: 24;
   overflow: hidden;
   font-family:$headers-font;
   color: $dark-red;
-  animation: rotateWord 10s infinite;
+  animation: rotateWord 12s infinite;
   animation-timing-function: linear;
   animation-direction: forward;
 }
-@for $i from 2 through 24 {
+@for $i from 2 through 6 {
   .words span:nth-child(#{$i}) {
     @include animation-delay(1.5 * ($i - 1) + .2s);
   }
