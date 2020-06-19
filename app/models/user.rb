@@ -33,7 +33,7 @@ class User < ApplicationRecord
   def all_projects
     all_projects = []
     self.projects.each {|project| all_projects << project}
-    self.collaborations.each {|collaboration| all_projects << collaboration.project}
+    self.collaborations.each {|collaboration| all_projects << collaboration.project if collaboration.status == true}
     return all_projects
   end
 
@@ -48,7 +48,7 @@ class User < ApplicationRecord
   def chatrooms
     user_chatrooms = self.projects.to_a.map { |project| project.chatroom }
     self.collaborations.each do |collaboration|
-      user_chatrooms << collaboration.project.chatroom
+      user_chatrooms << collaboration.project.chatroom if collaboration.status == true
     end
     user_messages = Message.where(user: self).to_a
     user_messages << Message.where(recipient_id: self)

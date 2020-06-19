@@ -37,7 +37,7 @@
       </div>
       <div class="card-content">
         <h4 class="card-title"><%= user.username.upcase %></h4>
-        <p><%= user.bio %></p>
+        <p><%= user.bio.first(100) if user.bio%></p>
         <p class="card-localisation"><%= user.address.length > 10 ? user.address.first(10) + '...' : user.address%></p>
       </div>
       <% end %>
