@@ -24,11 +24,14 @@
                 <abbr title="image (jpg, png, gif...) ou audio (mp3, wav, aac..)" data-children-count="0">*</abbr>
               </label>
               <%= f.input :upload, as: :file, label:false %>
-              <span class="block-private d-flex pb-1">
-                <label class="mr-1 pt-2" for="block_private">Privé
-                  <abbr title="Visible par les collaborateurs uniquement" data-children-count="0">*</abbr>
-                </label>
-                <%= f.input :private, label:false, html: {class: "ml-2"} %></span>
+
+              <label id="checkbox-project">
+               <input name="block[private]]" type="hidden" value="0">
+              <input type="checkbox" value="1"name="block[private]" id="project_open_to_collab">
+                <i></i>
+                <span>Privé</span>
+              </label>
+
               <div class="add-block-ctas">
                   <button type="button" class="btn btn-outline-secondary cta_cancel_block"
                     data-dismiss="modal">Annuler</button>

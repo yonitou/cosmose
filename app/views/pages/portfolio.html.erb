@@ -13,7 +13,7 @@
         <% if current_user.latitude %>
         <%= Geocoder.search([current_user.latitude, current_user.longitude]).first.city %>
         <% else %>
-        <%= current_user.address.first(20) %>...
+        <%= current_user.address.first(10) %>...
         <% end %>
       </p>
       <p class="ml-3 mr-3 pl-4 pr-4 text-center"><%= current_user.bio %></p>
@@ -77,7 +77,7 @@
               <div class="card-content">
                 <h4 class="card-title"><%= project.title %></h4>
                 <p><%= project.description %></p>
-               <p class="card-localisation"><%= project.address.length > 30 ? project.address.first(30) + '...' : project.address%></p>
+               <p class="card-localisation"><%= project.address.length > 10 ? project.address.first(10) + '...' : project.address%></p>
               </div>
               <% end %>
             </div>
