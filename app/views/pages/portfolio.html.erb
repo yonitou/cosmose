@@ -11,7 +11,7 @@
       </h4>
       <p><i class="fas fa-map-marker-alt"></i>
         <% if current_user.latitude %>
-        <%= Geocoder.search([current_user.latitude, current_user.longitude]).first.county %>
+        <%= Geocoder.search([current_user.latitude, current_user.longitude]).first.city %>
         <% else %>
         <%= current_user.address.first(20) %>...
         <% end %>
