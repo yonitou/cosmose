@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -9,7 +11,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates_presence_of :username, :first_name, :last_name
-
   validates :username, uniqueness: true
   validate :competences_not_empty
   has_many :projects, dependent: :destroy
@@ -20,6 +21,7 @@ class User < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   has_one_attached :photo
+  after_validation :default_avatar
 
   def competences_not_empty
     competences.delete("")
@@ -55,5 +57,13 @@ class User < ApplicationRecord
     user_messages_chatrooms = user_messages.flatten.map { |message| message.chatroom }
     result = user_chatrooms + user_messages_chatrooms
     result.uniq.reject { |element| element.nil? }
+  end
+
+  def default_avatar
+    unless self.photo.attachment
+      avatar = open('http://lorempixel.com/800/800/abstract/')
+      self.photo.attach(io: avatar, filename: "#{self.username}.jpg")
+      self.save
+    end
   end
 end
