@@ -1,12 +1,14 @@
-
 <div class="message message-container" id="message-<%= message.id %>">
   <p class="message-content">
+  <% if message.content.include?('.gif') %>
+    <%= image_tag message.content, class: "gif"%>
+  <% else %>
     <%= message.content %>
+  <% end %>
   </p>
    <% if message.user.photo.attached? %>
   <div class="message-author"><%=cl_image_tag(message.user.photo.key, class: "avatar-xs" , alt: "avatar")%> <%= message.user.username%></div>
   <% else %>
   <div class="message-author"><%= image_tag 'https://www.inbenta.com/wp-content/themes/inbenta/img/icons/avatar.svg?ver=2', class: 'avatar-xs' %> <%= message.user.username%></div>
   <% end %>
-
 </div>

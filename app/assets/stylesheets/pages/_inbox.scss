@@ -1,7 +1,7 @@
 .inbox {
   display: flex;
   border: 1px solid #d6d6d693;
-  height:70vh;
+  height: 70vh;
 }
 
 .chatroom-sidebar {
@@ -138,26 +138,26 @@
 
 .message {
   margin: 20px 0 0 10px;
-  background-color: $white;
-  min-width: 200px;
+  min-width: 100px;
+  max-width: 50%;
+  padding: 15px 15px 2px 15px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   position: relative;
-  padding: 15px 15px 2px 15px;
-  border-radius: 10px;
   border-bottom-left-radius: 0;
-  max-width: 50%;
+  background-color: $white;
 }
 
 .message.current_user {
   min-width: 100px;
   margin: 30px 10px 0 0;
+  max-width: 50%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 0;
   background-color: $dark-red;
   text-align: right !important;
   align-self: flex-end;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 0;
-  max-width: 50%;
 
   .message-content {
     color: $white;
@@ -223,4 +223,11 @@
 
 div.message-author.current_user {
   right: 0;
+}
+
+.gif {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+
 }
