@@ -9,7 +9,8 @@
         <div class="chatroom-item <%= is_active_chatroom  ? 'active' : 'inactive' %>">
           <span class="chatroom-title"><%= chatroom.name %></span>
           <div class="chatroom-details">
-            <p class="last-message"><%= chatroom.last_message.first(40) %></p>
+            <p class="last-message">
+            <%= chatroom.last_message.include?('gif') ? 'GIF' : chatroom.last_message.first(40) %></p>
             <span class="last-message-date"><%= chatroom.last_active %></span>
           </div>
         </div>

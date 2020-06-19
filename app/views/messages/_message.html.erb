@@ -1,8 +1,11 @@
-
 <% if current_user == message.user %>
 <div class="message message-container current_user" id="message-<%= message.id %>">
   <p class="message-content">
+  <% if message.content.include?('.gif') %>
+    <%= image_tag message.content, class: "gif"%>
+  <% else %>
     <%= message.content %>
+  <% end %>
   </p>
   <% if current_user.photo.attached? %>
   <div class="message-author current_user">Moi <%=cl_image_tag(current_user.photo.key, class: "avatar-xs" , alt: "avatar")%></div>
@@ -13,7 +16,11 @@
 <% else %>
 <div class="message message-container" id="message-<%= message.id %>">
   <p class="message-content">
+  <% if message.content.include?('.gif') %>
+    <%= image_tag message.content, class: "gif"%>
+  <% else %>
     <%= message.content %>
+  <% end %>
   </p>
   <%= link_to user_path(message.user) do %>
    <% if message.user.photo.attached? %>
