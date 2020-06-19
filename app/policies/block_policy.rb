@@ -9,6 +9,6 @@ class BlockPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user || !user.visitor?(Project.find(record.project_id)) if record.project_id
+    record.user == user || (!user.visitor?(Project.find(record.project_id)) if record.project_id)
   end
   end
