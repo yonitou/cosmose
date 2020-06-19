@@ -107,7 +107,7 @@
         <% @requests.where(status: nil).each do |request| %>
         <% if policy(@project).destroy? %>
         <div class="request-pending-admin">
-        <%= link_to user_path(@project.user) do %>
+        <%= link_to user_path(request.user) do %>
           <div class="user-profil-request">
             <% if request.user.photo.attached? %>
             <%= cl_image_tag(request.user.photo.key, class: "user-project-avatar", alt: "avatar") %>
