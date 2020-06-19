@@ -12,7 +12,7 @@ const initChatroomCable = () => {
           setTimeout(function(){
             messagesContainer.insertAdjacentHTML('beforeend', data);
             if (document.URL.includes(`chatroom_id=${id}`)) {
-              $(".active_main")[0].scrollBy(0,400);
+              $(".active_main")[0].scrollBy(0,600);
             }
           },550);
         }
